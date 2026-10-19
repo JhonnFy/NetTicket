@@ -47,3 +47,5 @@
 --     FOREIGN KEY (usuario_id) REFERENCES Usuarios(id)
 -- )
 
+-- SHOW TABLES
+
