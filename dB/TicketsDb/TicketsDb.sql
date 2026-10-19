@@ -37,7 +37,13 @@
 --     FOREIGN KEY (estado_id) REFERENCES Estados(id)
 -- )
 
-CREATE TABLE Comentarios(
-    
-)
+-- CREATE TABLE Comentarios(
+--     id INT PRIMARY KEY AUTO_INCREMENT,
+--     ticket_id INT NOT NULL,
+--     usuario_id INT NOT NULL,
+--     texto TEXT NOT NULL, 
+--     fecha DATETIME DEFAULT CURRENT_TIMESTAMP,
+--     FOREIGN KEY (ticket_id) REFERENCES Tickets(id),
+--     FOREIGN KEY (usuario_id) REFERENCES Usuarios(id)
+-- )
 
