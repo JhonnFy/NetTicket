@@ -14,4 +14,8 @@
 --     area VARCHAR(100)
 -- )
 
+-- CREATE TABLE Categorias(
+--     id INT PRIMARY KEY NOT NULL,
+--     nombre VARCHAR(100) NOT NULL
+-- )
 
