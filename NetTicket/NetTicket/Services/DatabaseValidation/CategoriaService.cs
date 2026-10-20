@@ -14,6 +14,7 @@ namespace NetTicket.Services.DatabaseValidation
             if (string.IsNullOrWhiteSpace(c.Nombre))
             {
                 return false;
+                
             }
             return true;
         }
