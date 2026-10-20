@@ -20,6 +20,13 @@ SELECT
 RIGHT JOIN usuarios u ON t.usuario_id = u.id
 WHERE t.id IS NULL
 
+-- Liste los tickets que están en estado 'Abierto', mostrando el título y el nombre del estado.
+
+SELECT 
+    T.titulo, E.nombre  
+     FROM tickets T
+INNER JOIN estados E ON T.estado_id = E.id
+WHERE E.nombre = 'Abierto';
 
 
 
