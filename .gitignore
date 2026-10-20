@@ -1,0 +1,82 @@
+# ============================================
+# SQL Server - Archivos de base de datos locales
+# ============================================
+*.mdf
+*.ldf
+*.pdf
+*.txt
+
+# ============================================
+# Visual Studio / IDE
+# ============================================
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+*.csproj.user
+*.rsuser
+
+# ============================================
+# Compilación y dependencias
+# ============================================
+bin/
+obj/
+[Bb]uild/
+[Ll]og/
+packages/
+*.nupkg
+*.pdb
+*.cache
+*.dbmdl
+
+# ============================================
+# ARCHIVOS DE CONFIGURACIÓN SENSIBLES (SEGURIDAD)
+# ============================================
+# NO subir nunca estos archivos al repositorio
+appsettings.json
+appsettings.*.json
+!appsettings.Development.template.json
+!appsettings.template.json
+secrets.json
+*.secret
+*.key
+*.pem
+*.cert
+
+# Variables de entorno locales
+.env
+.env.local
+.env.*.local
+
+# Archivos con rutas de almacenamiento
+*.paths.json
+*.storage.json
+
+# ============================================
+# Archivos temporales y del sistema
+# ============================================
+*.tmp
+*.temp
+*.log
+*.vspscc
+*.vssscc
+*.swp
+*.bak
+*.orig
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# ============================================
+# Visual Studio Code
+# ============================================
+.vscode/
+
+# ============================================
+# Otros
+# ============================================
+*.sql
+*.backup
+*.bacpac
