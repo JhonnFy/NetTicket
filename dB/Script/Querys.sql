@@ -35,4 +35,13 @@ SELECT
 ORDER BY fecha_creacion DESC, t.id DESC
 LIMIT 3;
 
+--  Título del ticket, el nombre del usuario, el nombre de la categoría y el nombre del estado, de todos los tickets.
+
+SELECT 
+       t.titulo, u.nombre AS Usuario, c.nombre  AS Categoria, e.nombre AS Estado
+    FROM tickets t
+INNER JOIN usuarios u ON t.usuario_id = u.id
+INNER JOIN categorias c ON t.categoria_id = c.id
+INNER JOIN estados e ON t.estado_id = e.id
+ORDER BY t.id ASC
 
