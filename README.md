@@ -108,20 +108,22 @@ Separación de responsabilidades:
 
 ## Estructura del repositorio
 
+```
 SistemaTickets/
 ├── README.md
 ├── db/
-│ ├── 01_create_database.sql
-│ ├── 02_create_tables.sql
-│ ├── 03_insert_data.sql
-│ ├── 04_consultas.sql
-│ ├── TicketsDb_dump.sql
-│ └── diagrama.png
+│   ├── 01_create_database.sql
+│   ├── 02_create_tables.sql
+│   ├── 03_insert_data.sql
+│   ├── 04_consultas.sql
+│   ├── TicketsDb_dump.sql
+│   └── diagrama.png
 └── src/
-└── SistemaTickets/
-├── Program.cs
-├── Models/
-├── Data/
-└── SistemaTickets.csproj
+    └── SistemaTickets/
+        ├── Program.cs
+        ├── Models/
+        ├── Data/
+        └── SistemaTickets.csproj
+```
 
 ---
