@@ -13,6 +13,12 @@ SELECT
 INNER JOIN usuarios u ON t.usuario_id = u.id
 GROUP BY (u.nombre);
 
+-- Liste los usuarios que NO han creado ningún ticket
+SELECT 
+    u.nombre
+    FROM tickets t
+RIGHT JOIN usuarios u ON t.usuario_id = u.id
+WHERE t.id IS NULL
 
 
 
