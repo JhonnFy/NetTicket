@@ -8,3 +8,6 @@ Ejecute el comando con la ruta completa
 
 Credencial
 ![alt text](image-2.png)
+
+Dump 
+![alt text](image-4.png)
