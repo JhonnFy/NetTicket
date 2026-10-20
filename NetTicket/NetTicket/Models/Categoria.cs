@@ -8,5 +8,14 @@ namespace NetTicket.Models
 {
     internal class Categoria
     {
+        public int Id { get; set; }
+        public string Nombre { get; set; }
+
+        public Categoria()
+        {
+            Id = 0;
+            Nombre = string.Empty;
+        }
+
     }
 }
