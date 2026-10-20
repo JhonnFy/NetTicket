@@ -28,5 +28,11 @@ SELECT
 INNER JOIN estados E ON T.estado_id = E.id
 WHERE E.nombre = 'Abierto';
 
+-- Los 3 tickets más recientes
+SELECT 
+        t.id, t.titulo, t.fecha_creacion
+    FROM tickets t
+ORDER BY fecha_creacion DESC, t.id DESC
+LIMIT 3;
 
 
