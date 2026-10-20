@@ -52,18 +52,20 @@ las operaciones de gestión de tickets a través de un menú interactivo.
 
 Estructura del proyecto:
 
+```
 SistemaTickets/
-├── Program.cs → Menú principal y flujo de la aplicación
-├── Models/ → Clases que representan las tablas (POCO)
-│ ├── Ticket.cs
-│ ├── Usuario.cs
-│ ├── Categoria.cs
-│ ├── Estado.cs
-│ └── Comentario.cs
+├── Program.cs                  → Menú principal y flujo de la aplicación
+├── Models/                     → Clases que representan las tablas (POCO)
+│   ├── Ticket.cs
+│   ├── Usuario.cs
+│   ├── Categoria.cs
+│   ├── Estado.cs
+│   └── Comentario.cs
 ├── Data/
-│ ├── Conexion.cs → Cadena de conexión a MySQL
-│ └── TicketRepository.cs → Métodos CRUD contra la base de datos
+│   ├── Conexion.cs             → Cadena de conexión a MySQL
+│   └── TicketRepository.cs     → Métodos CRUD contra la base de datos
 └── SistemaTickets.csproj
+```
 
 Separación de responsabilidades:
 - **Models** → estructura de los datos
