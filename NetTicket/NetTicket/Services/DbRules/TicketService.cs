@@ -5,17 +5,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NetTicket.Services.DatabaseValidation
+namespace NetTicket.Services.DbRules
 {
-    public class EstadoService
+    public class TicketService
     {
-        public bool ValidarNombre(Estado e)
+
+        public bool ValidarTitulo(Ticket t)
         {
-            if (string.IsNullOrWhiteSpace(e.Nombre))
+            if (string.IsNullOrWhiteSpace(t.Titulo))
             {
                 return false;
             }
+
             return true;
         }
+
     }
 }
