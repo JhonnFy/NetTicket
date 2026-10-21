@@ -6,3 +6,7 @@
 
 <img width="1366" height="768" alt="image" src="https://github.com/user-attachments/assets/f5da86f1-08d6-43ab-b066-38b2c1d9cb7b" />
 
+<img width="1366" height="768" alt="image" src="https://github.com/user-attachments/assets/bab80e7b-ebaa-43e1-aeed-f61e4ad03b57" />
+
+
+## Instalar Nuget Packages
