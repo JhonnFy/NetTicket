@@ -7,16 +7,17 @@ using System.Threading.Tasks;
 
 namespace NetTicket.Services.DatabaseValidation
 {
-    public class CategoriaService
+    public class CategoriaServices
     {
         public bool ValidarNombre(Categoria c)
         {
             if (string.IsNullOrWhiteSpace(c.Nombre))
             {
                 return false;
-                
+
             }
             return true;
         }
     }
+
 }
