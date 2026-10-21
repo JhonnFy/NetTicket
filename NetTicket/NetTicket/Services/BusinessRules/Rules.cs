@@ -42,5 +42,11 @@ namespace NetTicket.Services.BusinessRules
             return "AppTickets " + cadena;
         }
 
+        public static string FormatoFecha(DateTime fecha)
+        {
+            return fecha.ToString("dd/MM/yyyy HH:mm:ss");
+
+        }
+
     }
 }
