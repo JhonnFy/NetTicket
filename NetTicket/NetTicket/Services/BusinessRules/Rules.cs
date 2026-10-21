@@ -14,5 +14,7 @@ namespace NetTicket.Services.BusinessRules
         //3-Usar Camel Case.
         //4-Poner un prefijo. 'AppTickets'.
 
+
+
     }
 }
