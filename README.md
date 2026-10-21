@@ -127,7 +127,7 @@ SistemaTickets/
         ├── Data/
         └── SistemaTickets.csproj
 ```
-
+---
 
 ## Reglas de arquitectura por capas
 
