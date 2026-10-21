@@ -20,3 +20,9 @@ Editar appsettings
 }
 
 2.** Editar el `.csproj` para que se copie a la salida
+
+<img width="1366" height="768" alt="image" src="https://github.com/user-attachments/assets/92a87947-92a2-4a09-a8a1-9bced4ce58f5" />
+
+
+
+
