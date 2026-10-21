@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace NetTicket.Models
 {
-    public class CategoriaModel
+    public class Categoria
     {
         public int Id { get; set; }
         public string Nombre { get; set; }
 
-        public CategoriaModel()
+        public Categoria()
         {
             Id = 0;
             Nombre = string.Empty;
