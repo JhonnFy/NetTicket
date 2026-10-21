@@ -137,16 +137,4 @@ SistemaTickets/
 | `Services` llama a `Data` | El servicio tiene el repositorio inyectado o lo instancia |
 | Nadie más toca `Data` | Si otra capa lo toca, se rompe el flujo |
 
-### Flujo de las operaciones
-
-**Consultar (SELECT):**
-Data → Services → Program
-
-text
-
-**Insertar / modificar / borrar:**
-Program → Services → Data → MySQL
-
-text
-
 ---
