@@ -7,3 +7,4 @@ https://mysqlconnector.net/
 Instale MySqlConnector desde NuGet :dotnet add package MySqlConnector
 ![alt text](image.png)
 ![alt text](image-1.png)
+![alt text](image-2.png)
