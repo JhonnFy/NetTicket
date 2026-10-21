@@ -31,4 +31,5 @@ Editar appsettings
 3 Instalar `Microsoft.Extensions.Configuration.Json
 <img width="1366" height="768" alt="image" src="https://github.com/user-attachments/assets/2fabf474-19cb-462d-8159-92a0040c1206" />
 <img width="1366" height="768" alt="image" src="https://github.com/user-attachments/assets/2d17fef5-ac71-48bb-a927-d88ea2b0b6b8" />
+<img width="1366" height="768" alt="image" src="https://github.com/user-attachments/assets/5dfa74c9-f086-480e-9743-f108f1ab2ae2" />
 
