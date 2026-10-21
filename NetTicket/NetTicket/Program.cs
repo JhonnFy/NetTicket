@@ -1,6 +1,6 @@
 ﻿using Microsoft.Extensions.Configuration;
-using NetTicket.Data;
 using MySqlConnector;
+using NetTicket.Data.Connection;
 
 try
 {
