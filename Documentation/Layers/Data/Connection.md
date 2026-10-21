@@ -5,6 +5,8 @@
 **5.** Agregar `appsettings.json` al `.gitignore`.
 **6.** Crear `appsettings.example.json`.
 
-1- 
+1
 
+
+Crear: appsettings.json
 <img width="1366" height="768" alt="image" src="https://github.com/user-attachments/assets/40a84494-e395-4d6d-a57d-ed6e557fd06d" />
