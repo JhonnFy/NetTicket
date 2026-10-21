@@ -7,3 +7,4 @@ Crear appsettings.example.json.
 
 
 1-Crear appsettings.json con la cadena.
+<img width="1366" height="768" alt="image" src="https://github.com/user-attachments/assets/b134763f-3737-423a-93b5-e879a01450eb" />
