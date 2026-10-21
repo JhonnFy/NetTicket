@@ -6,3 +6,6 @@
 
 Este test corresponde al metodo ObtenerTodos
 \NetTicket\NetTicket\NetTicket\Data\RepositoriesCRUD\CategoriaRepository.cs
+
+<img width="1366" height="768" alt="image" src="https://github.com/user-attachments/assets/c9378bac-39f5-4463-b448-e0dce2870ce2" />
+<img width="1366" height="768" alt="image" src="https://github.com/user-attachments/assets/2e24b6b0-8611-438c-9787-57b7951bca68" />
