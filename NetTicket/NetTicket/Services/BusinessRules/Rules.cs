@@ -23,5 +23,14 @@ namespace NetTicket.Services.BusinessRules
             return cadena.ToUpper();
         }
 
+      public static string EliminarEspaciosVacios(string cadena)
+        {
+            if (string.IsNullOrWhiteSpace(cadena))
+            {
+                return cadena;
+            }
+            return cadena.Replace(" ", "");
+        }
+
     }
 }
