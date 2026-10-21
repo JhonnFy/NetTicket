@@ -36,3 +36,4 @@ Editar appsettings
 4.** Cear `Conexion.cs` que la lea.
 <img width="1366" height="768" alt="image" src="https://github.com/user-attachments/assets/7b74467d-e6dc-4f00-9d7b-755a2b3d9fa1" />
 
+
