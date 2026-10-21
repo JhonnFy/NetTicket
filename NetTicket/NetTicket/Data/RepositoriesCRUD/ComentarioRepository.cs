@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace NetTicket.Data.RepositoriesCRUD
 {
-    public class TicketData
+    public class ComentarioRepository
     {
     }
 }
