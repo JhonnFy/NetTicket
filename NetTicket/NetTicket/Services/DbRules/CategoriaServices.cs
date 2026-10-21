@@ -9,7 +9,7 @@ namespace NetTicket.Services.DbRules
 {
     public class CategoriaServices
     {
-        public bool ValidarNombre(Categoria c)
+        public bool ValidarNombre(CategoriaModels c)
         {
             if (string.IsNullOrWhiteSpace(c.Nombre))
             {
