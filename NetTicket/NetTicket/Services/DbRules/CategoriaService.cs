@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace NetTicket.Services.DbRules
 {
-    public class CategoriaServices
+    public class CategoriaService
     {
         public bool ValidarNombre(Categoria c)
         {
