@@ -3,20 +3,20 @@ using NetTicket.Data.Connection;
 using NetTicket.Models;
 
 
-namespace NetTicket.Data.RepositoriesCRUD.CrudCategoria
+namespace NetTicket.Data.RepositoriesCRUD
 {
-    public class CategoriaCrud
+    public class Categoria
     {
         private readonly Conexion _conexion;
 
-        public CategoriaCrud(Conexion conexion)
+        public Categoria(Conexion conexion)
         {
             _conexion = conexion;
         }
 
-        public List<Categoria> ObtenerTodos()
+        public List<Models.Categoria> ObtenerTodos()
         {
-            List<Categoria> categorias = new List<Categoria>();
+            List<Models.Categoria> categorias = new List<Models.Categoria>();
 
 
             using MySqlConnection cn = _conexion.ObtenerConexion();
@@ -30,7 +30,7 @@ namespace NetTicket.Data.RepositoriesCRUD.CrudCategoria
 
             while (reader.Read())
             {
-                categorias.Add(new Categoria
+                categorias.Add(new Models.Categoria
                 {
                     Id = reader.GetInt32("Id"),
                     Nombre = reader.GetString("Nombre")
