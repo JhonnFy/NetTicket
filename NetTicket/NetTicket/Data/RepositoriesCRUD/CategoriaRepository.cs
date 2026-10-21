@@ -20,9 +20,9 @@ namespace NetTicket.Data.RepositoriesCRUD
             using MySqlConnection cn = _conexion.ObtenerConexion();
             cn.Open();
 
-            string query = "SELECT Id, Nombre FROM categorias";
+            using MySqlCommand cmd = new MySqlCommand("CategoriaRepository", cn);
+            cmd.CommandType = System.Data.CommandType.StoredProcedure;
 
-            using MySqlCommand cmd = new MySqlCommand(query, cn);
             using MySqlDataReader reader = cmd.ExecuteReader();
 
             while (reader.Read())
