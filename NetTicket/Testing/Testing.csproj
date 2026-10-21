@@ -12,4 +12,11 @@
     <TestingPlatformShowTestsFailure>true</TestingPlatformShowTestsFailure>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="TestServices\" />
+    <Folder Include="TestPresentation\" />
+    <Folder Include="TestModels\" />
+    <Folder Include="TestData\" />
+  </ItemGroup>
+
 </Project>
