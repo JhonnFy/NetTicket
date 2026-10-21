@@ -10,3 +10,6 @@
 
 
 ## Instalar Nuget Packages
+
+<img width="1366" height="768" alt="image" src="https://github.com/user-attachments/assets/c8ff1bb2-c3be-4c29-a313-8ab4071c5b56" />
+
