@@ -32,5 +32,15 @@ namespace NetTicket.Services.BusinessRules
             return cadena.Replace(" ", "");
         }
 
+       public static string AgregarPreFijo(string cadena)
+        {
+            if (string.IsNullOrWhiteSpace(cadena))
+            {
+                return cadena;
+            }
+
+            return "AppTickets " + cadena;
+        }
+
     }
 }
