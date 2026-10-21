@@ -25,5 +25,6 @@ Editar appsettings
 
 <img width="1366" height="768" alt="image" src="https://github.com/user-attachments/assets/4c917874-8e87-4aad-a443-f7b925e51667" />
 
+<img width="1366" height="768" alt="image" src="https://github.com/user-attachments/assets/f922511c-a3d0-48f6-b5d3-dfac9b068a15" />
 
 
