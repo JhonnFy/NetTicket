@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace NetTicket.Services.BusinessRules
 {
-    public static class Rules
+    public static class RulesServices
     {
       public static string ConvertirMayuscula(string cadena)
         {
