@@ -9,12 +9,19 @@ namespace NetTicket.Services.BusinessRules
 {
     public class Rules
     {
-        //1-Poner todo en mayúscula.
-        //2-Eliminar espacios vacíos.
-        //3-Usar Camel Case.
-        //4-Poner un prefijo. 'AppTickets'.
+        //1-Poner todo en mayuscula.
+        //2-Eliminar Espacio Vacios.
+        //3-Asignar Un Pre-Fijo. 'AppTtickets'
+        //4-Asignar El Formato De Fecha 'YYYY'-'MM'-'DD'
 
-
+      public static string ConvertirMayuscula(string cadena)
+        {
+            if (string.IsNullOrWhiteSpace(cadena))
+            {
+                return cadena;
+            }
+            return cadena.ToUpper();
+        }
 
     }
 }
