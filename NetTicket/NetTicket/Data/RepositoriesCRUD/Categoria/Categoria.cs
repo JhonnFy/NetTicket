@@ -2,8 +2,7 @@
 using NetTicket.Data.Connection;
 using NetTicket.Models;
 
-
-namespace NetTicket.Data.RepositoriesCRUD
+namespace NetTicket.Data.RepositoriesCRUD.Categoria
 {
     public class Categoria
     {
@@ -17,7 +16,6 @@ namespace NetTicket.Data.RepositoriesCRUD
         public List<Models.Categoria> ObtenerTodos()
         {
             List<Models.Categoria> categorias = new List<Models.Categoria>();
-
 
             using MySqlConnection cn = _conexion.ObtenerConexion();
             cn.Open();
@@ -37,8 +35,10 @@ namespace NetTicket.Data.RepositoriesCRUD
                 });
             }
 
+
             return categorias;
         }
+
 
     }
 }
