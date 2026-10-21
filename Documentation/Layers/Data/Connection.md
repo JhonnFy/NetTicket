@@ -18,3 +18,5 @@ Editar appsettings
     "MySqlConnection": "Server=localhost;Database=dB;User=TU_USER;Password=TU_PASSWORD;"
   }
 }
+
+2.** Editar el `.csproj` para que se copie a la salida
