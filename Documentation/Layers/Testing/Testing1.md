@@ -9,3 +9,4 @@ Este test corresponde al metodo ObtenerTodos
 
 <img width="1366" height="768" alt="image" src="https://github.com/user-attachments/assets/c9378bac-39f5-4463-b448-e0dce2870ce2" />
 <img width="1366" height="768" alt="image" src="https://github.com/user-attachments/assets/2b3c58ac-f26d-4e5e-9351-8c515412007e" />
+<img width="1366" height="768" alt="image" src="https://github.com/user-attachments/assets/b61fc8d6-b5e3-47ab-97da-aa42100e3cc6" />
