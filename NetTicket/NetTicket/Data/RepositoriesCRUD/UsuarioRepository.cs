@@ -8,5 +8,6 @@ namespace NetTicket.Data.RepositoriesCRUD
 {
     public class UsuarioRepository
     {
+
     }
 }
