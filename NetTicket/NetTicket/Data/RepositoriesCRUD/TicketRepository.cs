@@ -32,9 +32,9 @@ namespace NetTicket.Data.RepositoriesCRUD
                     Id = reader.GetInt32(0),
                     Titulo = reader.GetString(1),
                     Descripcion = reader.GetString(2),
-                    UsuarioId = int.Parse(reader.GetString(3)),
-                    CategoriaId = int.Parse(reader.GetString(4)),
-                    EstadoId = int.Parse(reader.GetString(5)),
+                    UsuarioId = reader.GetInt32(3),
+                    CategoriaId = reader.GetInt32(4),
+                    EstadoId = reader.GetInt32(5),
                     FechaCreacion = reader.GetDateTime(6)
                 });
             }
