@@ -20,7 +20,7 @@ public class TestUsuarioRepository
 
         var usuarios = repository.ObtenerTodos();
 
-        Assert.IsNull(usuarios);
+        Assert.IsNotNull(usuarios);
         Assert.IsTrue(usuarios.Count > 0, "No se encontraron usuarios");
 
         foreach(var usuario in usuarios)
