@@ -27,7 +27,7 @@ public class TestComentarioRepository
 
         foreach(var comentario in comentarios)
         {
-            TestContext.WriteLine($"Id: {comentario.Id} | TicketId: {comentario.TicketId} | UsuarioId: {comentario.UsuarioId} | Texto: {comentario.Texto} | Fecha: {comentario.Fecha}");
+            TestContext.WriteLine($"Id: {comentario.Id}  | UsuarioId: {comentario.UsuarioId} | Texto: {comentario.Texto} | Fecha: {comentario.Fecha}");
         }
 
     }
