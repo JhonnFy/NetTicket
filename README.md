@@ -1,7 +1,7 @@
 
 # Sistema de Gestión de Tickets
 
-Sistema completo de gestión de tickets de soporte IT, desarrollado con arquitectura por capas e integrado con una base de datos MySQL.
+Sistema completo de gestión de tickets de soporte IT, desarrollado con arquitectura por capas e integrado con una base de datos 
 **MySQL** y una aplicación de consola desarrollada en **.NET (C#)** que consume los datos.
 
 El sistema permite gestionar el ciclo completo de un ticket: registro de usuarios,
