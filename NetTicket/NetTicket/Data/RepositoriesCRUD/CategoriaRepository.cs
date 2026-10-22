@@ -1,6 +1,7 @@
 ﻿using MySqlConnector;
 using NetTicket.Data.Connection;
 using NetTicket.Models;
+using System.Security.Cryptography;
 
 namespace NetTicket.Data.RepositoriesCRUD
 {
@@ -37,6 +38,33 @@ namespace NetTicket.Data.RepositoriesCRUD
             return categorias;
 
         }
+
+
+        public Categoria? ObtenerPorId(int id)
+        {
+
+            using MySqlConnection cn = _conexion.ObtenerConexion();
+            cn.Open();
+
+            using MySqlCommand cmd = new MySqlCommand("CategoriaRepositoryId", cn);
+            cmd.CommandType = System.Data.CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("i", id);
+
+            using MySqlDataReader reader = cmd.ExecuteReader();
+
+            if (reader.Read())
+            {
+                return new Categoria
+                {
+                    Id = reader.GetInt32("Id"),
+                    Nombre = reader.GetString("Nombre")
+                };
+            }
+            
+            return null;
+        }
+
+
 
     }
 }
