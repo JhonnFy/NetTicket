@@ -36,5 +36,13 @@ public class TestComentarioRepositoryId
 
     }
 
+    [TestMethod]
+    public void ObtenerPorIdFalse()
+    {
+        var comentario = repository.ObtenerPorId(1023);
+        Assert.IsNull(comentario, "No se encontro el comentario");
+        TestContext.WriteLine("No se encontro el comentario");
+    }
+
     public TestContext TestContext { get; set; } = null!;
 }
