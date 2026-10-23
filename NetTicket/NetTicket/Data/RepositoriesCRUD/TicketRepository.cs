@@ -40,5 +40,11 @@ namespace NetTicket.Data.RepositoriesCRUD
             }
             return tickets;
         }
+
+        public Ticket? ObtenerPorId(int id)
+        {
+
+        }
+
     }
 }
