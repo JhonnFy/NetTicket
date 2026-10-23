@@ -40,5 +40,30 @@ namespace NetTicket.Data.RepositoriesCRUD
             return usuarios;
 
         }
+
+        public Usuario? ObtenerPorId(int id)
+        {
+
+            using MySqlConnection cn = _conexion.ObtenerConexion();
+            cn.Open();
+
+            using MySqlCommand cmd = new MySqlCommand("UsuarioRepositoryId", cn);
+            cmd.CommandType = System.Data.CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("i", id);
+
+            using MySqlDataReader reader = cmd.ExecuteReader();
+
+            if(reader.Read())
+            {
+                return new Usuario
+                {
+                    Id = reader.GetInt32("Id"),
+                    Nombre = reader.GetString("Nombre"),
+                    Email = reader.GetString("Email"),
+                    Area = reader.GetString("Area")
+                };
+            }
+            return null;
+        }
     }
 }
