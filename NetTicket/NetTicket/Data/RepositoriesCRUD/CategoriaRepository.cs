@@ -1,7 +1,7 @@
 ﻿using MySqlConnector;
 using NetTicket.Data.Connection;
 using NetTicket.Models;
-using System.Security.Cryptography;
+
 
 namespace NetTicket.Data.RepositoriesCRUD
 {
