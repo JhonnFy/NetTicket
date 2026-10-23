@@ -35,9 +35,9 @@ public class TestEstadoRepositoryId
     [TestMethod]
     public void ObtenerPorIdFalse()
     {
-        var estado = repository.ObtenerPorId(1023);
-        Assert.IsNull(estado, "No se encontro el estado");
-        TestContext.WriteLine("No se encontro el estado");
+        var estado = repository.ObtenerPorId(8);
+        Assert.IsNull(estado, "No se encontro la categoria.");
+        TestContext.WriteLine("No se encontro la categoria");
     }
 
     public TestContext TestContext { get; set; } = null!;
