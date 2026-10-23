@@ -43,7 +43,30 @@ namespace NetTicket.Data.RepositoriesCRUD
 
         public Ticket? ObtenerPorId(int id)
         {
+            using MySqlConnection cn = _conexion.ObtenerConexion();
+            cn.Open();
 
+
+            using MySqlCommand cmd = new MySqlCommand("TicketRepositoryId", cn);
+            cmd.CommandType = System.Data.CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("i", id);
+
+            using MySqlDataReader reader = cmd.ExecuteReader();
+
+            if(reader.Read())
+            {
+                return new Ticket
+                {
+                    Id = reader.GetInt32("Id"),
+                    Titulo = reader.GetString("Titulo"),
+                    Descripcion = reader.GetString("Descripcion"),
+                    UsuarioId = reader.GetInt32("UsuarioId"),
+                    CategoriaId = reader.GetInt32("CategoriaId"),
+                    EstadoId = reader.GetInt32("EstadoId"),
+                    FechaCreacion = DateTime.MinValue
+                };
+            }
+            return null;
         }
 
     }
