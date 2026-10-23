@@ -32,6 +32,14 @@ public class TestEstadoRepositoryId
         TestContext.WriteLine($"Id:{estado.Id} | Nombre:{estado.Nombre}");
     }
 
+    [TestMethod]
+    public void ObtenerPorIdFalse()
+    {
+        var estado = repository.ObtenerPorId(1023);
+        Assert.IsNull(estado, "No se encontro el estado");
+        TestContext.WriteLine("No se encontro el estado");
+    }
+
     public TestContext TestContext { get; set; } = null!;
 
 }
