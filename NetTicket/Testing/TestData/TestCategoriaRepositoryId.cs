@@ -3,6 +3,7 @@ using NetTicket.Data.Connection;
 using NetTicket.Data.RepositoriesCRUD;
 using Microsoft.Extensions.Configuration;
 using NetTicket.Models;
+using Microsoft.Extensions.DependencyModel;
 
 namespace Testing;
 
@@ -32,6 +33,16 @@ public class TestCategoriaRepositoryId
         Assert.IsNotNull(categoria);
         TestContext.WriteLine($"Id: {categoria.Id} | Nombre: {categoria.Nombre}");
     }
+
+
+    [TestMethod]
+    public void ObtenerPorIdFalse()
+    {
+        var categoria = repository.ObtenerPorId(8);
+        Assert.IsNull(categoria, "No se encontro la categoria");
+        TestContext.WriteLine("No se encontro la categoria");
+    }
+
     public TestContext TestContext { get; set; } = null!;
 }
 
