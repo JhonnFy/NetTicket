@@ -2,22 +2,31 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using NetTicket.Data.Connection;
 using NetTicket.Data.RepositoriesCRUD;
 using Microsoft.Extensions.Configuration;
+using NetTicket.Models;
 
 namespace Testing;
 
 [TestClass]
 public class TestCategoriaRepositoryId
 {
-    [TestMethod]
-    public void ObtenerPorId()
+
+    private CategoriaRepository repository = null;
+
+    [TestInitialize]
+    public void DatosDeInicio()
     {
         IConfiguration configuration = new ConfigurationBuilder()
             .AddJsonFile("appsettings.json")
             .Build();
 
         Conexion conexion = new Conexion(configuration);
-        CategoriaRepository repository = new CategoriaRepository(conexion);
+        repository = new CategoriaRepository(conexion);
+    }
 
+
+        [TestMethod]
+    public void ObtenerPorId()
+    {
         var categoria = repository.ObtenerPorId(5);
 
         Assert.IsNotNull(categoria);
@@ -25,3 +34,6 @@ public class TestCategoriaRepositoryId
     }
     public TestContext TestContext { get; set; } = null!;
 }
+
+
+
