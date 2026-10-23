@@ -27,7 +27,7 @@ public class TestEstadoRepositoryId
     [TestMethod]
     public void ObtenerPorId()
     {
-        var estado = repository.ObtenerPorId(2);
+        var estado = repository.ObtenerPorId(3);
         Assert.IsNotNull(estado);
         TestContext.WriteLine($"Id:{estado.Id} | Nombre:{estado.Nombre}");
     }
