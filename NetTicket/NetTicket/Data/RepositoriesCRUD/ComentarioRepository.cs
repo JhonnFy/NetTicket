@@ -1,6 +1,7 @@
 ﻿using MySqlConnector;
-using NetTicket.Data.Connection;
 using NetTicket.Models;
+using NetTicket.Data.Connection;
+
 
 namespace NetTicket.Data.RepositoriesCRUD
 {
@@ -41,5 +42,30 @@ namespace NetTicket.Data.RepositoriesCRUD
             return comentarios;
         }
 
+
+        public Comentario? ObtenerPorId(int id)
+        {
+            using MySqlConnection cn = _conexion.ObtenerConexion();
+            cn.Open();
+
+            using MySqlCommand cmd = new MySqlCommand("ComentariosRepositoryId", cn);
+            cmd.CommandType = System.Data.CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("i", id);
+
+            using MySqlDataReader reader = cmd.ExecuteReader();
+
+            if (reader.Read())
+            {
+                return new Comentario
+                {
+                    Id = reader.GetInt32("Id"),
+                    TicketId = reader.GetInt32("TicketId"),
+                    UsuarioId = reader.GetInt32("UsuarioId"),
+                    Texto = reader.GetString("Texto"),
+                    Fecha = reader.GetDateTime("Fecha")
+                };
+            }
+            return null;
+        }
     }
 }
