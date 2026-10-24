@@ -26,7 +26,7 @@ public class TestCategoriaRepository_Create
     [TestMethod]
     public void Create()
     {
-        var insertCat = repository.Create("NetTicket V5");
+        var insertCat = repository.Create("NetTicket V8");
         Assert.IsNotNull(insertCat);
         TestContext.WriteLine($"Id:{insertCat.Id} | Categoria:{insertCat.Nombre}");
 
