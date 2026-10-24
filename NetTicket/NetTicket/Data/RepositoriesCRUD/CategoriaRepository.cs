@@ -44,22 +44,29 @@ namespace NetTicket.Data.RepositoriesCRUD
         public Categoria? ObtenerPorId(int id)
         {
 
-            using MySqlConnection cn = _conexion.ObtenerConexion();
-            cn.Open();
-
-            using MySqlCommand cmd = new MySqlCommand("CategoriaRepositoryId", cn);
-            cmd.CommandType = System.Data.CommandType.StoredProcedure;
-            cmd.Parameters.AddWithValue("i", id);
-
-            using MySqlDataReader reader = cmd.ExecuteReader();
-
-            if (reader.Read())
+            try
             {
-                return new Categoria
+                using MySqlConnection cn = _conexion.ObtenerConexion();
+                cn.Open();
+
+                using MySqlCommand cmd = new MySqlCommand("CategoriaRepositoryId", cn);
+                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("i", id);
+
+                using MySqlDataReader reader = cmd.ExecuteReader();
+
+                if (reader.Read())
                 {
-                    Id = reader.GetInt32("Id"),
-                    Nombre = reader.GetString("Nombre")
-                };
+                    return new Categoria
+                    {
+                        Id = reader.GetInt32("Id"),
+                        Nombre = reader.GetString("Nombre")
+                    };
+                }
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine("CategoriaRepository_ObtenerPorId:" + ex.Message);
             }
             
             return null;
@@ -72,7 +79,7 @@ namespace NetTicket.Data.RepositoriesCRUD
                 using MySqlConnection cn = _conexion.ObtenerConexion();
                 cn.Open();
 
-                using MySqlCommand cmd = new MySqlCommand("CategoriaRepository_Create", cn);
+                using MySqlCommand cmd = new MySqlCommand("CategoriaRepository_Create:", cn);
                 cmd.CommandType = System.Data.CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("Nombre", nombre);
                 int rst = cmd.ExecuteNonQuery();
@@ -85,7 +92,7 @@ namespace NetTicket.Data.RepositoriesCRUD
             }
             catch(Exception ex)
             {
-                Console.WriteLine(ex.ToString());
+                Console.WriteLine("CategoriaRepository_Create:" + ex.ToString());
             }
             return false;
         }
