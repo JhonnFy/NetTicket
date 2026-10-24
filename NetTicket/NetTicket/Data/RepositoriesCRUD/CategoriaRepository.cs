@@ -19,27 +19,33 @@ namespace NetTicket.Data.RepositoriesCRUD
         {
             List<Categoria> categorias = new List<Categoria>();
 
-            using MySqlConnection cn = _conexion.ObtenerConexion();
-            cn.Open();
-
-            using MySqlCommand cmd = new MySqlCommand("CategoriaRepository", cn);
-            cmd.CommandType = System.Data.CommandType.StoredProcedure;
-
-            using MySqlDataReader reader = cmd.ExecuteReader();
-
-            while (reader.Read())
+            try
             {
-                categorias.Add(new Categoria
+                using MySqlConnection cn = _conexion.ObtenerConexion();
+                cn.Open();
+
+                using MySqlCommand cmd = new MySqlCommand("CategoriaRepository", cn);
+                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+
+                using MySqlDataReader reader = cmd.ExecuteReader();
+
+                while (reader.Read())
                 {
-                    Id = reader.GetInt32("Id"),
-                    Nombre = reader.GetString("Nombre")
-                });
+                    categorias.Add(new Categoria
+                    {
+                        Id = reader.GetInt32("Id"),
+                        Nombre = reader.GetString("Nombre")
+                    });
+                }
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine("CategoriaRepository_ObtenerTodos " + ex.Message);
             }
 
             return categorias;
 
         }
-
 
         public Categoria? ObtenerPorId(int id)
         {
@@ -66,7 +72,7 @@ namespace NetTicket.Data.RepositoriesCRUD
             }
             catch(Exception ex)
             {
-                Console.WriteLine("CategoriaRepository_ObtenerPorId:" + ex.Message);
+                Console.WriteLine("CategoriaRepository_ObtenerPorId " + ex.Message);
             }
             
             return null;
@@ -92,7 +98,7 @@ namespace NetTicket.Data.RepositoriesCRUD
             }
             catch(Exception ex)
             {
-                Console.WriteLine("CategoriaRepository_Create:" + ex.ToString());
+                Console.WriteLine("CategoriaRepository_Create " + ex.ToString());
             }
             return false;
         }
