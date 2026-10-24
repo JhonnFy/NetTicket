@@ -64,7 +64,25 @@ namespace NetTicket.Data.RepositoriesCRUD
             return null;
         }
 
+        public bool Create(string nombre)
+        {
+            using MySqlConnection cn = _conexion.ObtenerConexion();
+            cn.Open();
 
+
+            using MySqlCommand cmd = new MySqlCommand("CategoriaRepository_Create", cn);
+            cmd.CommandType = System.Data.CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("Nombre", nombre);
+            int rst = cmd.ExecuteNonQuery();
+
+
+            if (rst >=1)
+            {
+                return true;
+            }
+            return false;
+            
+        }
 
     }
 }
