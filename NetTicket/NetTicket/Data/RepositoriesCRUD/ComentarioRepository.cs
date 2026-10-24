@@ -68,7 +68,7 @@ namespace NetTicket.Data.RepositoriesCRUD
             return null;
         }
 
-        public Comentario? Create(int ticketId, int usuarioId, string texto)
+        public Comentario? Create(int TicketId, int UsuarioId, string Texto)
         {
 
             try
@@ -79,18 +79,18 @@ namespace NetTicket.Data.RepositoriesCRUD
                 using MySqlCommand cmd = new MySqlCommand("ComentarioRepository_Create", cn);
                 cmd.CommandType = System.Data.CommandType.StoredProcedure;
 
-                cmd.Parameters.AddWithValue("aticket_id", ticketId);
-                cmd.Parameters.AddWithValue("ausuario_id", usuarioId);
-                cmd.Parameters.AddWithValue("atexto", texto);
+                cmd.Parameters.AddWithValue("aticket_id", TicketId);
+                cmd.Parameters.AddWithValue("ausuario_id", UsuarioId);
+                cmd.Parameters.AddWithValue("atexto", Texto);
 
                 var id = Convert.ToInt32(cmd.ExecuteScalar());
 
                 return new Comentario
                 {
                     Id = id,
-                    TicketId = ticketId,
-                    UsuarioId = usuarioId,
-                    Texto = texto,
+                    TicketId = TicketId,
+                    UsuarioId = UsuarioId,
+                    Texto = Texto,
                     Fecha = DateTime.Now
                 };
             }catch(Exception ex)
