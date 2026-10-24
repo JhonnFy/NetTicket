@@ -78,29 +78,30 @@ namespace NetTicket.Data.RepositoriesCRUD
             return null;
         }
 
-        public bool Create(string nombre)
+        public Categoria? Create(string nombre)
         {
             try
             {
                 using MySqlConnection cn = _conexion.ObtenerConexion();
                 cn.Open();
 
-                using MySqlCommand cmd = new MySqlCommand("CategoriaRepository_Create:", cn);
+                using MySqlCommand cmd = new MySqlCommand("CategoriaRepository_Create", cn);
                 cmd.CommandType = System.Data.CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("Nombre", nombre);
-                int rst = cmd.ExecuteNonQuery();
+                cmd.ExecuteNonQuery();
 
-                if (rst >= 1)
+                return new Categoria
                 {
-                    return true;
-                }
-                
+                    Id = (int)cmd.LastInsertedId,
+                    Nombre = nombre
+                };
+
             }
             catch(Exception ex)
             {
                 Console.WriteLine("CategoriaRepository_Create " + ex.ToString());
             }
-            return false;
+            return null;
         }
 
     }
