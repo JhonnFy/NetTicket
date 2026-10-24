@@ -88,11 +88,12 @@ namespace NetTicket.Data.RepositoriesCRUD
                 using MySqlCommand cmd = new MySqlCommand("CategoriaRepository_Create", cn);
                 cmd.CommandType = System.Data.CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("Nombre", nombre);
-                cmd.ExecuteNonQuery();
+
+                var id = Convert.ToInt32(cmd.ExecuteScalar());
 
                 return new Categoria
                 {
-                    Id = (int)cmd.LastInsertedId,
+                    Id = id,
                     Nombre = nombre
                 };
 
