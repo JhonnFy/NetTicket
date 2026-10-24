@@ -1,6 +1,7 @@
 ﻿using MySqlConnector;
 using NetTicket.Data.Connection;
 using NetTicket.Models;
+using System.Linq.Expressions;
 
 
 namespace NetTicket.Data.RepositoriesCRUD
@@ -66,22 +67,27 @@ namespace NetTicket.Data.RepositoriesCRUD
 
         public bool Create(string nombre)
         {
-            using MySqlConnection cn = _conexion.ObtenerConexion();
-            cn.Open();
-
-
-            using MySqlCommand cmd = new MySqlCommand("CategoriaRepository_Create", cn);
-            cmd.CommandType = System.Data.CommandType.StoredProcedure;
-            cmd.Parameters.AddWithValue("Nombre", nombre);
-            int rst = cmd.ExecuteNonQuery();
-
-
-            if (rst >=1)
+            try
             {
-                return true;
+                using MySqlConnection cn = _conexion.ObtenerConexion();
+                cn.Open();
+
+                using MySqlCommand cmd = new MySqlCommand("CategoriaRepository_Create", cn);
+                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("Nombre", nombre);
+                int rst = cmd.ExecuteNonQuery();
+
+                if (rst >= 1)
+                {
+                    return true;
+                }
+                
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
             }
             return false;
-            
         }
 
     }
