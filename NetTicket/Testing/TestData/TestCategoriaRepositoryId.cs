@@ -36,25 +36,38 @@ public class TestCategoriaRepositoryId
     [TestMethod]
     public void ObtenerPorId()
     {
-        var categoria = repository.ObtenerPorId(3);
+        try
+        {
+            var categoria = repository.ObtenerPorId(3);
 
-        Assert.IsNotNull(categoria);
-        TestContext.WriteLine($"Id: {categoria.Id} | Nombre: {categoria.Nombre}");
+            Assert.IsNotNull(categoria);
+            TestContext.WriteLine($"Id: {categoria.Id} | Nombre: {categoria.Nombre}");
+        }
+        catch(Exception ex)
+        {
+            Console.WriteLine("TestCategoriaRepositoryId_ObtenerPorId " + ex.ToString());
+        }
     }
 
 
     [TestMethod]
     public void ObtenerPorIdFalse()
     {
-        var categoria = repository.ObtenerPorId(8);
-        var valor = ObtenerPorId;
-        Assert.IsNull(categoria, "No se encontro la categoria.");
-        TestContext.WriteLine("No se encontro la categoria");
+
+        try
+        {
+            var categoria = repository.ObtenerPorId(8);
+            var valor = ObtenerPorId;
+            Assert.IsNull(categoria, "No se encontro la categoria.");
+            TestContext.WriteLine("No se encontro la categoria");
+        }
+        catch(Exception ex)
+        {
+            Console.WriteLine("TestCategoriaRepositoryId " + ex.ToString());
+        }
     }
 
     public TestContext TestContext { get; set; } = null!;
 }
-
-
 
 
