@@ -101,6 +101,7 @@ namespace NetTicket.Data.RepositoriesCRUD
 
                 return new Ticket
                 {
+                    Id = id,
                     Titulo = titulo,
                     Descripcion = descripcion,
                     UsuarioId = usuarioId,
