@@ -18,50 +18,61 @@ namespace NetTicket.Data.RepositoriesCRUD
         {
             List<Usuario> usuarios = new List<Usuario>();
 
-            using MySqlConnection cn = _conexion.ObtenerConexion();
-            cn.Open();
-
-            using MySqlCommand cmd = new MySqlCommand("UsuarioRepository", cn);
-            cmd.CommandType = System.Data.CommandType.StoredProcedure;
-
-            using MySqlDataReader reader = cmd.ExecuteReader();
-
-            while(reader.Read())
+            try
             {
-                usuarios.Add(new Usuario
+                using MySqlConnection cn = _conexion.ObtenerConexion();
+                cn.Open();
+
+                using MySqlCommand cmd = new MySqlCommand("UsuarioRepository", cn);
+                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+
+                using MySqlDataReader reader = cmd.ExecuteReader();
+
+                while (reader.Read())
                 {
-                    Id = reader.GetInt32("Id"),
-                    Nombre = reader.GetString("Nombre"),
-                    Email = reader.GetString("Email"),
-                    Area = reader.GetString("Area")
-                });
+                    usuarios.Add(new Usuario
+                    {
+                        Id = reader.GetInt32("Id"),
+                        Nombre = reader.GetString("Nombre"),
+                        Email = reader.GetString("Email"),
+                        Area = reader.GetString("Area")
+                    });
+                }
             }
-
+            catch(Exception ex)
+            {
+                Console.WriteLine("UsuarioRepository ObtenerTodos" + ex.ToString());
+            }
             return usuarios;
-
         }
 
         public Usuario? ObtenerPorId(int id)
         {
-
-            using MySqlConnection cn = _conexion.ObtenerConexion();
-            cn.Open();
-
-            using MySqlCommand cmd = new MySqlCommand("UsuarioRepositoryId", cn);
-            cmd.CommandType = System.Data.CommandType.StoredProcedure;
-            cmd.Parameters.AddWithValue("i", id);
-
-            using MySqlDataReader reader = cmd.ExecuteReader();
-
-            if(reader.Read())
+            try
             {
-                return new Usuario
+                using MySqlConnection cn = _conexion.ObtenerConexion();
+                cn.Open();
+
+                using MySqlCommand cmd = new MySqlCommand("UsuarioRepositoryId", cn);
+                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("i", id);
+
+                using MySqlDataReader reader = cmd.ExecuteReader();
+
+                if (reader.Read())
                 {
-                    Id = reader.GetInt32("Id"),
-                    Nombre = reader.GetString("Nombre"),
-                    Email = reader.GetString("Email"),
-                    Area = reader.GetString("Area")
-                };
+                    return new Usuario
+                    {
+                        Id = reader.GetInt32("Id"),
+                        Nombre = reader.GetString("Nombre"),
+                        Email = reader.GetString("Email"),
+                        Area = reader.GetString("Area")
+                    };
+                }   
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine("UsuarioRepository ObtenerPorId" + ex.ToString);
             }
             return null;
         }

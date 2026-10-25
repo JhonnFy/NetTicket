@@ -95,10 +95,9 @@ namespace NetTicket.Data.RepositoriesCRUD
 
             }catch(Exception ex)
             {
-                Console.WriteLine("EstadoRepository_Create " + ex.ToString());
+                Console.WriteLine("EstadoRepository Create" + ex.ToString());
             }
             return null;
         }
     }
 }
-
