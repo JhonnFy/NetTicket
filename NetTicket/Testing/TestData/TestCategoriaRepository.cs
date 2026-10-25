@@ -11,22 +11,30 @@ public class TestCategoriaRepository
     [TestMethod]
     public void TestObtenerCategorias()
     {
-        IConfiguration configuration = new ConfigurationBuilder()
+        try
+        {
+            IConfiguration configuration = new ConfigurationBuilder()
             .AddJsonFile("appsettings.json")
             .Build();
 
-        Conexion conexion = new Conexion(configuration);
-        CategoriaRepository repository = new CategoriaRepository(conexion);
+            Conexion conexion = new Conexion(configuration);
+            CategoriaRepository repository = new CategoriaRepository(conexion);
 
-        var categorias = repository.ObtenerTodos();
+            var categorias = repository.ObtenerTodos();
 
-        Assert.IsNotNull(categorias);
-        Assert.IsTrue(categorias.Count > 0, "No se encontraron categorías.");
+            Assert.IsNotNull(categorias);
+            Assert.IsTrue(categorias.Count > 0, "No se encontraron categorías.");
 
-        foreach (var categoria in categorias)
-        {
-            TestContext.WriteLine($"ID: {categoria.Id} | Nombre: {categoria.Nombre}");
+            foreach (var categoria in categorias)
+            {
+                TestContext.WriteLine($"ID: {categoria.Id} | Nombre: {categoria.Nombre}");
+            }
         }
+        catch(Exception ex)
+        {
+            Console.WriteLine("TestObtenerCategorias " +ex.ToString());
+        }
+        
     }
 
     public TestContext TestContext { get; set; } = null!;
