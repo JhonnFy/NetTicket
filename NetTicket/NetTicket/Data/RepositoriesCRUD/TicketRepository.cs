@@ -81,5 +81,41 @@ namespace NetTicket.Data.RepositoriesCRUD
             }
             return null;
         }
+
+        public Ticket? Create(string titulo, string descripcion, int usuarioId, int categoriaId, int estadoId)
+        {
+            try
+            {
+                using MySqlConnection cn = _conexion.ObtenerConexion();
+                cn.Open();
+
+                using MySqlCommand cmd = new MySqlCommand("TicketRepository_Create", cn);
+                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("Titulo", titulo);
+                cmd.Parameters.AddWithValue("Descripcion", descripcion);
+                cmd.Parameters.AddWithValue("UsuarioId",usuarioId);
+                cmd.Parameters.AddWithValue("CategoriaId",categoriaId);
+                cmd.Parameters.AddWithValue("EstadoId", estadoId);
+
+                var id = Convert.ToInt32(cmd.ExecuteScalar());
+
+                return new Ticket
+                {
+                    Titulo = titulo,
+                    Descripcion = descripcion,
+                    UsuarioId = usuarioId,
+                    CategoriaId = categoriaId,
+                    EstadoId = estadoId,
+                    FechaCreacion = DateTime.Now
+                };
+                
+            }catch(Exception ex)
+            {
+                Console.WriteLine("TicketRepository ObtenerPorId" + ex.ToString());
+            }
+            return null;
+        }
+
+
     }
 }
