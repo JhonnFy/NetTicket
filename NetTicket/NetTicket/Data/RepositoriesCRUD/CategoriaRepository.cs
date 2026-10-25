@@ -40,7 +40,7 @@ namespace NetTicket.Data.RepositoriesCRUD
             }
             catch(Exception ex)
             {
-                Console.WriteLine("CategoriaRepository_ObtenerTodos " + ex.Message);
+                Console.WriteLine("CategoriaRepository ObtenerTodos" + ex.Message);
             }
 
             return categorias;
@@ -72,7 +72,7 @@ namespace NetTicket.Data.RepositoriesCRUD
             }
             catch(Exception ex)
             {
-                Console.WriteLine("CategoriaRepository_ObtenerPorId " + ex.Message);
+                Console.WriteLine("CategoriaRepository ObtenerPorId" + ex.Message);
             }
             
             return null;
@@ -100,7 +100,7 @@ namespace NetTicket.Data.RepositoriesCRUD
             }
             catch(Exception ex)
             {
-                Console.WriteLine("CategoriaRepository_Create " + ex.ToString());
+                Console.WriteLine("CategoriaRepository Create" + ex.ToString());
             }
             return null;
         }
