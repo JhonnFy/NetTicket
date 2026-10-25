@@ -16,16 +16,24 @@ public class TestCategoriaRepositoryId
     [TestInitialize]
     public void DatosDeInicio()
     {
-        IConfiguration configuration = new ConfigurationBuilder()
+        try
+        {
+            IConfiguration configuration = new ConfigurationBuilder()
             .AddJsonFile("appsettings.json")
             .Build();
 
-        Conexion conexion = new Conexion(configuration);
-        repository = new CategoriaRepository(conexion);
+            Conexion conexion = new Conexion(configuration);
+            repository = new CategoriaRepository(conexion);
+
+        }
+        catch(Exception ex)
+        {
+            Console.WriteLine("TestCategoriaRepositoryId_DatosDeInicio " + ex.ToString());
+        }
     }
+    
 
-
-        [TestMethod]
+    [TestMethod]
     public void ObtenerPorId()
     {
         var categoria = repository.ObtenerPorId(3);
