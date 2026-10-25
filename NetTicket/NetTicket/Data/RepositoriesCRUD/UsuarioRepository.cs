@@ -87,11 +87,12 @@ namespace NetTicket.Data.RepositoriesCRUD
 
                 using MySqlCommand cmd = new MySqlCommand("UsuarioRepository_Create", cn);
                 cmd.CommandType = System.Data.CommandType.StoredProcedure;
+
                 cmd.Parameters.AddWithValue("Nombre", nombre);
                 cmd.Parameters.AddWithValue("Email", email);
                 cmd.Parameters.AddWithValue("Area", area);
 
-                var id = Convert.ToInt32(cmd.ExecuteScalar);
+                var id = Convert.ToInt32(cmd.ExecuteScalar());
 
                 return new Usuario
                 {

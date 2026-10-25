@@ -44,7 +44,7 @@ public class TestUsuarioRepository_Create
         }
         catch(Exception ex)
         {
-            Console.WriteLine("TestUsuarioRepository_Create Create");
+            Console.WriteLine("TestUsuarioRepository_Create Create" + ex.Message);
         }
     }
     public TestContext TestContext { get; set; } = null!;
