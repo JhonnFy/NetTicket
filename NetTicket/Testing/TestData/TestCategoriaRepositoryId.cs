@@ -63,7 +63,7 @@ public class TestCategoriaRepositoryId
         }
         catch(Exception ex)
         {
-            Console.WriteLine("TestCategoriaRepositoryId " + ex.ToString());
+            Console.WriteLine("TestCategoriaRepositoryId_ObtenerPorIdFalse " + ex.ToString());
         }
     }
 
