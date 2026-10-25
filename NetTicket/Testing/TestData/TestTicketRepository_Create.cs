@@ -35,7 +35,7 @@ public class TestTicketRepository_Create
     {
         try
         {
-            var insertTick = repository.Create("MsTest V2", "Mysq2l", 3, 2, 1);
+            var insertTick = repository.Create("MsTest V3", "Mysql3", 1, 2, 3);
             Assert.IsNotNull(insertTick);
             TestContext.WriteLine($"Id{insertTick.Id} | Titulo{insertTick.Titulo} | Descripcion{insertTick.Descripcion} | UsuarioId{insertTick.UsuarioId} | CategoriaId{insertTick.CategoriaId} | EstadoId{insertTick.EstadoId} | FechaCreacion{insertTick.FechaCreacion}");
         }
