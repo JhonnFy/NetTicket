@@ -19,51 +19,65 @@ namespace NetTicket.Data.RepositoriesCRUD
         {
             List<Comentario> comentarios = new List<Comentario>();
 
-            using MySqlConnection cn = _conexion.ObtenerConexion();
-            cn.Open();
-
-            using MySqlCommand cmd = new MySqlCommand("ComentarioRepository", cn);
-            cmd.CommandType = System.Data.CommandType.StoredProcedure;
-
-            using MySqlDataReader reader = cmd.ExecuteReader();
-
-            while (reader.Read())
+            try
             {
-                comentarios.Add(new Comentario
-                {
-                    Id = reader.GetInt32("Id"),
-                    TicketId = reader.GetInt32("TicketId"),
-                    UsuarioId = reader.GetInt32("UsuarioId"),
-                    Texto = reader.GetString("Texto"),
-                    Fecha = reader.GetDateTime("Fecha")
-                });
-            }
+                using MySqlConnection cn = _conexion.ObtenerConexion();
+                cn.Open();
 
+                using MySqlCommand cmd = new MySqlCommand("ComentarioRepository", cn);
+                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+
+                using MySqlDataReader reader = cmd.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    comentarios.Add(new Comentario
+                    {
+                        Id = reader.GetInt32("Id"),
+                        TicketId = reader.GetInt32("TicketId"),
+                        UsuarioId = reader.GetInt32("UsuarioId"),
+                        Texto = reader.GetString("Texto"),
+                        Fecha = reader.GetDateTime("Fecha")
+                    });
+                }
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine("ComentarioRepository ObtenerTodos" + ex.ToString());
+            }
             return comentarios;
         }
 
 
         public Comentario? ObtenerPorId(int id)
         {
-            using MySqlConnection cn = _conexion.ObtenerConexion();
-            cn.Open();
-
-            using MySqlCommand cmd = new MySqlCommand("ComentariosRepositoryId", cn);
-            cmd.CommandType = System.Data.CommandType.StoredProcedure;
-            cmd.Parameters.AddWithValue("i", id);
-
-            using MySqlDataReader reader = cmd.ExecuteReader();
-
-            if (reader.Read())
+            try
             {
-                return new Comentario
+                using MySqlConnection cn = _conexion.ObtenerConexion();
+                cn.Open();
+
+                using MySqlCommand cmd = new MySqlCommand("ComentariosRepositoryId", cn);
+                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("i", id);
+
+                using MySqlDataReader reader = cmd.ExecuteReader();
+
+                if (reader.Read())
                 {
-                    Id = reader.GetInt32("Id"),
-                    TicketId = reader.GetInt32("TicketId"),
-                    UsuarioId = reader.GetInt32("UsuarioId"),
-                    Texto = reader.GetString("Texto"),
-                    Fecha = reader.GetDateTime("Fecha")
-                };
+                    return new Comentario
+                    {
+                        Id = reader.GetInt32("Id"),
+                        TicketId = reader.GetInt32("TicketId"),
+                        UsuarioId = reader.GetInt32("UsuarioId"),
+                        Texto = reader.GetString("Texto"),
+                        Fecha = reader.GetDateTime("Fecha")
+                    };
+                }
+                
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine("ComentarioRepository ObtenerPorId" + ex.ToString());
             }
             return null;
         }
