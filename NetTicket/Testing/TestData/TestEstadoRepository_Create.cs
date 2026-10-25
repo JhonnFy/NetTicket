@@ -9,7 +9,7 @@ using Microsoft.Extensions.DependencyModel;
 namespace Testing;
 
 [TestClass]
-public class TestEstadosRepository_Create
+public class TestEstadoRepository_Create
 {
     private EstadoRepository repository = null;
 
