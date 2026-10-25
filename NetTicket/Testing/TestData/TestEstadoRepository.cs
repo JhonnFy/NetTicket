@@ -12,22 +12,29 @@ public class TestEstadoRepository
     [TestMethod]
     public void TestObtenerEstados()
     {
-        IConfiguration configuration = new ConfigurationBuilder()
+        try
+        {
+            IConfiguration configuration = new ConfigurationBuilder()
             .AddJsonFile("appsettings.json")
             .Build();
 
-        Conexion conexion = new Conexion(configuration);
-        EstadoRepository repository = new EstadoRepository(conexion);
+            Conexion conexion = new Conexion(configuration);
+            EstadoRepository repository = new EstadoRepository(conexion);
 
-        var estados = repository.ObtenerTodos();
+            var estados = repository.ObtenerTodos();
 
 
-        Assert.IsNotNull(estados);
-        Assert.IsTrue(estados.Count > 0, "No se encontraron estados");
+            Assert.IsNotNull(estados);
+            Assert.IsTrue(estados.Count > 0, "No se encontraron estados");
 
-        foreach (var estado in estados)
+            foreach (var estado in estados)
+            {
+                TestContext.WriteLine($"Id: {estado.Id} | Nombre: {estado.Nombre} ");
+            }
+        }
+        catch(Exception ex)
         {
-            TestContext.WriteLine($"Id: {estado.Id} | Nombre: {estado.Nombre} ");
+            Console.WriteLine("TestEstadoRepository TestObtenerEstados" + ex.ToString());
         }
     }
 

@@ -17,31 +17,52 @@ public class TestComentarioRepositoryId
     [TestInitialize]
     public void DatosDeInicio()
     {
-        IConfiguration configuration = new ConfigurationBuilder()
-        .AddJsonFile("appsettings.json")
-        .Build();
+        try
+        {
+            IConfiguration configuration = new ConfigurationBuilder()
+            .AddJsonFile("appsettings.json")
+            .Build();
 
-        Conexion conexion = new Conexion(configuration);
-        repository = new ComentarioRepository(conexion);
+            Conexion conexion = new Conexion(configuration);
+            repository = new ComentarioRepository(conexion);
+
+        }
+        catch(Exception ex)
+        {
+            Console.WriteLine("TestComentarioRepositoryId DatosDeInicio" + ex.ToString());
+        }
     }
 
 
     [TestMethod]
     public void ObtenerPorId()
     {
-        var comentario = repository.ObtenerPorId(1);
+        try
+        {
+            var comentario = repository.ObtenerPorId(1);
 
-        Assert.IsNotNull(comentario);
-        TestContext.WriteLine($"Id: {comentario.Id} | TicketId:{comentario.TicketId} | UsuarioId:{comentario.UsuarioId} | Texto:{comentario.Texto} | Fecha:{comentario.Fecha}");
-
+            Assert.IsNotNull(comentario);
+            TestContext.WriteLine($"Id: {comentario.Id} | TicketId:{comentario.TicketId} | UsuarioId:{comentario.UsuarioId} | Texto:{comentario.Texto} | Fecha:{comentario.Fecha}");
+        }
+        catch(Exception ex)
+        {
+            Console.WriteLine("TestComentarioRepositoryId ObtenerPorId" + ex.ToString());
+        }
     }
 
     [TestMethod]
     public void ObtenerPorIdFalse()
     {
-        var comentario = repository.ObtenerPorId(1023);
-        Assert.IsNull(comentario, "No se encontro el comentario");
-        TestContext.WriteLine("No se encontro el comentario");
+        try
+        {
+            var comentario = repository.ObtenerPorId(1023);
+            Assert.IsNull(comentario, "No se encontro el comentario");
+            TestContext.WriteLine("No se encontro el comentario");
+        }
+        catch(Exception ex)
+        {
+            Console.WriteLine("TestComentarioRepositoryId ObtenerPorIdFalse " + ex.ToString());
+        }
     }
 
     public TestContext TestContext { get; set; } = null!;

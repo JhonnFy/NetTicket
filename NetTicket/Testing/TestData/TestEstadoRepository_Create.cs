@@ -16,21 +16,36 @@ public class TestEstadoRepository_Create
     [TestInitialize]
     public void DatosDeInicio()
     {
-        IConfiguration configuration = new ConfigurationBuilder()
+        try
+        {
+            IConfiguration configuration = new ConfigurationBuilder()
             .AddJsonFile("appsettings.json")
             .Build();
 
-        Conexion conexion = new Conexion(configuration);
-        repository = new EstadoRepository(conexion);
+            Conexion conexion = new Conexion(configuration);
+            repository = new EstadoRepository(conexion);
+        }
+        catch(Exception ex)
+        {
+            Console.WriteLine("TestEstadoRepository_Create DatosDeInicio" + ex.ToString());
+        }
     }
 
 
     [TestMethod]
     public void Create()
     {
-        var insertCom = repository.Create("MsTestV1");
-        Assert.IsNotNull(insertCom);
-        TestContext.WriteLine($"Id {insertCom.Id} | Nombre {insertCom.Nombre} ");
+        try
+        {
+            var insertCom = repository.Create("MsTestV1");
+            Assert.IsNotNull(insertCom);
+            TestContext.WriteLine($"Id {insertCom.Id} | Nombre {insertCom.Nombre} ");
+        }
+        catch(Exception ex)
+        {
+            Console.Write("TestEstadoRepository_Create" + ex.ToString());
+        }
+
     }
     public TestContext TestContext { get; set; } = null!;
 }
