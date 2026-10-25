@@ -38,7 +38,7 @@ public class TestCategoriaRepositoryId
     {
         try
         {
-            var categoria = repository.ObtenerPorId(3);
+            var categoria = repository.ObtenerPorId(4);
 
             Assert.IsNotNull(categoria);
             TestContext.WriteLine($"Id: {categoria.Id} | Nombre: {categoria.Nombre}");
@@ -56,7 +56,7 @@ public class TestCategoriaRepositoryId
 
         try
         {
-            var categoria = repository.ObtenerPorId(8);
+            var categoria = repository.ObtenerPorId(50);
             var valor = ObtenerPorId;
             Assert.IsNull(categoria, "No se encontro la categoria.");
             TestContext.WriteLine("No se encontro la categoria");
