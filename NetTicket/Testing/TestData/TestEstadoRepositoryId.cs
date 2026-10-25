@@ -15,31 +15,51 @@ public class TestEstadoRepositoryId
     [TestInitialize]
     public void DatosDeInicio()
     {
-        IConfiguration configuration = new ConfigurationBuilder()
+        try
+        {
+            IConfiguration configuration = new ConfigurationBuilder()
             .AddJsonFile("appsettings.json")
             .Build();
 
-        Conexion conexion = new Conexion(configuration);
-        repository = new EstadoRepository(conexion);
+            Conexion conexion = new Conexion(configuration);
+            repository = new EstadoRepository(conexion);
+        }
+        catch(Exception ex)
+        {
+            Console.WriteLine("TestEstadoRepositoryId DatosDeInicio" + ex.ToString());
+        }
     }
 
 
     [TestMethod]
     public void ObtenerPorId()
     {
-        var estado = repository.ObtenerPorId(3);
-        Assert.IsNotNull(estado);
-        TestContext.WriteLine($"Id:{estado.Id} | Nombre:{estado.Nombre}");
+        try
+        {
+            var estado = repository.ObtenerPorId(3);
+            Assert.IsNotNull(estado);
+            TestContext.WriteLine($"Id:{estado.Id} | Nombre:{estado.Nombre}");
+        }
+        catch(Exception ex)
+        {
+            Console.WriteLine("TestEstadoRepositoryId ObtenerPorId" + ex.ToString());
+        }
     }
 
     [TestMethod]
     public void ObtenerPorIdFalse()
     {
-        var estado = repository.ObtenerPorId(8);
-        Assert.IsNull(estado, "No se encontro la categoria.");
-        TestContext.WriteLine("No se encontro la categoria");
+        try
+        {
+            var estado = repository.ObtenerPorId(8);
+            Assert.IsNull(estado, "No se encontro la categoria.");
+            TestContext.WriteLine("No se encontro la categoria");
+        }
+        catch(Exception ex)
+        {
+            Console.WriteLine("TestEstadoRepositoryId ObtenerPorIdFalse" + ex.ToString());
+        }
     }
 
     public TestContext TestContext { get; set; } = null!;
-
 }

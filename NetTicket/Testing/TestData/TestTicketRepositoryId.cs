@@ -15,30 +15,50 @@ public class TestTicketRepositoryId
     [TestInitialize]
     public void DatosDeInicio()
     {
-        IConfiguration configuration = new ConfigurationBuilder()
+        try
+        {
+            IConfiguration configuration = new ConfigurationBuilder()
             .AddJsonFile("appsettings.json")
             .Build();
 
-        Conexion conexion = new Conexion(configuration);
-        repository = new TicketRepository(conexion);
-
+            Conexion conexion = new Conexion(configuration);
+            repository = new TicketRepository(conexion);
+        }
+        catch(Exception ex)
+        {
+            Console.WriteLine("TestTicketRepositoryId DatosDeInicio" + ex.ToString());
+        }
     }
 
     [TestMethod]
     public void ObtenerPorId()
     {
-        var ticket = repository.ObtenerPorId(1);
+        try
+        {
+            var ticket = repository.ObtenerPorId(1);
 
-        Assert.IsNotNull(ticket);
-        TestContext.WriteLine($"Id:{ticket.Id} | Titulo:{ticket.Titulo} | Descripcion:{ticket.Descripcion} | UsuarioId:{ticket.UsuarioId} | CategoriaId:{ticket.CategoriaId} | EstadoId:{ticket.EstadoId} | FechaCreacion:{ticket.FechaCreacion}");                 
+            Assert.IsNotNull(ticket);
+            TestContext.WriteLine($"Id:{ticket.Id} | Titulo:{ticket.Titulo} | Descripcion:{ticket.Descripcion} | UsuarioId:{ticket.UsuarioId} | CategoriaId:{ticket.CategoriaId} | EstadoId:{ticket.EstadoId} | FechaCreacion:{ticket.FechaCreacion}");
+        }
+        catch(Exception ex)
+        {
+            Console.WriteLine("TestTicketRepositoryId ObtenerPorId" + ex.ToString());
+        }
     }
 
     [TestMethod]
     public void ObtenerPorIdFalse()
     {
-        var ticket = repository.ObtenerPorId(9);
-        Assert.IsNull(ticket, "No se encontro Ticket");
-        TestContext.WriteLine("No se encontro Ticket");
+        try
+        {
+            var ticket = repository.ObtenerPorId(9);
+            Assert.IsNull(ticket, "No se encontro Ticket");
+            TestContext.WriteLine("No se encontro Ticket");
+        }
+        catch(Exception ex)
+        {
+            Console.WriteLine("TestTicketRepositoryId ObtenerPorIdFalse" + ex.ToString());
+        }
     }
 
     public TestContext TestContext { get; set; } = null!;

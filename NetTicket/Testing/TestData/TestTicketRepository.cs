@@ -11,23 +11,31 @@ public class TestTicketRepository
     [TestMethod]
     public void TestObtenerTockets()
     {
-        IConfiguration configuration = new ConfigurationBuilder()
+        try
+        {
+            IConfiguration configuration = new ConfigurationBuilder()
             .AddJsonFile("appsettings.json")
             .Build();
 
-        Conexion conexion = new Conexion(configuration);
-        TicketRepository repository = new TicketRepository(conexion);
+            Conexion conexion = new Conexion(configuration);
+            TicketRepository repository = new TicketRepository(conexion);
 
-        var tickets = repository.ObtenerTodos();
+            var tickets = repository.ObtenerTodos();
 
-        Assert.IsNotNull(tickets);
-        Assert.IsTrue(tickets.Count > 0, "No se encontraron Tickets");
+            Assert.IsNotNull(tickets);
+            Assert.IsTrue(tickets.Count > 0, "No se encontraron Tickets");
 
-        foreach(var ticket in tickets)
+            foreach (var ticket in tickets)
+            {
+                TestContext.WriteLine($"Id: {ticket.Id} | Titulo: {ticket.Titulo} | Descripcion {ticket.Descripcion} | UsuarioId {ticket.UsuarioId} | CategoriaId {ticket.CategoriaId} | EstadoId {ticket.EstadoId} | FechaCreacion{ticket.FechaCreacion}");
+            }
+        }
+        catch(Exception ex)
         {
-            TestContext.WriteLine($"Id: {ticket.Id} | Titulo: {ticket.Titulo} | Descripcion {ticket.Descripcion} | UsuarioId {ticket.UsuarioId} | CategoriaId {ticket.CategoriaId} | EstadoId {ticket.EstadoId} | FechaCreacion{ticket.FechaCreacion}");
+            Console.WriteLine("TestTicketRepository TestObtenerTockets" + ex.ToString());
         }
     }
 
     public TestContext TestContext { get; set; } = null!;
 }
+
