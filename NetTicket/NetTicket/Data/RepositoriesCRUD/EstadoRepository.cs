@@ -16,24 +16,29 @@ namespace NetTicket.Data.RepositoriesCRUD
         public List<Estado> ObtenerTodos()
         {
             List<Estado> estados = new List<Estado>();
-
-            using MySqlConnection cn = _conexion.ObtenerConexion();
-            cn.Open();
-
-            using MySqlCommand cmd = new MySqlCommand("EstadosRepository", cn);
-            cmd.CommandType = System.Data.CommandType.StoredProcedure;
-
-            using MySqlDataReader reader = cmd.ExecuteReader();
-
-            while (reader.Read())
+            try
             {
-                estados.Add(new Estado
-                {
-                    Id = reader.GetInt32("Id"),
-                    Nombre = reader.GetString("Nombre")
-                });
-            }
+                using MySqlConnection cn = _conexion.ObtenerConexion();
+                cn.Open();
 
+                using MySqlCommand cmd = new MySqlCommand("EstadosRepository", cn);
+                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+
+                using MySqlDataReader reader = cmd.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    estados.Add(new Estado
+                    {
+                        Id = reader.GetInt32("Id"),
+                        Nombre = reader.GetString("Nombre")
+                    });
+                }
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine("EstadoRepository ObtenerTodos" + ex.ToString());
+            }
             return estados;
         }
 
@@ -42,21 +47,27 @@ namespace NetTicket.Data.RepositoriesCRUD
         {
             using MySqlConnection cn = _conexion.ObtenerConexion();
             cn.Open();
-
-            using MySqlCommand cmd = new MySqlCommand("EstadosRepositoryId", cn);
-            cmd.CommandType = System.Data.CommandType.StoredProcedure;
-            cmd.Parameters.AddWithValue("i", id);
-
-            using MySqlDataReader reader = cmd.ExecuteReader();
-
-            if (reader.Read())
+            try
             {
-                return new Estado
-                {
-                    Id = reader.GetInt32("Id"),
-                    Nombre = reader.GetString("Nombre")
-                };
+                using MySqlCommand cmd = new MySqlCommand("EstadosRepositoryId", cn);
+                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("i", id);
 
+                using MySqlDataReader reader = cmd.ExecuteReader();
+
+                if (reader.Read())
+                {
+                    return new Estado
+                    {
+                        Id = reader.GetInt32("Id"),
+                        Nombre = reader.GetString("Nombre")
+                    };
+
+                }
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine("EstadoRepository ObtenerPorId" + ex.ToString());
             }
             return null;
         }
