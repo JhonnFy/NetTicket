@@ -69,7 +69,7 @@ namespace NetTicket.Data.RepositoriesCRUD
                 using MySqlConnection cn = _conexion.ObtenerConexion();
                 cn.Open();
 
-                using MySqlCommand cmd = new MySqlCommand("EstadosRepository_Create", cn);
+                using MySqlCommand cmd = new MySqlCommand("EstadoRepository_Create", cn);
                 cmd.CommandType = System.Data.CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("Nombre", nombre);
 
