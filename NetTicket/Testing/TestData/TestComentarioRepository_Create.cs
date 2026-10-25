@@ -22,7 +22,6 @@ public class TestComentarioRepository_Create
 
         Conexion conexion = new Conexion(configuration);
         repository = new ComentarioRepository(conexion);
-
     }
 
     [TestMethod]
