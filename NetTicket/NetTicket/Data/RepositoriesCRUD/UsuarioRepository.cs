@@ -76,5 +76,35 @@ namespace NetTicket.Data.RepositoriesCRUD
             }
             return null;
         }
+
+
+        public Usuario? Create(string nombre, string email, string area)
+        {
+            try
+            {
+                using MySqlConnection cn = _conexion.ObtenerConexion();
+                cn.Open();
+
+                using MySqlCommand cmd = new MySqlCommand("UsuarioRepository_Create", cn);
+                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("Nombre", nombre);
+                cmd.Parameters.AddWithValue("Email", email);
+                cmd.Parameters.AddWithValue("Area", area);
+
+                var id = Convert.ToInt32(cmd.ExecuteScalar);
+
+                return new Usuario
+                {
+                    Id = id,
+                    Nombre = nombre,
+                    Email = email,
+                    Area = area
+                };
+            }catch(Exception ex)
+            {
+                Console.WriteLine($"UsuarioRepository Create" + ex.ToString());
+            }
+            return null;
+        }
     }
 }
