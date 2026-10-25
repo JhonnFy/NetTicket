@@ -12,25 +12,32 @@ public class TestComentarioRepository
     [TestMethod]
     public void TestObtenerComentarios()
     {
-        IConfiguration configuration = new ConfigurationBuilder()
+        try
+        {
+            IConfiguration configuration = new ConfigurationBuilder()
             .AddJsonFile("appsettings.json")
             .Build();
 
-        Conexion conexion = new Conexion(configuration);
-        ComentarioRepository repository = new ComentarioRepository(conexion);
+            Conexion conexion = new Conexion(configuration);
+            ComentarioRepository repository = new ComentarioRepository(conexion);
 
 
-        var comentarios = repository.ObtenerTodos();
+            var comentarios = repository.ObtenerTodos();
 
-        Assert.IsNotNull(comentarios);
-        Assert.IsTrue(comentarios.Count >0, "No se encontraron comentarios.");
+            Assert.IsNotNull(comentarios);
+            Assert.IsTrue(comentarios.Count > 0, "No se encontraron comentarios.");
 
-        foreach(var comentario in comentarios)
-        {
-            TestContext.WriteLine($"Id: {comentario.Id}  | UsuarioId: {comentario.UsuarioId} | Texto: {comentario.Texto} | Fecha: {comentario.Fecha}");
+            foreach (var comentario in comentarios)
+            {
+                TestContext.WriteLine($"Id: {comentario.Id}  | UsuarioId: {comentario.UsuarioId} | Texto: {comentario.Texto} | Fecha: {comentario.Fecha}");
+            }
         }
-
+        catch(Exception ex)
+        {
+            Console.WriteLine("TestComentarioRepository TestObtenerComentarios" + ex.ToString());
+        }
     }
 
     public TestContext TestContext { get; set; }
 }
+

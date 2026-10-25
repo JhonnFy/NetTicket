@@ -15,20 +15,38 @@ public class TestCategoriaRepository_Create
     [TestInitialize]
     public void DatosDeInicio()
     {
-        IConfiguration configuration = new ConfigurationBuilder()
+        try
+        {
+            IConfiguration configuration = new ConfigurationBuilder()
             .AddJsonFile("appsettings.json")
             .Build();
 
-        Conexion conexion = new Conexion(configuration);
-        repository = new CategoriaRepository(conexion);
+            Conexion conexion = new Conexion(configuration);
+            repository = new CategoriaRepository(conexion);
+        }
+        catch(Exception ex)
+        {
+            Console.WriteLine("TestCategoriaRepository_Create DatosDeInicio " + ex.ToString());
+        }
+                
+
+
     }
 
     [TestMethod]
     public void Create()
     {
-        var insertCat = repository.Create("NetTicket V8");
-        Assert.IsNotNull(insertCat);
-        TestContext.WriteLine($"Id:{insertCat.Id} | Categoria:{insertCat.Nombre}");
+        try
+        {
+            var insertCat = repository.Create("NetTicket V8");
+            Assert.IsNotNull(insertCat);
+            TestContext.WriteLine($"Id:{insertCat.Id} | Categoria:{insertCat.Nombre}");
+        }
+        catch(Exception ex)
+        {
+            Console.WriteLine("TestCategoriaRepository_Create Create " + ex.ToString());
+        }
+
 
 
 

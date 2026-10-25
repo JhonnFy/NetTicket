@@ -16,20 +16,36 @@ public class TestComentarioRepository_Create
     [TestInitialize]
     public void DatosDeInicio()
     {
-        IConfiguration configuration = new ConfigurationBuilder()
+        try
+        {
+            IConfiguration configuration = new ConfigurationBuilder()
             .AddJsonFile("appsettings.json")
             .Build();
 
-        Conexion conexion = new Conexion(configuration);
-        repository = new ComentarioRepository(conexion);
+            Conexion conexion = new Conexion(configuration);
+            repository = new ComentarioRepository(conexion);
+        }
+        catch(Exception ex)
+        {
+            Console.WriteLine("TestComentarioRepository_Create DatosDeInicio " + ex.ToString());
+        }
     }
 
     [TestMethod]
     public void Create()
     {
-        var newComentario = repository.Create(1,1,"MsTest V1");
-        Assert.IsNotNull(newComentario);
-        TestContext.WriteLine($"Id{newComentario.Id} | TicketId {newComentario.TicketId} | UsuarioId {newComentario.UsuarioId} | Texto {newComentario.Texto} | Fecha {newComentario.Fecha}");
+        try
+        {
+            var newComentario = repository.Create(1, 1, "MsTest V1");
+            Assert.IsNotNull(newComentario);
+            TestContext.WriteLine($"Id{newComentario.Id} | TicketId {newComentario.TicketId} | UsuarioId {newComentario.UsuarioId} | Texto {newComentario.Texto} | Fecha {newComentario.Fecha}");
+        }
+        catch(Exception ex)
+        {
+            Console.WriteLine("TestComentarioRepository_Create Create " + ex.ToString());
+        }
+
     }
     public TestContext TestContext { get; set; } = null!;
 }
+

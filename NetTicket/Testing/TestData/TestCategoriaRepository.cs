@@ -32,7 +32,7 @@ public class TestCategoriaRepository
         }
         catch(Exception ex)
         {
-            Console.WriteLine("TestObtenerCategorias " +ex.ToString());
+            Console.WriteLine("TestCategoriaRepository TestObtenerCategorias " + ex.ToString());
         }
         
     }
