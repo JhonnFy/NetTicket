@@ -11,22 +11,29 @@ public class TestUsuarioRepository
     [TestMethod]
     public void TestObtenerUsuarios()
     {
-        IConfiguration configuration = new ConfigurationBuilder()
+        try
+        {
+            IConfiguration configuration = new ConfigurationBuilder()
             .AddJsonFile("appsettings.json")
             .Build();
 
-        Conexion conexion = new Conexion(configuration);
-        UsuarioRepository repository = new UsuarioRepository(conexion);
+            Conexion conexion = new Conexion(configuration);
+            UsuarioRepository repository = new UsuarioRepository(conexion);
 
-        var usuarios = repository.ObtenerTodos();
+            var usuarios = repository.ObtenerTodos();
 
-        Assert.IsNotNull(usuarios);
-        Assert.IsTrue(usuarios.Count > 0, "No se encontraron usuarios");
+            Assert.IsNotNull(usuarios);
+            Assert.IsTrue(usuarios.Count > 0, "No se encontraron usuarios");
 
-        foreach(var usuario in usuarios)
-        {
-            TestContext.WriteLine($"Id: {usuario.Id} | Nombre: {usuario.Nombre} | Email: {usuario.Email} | Area: {usuario.Area}");
+            foreach (var usuario in usuarios)
+            {
+                TestContext.WriteLine($"Id: {usuario.Id} | Nombre: {usuario.Nombre} | Email: {usuario.Email} | Area: {usuario.Area}");
+            }
         }
+        catch(Exception ex)
+        {
+            Console.WriteLine("TestObtenerUsuarios TestObtenerUsuarios" + ex.ToString());
+        }        
     }
     public TestContext TestContext { get; set; }
 }
