@@ -34,7 +34,7 @@ public class TestComentarioRepository
         }
         catch(Exception ex)
         {
-            Console.WriteLine("TestComentarioRepository TestObtenerComentarios" + ex.ToString());
+            Console.WriteLine("TestComentarioRepository TestObtenerComentarios" + ex.Message);
         }
     }
 

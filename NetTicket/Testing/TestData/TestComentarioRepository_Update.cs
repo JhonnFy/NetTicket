@@ -26,7 +26,7 @@ public class TestComentarioRepository_Update
         }
         catch (Exception ex)
         {
-            Console.WriteLine("TestComentarioRepository_Update DatosIniciales" + ex.ToString());
+            Console.WriteLine("TestComentarioRepository_Update DatosIniciales" + ex.Message);
         }
     }
 
@@ -45,7 +45,7 @@ public class TestComentarioRepository_Update
         }
         catch (Exception ex)
         {
-            Console.WriteLine("TestComentarioRepository_Update Update" + ex.ToString());
+            Console.WriteLine("TestComentarioRepository_Update Update" + ex.Message);
         }
     }
     public TestContext TestContext { get; set; } = null!;

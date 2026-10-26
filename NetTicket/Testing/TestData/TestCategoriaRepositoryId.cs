@@ -28,7 +28,7 @@ public class TestCategoriaRepositoryId
         }
         catch(Exception ex)
         {
-            Console.WriteLine("TestCategoriaRepositoryId  DatosDeInicio" + ex.ToString());
+            Console.WriteLine("TestCategoriaRepositoryId  DatosDeInicio" + ex.Message);
         }
     }
     
@@ -45,7 +45,7 @@ public class TestCategoriaRepositoryId
         }
         catch(Exception ex)
         {
-            Console.WriteLine("TestCategoriaRepositoryId ObtenerPorId" + ex.ToString());
+            Console.WriteLine("TestCategoriaRepositoryId ObtenerPorId" + ex.Message);
         }
     }
 
@@ -63,7 +63,7 @@ public class TestCategoriaRepositoryId
         }
         catch(Exception ex)
         {
-            Console.WriteLine("TestCategoriaRepositoryId ObtenerPorIdFalse" + ex.ToString());
+            Console.WriteLine("TestCategoriaRepositoryId ObtenerPorIdFalse" + ex.Message);
         }
     }
 

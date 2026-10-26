@@ -26,7 +26,7 @@ public class TestCategoriaRepository_Create
         }
         catch(Exception ex)
         {
-            Console.WriteLine("TestCategoriaRepository_Create DatosDeInicio " + ex.ToString());
+            Console.WriteLine("TestCategoriaRepository_Create DatosDeInicio " + ex.Message);
         }
                 
 
@@ -44,7 +44,7 @@ public class TestCategoriaRepository_Create
         }
         catch(Exception ex)
         {
-            Console.WriteLine("TestCategoriaRepository_Create Create " + ex.ToString());
+            Console.WriteLine("TestCategoriaRepository_Create Create " + ex.Message);
         }
 
 

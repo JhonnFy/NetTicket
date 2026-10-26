@@ -29,7 +29,7 @@ public class TestComentarioRepositoryId
         }
         catch(Exception ex)
         {
-            Console.WriteLine("TestComentarioRepositoryId DatosDeInicio" + ex.ToString());
+            Console.WriteLine("TestComentarioRepositoryId DatosDeInicio" + ex.Message);
         }
     }
 
@@ -46,7 +46,7 @@ public class TestComentarioRepositoryId
         }
         catch(Exception ex)
         {
-            Console.WriteLine("TestComentarioRepositoryId ObtenerPorId" + ex.ToString());
+            Console.WriteLine("TestComentarioRepositoryId ObtenerPorId" + ex.Message);
         }
     }
 
@@ -61,7 +61,7 @@ public class TestComentarioRepositoryId
         }
         catch(Exception ex)
         {
-            Console.WriteLine("TestComentarioRepositoryId ObtenerPorIdFalse " + ex.ToString());
+            Console.WriteLine("TestComentarioRepositoryId ObtenerPorIdFalse " + ex.Message);
         }
     }
 

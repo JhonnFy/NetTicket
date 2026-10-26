@@ -27,7 +27,7 @@ public class TestComentarioRepository_Create
         }
         catch(Exception ex)
         {
-            Console.WriteLine("TestComentarioRepository_Create DatosDeInicio " + ex.ToString());
+            Console.WriteLine("TestComentarioRepository_Create DatosDeInicio " + ex.Message);
         }
     }
 
@@ -42,7 +42,7 @@ public class TestComentarioRepository_Create
         }
         catch(Exception ex)
         {
-            Console.WriteLine("TestComentarioRepository_Create Create " + ex.ToString());
+            Console.WriteLine("TestComentarioRepository_Create Create " + ex.Message)
         }
 
     }
