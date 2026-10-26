@@ -1,9 +1,10 @@
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyModel;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Microsoft.Win32;
 using NetTicket.Data.Connection;
 using NetTicket.Data.RepositoriesCRUD;
-using Microsoft.Extensions.Configuration;
 using NetTicket.Models;
-using Microsoft.Extensions.DependencyModel;
 
 namespace Testing;
 
@@ -36,11 +37,18 @@ public class TestComentarioRepository_Update
     {
         try
         {
+            repository.Update(9,"Update MsTest V9");
+            var registro = repository.ObtenerPorId(9);
+            Assert.IsNotNull(registro);
+            Assert.AreEqual("Update MsTest V9", registro.Texto);
+
+            Console.WriteLine($"Registro Actualizado: {registro.Texto}");
 
         }
         catch (Exception ex)
         {
             Console.WriteLine("TestComentarioRepository_Update Update" + ex.ToString());
         }
+        
     }
 }
