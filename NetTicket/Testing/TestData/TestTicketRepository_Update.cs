@@ -36,8 +36,8 @@ public class TestTicketRepository_Update
     {
         try
         {
-            var updateTick = repository.Update(3,"Net Ticket","Test V1");
-            var selectId = repository.ObtenerPorId(3);
+            var updateTick = repository.Update(1,"Net Ticket","MsTest V1");
+            var selectId = repository.ObtenerPorId(1);
             Assert.IsNotNull(updateTick);
 
             TestContext.WriteLine($"Id:{selectId.Id} | Titulo:{selectId.Titulo} | Descripcion:{selectId.Descripcion}");
