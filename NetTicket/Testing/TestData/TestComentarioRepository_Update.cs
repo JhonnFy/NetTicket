@@ -37,12 +37,12 @@ public class TestComentarioRepository_Update
     {
         try
         {
-            repository.Update(9,"Update MsTest V9");
+            repository.Update(9,"Actualizado Desde MsTest V1");
             var registro = repository.ObtenerPorId(9);
             Assert.IsNotNull(registro);
             Assert.AreEqual("Update MsTest V9", registro.Texto);
 
-            Console.WriteLine($"Registro Actualizado: {registro.Texto}");
+            Console.WriteLine($"TestComentario Repository Update : {registro.Texto}");
 
         }
         catch (Exception ex)
