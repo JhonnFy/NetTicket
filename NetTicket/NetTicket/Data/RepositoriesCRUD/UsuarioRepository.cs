@@ -41,7 +41,7 @@ namespace NetTicket.Data.RepositoriesCRUD
             }
             catch(Exception ex)
             {
-                Console.WriteLine("UsuarioRepository ObtenerTodos" + ex.ToString());
+                Console.WriteLine("UsuarioRepository ObtenerTodos" + ex.Message);
             }
             return usuarios;
         }
@@ -72,7 +72,7 @@ namespace NetTicket.Data.RepositoriesCRUD
             }
             catch(Exception ex)
             {
-                Console.WriteLine("UsuarioRepository ObtenerPorId" + ex.ToString);
+                Console.WriteLine("UsuarioRepository ObtenerPorId" + ex.Message);
             }
             return null;
         }
@@ -103,7 +103,7 @@ namespace NetTicket.Data.RepositoriesCRUD
                 };
             }catch(Exception ex)
             {
-                Console.WriteLine($"UsuarioRepository Create" + ex.ToString());
+                Console.WriteLine($"UsuarioRepository Create" + ex.Message);
             }
             return null;
         }

@@ -43,7 +43,7 @@ namespace NetTicket.Data.RepositoriesCRUD
             }
             catch(Exception ex)
             {
-                Console.WriteLine("TicketRepository ObtenerTodos" + ex.ToString());
+                Console.WriteLine("TicketRepository ObtenerTodos" + ex.Message);
             }
             return tickets;
         }
@@ -77,7 +77,7 @@ namespace NetTicket.Data.RepositoriesCRUD
             }
             catch(Exception ex)
             {
-                Console.WriteLine("TicketRepository ObtenerPorId" + ex.ToString());
+                Console.WriteLine("TicketRepository ObtenerPorId" + ex.Message);
             }
             return null;
         }
@@ -112,7 +112,7 @@ namespace NetTicket.Data.RepositoriesCRUD
                 
             }catch(Exception ex)
             {
-                Console.WriteLine("TicketRepository ObtenerPorId" + ex.ToString());
+                Console.WriteLine("TicketRepository ObtenerPorId" + ex.Message);
             }
             return null;
         }
