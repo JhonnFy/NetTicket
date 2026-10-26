@@ -117,6 +117,32 @@ namespace NetTicket.Data.RepositoriesCRUD
             return null;
         }
 
+        public bool Update(int id, string titulo, string descripcion)
+        {
+            try
+            {
+                using MySqlConnection cn = _conexion.ObtenerConexion();
+                cn.Open();
+
+                using MySqlCommand cmd = new MySqlCommand("TicketRepository_Update", cn);
+                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+
+                cmd.Parameters.AddWithValue("p_Id", id);
+                cmd.Parameters.AddWithValue("p_Titulo", titulo);
+                cmd.Parameters.AddWithValue("p_Descripcion", descripcion);
+
+                int registros = cmd.ExecuteNonQuery();
+                return registros > 0;
+
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("TicketRepository Update" + ex.Message);
+                return false;
+            }
+        }
+
 
     }
 }
