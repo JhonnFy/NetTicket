@@ -20,9 +20,13 @@ public class TestTicketRepository_Update
             IConfiguration configuration = new ConfigurationBuilder()
                 .AddJsonFile("appsettings.json")
                 .Build();
+
+            Conexion conexion = new Conexion(configuration);
+            repository = new TicketRepository(conexion);
+
         }catch(Exception ex)
         {
-            Console.WriteLine("TestTicketRepository_Update DatosIniciales" + ex.ToString());
+            Console.WriteLine("TestTicketRepository_Update DatosIniciales" + ex.Message);
         }
     }
 
