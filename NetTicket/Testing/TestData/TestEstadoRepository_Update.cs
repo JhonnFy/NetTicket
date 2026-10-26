@@ -36,9 +36,12 @@ public class TestEstadoRepository_Update
     {
         try
         {
-            var updateEst = repository.Update(1,"Actualizado Desde MsTest V1");
+            var updateEst = repository.Update(2,"Actualizado Desde MsTest V2");
             var selectId = repository.ObtenerPorId(1);
             Assert.IsNotNull(updateEst);
+
+
+            Console.WriteLine($"Id {selectId.Id} | {selectId.Nombre}");
 
         }catch(Exception ex)
         {
