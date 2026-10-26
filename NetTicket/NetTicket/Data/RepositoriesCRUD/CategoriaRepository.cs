@@ -105,5 +105,30 @@ namespace NetTicket.Data.RepositoriesCRUD
             return null;
         }
 
+
+        public bool Update(int id, string nombre)
+        {
+            try
+            {
+                using MySqlConnection cn = _conexion.ObtenerConexion();
+                cn.Open();
+
+                using MySqlCommand cmd = new MySqlCommand(" CategoriaRepository_Update", cn);
+                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+
+                cmd.Parameters.AddWithValue("p_Id", id);
+                cmd.Parameters.AddWithValue("p_Nombre", nombre);
+
+                int registros = cmd.ExecuteNonQuery();
+                return registros > 0;
+
+
+            }catch(Exception ex)
+            {
+                Console.WriteLine("CategoriaRepository Update" + ex.ToString());
+                return false;
+            }
+        }
+
     }
 }
