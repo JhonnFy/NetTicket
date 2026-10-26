@@ -107,5 +107,36 @@ namespace NetTicket.Data.RepositoriesCRUD
             }
             return null;
         }
+
+        public bool Update(int id, string nombre,string email,string area)
+        {
+            try
+            {
+                using MySqlConnection cn = _conexion.ObtenerConexion();
+                cn.Open();
+
+                using MySqlCommand cmd = new MySqlCommand("UsuarioRepository_Update", cn);
+                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+
+                cmd.Parameters.AddWithValue("p_Id", id);
+                cmd.Parameters.AddWithValue("p_Nombre", nombre);
+                cmd.Parameters.AddWithValue("p_Email",email);
+                cmd.Parameters.AddWithValue("p_Area",area);
+
+                int registros = cmd.ExecuteNonQuery();
+                return registros > 0;
+
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine("UsuarioRepository Update" + ex.Message);
+                return false;
+            }
+
+
+
+        }
+
+
     }
 }
