@@ -38,7 +38,7 @@ public class TestUsuarioRepository_Create
     {
         try
         {
-            var insertUsr = repository.Create("MsTest V1", "MsTestV1@gmail.com", "Testing");
+            var insertUsr = repository.Create("MsTest V2", "MsTestV2@gmail.com", "Testing");
             Assert.IsNotNull(insertUsr);
             TestContext.WriteLine($"Id{insertUsr.Id} | Nombre{insertUsr.Nombre} | Email{insertUsr.Email} | Area{insertUsr.Area}");
         }
