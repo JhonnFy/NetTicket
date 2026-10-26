@@ -113,7 +113,7 @@ namespace NetTicket.Data.RepositoriesCRUD
                 using MySqlConnection cn = _conexion.ObtenerConexion();
                 cn.Open();
 
-                using MySqlCommand cmd = new MySqlCommand(" CategoriaRepository_Update", cn);
+                using MySqlCommand cmd = new MySqlCommand("CategoriaRepository_Update", cn);
                 cmd.CommandType = System.Data.CommandType.StoredProcedure;
 
                 cmd.Parameters.AddWithValue("p_Id", id);
