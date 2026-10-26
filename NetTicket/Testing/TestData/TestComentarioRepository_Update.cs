@@ -40,7 +40,7 @@ public class TestComentarioRepository_Update
             var selectId = repository.ObtenerPorId(3);
             Assert.IsNotNull(updateCom);
 
-            TestContext.WriteLine($"Id:{selectId.Id} | {selectId.Texto}");
+            TestContext.WriteLine($"Id:{selectId.Id} | Texto:{selectId.Texto}");
 
         }
         catch (Exception ex)
