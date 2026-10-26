@@ -5,6 +5,7 @@ using Microsoft.Win32;
 using NetTicket.Data.Connection;
 using NetTicket.Data.RepositoriesCRUD;
 using NetTicket.Models;
+using System.Security.Cryptography.X509Certificates;
 
 namespace Testing;
 
@@ -25,7 +26,7 @@ public class TestComentarioRepository_Update
             Conexion conexion = new Conexion(configuration);
             repository = new ComentarioRepository(conexion);
         }
-        catch(Exception ex)
+        catch (Exception ex)
         {
             Console.WriteLine("TestComentarioRepository_Update DatosIniciales" + ex.ToString());
         }
@@ -37,18 +38,18 @@ public class TestComentarioRepository_Update
     {
         try
         {
-            repository.Update(9,"Actualizado Desde MsTest V1");
-            var registro = repository.ObtenerPorId(9);
-            Assert.IsNotNull(registro);
-            Assert.AreEqual("Update MsTest V9", registro.Texto);
+            repository.Update(7, "Actualizado Desde MsTest V7");
+            var updateCom = repository.ObtenerPorId(7);
+            Assert.IsNotNull(updateCom);
+            Assert.AreEqual("Update MsTest V9", updateCom.Texto);
 
-            Console.WriteLine($"TestComentario Repository Update : {registro.Texto}");
+            TestContext.WriteLine($"Id{updateCom.Id} | Texto{updateCom.Texto}");
 
         }
         catch (Exception ex)
         {
             Console.WriteLine("TestComentarioRepository_Update Update" + ex.ToString());
         }
-        
     }
+    public TestContext TestContext { get; set; } = null!;
 }
