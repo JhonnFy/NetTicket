@@ -1,13 +1,13 @@
 ﻿using MySqlConnector;
 using NetTicket.Models;
 using NetTicket.Data.Connection;
+using System.Security.Cryptography;
 
 
 namespace NetTicket.Data.RepositoriesCRUD
 {
     public class ComentarioRepository
     {
-
         private readonly Conexion _conexion;
 
         public ComentarioRepository(Conexion conexion)
@@ -84,7 +84,6 @@ namespace NetTicket.Data.RepositoriesCRUD
 
         public Comentario? Create(int TicketId, int UsuarioId, string Texto)
         {
-
             try
             {
                 using MySqlConnection cn = _conexion.ObtenerConexion();
@@ -113,6 +112,20 @@ namespace NetTicket.Data.RepositoriesCRUD
             }
             return null;
         }
+
+        public Comentario? Update(string texto)
+        {
+            try
+            {
+
+            }catch(Exception ex)
+            {
+                Console.WriteLine("ComentarioRepository Update " + ex.ToString());
+            }
+            return null;
+        }
+        
+
 
     }
 }
