@@ -26,7 +26,7 @@ public class TestTicketRepository_Create
         }
         catch(Exception ex)
         {
-            Console.WriteLine("TestTicketRepository_Create DatosDeInicio" + ex.ToString());
+            Console.WriteLine("TestTicketRepository_Create DatosDeInicio" + ex.Message);
         }
     }
 
@@ -41,7 +41,7 @@ public class TestTicketRepository_Create
         }
         catch(Exception ex)
         {
-            Console.WriteLine("TestTicketRepository_Create Create" + ex.ToString());
+            Console.WriteLine("TestTicketRepository_Create Create" + ex.Message);
         }
     }
     public TestContext TestContext { get; set; } = null!;

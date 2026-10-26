@@ -1,3 +1,4 @@
+using Microsoft.ApplicationInsights.DataContracts;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyModel;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -27,7 +28,7 @@ public class TestUsuarioRepositoryId
         }
         catch(Exception ex)
         {
-            Console.WriteLine("TestUsuarioRepositoryId DatosDeInicio" + ex.ToString());
+            Console.WriteLine("TestUsuarioRepositoryId DatosDeInicio" + ex.Message);
         }
     }
 
@@ -43,7 +44,7 @@ public class TestUsuarioRepositoryId
         }
         catch(Exception ex)
         {
-            Console.WriteLine("TestUsuarioRepositoryId ObtenerPorId" + ex.ToString());
+            Console.WriteLine("TestUsuarioRepositoryId ObtenerPorId" + ex.Message);
         }
     }
 
@@ -58,7 +59,7 @@ public class TestUsuarioRepositoryId
         }
         catch(Exception ex)
         {
-            Console.WriteLine("TestUsuarioRepositoryId ObtenerPorIdFalse" + ex.ToString());
+            Console.WriteLine("TestUsuarioRepositoryId ObtenerPorIdFalse" + ex.Message);
         }
 
     }

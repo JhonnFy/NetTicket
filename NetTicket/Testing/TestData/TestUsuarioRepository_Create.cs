@@ -28,7 +28,7 @@ public class TestUsuarioRepository_Create
         }
         catch(Exception ex)
         {
-            Console.WriteLine("TestUsuarioRepository_Create DatosDeInicio" + ex.ToString());
+            Console.WriteLine("TestUsuarioRepository_Create DatosDeInicio" + ex.Message);
         }
     }
 

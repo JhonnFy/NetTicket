@@ -26,7 +26,7 @@ public class TestEstadoRepositoryId
         }
         catch(Exception ex)
         {
-            Console.WriteLine("TestEstadoRepositoryId DatosDeInicio" + ex.ToString());
+            Console.WriteLine("TestEstadoRepositoryId DatosDeInicio" + ex.Message);
         }
     }
 
@@ -42,7 +42,7 @@ public class TestEstadoRepositoryId
         }
         catch(Exception ex)
         {
-            Console.WriteLine("TestEstadoRepositoryId ObtenerPorId" + ex.ToString());
+            Console.WriteLine("TestEstadoRepositoryId ObtenerPorId" + ex.Message);
         }
     }
 
@@ -57,7 +57,7 @@ public class TestEstadoRepositoryId
         }
         catch(Exception ex)
         {
-            Console.WriteLine("TestEstadoRepositoryId ObtenerPorIdFalse" + ex.ToString());
+            Console.WriteLine("TestEstadoRepositoryId ObtenerPorIdFalse" + ex.Message);
         }
     }
 

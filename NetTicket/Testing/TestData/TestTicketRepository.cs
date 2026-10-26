@@ -32,7 +32,7 @@ public class TestTicketRepository
         }
         catch(Exception ex)
         {
-            Console.WriteLine("TestTicketRepository TestObtenerTockets" + ex.ToString());
+            Console.WriteLine("TestTicketRepository TestObtenerTockets" + ex.Message);
         }
     }
 

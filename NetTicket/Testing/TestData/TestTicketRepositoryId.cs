@@ -26,7 +26,7 @@ public class TestTicketRepositoryId
         }
         catch(Exception ex)
         {
-            Console.WriteLine("TestTicketRepositoryId DatosDeInicio" + ex.ToString());
+            Console.WriteLine("TestTicketRepositoryId DatosDeInicio" + ex.Message);
         }
     }
 
@@ -42,7 +42,7 @@ public class TestTicketRepositoryId
         }
         catch(Exception ex)
         {
-            Console.WriteLine("TestTicketRepositoryId ObtenerPorId" + ex.ToString());
+            Console.WriteLine("TestTicketRepositoryId ObtenerPorId" + ex.Message);
         }
     }
 
@@ -57,7 +57,7 @@ public class TestTicketRepositoryId
         }
         catch(Exception ex)
         {
-            Console.WriteLine("TestTicketRepositoryId ObtenerPorIdFalse" + ex.ToString());
+            Console.WriteLine("TestTicketRepositoryId ObtenerPorIdFalse" + ex.Message);
         }
     }
 

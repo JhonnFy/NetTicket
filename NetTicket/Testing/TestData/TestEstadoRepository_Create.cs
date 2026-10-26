@@ -5,7 +5,6 @@ using Microsoft.Extensions.Configuration;
 using NetTicket.Models;
 using Microsoft.Extensions.DependencyModel;
 
-
 namespace Testing;
 
 [TestClass]
@@ -27,7 +26,7 @@ public class TestEstadoRepository_Create
         }
         catch(Exception ex)
         {
-            Console.WriteLine("TestEstadoRepository_Create DatosDeInicio" + ex.ToString());
+            Console.WriteLine("TestEstadoRepository_Create DatosDeInicio" + ex.Message);
         }
     }
 
@@ -43,7 +42,7 @@ public class TestEstadoRepository_Create
         }
         catch(Exception ex)
         {
-            Console.Write("TestEstadoRepository_Create" + ex.ToString());
+            Console.Write("TestEstadoRepository_Create" + ex.Message);
         }
 
     }

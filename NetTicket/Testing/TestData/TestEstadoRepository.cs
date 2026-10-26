@@ -34,7 +34,7 @@ public class TestEstadoRepository
         }
         catch(Exception ex)
         {
-            Console.WriteLine("TestEstadoRepository TestObtenerEstados" + ex.ToString());
+            Console.WriteLine("TestEstadoRepository TestObtenerEstados" + ex.Message);
         }
     }
 

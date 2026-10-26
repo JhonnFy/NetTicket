@@ -32,7 +32,7 @@ public class TestUsuarioRepository
         }
         catch(Exception ex)
         {
-            Console.WriteLine("TestObtenerUsuarios TestObtenerUsuarios" + ex.ToString());
+            Console.WriteLine("TestObtenerUsuarios TestObtenerUsuarios" + ex.Message);
         }        
     }
     public TestContext TestContext { get; set; }
