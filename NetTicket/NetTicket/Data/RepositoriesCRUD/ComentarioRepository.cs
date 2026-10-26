@@ -113,19 +113,30 @@ namespace NetTicket.Data.RepositoriesCRUD
             return null;
         }
 
-        public Comentario? Update(string texto)
+        public bool Update(int id, string texto)
         {
             try
             {
+                using MySqlConnection cn = _conexion.ObtenerConexion();
+                cn.Open();
 
-            }catch(Exception ex)
+
+                using MySqlCommand cmd = new MySqlCommand("ComentarioRepository_Update", cn);
+                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+
+                cmd.Parameters.AddWithValue("p_Id", id);
+                cmd.Parameters.AddWithValue("p_Texto", texto);
+
+                int registros = cmd.ExecuteNonQuery();
+                return registros > 0;
+            }
+            catch(Exception ex)
             {
                 Console.WriteLine("ComentarioRepository Update " + ex.ToString());
+                return false;
             }
-            return null;
         }
         
-
 
     }
 }
