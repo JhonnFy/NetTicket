@@ -36,8 +36,11 @@ public class TestComentarioRepository_Update
     {
         try
         {
-            var updateCom = repository.Update(8,"Actualizado Desde MsTest V8");
+            var updateCom = repository.Update(3,"Actualizado Desde MsTest V3");
+            var selectId = repository.ObtenerPorId(3);
             Assert.IsNotNull(updateCom);
+
+            TestContext.WriteLine($"Id:{selectId.Id} | {selectId.Texto}");
 
         }
         catch (Exception ex)
