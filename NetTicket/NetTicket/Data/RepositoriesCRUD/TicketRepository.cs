@@ -133,8 +133,6 @@ namespace NetTicket.Data.RepositoriesCRUD
 
                 int registros = cmd.ExecuteNonQuery();
                 return registros > 0;
-
-
             }
             catch (Exception ex)
             {
