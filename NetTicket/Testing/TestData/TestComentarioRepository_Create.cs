@@ -42,7 +42,7 @@ public class TestComentarioRepository_Create
         }
         catch(Exception ex)
         {
-            Console.WriteLine("TestComentarioRepository_Create Create " + ex.Message)
+            Console.WriteLine("TestComentarioRepository_Create Create " + ex.Message);
         }
 
     }
