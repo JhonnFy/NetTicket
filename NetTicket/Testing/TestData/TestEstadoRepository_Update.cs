@@ -26,7 +26,7 @@ public class TestEstadoRepository_Update
 
         }catch(Exception ex)
         {
-            Console.WriteLine("TestEstadoRepository_Update DatosIniciales" + ex.ToString());
+            Console.WriteLine("TestEstadoRepository_Update DatosIniciales" + ex.Message);
         }
     }
 
@@ -42,7 +42,7 @@ public class TestEstadoRepository_Update
 
         }catch(Exception ex)
         {
-            Console.WriteLine("TestEstadoRepository_Update Update" + ex.ToString());
+            Console.WriteLine("TestEstadoRepository_Update Update" + ex.Message);
         }
     }
     public TestContext TestContext { get; set; } = null!;
