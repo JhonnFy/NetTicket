@@ -133,8 +133,6 @@ namespace NetTicket.Data.RepositoriesCRUD
                 return false;
             }
 
-
-
         }
 
 
