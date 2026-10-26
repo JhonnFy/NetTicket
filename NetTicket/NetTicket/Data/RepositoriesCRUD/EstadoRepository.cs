@@ -120,8 +120,8 @@ namespace NetTicket.Data.RepositoriesCRUD
             catch(Exception ex)
             {
                 Console.WriteLine("EstadoRepository Update" + ex.ToString());
+                return false;            
             }
-            return false;
         }
 
     }
