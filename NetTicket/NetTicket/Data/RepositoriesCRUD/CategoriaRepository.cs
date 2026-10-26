@@ -100,7 +100,7 @@ namespace NetTicket.Data.RepositoriesCRUD
             }
             catch(Exception ex)
             {
-                Console.WriteLine("CategoriaRepository Create" + ex.ToString());
+                Console.WriteLine("CategoriaRepository Create" + ex.Message);
             }
             return null;
         }
@@ -125,7 +125,7 @@ namespace NetTicket.Data.RepositoriesCRUD
 
             }catch(Exception ex)
             {
-                Console.WriteLine("CategoriaRepository Update" + ex.ToString());
+                Console.WriteLine("CategoriaRepository Update" + ex.Message);
                 return false;
             }
         }

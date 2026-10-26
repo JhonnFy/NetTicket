@@ -38,7 +38,7 @@ namespace NetTicket.Data.RepositoriesCRUD
             }
             catch(Exception ex)
             {
-                Console.WriteLine("EstadoRepository ObtenerTodos" + ex.ToString());
+                Console.WriteLine("EstadoRepository ObtenerTodos" + ex.Message);
             }
             return estados;
         }
@@ -68,7 +68,7 @@ namespace NetTicket.Data.RepositoriesCRUD
             }
             catch(Exception ex)
             {
-                Console.WriteLine("EstadoRepository ObtenerPorId" + ex.ToString());
+                Console.WriteLine("EstadoRepository ObtenerPorId" + ex.Message);
             }
             return null;
         }
@@ -96,7 +96,7 @@ namespace NetTicket.Data.RepositoriesCRUD
 
             }catch(Exception ex)
             {
-                Console.WriteLine("EstadoRepository Create" + ex.ToString());
+                Console.WriteLine("EstadoRepository Create" + ex.Message);
             }
             return null;
         }
@@ -119,7 +119,7 @@ namespace NetTicket.Data.RepositoriesCRUD
             }
             catch(Exception ex)
             {
-                Console.WriteLine("EstadoRepository Update" + ex.ToString());
+                Console.WriteLine("EstadoRepository Update" + ex.Message);
                 return false;            
             }
         }

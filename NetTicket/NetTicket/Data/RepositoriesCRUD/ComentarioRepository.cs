@@ -43,7 +43,7 @@ namespace NetTicket.Data.RepositoriesCRUD
             }
             catch(Exception ex)
             {
-                Console.WriteLine("ComentarioRepository ObtenerTodos" + ex.ToString());
+                Console.WriteLine("ComentarioRepository ObtenerTodos" + ex.Message);
             }
             return comentarios;
         }
@@ -77,7 +77,7 @@ namespace NetTicket.Data.RepositoriesCRUD
             }
             catch(Exception ex)
             {
-                Console.WriteLine("ComentarioRepository ObtenerPorId" + ex.ToString());
+                Console.WriteLine("ComentarioRepository ObtenerPorId" + ex.Message);
             }
             return null;
         }
@@ -108,7 +108,7 @@ namespace NetTicket.Data.RepositoriesCRUD
                 };
             }catch(Exception ex)
             {
-                Console.WriteLine("ComentarioRepository_Create " + ex.ToString());
+                Console.WriteLine("ComentarioRepository_Create " + ex.Message);
             }
             return null;
         }
@@ -132,7 +132,7 @@ namespace NetTicket.Data.RepositoriesCRUD
             }
             catch(Exception ex)
             {
-                Console.WriteLine("ComentarioRepository Update " + ex.ToString());
+                Console.WriteLine("ComentarioRepository Update " + ex.Message);
                 return false;
             }
         }
