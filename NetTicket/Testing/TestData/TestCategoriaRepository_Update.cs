@@ -36,8 +36,8 @@ public class TestCategoriaRepository_Update
     {
         try
         {
-            var updateCat = repository.Update(1,"Actualizado Desde MsTest V1");
-            var selectId = repository.ObtenerPorId(1);
+            var updateCat = repository.Update(2,"Actualizado Desde MsTest V2");
+            var selectId = repository.ObtenerPorId(2);
             Assert.IsNotNull(updateCat);
 
             TestContext.WriteLine($"Id:{selectId.Id} | Nombre:{selectId.Nombre}");
