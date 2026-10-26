@@ -36,8 +36,8 @@ public class TestEstadoRepository_Update
     {
         try
         {
-            var updateEst = repository.Update(2,"Actualizado Desde MsTest V2");
-            var selectId = repository.ObtenerPorId(1);
+            var updateEst = repository.Update(3,"Actualizado Desde MsTest V3");
+            var selectId = repository.ObtenerPorId(3);
             Assert.IsNotNull(updateEst);
 
 
