@@ -2,6 +2,7 @@
 using NetTicket.Data.Connection;
 using NetTicket.Models;
 using System.Linq.Expressions;
+using System.Net.Http.Headers;
 
 
 namespace NetTicket.Data.RepositoriesCRUD
@@ -130,5 +131,27 @@ namespace NetTicket.Data.RepositoriesCRUD
             }
         }
 
+        public bool Delete(int id)
+        {
+            try
+            {
+                using MySqlConnection cn = _conexion.ObtenerConexion();
+                cn.Open();
+
+                using MySqlCommand cmd = new MySqlCommand("CategoriaRepository_Delete", cn);
+                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+
+                cmd.Parameters.AddWithValue("p_Id", id);
+
+
+                int registros = cmd.ExecuteNonQuery();
+                return registros > 0;
+
+            }catch(Exception ex)
+            {
+                Console.WriteLine("CategoriaRepository Delete" + ex.Message);
+                return false;
+            }
+        }
     }
 }
