@@ -43,9 +43,7 @@ namespace NetTicket.Data.RepositoriesCRUD
             {
                 Console.WriteLine("CategoriaRepository ObtenerTodos" + ex.Message);
             }
-
             return categorias;
-
         }
 
         public Categoria? ObtenerPorId(int id)
