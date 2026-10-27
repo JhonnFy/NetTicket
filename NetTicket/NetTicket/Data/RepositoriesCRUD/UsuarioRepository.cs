@@ -132,9 +132,28 @@ namespace NetTicket.Data.RepositoriesCRUD
                 Console.WriteLine("UsuarioRepository Update" + ex.Message);
                 return false;
             }
-
         }
 
+        public bool Delete(int id)
+        {
+            try
+            {
+                using MySqlConnection cn = _conexion.ObtenerConexion();
+                cn.Open();
 
+                using MySqlCommand cmd = new MySqlCommand("UsuarioRepository_Delete", cn);
+                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+
+                cmd.Parameters.AddWithValue("p_Id", id);
+
+                int registros = cmd.ExecuteNonQuery();
+                return registros > 0;
+
+            }catch(Exception ex)
+            {
+                Console.WriteLine("UsuarioRepository Delete" + ex.Message);
+                return false;
+            }
+        }
     }
 }
