@@ -30,7 +30,6 @@ public class TestCategoriaRepository_Delete
         }
     }
 
-
     [TestMethod]
     public void Delete()
     {
