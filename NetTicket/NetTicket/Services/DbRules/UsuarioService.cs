@@ -9,6 +9,12 @@ namespace NetTicket.Services.DbRules
 {
     public class UsuarioService
     {
+
+        public UsuarioService()
+        {
+
+        }
+
         public bool ValidarNombre(Usuario u)
         {
             if (string.IsNullOrWhiteSpace(u.Nombre))
