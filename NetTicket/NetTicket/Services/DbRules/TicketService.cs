@@ -9,6 +9,11 @@ namespace NetTicket.Services.DbRules
 {
     public class TicketService
     {
+        public TicketService()
+        {
+
+        }
+
 
         public bool ValidarTitulo(Ticket t)
         {
