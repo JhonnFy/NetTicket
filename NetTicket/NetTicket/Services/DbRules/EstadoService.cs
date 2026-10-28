@@ -9,6 +9,11 @@ namespace NetTicket.Services.DbRules
 {
     public class EstadoService
     {
+        public EstadoService()
+        {
+
+        }
+
         public bool ValidarNombre(Estado e)
         {
             if (string.IsNullOrWhiteSpace(e.Nombre))
