@@ -3,7 +3,7 @@
 
 Sistema completo de gestión de tickets de soporte IT, desarrollado con **Arquitectura Por Capas** integrado con una base de datos 
 **MySQL** y una aplicación de consola desarrollada en **.NET (C#)** que consume los datos.
-
+ 
 El sistema permite gestionar el ciclo completo de un ticket: registro de usuarios,
 creación de solicitudes, clasificación por categoría y estado, y seguimiento mediante
 comentarios. 
