@@ -9,6 +9,11 @@ namespace NetTicket.Services.DbRules
 {
     public class ComentarioService
     {
+        public ComentarioService()
+        {
+
+        }
+
         public bool ValidarTexto(Comentario c)
         {
             if (string.IsNullOrWhiteSpace(c.Texto))
