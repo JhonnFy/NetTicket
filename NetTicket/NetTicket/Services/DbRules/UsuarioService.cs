@@ -50,6 +50,10 @@ namespace NetTicket.Services.DbRules
             return _repository.Update(id, nombre, email, area);
         }
 
+        public bool Delete(int id)
+        {
+            return _repository.Delete(id);
+        }
 
     }
 }
