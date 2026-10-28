@@ -1,4 +1,5 @@
-﻿using NetTicket.Models;
+﻿using NetTicket.Data.RepositoriesCRUD;
+using NetTicket.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,10 +10,11 @@ namespace NetTicket.Services.DbRules
 {
     public class UsuarioService
     {
+        private readonly UsuarioRepository _repository;
 
-        public UsuarioService()
+        public UsuarioService(UsuarioRepository repository)
         {
-
+            _repository = repository;
         }
 
         public bool ValidarNombre(Usuario u)
