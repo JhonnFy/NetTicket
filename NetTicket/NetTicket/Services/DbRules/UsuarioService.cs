@@ -18,15 +18,15 @@ namespace NetTicket.Services.DbRules
             _repository = repository;
         }
 
-        public bool ValidarNombre(string nombre)
+        public bool ValidarNombre(Usuario usuario)
         {
-            if (string.IsNullOrWhiteSpace(nombre)) return false;
+            if (string.IsNullOrWhiteSpace(usuario.Nombre)) return false;
             return true;
         }
 
-        public bool ValidarEmail(Usuario u)
+        public bool ValidarEmail(Usuario usuario)
         {
-            if (string.IsNullOrWhiteSpace(u.Email) || !u.Email.Contains("@")) return false;
+            if (string.IsNullOrWhiteSpace(usuario.Email) || !usuario.Email.Contains("@")) return false;
             return true;
         }
 
