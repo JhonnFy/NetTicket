@@ -1,4 +1,5 @@
-﻿using NetTicket.Models;
+﻿using NetTicket.Data.RepositoriesCRUD;
+using NetTicket.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,9 +10,11 @@ namespace NetTicket.Services.DbRules
 {
     public class ComentarioService
     {
-        public ComentarioService()
-        {
+        private readonly ComentarioRepository _repository;
 
+        public ComentarioService(ComentarioRepository repository)
+        {
+            _repository = repository;
         }
 
         public bool ValidarTexto(Comentario c)
