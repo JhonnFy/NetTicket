@@ -1,4 +1,5 @@
-﻿using NetTicket.Models;
+﻿using NetTicket.Data.RepositoriesCRUD;
+using NetTicket.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,9 +10,11 @@ namespace NetTicket.Services.DbRules
 {
     public class TicketService
     {
-        public TicketService()
-        {
+        private readonly TicketRepository _repository;
 
+        public TicketService(TicketRepository repository)
+        {
+            _repository = repository;
         }
 
 
