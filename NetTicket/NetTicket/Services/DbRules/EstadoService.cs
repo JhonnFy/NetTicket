@@ -1,4 +1,5 @@
-﻿using NetTicket.Models;
+﻿using NetTicket.Data.RepositoriesCRUD;
+using NetTicket.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,9 +10,11 @@ namespace NetTicket.Services.DbRules
 {
     public class EstadoService
     {
-        public EstadoService()
-        {
+        private readonly EstadoRepository _repository;
 
+        public EstadoService(EstadoRepository repository)
+        {
+            _repository = repository;
         }
 
         public bool ValidarNombre(Estado e)
