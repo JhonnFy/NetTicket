@@ -40,7 +40,10 @@ namespace NetTicket.Services.DbRules
             return _repository.ObtenerPorId(id);
         }
 
-
+        public Usuario? Create(string nombre, string email, string area)
+        {
+            return _repository.Create(nombre, email, area);
+        }
 
 
     }
