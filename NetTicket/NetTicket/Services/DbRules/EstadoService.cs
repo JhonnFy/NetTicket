@@ -25,5 +25,31 @@ namespace NetTicket.Services.DbRules
             }
             return true;
         }
+        
+        public List<Estado> ObtenerTodos()
+        {
+            return _repository.ObtenerTodos();
+        }
+
+        public Estado? ObtenerPorId(int id)
+        {
+            return _repository.ObtenerPorId(id);
+        }
+
+        public Estado? Create(string nombre)
+        {
+            return _repository.Create(nombre);
+        }
+
+        public bool Update(int id, string nombre)
+        {
+            return _repository.Update(id, nombre);
+        }
+
+        public bool Delete(int id)
+        {
+            return _repository.Delete(id);
+        }
+
     }
 }
