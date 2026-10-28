@@ -35,5 +35,11 @@ namespace NetTicket.Services.DbRules
             return true;
         }
 
+        public List<Usuario> ObtenerTodos()
+        {
+            return _repository.ObtenerTodos();
+        }
+
+
     }
 }
