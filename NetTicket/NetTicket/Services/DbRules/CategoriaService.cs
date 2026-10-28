@@ -9,6 +9,11 @@ namespace NetTicket.Services.DbRules
 {
     public class CategoriaService
     {
+        public CategoriaService()
+        {
+
+        }
+
         public bool ValidarNombre(Categoria c)
         {
             if (string.IsNullOrWhiteSpace(c.Nombre))
@@ -19,5 +24,4 @@ namespace NetTicket.Services.DbRules
             return true;
         }
     }
-
 }
