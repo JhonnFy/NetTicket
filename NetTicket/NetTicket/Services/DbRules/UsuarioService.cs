@@ -38,8 +38,8 @@ namespace NetTicket.Services.DbRules
             foreach(var usuario in usuarios)
             {
                 usuario.Nombre = RulesServices.AgregarPreFijo(RulesServices.ConvertirMayuscula(RulesServices.EliminarEspaciosVacios(usuario.Nombre)));
-                usuario.Email = RulesServices.AgregarPreFijo(RulesServices.ConvertirMayuscula(RulesServices.EliminarEspaciosVacios(usuario.Email)));
-                usuario.Area = RulesServices.AgregarPreFijo(RulesServices.ConvertirMayuscula(RulesServices.EliminarEspaciosVacios(usuario.Nombre)));
+                usuario.Email = RulesServices.EliminarEspaciosVacios(usuario.Email);
+                usuario.Area = RulesServices.AgregarPreFijo(RulesServices.ConvertirMayuscula(RulesServices.EliminarEspaciosVacios(usuario.Area)));
                 
 
 
