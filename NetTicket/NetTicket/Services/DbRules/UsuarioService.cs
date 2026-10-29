@@ -1,5 +1,6 @@
 ﻿using NetTicket.Data.RepositoriesCRUD;
 using NetTicket.Models;
+using NetTicket.Services.BusinessRules;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -32,7 +33,20 @@ namespace NetTicket.Services.DbRules
 
         public List<Usuario> ObtenerTodos()
         {
-            return _repository.ObtenerTodos();
+            var usuarios = _repository.ObtenerTodos();
+
+            foreach(var usuario in usuarios)
+            {
+                usuario.Nombre = RulesServices.AgregarPreFijo(RulesServices.ConvertirMayuscula(RulesServices.EliminarEspaciosVacios(usuario.Nombre)));
+                usuario.Email = RulesServices.AgregarPreFijo(RulesServices.ConvertirMayuscula(RulesServices.EliminarEspaciosVacios(usuario.Email)));
+                usuario.Area = RulesServices.AgregarPreFijo(RulesServices.ConvertirMayuscula(RulesServices.EliminarEspaciosVacios(usuario.Nombre)));
+                
+
+
+            }
+
+            return usuarios;
+
         }
 
         public Usuario? ObtenerPorId(int id)
