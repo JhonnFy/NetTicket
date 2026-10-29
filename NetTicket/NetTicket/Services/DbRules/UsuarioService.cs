@@ -37,6 +37,8 @@ namespace NetTicket.Services.DbRules
 
             foreach(var usuario in usuarios)
             {
+                if (!ValidarNombre(usuario) || !ValidarEmail(usuario))continue;
+
                 usuario.Nombre = RulesServices.AgregarPreFijo(RulesServices.ConvertirMayuscula(RulesServices.EliminarEspaciosVacios(usuario.Nombre)));
                 usuario.Email =  RulesServices.EliminarEspaciosVacios(usuario.Email);
                 usuario.Area = RulesServices.AgregarPreFijo(RulesServices.ConvertirMayuscula(RulesServices.EliminarEspaciosVacios(usuario.Area)));
