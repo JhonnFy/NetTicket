@@ -17,16 +17,11 @@ namespace NetTicket.Services.DbRules
             _repository = repository;
         }
 
-        public bool ValidarTitulo(Ticket t)
+        public bool ValidarTitulo(Ticket ticket)
         {
-            if (string.IsNullOrWhiteSpace(t.Titulo))
-            {
-                return false;
-            }
-
+            if (string.IsNullOrWhiteSpace(ticket.Titulo)) return false;
             return true;
         }
-        
 
         public List<Ticket> ObtenerTodos()
         {
