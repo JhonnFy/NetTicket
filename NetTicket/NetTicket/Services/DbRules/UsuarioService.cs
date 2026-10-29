@@ -50,7 +50,7 @@ namespace NetTicket.Services.DbRules
         {
             var usuario = _repository.ObtenerPorId(id);
 
-            if (usuario == null) return null;
+            if (usuario == null || !ValidarNombre(usuario) || !ValidarEmail(usuario)) return null;
             
 
             usuario.Nombre = RulesServices.AgregarPreFijo(RulesServices.ConvertirMayuscula(RulesServices.EliminarEspaciosVacios(usuario.Nombre)));
