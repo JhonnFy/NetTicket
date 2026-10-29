@@ -41,14 +41,21 @@ namespace NetTicket.Services.DbRules
                 usuario.Email =  RulesServices.EliminarEspaciosVacios(usuario.Email);
                 usuario.Area = RulesServices.AgregarPreFijo(RulesServices.ConvertirMayuscula(RulesServices.EliminarEspaciosVacios(usuario.Area)));
             }
-
             return usuarios;
-
         }
 
         public Usuario? ObtenerPorId(int id)
         {
-            return _repository.ObtenerPorId(id);
+            var usuario = _repository.ObtenerPorId(id);
+
+            if (usuario == null) return null;
+            
+
+            usuario.Nombre = RulesServices.AgregarPreFijo(RulesServices.ConvertirMayuscula(RulesServices.EliminarEspaciosVacios(usuario.Nombre)));
+            usuario.Email = RulesServices.EliminarEspaciosVacios(usuario.Email);
+            usuario.Area = RulesServices.AgregarPreFijo(RulesServices.ConvertirMayuscula(RulesServices.EliminarEspaciosVacios(usuario.Area)));
+
+            return usuario;
         }
 
         public Usuario? Create(string nombre, string email, string area)
