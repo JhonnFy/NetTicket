@@ -30,6 +30,8 @@ namespace NetTicket.Services.DbRules
 
             foreach(var ticket in tickets)
             {
+                if (!ValidarTitulo(ticket)) continue;
+
                 ticket.Titulo = RulesServices.AgregarPreFijo(RulesServices.ConvertirMayuscula(RulesServices.EliminarEspaciosVacios(ticket.Titulo)));
                 ticket.Descripcion = RulesServices.AgregarPreFijo(RulesServices.ConvertirMayuscula(RulesServices.EliminarEspaciosVacios(ticket.Descripcion)));
             }
@@ -40,7 +42,7 @@ namespace NetTicket.Services.DbRules
 
         public Ticket? ObtenerPorId(int id)
         {
-            return _repository.ObtenerPorId(id);
+            
         }
 
         public Ticket? Create(string titulo, string descripcion, int usuarioId, int categoriaId, int estadoId)
