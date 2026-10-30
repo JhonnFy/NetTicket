@@ -1,5 +1,6 @@
 ﻿using NetTicket.Data.RepositoriesCRUD;
 using NetTicket.Models;
+using NetTicket.Services.BusinessRules;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,7 +26,16 @@ namespace NetTicket.Services.DbRules
 
         public List<Ticket> ObtenerTodos()
         {
-            return _repository.ObtenerTodos();
+            var tickets = _repository.ObtenerTodos();
+
+            foreach(var ticket in tickets)
+            {
+                ticket.Titulo = RulesServices.AgregarPreFijo(RulesServices.ConvertirMayuscula(RulesServices.EliminarEspaciosVacios(ticket.Titulo)));
+                ticket.Descripcion = RulesServices.AgregarPreFijo(RulesServices.ConvertirMayuscula(RulesServices.EliminarEspaciosVacios(ticket.Descripcion)));
+            }
+
+            return tickets;
+
         }
 
         public Ticket? ObtenerPorId(int id)
