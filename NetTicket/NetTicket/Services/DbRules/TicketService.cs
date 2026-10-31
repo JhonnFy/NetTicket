@@ -51,6 +51,11 @@ namespace NetTicket.Services.DbRules
 
             return ticket;
         }
+
+        public Ticket? Create (string titulo, string descripcion, int usuarioId, int categoriaId, int estadoId)
+        {
+            return _repository.Create(titulo, descripcion, usuarioId, categoriaId, estadoId);
+        }
         
 
     }
