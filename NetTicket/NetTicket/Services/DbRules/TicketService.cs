@@ -44,15 +44,14 @@ namespace NetTicket.Services.DbRules
         {
             var ticket = _repository.ObtenerPorId(id);
 
-            if (ticket == null || !ValidarTitulo(ticket))return null; ;
+            if (ticket == null || !ValidarTitulo(ticket)) return null;
 
             ticket.Titulo = RulesServices.AgregarPreFijo(RulesServices.ConvertirMayuscula(RulesServices.EliminarEspaciosVacios(ticket.Titulo)));
+            ticket.Descripcion = RulesServices.AgregarPreFijo(RulesServices.ConvertirMayuscula(RulesServices.EliminarEspaciosVacios(ticket.Descripcion)));
 
-
+            return ticket;
         }
         
-
-
 
     }
 }
