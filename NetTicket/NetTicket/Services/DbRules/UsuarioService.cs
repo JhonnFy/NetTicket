@@ -7,7 +7,7 @@ using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
-
+ 
 namespace NetTicket.Services.DbRules
 {
     public class UsuarioService

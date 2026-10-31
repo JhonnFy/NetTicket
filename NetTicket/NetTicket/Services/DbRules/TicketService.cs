@@ -42,18 +42,16 @@ namespace NetTicket.Services.DbRules
 
         public Ticket? ObtenerPorId(int id)
         {
-            
-        }
+            var ticket = _repository.ObtenerPorId(id);
 
-        public Ticket? Create(string titulo, string descripcion, int usuarioId, int categoriaId, int estadoId)
-        {
-            return _repository.Create(titulo,descripcion,usuarioId,categoriaId,estadoId);
-        }
+            if (ticket == null || !ValidarTitulo(ticket)) return null;
 
-        public bool Update(int id, string titulo, string descripcion)
-        {
-            return _repository.Update(id,titulo,descripcion);
+            ticket.Titulo = RulesServices.AgregarPreFijo(RulesServices.ConvertirMayuscula(RulesServices.EliminarEspaciosVacios(ticket.Titulo)));
+            ticket.Descripcion = RulesServices.AgregarPreFijo(RulesServices.ConvertirMayuscula(RulesServices.EliminarEspaciosVacios(ticket.Descripcion)));
+
+            return ticket;
         }
+        
 
     }
 }
