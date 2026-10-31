@@ -58,5 +58,12 @@ namespace NetTicket.Services.DbRules
         }
         
 
+        public bool Update(int id, string titulo, string descripcion)
+        {
+            return _repository.Update(id, titulo, descripcion);
+        }
+
+
+
     }
 }
