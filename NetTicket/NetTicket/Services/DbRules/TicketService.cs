@@ -40,20 +40,6 @@ namespace NetTicket.Services.DbRules
 
         }
 
-        public Ticket? ObtenerPorId(int id)
-        {
-            
-        }
-
-        public Ticket? Create(string titulo, string descripcion, int usuarioId, int categoriaId, int estadoId)
-        {
-            return _repository.Create(titulo,descripcion,usuarioId,categoriaId,estadoId);
-        }
-
-        public bool Update(int id, string titulo, string descripcion)
-        {
-            return _repository.Update(id,titulo,descripcion);
-        }
 
     }
 }
