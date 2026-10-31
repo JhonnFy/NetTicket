@@ -40,6 +40,19 @@ namespace NetTicket.Services.DbRules
 
         }
 
+        public Ticket? ObtenerPorId(int id)
+        {
+            var ticket = _repository.ObtenerPorId(id);
+
+            if (ticket == null || !ValidarTitulo(ticket))return null; ;
+
+            ticket.Titulo = RulesServices.AgregarPreFijo(RulesServices.ConvertirMayuscula(RulesServices.EliminarEspaciosVacios(ticket.Titulo)));
+
+
+        }
+        
+
+
 
     }
 }
