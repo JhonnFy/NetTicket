@@ -18,13 +18,10 @@ namespace NetTicket.Services.DbRules
             _repository = repository;
         }
 
-        public bool ValidarTexto(Comentario c)
+        public bool ValidarTexto(Comentario comentario)
         {
-            //if (string.IsNullOrWhiteSpace(c.Texto))
-            //{
-            //    return false;
-            //}
-            //return true;
+            if (string.IsNullOrWhiteSpace(comentario.Texto)) return false;
+            return true;
         }
 
 
