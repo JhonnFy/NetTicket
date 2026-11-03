@@ -1,5 +1,6 @@
 ﻿using NetTicket.Data.RepositoriesCRUD;
 using NetTicket.Models;
+using NetTicket.Services.BusinessRules;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,14 +24,17 @@ namespace NetTicket.Services.DbRules
             return true;
         }
 
-
-
-        //EstadosRepository
-
-
         public List<Estado> ObtenerTodos()
         {
-            return _repository.ObtenerTodos();
+            var estados = _repository.ObtenerTodos();
+
+            foreach(var estado in estados)
+            {
+                if (!ValidarNombre(estado))continue;
+
+                estado.Nombre = RulesServices.AgregarPreFijo(RulesServices.ConvertirMayuscula(RulesServices.EliminarEspaciosVacios(estado.Nombre)));
+            }
+            return estados;
         }
 
         public Estado? ObtenerPorId(int id)
