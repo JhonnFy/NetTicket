@@ -20,11 +20,11 @@ namespace NetTicket.Services.DbRules
 
         public bool ValidarTexto(Comentario c)
         {
-            if (string.IsNullOrWhiteSpace(c.Texto))
-            {
-                return false;
-            }
-            return true;
+            //if (string.IsNullOrWhiteSpace(c.Texto))
+            //{
+            //    return false;
+            //}
+            //return true;
         }
 
 
