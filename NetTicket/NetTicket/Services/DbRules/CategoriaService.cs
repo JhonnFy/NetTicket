@@ -18,12 +18,12 @@ namespace NetTicket.Services.DbRules
 
         public bool ValidarNombre(Categoria c)
         {
-            if (string.IsNullOrWhiteSpace(c.Nombre))
-            {
-                return false;
+            //if (string.IsNullOrWhiteSpace(c.Nombre))
+            //{
+            //    return false;
 
-            }
-            return true;
+            //}
+            //return true;
         }
 
         public List<Categoria> ObtenerTodos()
