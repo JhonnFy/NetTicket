@@ -17,15 +17,17 @@ namespace NetTicket.Services.DbRules
             _repository = repository;
         }
 
-        public bool ValidarNombre(Estado e)
+        public bool ValidarNombre(Estado estado)
         {
-            if (string.IsNullOrWhiteSpace(e.Nombre))
-            {
-                return false;
-            }
+            if (string.IsNullOrWhiteSpace(estado.Nombre)) return false;
             return true;
         }
-        
+
+
+
+        //EstadosRepository
+
+
         public List<Estado> ObtenerTodos()
         {
             return _repository.ObtenerTodos();
