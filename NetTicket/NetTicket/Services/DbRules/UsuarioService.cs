@@ -43,7 +43,7 @@ namespace NetTicket.Services.DbRules
                 usuario.Email =  RulesServices.EliminarEspaciosVacios(usuario.Email);
                 usuario.Area = RulesServices.AgregarPreFijo(RulesServices.ConvertirMayuscula(RulesServices.EliminarEspaciosVacios(usuario.Area)));
             }
-            return usuarios;
+            return usuarios;    
         }
 
         public Usuario? ObtenerPorId(int id)
