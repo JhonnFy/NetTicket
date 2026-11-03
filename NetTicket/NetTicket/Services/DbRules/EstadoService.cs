@@ -50,17 +50,17 @@ namespace NetTicket.Services.DbRules
 
         public Estado? Create(string nombre)
         {
-            return _repository.Create(nombre);
+            
         }
 
         public bool Update(int id, string nombre)
         {
-            return _repository.Update(id, nombre);
+            
         }
 
         public bool Delete(int id)
         {
-            return _repository.Delete(id);
+            
         }
 
     }
