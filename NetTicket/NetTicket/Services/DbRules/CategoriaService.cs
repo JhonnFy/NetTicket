@@ -1,7 +1,9 @@
 ﻿using NetTicket.Data.RepositoriesCRUD;
 using NetTicket.Models;
+using NetTicket.Services.BusinessRules;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -24,7 +26,15 @@ namespace NetTicket.Services.DbRules
 
         public List<Categoria> ObtenerTodos()
         {
-            return _repository.ObtenerTodos();
+            var categorias = _repository.ObtenerTodos();
+
+            foreach (var categoria in categorias)
+            {
+                if (!ValidarNombre(categoria)) continue;
+
+                categoria.Nombre = RulesServices.AgregarPreFijo(RulesServices.ConvertirMayuscula(RulesServices.EliminarEspaciosVacios(categoria.Nombre)));
+            }
+            return categorias;
         }
 
         public Categoria? ObtenerPorId(int id)
