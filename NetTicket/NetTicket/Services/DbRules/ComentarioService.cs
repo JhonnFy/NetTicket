@@ -1,9 +1,11 @@
 ﻿using NetTicket.Data.RepositoriesCRUD;
 using NetTicket.Models;
+using NetTicket.Services.BusinessRules;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Numerics;
+using System.Reflection.Metadata.Ecma335;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -27,7 +29,15 @@ namespace NetTicket.Services.DbRules
 
         public List<Comentario> ObtenerTodos()
         {
-            return _repository.ObtenerTodos();
+            var comentarios = _repository.ObtenerTodos();
+
+            foreach (var comentario in comentarios)
+            {
+                if (!ValidarTexto(comentario)) continue;
+
+                comentario.Texto = RulesServices.AgregarPreFijo(RulesServices.ConvertirMayuscula(RulesServices.EliminarEspaciosVacios(comentario.Texto)));
+            }
+            return comentarios;
         }
 
         public Comentario? ObtenerPorId(int id)
