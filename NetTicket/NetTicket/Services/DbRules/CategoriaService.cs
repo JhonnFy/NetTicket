@@ -39,7 +39,14 @@ namespace NetTicket.Services.DbRules
 
         public Categoria? ObtenerPorId(int id)
         {
-            return _repository.ObtenerPorId(id);
+            var categoria = _repository.ObtenerPorId(id);
+
+            if (categoria == null || !ValidarNombre(categoria)) return null;
+
+            categoria.Nombre = RulesServices.AgregarPreFijo(RulesServices.ConvertirMayuscula(RulesServices.EliminarEspaciosVacios(categoria.Nombre)));
+
+            return categoria;
+
         }
 
         public Categoria? Create(string nombre)
