@@ -39,7 +39,13 @@ namespace NetTicket.Services.DbRules
 
         public Estado? ObtenerPorId(int id)
         {
-            return _repository.ObtenerPorId(id);
+            var estado = _repository.ObtenerPorId(id);
+
+            if (estado == null || !ValidarNombre(estado)) return null;
+
+            estado.Nombre = RulesServices.AgregarPreFijo(RulesServices.ConvertirMayuscula(RulesServices.EliminarEspaciosVacios(estado.Nombre)));
+
+            return estado;
         }
 
         public Estado? Create(string nombre)
