@@ -57,13 +57,10 @@ namespace NetTicket.Services.DbRules
             return _repository.Create(titulo, descripcion, usuarioId, categoriaId, estadoId);
         }
         
-
         public bool Update(int id, string titulo, string descripcion)
         {
             return _repository.Update(id, titulo, descripcion);
         }
-
-
 
     }
 }
