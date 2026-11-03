@@ -60,7 +60,7 @@ namespace NetTicket.Services.DbRules
 
         public bool Delete(int id)
         {
-            
+            return _repository.Delete(id);
         }
 
     }
