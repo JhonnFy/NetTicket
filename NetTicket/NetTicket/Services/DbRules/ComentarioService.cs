@@ -57,7 +57,7 @@ namespace NetTicket.Services.DbRules
         {
             return _repository.Update(id, texto);
         }
-
+           
     }
 }
 
