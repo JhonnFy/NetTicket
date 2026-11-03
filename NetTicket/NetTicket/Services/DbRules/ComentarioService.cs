@@ -26,7 +26,6 @@ namespace NetTicket.Services.DbRules
             return true;
         }
 
-
         public List<Comentario> ObtenerTodos()
         {
             var comentarios = _repository.ObtenerTodos();
@@ -42,7 +41,11 @@ namespace NetTicket.Services.DbRules
 
         public Comentario? ObtenerPorId(int id)
         {
-            return _repository.ObtenerPorId(id);
+            var comentario = _repository.ObtenerPorId(id);
+            if (comentario == null || !ValidarTexto(comentario))return null;
+
+            comentario.Texto = RulesServices.AgregarPreFijo(RulesServices.ConvertirMayuscula(RulesServices.EliminarEspaciosVacios(comentario.Texto)));
+            return comentario;
         }
 
         public Comentario? Create(int ticketId, int usuarioId, string texto)
