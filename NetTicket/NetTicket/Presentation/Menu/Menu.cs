@@ -32,6 +32,10 @@ namespace NetTicket.Presentation.Menu
                         new CategoriaMenu().IniciarCategoriaMenu();
                         break;
 
+                    case 2:
+                        new ComentarioMenu().IniciarComentarioMenu();
+                        break;
+
                 }
             }while (optionMenu != 6);
         }

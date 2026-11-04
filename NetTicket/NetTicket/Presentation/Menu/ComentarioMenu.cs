@@ -8,7 +8,12 @@ namespace NetTicket.Presentation.Menu
 {
     public class ComentarioMenu
     {
+        public void IniciarComentarioMenu()
+        {
 
 
+
+
+        }
     }
 }
