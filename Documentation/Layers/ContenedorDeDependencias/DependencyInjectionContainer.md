@@ -11,4 +11,5 @@ O en Visual Studio: clic derecho en el proyecto → Manage NuGet Packages → bu
 Selected proyected:
 <img width="1366" height="768" alt="image" src="https://github.com/user-attachments/assets/1e04d0c8-e424-4d3c-9471-edbb38bcee11" />
 
-
+All Install
+<img width="1366" height="768" alt="image" src="https://github.com/user-attachments/assets/02264fde-b3c2-40ca-9529-36848a1ff03d" />
