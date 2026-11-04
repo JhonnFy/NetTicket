@@ -1,13 +1,11 @@
 
 Tables:
 
-
 -- comentarios 
-    +[FK ticket_id, usuario_id]
+    +[FK ticketId, usuarioId]
 -- tickets
     +[FK usuarioId, categoriaId, estadoId]
 
-    
 -- estados
--- usuarios     
+-- usuarios
 -- categorias
