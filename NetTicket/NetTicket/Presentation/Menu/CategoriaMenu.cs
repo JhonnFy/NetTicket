@@ -10,8 +10,10 @@ namespace NetTicket.Presentation.Menu
     {
         public void IniciarCategoriaMenu()
         {
-            Console.Clear();
-            Console.WriteLine("Perrito Estamos En CategoriaMenu");
+            
+
+
+
         }
     }
 }
