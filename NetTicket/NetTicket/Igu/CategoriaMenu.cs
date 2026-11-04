@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace NetTicket.Igu
 {
-    public class CategoriasMenu
+    public class CategoriaMenu
     {
 
 
