@@ -6,15 +6,13 @@ using NetTicket.Presentation.Menu;
 
 try
 {
-
-
-
+    var menu = new Menu();
+    menu.Iniciar();
 
 }catch(Exception ex)
 {
     Console.WriteLine("Program.cs" + ex.Message);
 }
-
 
 
 //try
