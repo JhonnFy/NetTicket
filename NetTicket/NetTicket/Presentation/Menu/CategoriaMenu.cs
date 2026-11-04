@@ -10,11 +10,11 @@ namespace NetTicket.Presentation.Menu
 {
     public class CategoriaMenu
     {
-        private readonly CategoriaService _categoriaService;  
+        private readonly CategoriaService _service;  
 
         public CategoriaMenu(CategoriaService service)
         {
-            _categoriaService = service;
+            _service = service;
         }
 
         public void RunCategoriaMenu()
@@ -38,7 +38,7 @@ namespace NetTicket.Presentation.Menu
                 switch (optionMenu)
                 {
                     case 1:
-                        _categoriaService.ObtenerTodos();
+                        
                         break;
 
                     case 2:
