@@ -39,6 +39,9 @@ namespace NetTicket.Presentation.Menu
                     case 3:
                         new EstadoMenu().IniciarEstadoMenu();
                         break;
+                    case 4:
+                        new TicketMenu().IniciarTicketMenu();
+                        break;
                 }
             }while (optionMenu != 6);
         }

@@ -8,7 +8,10 @@ namespace NetTicket.Presentation.Menu
 {
     public class TicketMenu
     {
+        public void IniciarTicketMenu()
+        {
 
+        }
 
     }
 }
