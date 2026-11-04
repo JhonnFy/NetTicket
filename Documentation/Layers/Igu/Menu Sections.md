@@ -58,4 +58,13 @@ Welcome To Tickets:
 2 → Read
 3 → ReadId
 4 → Update
-5 → Return To Main Menu 
+5 → Return To Main Menu
+
+
+Welcome To Usuarios:
+1 → Create
+2 → Read
+3 → ReadId
+4 → Update
+5 → Delete
+6 → Return To Main Menu
