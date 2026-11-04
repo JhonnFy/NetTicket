@@ -29,11 +29,11 @@ namespace NetTicket.Presentation.Menu
                 switch(optionMenu)
                 {
                     case 1:
-                        
+                        new CategoriaMenu().IniciarCategoriaMenu();
                         break;
 
                 }
-            }while (option !=6);
+            }while (optionMenu != 6);
         }
 
     }
