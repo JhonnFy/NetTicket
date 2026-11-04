@@ -12,9 +12,11 @@ namespace NetTicket.Presentation.Menu
         public void Iniciar()
         {
             int optionMenu;
-
+            
             do
             {
+                Console.Clear();
+
                 Console.WriteLine("Select A Table To Customize:");
                 Console.WriteLine("1 → Categorias");
                 Console.WriteLine("2 → Comentarios");
