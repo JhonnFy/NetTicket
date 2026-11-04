@@ -20,6 +20,7 @@ Select A Table To Customize:
 3 → Estados
 4 → Tickets
 5 → Usuarios
+6 → Exit Menu
 
 ‼Enter Your Choice‼ →
 
