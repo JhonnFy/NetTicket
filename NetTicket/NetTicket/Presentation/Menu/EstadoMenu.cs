@@ -8,7 +8,7 @@ namespace NetTicket.Presentation.Menu
 {
     public class EstadoMenu
     {
-        public void IniciarEstadoMenu()
+        public void RunEstadoMenu()
         {
             int optionMenu;
             Console.Clear();

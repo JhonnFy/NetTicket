@@ -8,7 +8,9 @@ namespace NetTicket.Presentation.Menu
 {
     public class UsuarioMenu
     {
+        public void RunUsuarioMenu()
+        {
 
-
+        }
     }
 }

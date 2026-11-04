@@ -29,18 +29,21 @@ namespace NetTicket.Presentation.Menu
                 switch(optionMenu)
                 {
                     case 1:
-                        new CategoriaMenu().IniciarCategoriaMenu();
+                        new CategoriaMenu().RunCategoriaMenu();
                         break;
 
                     case 2:
-                        new ComentarioMenu().IniciarComentarioMenu();
+                        new ComentarioMenu().RunComentarioMenu();
                         break;
 
                     case 3:
-                        new EstadoMenu().IniciarEstadoMenu();
+                        new EstadoMenu().RunEstadoMenu();
                         break;
                     case 4:
-                        new TicketMenu().IniciarTicketMenu();
+                        new TicketMenu().RunTicketMenu();
+                        break;
+                    case 5:
+                        new UsuarioMenu().RunUsuarioMenu();
                         break;
                 }
             }while (optionMenu != 6);
