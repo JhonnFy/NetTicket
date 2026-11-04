@@ -16,12 +16,12 @@ namespace NetTicket.Presentation.Menu
             do
             {
                 Console.WriteLine("Select A Table To Customize:");
-                Console.WriteLine("Categorias");
-                Console.WriteLine("Comentarios");
-                Console.WriteLine("Estados");
-                Console.WriteLine("Tickets");
-                Console.WriteLine("Usuarios");
-                Console.WriteLine("Exit Menu");
+                Console.WriteLine("1 → Categorias");
+                Console.WriteLine("2 → Comentarios");
+                Console.WriteLine("3 → Estados");
+                Console.WriteLine("4 → Tickets");
+                Console.WriteLine("5 → Usuarios");
+                Console.WriteLine("6 → Exit Menu");
 
                 Console.WriteLine("‼Enter Your Choice‼ →");
                 option = Convert.ToInt32(Console.ReadLine());
