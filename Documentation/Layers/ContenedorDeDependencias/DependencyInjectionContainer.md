@@ -22,8 +22,6 @@ dotnet add package Microsoft.Extensions.DependencyInjection
 2. Buscar `Microsoft.Extensions.DependencyInjection`.
 3. Seleccionar el paquete.
 
-https://github.com/user-attachments/assets/36ffca2c-77f6-4c5f-8fc4-81fd76678019
-
 ![Seleccionar proyecto](docs/img/di-paso1-seleccionar-proyecto.png)
 
 ### Seleccionar el proyecto correcto
