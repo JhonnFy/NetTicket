@@ -45,6 +45,8 @@ namespace NetTicket.Presentation.Menu
                     case 5:
                         new UsuarioMenu().RunUsuarioMenu();
                         break;
+                    case 6:
+                        break;
                 }
             }while (optionMenu != 6);
         }
