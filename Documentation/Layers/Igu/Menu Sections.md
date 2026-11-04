@@ -24,12 +24,24 @@ Select A Table To Customize:
 
 ‼Enter Your Choice‼ →
 
+
 Welcome To Categorias:
 1 → Create 
 2 → Read
 3 → ReadId
 4 → Update
 5 → Delete
-6 →  Return to Main Menu
+6 → Return To Main Menu
 
 ‼Enter Your Choice‼ →
+
+
+Welcome To Categorias:
+1 → Create
+2 → Read
+3 → ReadId
+4 → Update
+5 → Return To Main Menu
+
+
+
