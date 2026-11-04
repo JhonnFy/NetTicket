@@ -35,10 +35,8 @@ namespace NetTicket.Presentation.Menu
                     case 2:
                         new ComentarioMenu().IniciarComentarioMenu();
                         break;
-
                 }
             }while (optionMenu != 6);
         }
-
     }
 }
