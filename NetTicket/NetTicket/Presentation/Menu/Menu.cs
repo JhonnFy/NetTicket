@@ -11,7 +11,7 @@ namespace NetTicket.Presentation.Menu
     {
         public void Iniciar()
         {
-            int option;
+            int optionMenu;
 
             do
             {
@@ -24,7 +24,15 @@ namespace NetTicket.Presentation.Menu
                 Console.WriteLine("6 → Exit Menu");
 
                 Console.WriteLine("‼Enter Your Choice‼ →");
-                option = Convert.ToInt32(Console.ReadLine());
+                optionMenu = Convert.ToInt32(Console.ReadLine());
+
+                switch(optionMenu)
+                {
+                    case 1:
+                        
+                        break;
+
+                }
             }while (option !=6);
         }
 
