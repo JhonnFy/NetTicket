@@ -8,7 +8,7 @@ namespace NetTicket.Presentation.Menu
 {
     public class CategoriaMenu
     {
-        public void IniciarCategoriaMenu()
+        public void RunCategoriaMenu()
         {
             int optionMenu;
             Console.Clear();
@@ -26,9 +26,6 @@ namespace NetTicket.Presentation.Menu
                 Console.WriteLine("‼Enter Your Choice‼ →");
                 optionMenu = Convert.ToInt32(Console.ReadLine());
             } while (optionMenu !=6);
-
-
         }
-
     }
 }

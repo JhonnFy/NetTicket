@@ -12,9 +12,11 @@ namespace NetTicket.Presentation.Menu
         public void Iniciar()
         {
             int optionMenu;
-
+            
             do
             {
+                Console.Clear();
+
                 Console.WriteLine("Select A Table To Customize:");
                 Console.WriteLine("1 → Categorias");
                 Console.WriteLine("2 → Comentarios");
@@ -29,12 +31,26 @@ namespace NetTicket.Presentation.Menu
                 switch(optionMenu)
                 {
                     case 1:
-                        new CategoriaMenu().IniciarCategoriaMenu();
+                        new CategoriaMenu().RunCategoriaMenu();
                         break;
 
+                    case 2:
+                        new ComentarioMenu().RunComentarioMenu();
+                        break;
+
+                    case 3:
+                        new EstadoMenu().RunEstadoMenu();
+                        break;
+                    case 4:
+                        new TicketMenu().RunTicketMenu();
+                        break;
+                    case 5:
+                        new UsuarioMenu().RunUsuarioMenu();
+                        break;
+                    case 6:
+                        break;
                 }
             }while (optionMenu != 6);
         }
-
     }
 }
