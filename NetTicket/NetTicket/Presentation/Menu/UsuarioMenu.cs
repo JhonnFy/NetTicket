@@ -8,6 +8,11 @@ namespace NetTicket.Presentation.Menu
 {
     public class UsuarioMenu
     {
+        public UsuarioMenu()
+        {
+
+        }
+
         public void RunUsuarioMenu()
         {
             int optionMenu;

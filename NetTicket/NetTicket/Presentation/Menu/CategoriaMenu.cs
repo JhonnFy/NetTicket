@@ -1,4 +1,6 @@
-﻿using System;
+﻿using NetTicket.Data.RepositoriesCRUD;
+using NetTicket.Services.DbRules;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,6 +10,13 @@ namespace NetTicket.Presentation.Menu
 {
     public class CategoriaMenu
     {
+        private readonly CategoriaService _categoriaService;  
+
+        public CategoriaMenu()
+        {
+
+        }
+
         public void RunCategoriaMenu()
         {
             int optionMenu;
