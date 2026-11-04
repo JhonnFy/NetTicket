@@ -26,7 +26,6 @@ namespace NetTicket.Presentation.Menu
                 Console.WriteLine("‼Enter Your Choice‼ →");
                 optionMenu = Convert.ToInt32(Console.ReadLine());
             } while (optionMenu !=6);
-
         }
     }
 }
