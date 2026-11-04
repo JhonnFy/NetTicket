@@ -38,7 +38,7 @@ namespace NetTicket.Presentation.Menu
                 switch (optionMenu)
                 {
                     case 1:
-
+                        _categoriaService.ObtenerTodos();
                         break;
 
                     case 2:
