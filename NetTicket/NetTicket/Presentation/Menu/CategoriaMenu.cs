@@ -1,4 +1,6 @@
-﻿using System;
+﻿using NetTicket.Data.RepositoriesCRUD;
+using NetTicket.Services.DbRules;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,6 +10,13 @@ namespace NetTicket.Presentation.Menu
 {
     public class CategoriaMenu
     {
+        private readonly CategoriaService _service;
+         
+        public CategoriaMenu(CategoriaService service)
+        {
+            _service = service;
+        }
+
         public void RunCategoriaMenu()
         {
             int optionMenu;
@@ -25,6 +34,31 @@ namespace NetTicket.Presentation.Menu
 
                 Console.WriteLine("‼Enter Your Choice‼ →");
                 optionMenu = Convert.ToInt32(Console.ReadLine());
+
+                switch (optionMenu)
+                {
+                    case 1:
+                        _service.ObtenerTodos();
+                        break;
+
+                    case 2:
+
+                        break;
+
+                    case 3:
+
+                        break;
+
+                    case 4:
+
+                        break;
+
+                    case 5:
+
+                        break;
+                }
+
+
             } while (optionMenu !=6);
         }
     }

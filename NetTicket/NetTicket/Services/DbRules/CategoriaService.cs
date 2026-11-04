@@ -13,6 +13,8 @@ namespace NetTicket.Services.DbRules
     public class CategoriaService
     {
         private readonly CategoriaRepository _repository;
+
+
         public CategoriaService(CategoriaRepository repository)
         {
             _repository = repository;

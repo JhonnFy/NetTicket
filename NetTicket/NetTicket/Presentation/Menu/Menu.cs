@@ -9,6 +9,11 @@ namespace NetTicket.Presentation.Menu
 {
     public class Menu
     {
+        public Menu()
+        {
+
+        }
+
         public void Iniciar()
         {
             int optionMenu;
@@ -31,6 +36,7 @@ namespace NetTicket.Presentation.Menu
                 switch(optionMenu)
                 {
                     case 1:
+                        //new CategoriaMenu().RunCategoriaMenu();
                         new CategoriaMenu().RunCategoriaMenu();
                         break;
 
