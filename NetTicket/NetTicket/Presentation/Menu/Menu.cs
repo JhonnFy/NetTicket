@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NetTicket.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,7 +15,13 @@ namespace NetTicket.Presentation.Menu
 
             do
             {
-
+                Console.WriteLine("Select A Table To Customize:");
+                Console.WriteLine("Categorias");
+                Console.WriteLine("Comentarios");
+                Console.WriteLine("Estados");
+                Console.WriteLine("Tickets");
+                Console.WriteLine("Usuarios");
+                Console.WriteLine("Exit Menu");
 
                 Console.WriteLine("‼Enter Your Choice‼ →");
                 option = Convert.ToInt32(Console.ReadLine());
