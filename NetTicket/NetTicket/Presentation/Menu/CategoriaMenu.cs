@@ -12,9 +12,9 @@ namespace NetTicket.Presentation.Menu
     {
         private readonly CategoriaService _categoriaService;  
 
-        public CategoriaMenu()
+        public CategoriaMenu(CategoriaService service)
         {
-
+            _categoriaService = service;
         }
 
         public void RunCategoriaMenu()
@@ -34,6 +34,31 @@ namespace NetTicket.Presentation.Menu
 
                 Console.WriteLine("‼Enter Your Choice‼ →");
                 optionMenu = Convert.ToInt32(Console.ReadLine());
+
+                switch (optionMenu)
+                {
+                    case 1:
+
+                        break;
+
+                    case 2:
+
+                        break;
+
+                    case 3:
+
+                        break;
+
+                    case 4:
+
+                        break;
+
+                    case 5:
+
+                        break;
+                }
+
+
             } while (optionMenu !=6);
         }
     }
