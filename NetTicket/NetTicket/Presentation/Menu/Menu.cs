@@ -36,6 +36,7 @@ namespace NetTicket.Presentation.Menu
                 switch(optionMenu)
                 {
                     case 1:
+                        //new CategoriaMenu().RunCategoriaMenu();
                         new CategoriaMenu().RunCategoriaMenu();
                         break;
 
