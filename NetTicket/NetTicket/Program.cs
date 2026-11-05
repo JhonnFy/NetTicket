@@ -1,6 +1,7 @@
-﻿using Microsoft.Extensions.Configuration;
-using MySqlConnector;
-using NetTicket.Data.Connection;
+﻿using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Configuration;
+using NetTicket.DependencyInjection;
+using NetTicket.Presentation.Menu;
 using NetTicket.Presentation.Menu;
 
 
