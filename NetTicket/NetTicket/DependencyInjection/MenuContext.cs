@@ -11,11 +11,11 @@ namespace NetTicket.DependencyInjection
     public class MenuContext
     {
         //Agrupador De Dependencias
-        private readonly CategoriaMenu _categoriaMenu;
-        private readonly ComentarioMenu _comentarioMenu;
-        private readonly EstadoMenu _estadoMenu;
-        private readonly TicketMenu _ticketMenu;
-        private readonly UsuarioMenu _usuarioMenu;
+        public readonly CategoriaMenu CategoriaMenu;
+        public readonly ComentarioMenu ComentarioMenu;
+        public readonly EstadoMenu EstadoMenu;
+        public readonly TicketMenu TicketMenu;
+        public readonly UsuarioMenu UsuarioMenu;
 
         public MenuContext(
                 CategoriaMenu categoriaMenu,
@@ -25,11 +25,11 @@ namespace NetTicket.DependencyInjection
                 UsuarioMenu usuarioMenu
              )
         {
-            _categoriaMenu = categoriaMenu;
-            _comentarioMenu = comentarioMenu;
-            _estadoMenu = estadoMenu;
-            _ticketMenu = ticketMenu;
-            _usuarioMenu = usuarioMenu;
+             CategoriaMenu = categoriaMenu;
+             ComentarioMenu = comentarioMenu;
+             EstadoMenu = estadoMenu;
+             TicketMenu = ticketMenu;
+             UsuarioMenu = usuarioMenu;
         }
     }
 }

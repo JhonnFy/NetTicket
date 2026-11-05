@@ -39,24 +39,21 @@ namespace NetTicket.Presentation.Menu
                 switch(optionMenu)
                 {
                     case 1:
-
+                        _menuContext.CategoriaMenu.RunCategoriaMenu();
                         break;
 
                     case 2:
-                        new ComentarioMenu().RunComentarioMenu();
+                        _menuContext.ComentarioMenu.RunComentarioMenu();
                         break;
 
                     case 3:
-                        new EstadoMenu().RunEstadoMenu();
-
+                        _menuContext.EstadoMenu.RunEstadoMenu();
                         break;
                     case 4:
-                        new TicketMenu().RunTicketMenu();
-
+                        _menuContext.TicketMenu.RunTicketMenu();
                         break;
                     case 5:
-                        new UsuarioMenu().RunUsuarioMenu();
-
+                        _menuContext.UsuarioMenu.RunUsuarioMenu();
                         break;
                     case 6:
                         break;
