@@ -1,4 +1,5 @@
-﻿using NetTicket.Models;
+﻿using NetTicket.DependencyInjection;
+using NetTicket.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,9 +10,11 @@ namespace NetTicket.Presentation.Menu
 {
     public class Menu
     {
-        public Menu()
+        private readonly MenuContext _menuContext;
+        
+        public Menu(MenuContext menuContext)
         {
-
+            _menuContext = menuContext;
         }
 
         public void Iniciar()
