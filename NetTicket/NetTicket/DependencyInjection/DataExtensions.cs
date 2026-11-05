@@ -15,22 +15,16 @@ namespace NetTicket.DependencyInjection
 
         public static IServiceCollection AddNetTicketData(this IServiceCollection services)
         {
-            //+Conexion
             services.AddTransient<Conexion>();
 
-            //+CategoriaRepository
             services.AddTransient<CategoriaRepository>();
 
-            //+ComentarioRepository
             services.AddTransient<ComentarioRepository>();
 
-            //+EstadoRepository
             services.AddTransient<EstadoRepository>();
 
-            //+TicketRepository
             services.AddTransient<TicketRepository>();
 
-            //+UsuarioRepository
             services.AddTransient<UsuarioRepository>();
 
             return services;

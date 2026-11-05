@@ -12,22 +12,16 @@ namespace NetTicket.DependencyInjection
     {
         public static IServiceCollection AddNetTicketPresentation(this IServiceCollection services)
         {
-            //CategoriaMenu
             services.AddTransient<CategoriaMenu>();
 
-            //ComentarioMenu
             services.AddTransient<ComentarioMenu>();
 
-            //EstadoMenu
             services.AddTransient<EstadoMenu>();
 
-            //Menu
             services.AddTransient<Menu>();
 
-            //TicketMenu
             services.AddTransient<TicketMenu>();
 
-            //UsuarioMenu
             services.AddTransient<UsuarioMenu>();
 
             return services;
