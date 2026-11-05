@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
+using NetTicket.Data.Connection;
 using NetTicket.Data.RepositoriesCRUD;
 using System;
 using System.Collections.Generic;
@@ -14,12 +15,17 @@ namespace NetTicket.DependencyInjection
 
         public static IServiceCollection AddNetTicketData (this IServiceCollection services)
         {
+            //+Conexion
+            services.AddTransient<Conexion>();
+
             //+CategoriaRepository
             services.AddTransient<CategoriaRepository>();
 
             //+ComentarioRepository
             services.AddTransient<ComentarioRepository>();
 
+            //+EstadoRepository
+            services.AddTransient<EstadoRepository>();
 
 
 
