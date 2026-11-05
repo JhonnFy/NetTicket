@@ -24,6 +24,8 @@ namespace NetTicket.DependencyInjection
 
             services.AddTransient<UsuarioMenu>();
 
+            services.AddTransient<MenuContext>();
+
             return services;
         }
     }

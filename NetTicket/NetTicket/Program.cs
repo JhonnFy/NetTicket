@@ -14,11 +14,17 @@ try
     var services = new ServiceCollection();
     services.AddSingleton<IConfiguration>(configuration);
 
+    services.AddNetTicketData();
+    services.AddNetTicketPresentation();
+    services.AddNetTicketService();
+
+    var provider = services.BuildServiceProvider();
+    provider.GetRequiredService<Menu>().Iniciar();
 
 }
 catch(Exception ex)
 {
-    Console.WriteLine("Program.cs" + ex.Message);
+    Console.WriteLine("Program.cs: " + ex.Message);
 }
 
 
