@@ -36,7 +36,7 @@ namespace NetTicket.Presentation.Menu
                 switch(optionMenu)
                 {
                     case 1:
-                        
+
                         break;
 
                     case 2:
@@ -45,12 +45,15 @@ namespace NetTicket.Presentation.Menu
 
                     case 3:
                         new EstadoMenu().RunEstadoMenu();
+
                         break;
                     case 4:
                         new TicketMenu().RunTicketMenu();
+
                         break;
                     case 5:
                         new UsuarioMenu().RunUsuarioMenu();
+
                         break;
                     case 6:
                         break;
