@@ -2,17 +2,29 @@
 using Microsoft.Extensions.Configuration;
 using NetTicket.DependencyInjection;
 using NetTicket.Presentation.Menu;
-using NetTicket.Presentation.Menu;
 
 
 try
 {
-    var menu = new Menu();
-    menu.Iniciar();
+    IConfiguration configuration = new ConfigurationBuilder()
+        .SetBasePath(AppContext.BaseDirectory)
+        .AddJsonFile("appsettings.json")
+        .Build();
 
-}catch(Exception ex)
+    var services = new ServiceCollection();
+    services.AddSingleton<IConfiguration>(configuration);
+
+    services.AddNetTicketData();
+    services.AddNetTicketPresentation();
+    services.AddNetTicketService();
+
+    var provider = services.BuildServiceProvider();
+    provider.GetRequiredService<Menu>().Iniciar();
+
+}
+catch(Exception ex)
 {
-    Console.WriteLine("Program.cs" + ex.Message);
+    Console.WriteLine("Program.cs: " + ex.Message);
 }
 
 
