@@ -10,37 +10,20 @@ namespace NetTicket.Services.BusinessRules
     {
       public static string ConvertirMayuscula(string cadena)
         {
-            if (string.IsNullOrWhiteSpace(cadena))
-            {
-                return cadena;
-            }
+            if (string.IsNullOrWhiteSpace(cadena)) return cadena;
             return cadena.ToUpper();
         }
 
       public static string EliminarEspaciosVacios(string cadena)
         {
-            if (string.IsNullOrWhiteSpace(cadena))
-            {
-                return cadena;
-            }
+            if (string.IsNullOrWhiteSpace(cadena)) return cadena;
             return cadena.Replace(" ", "");
         }
 
        public static string AgregarPreFijo(string cadena)
         {
-            if (string.IsNullOrWhiteSpace(cadena))
-            {
-                return cadena;
-            }
-
+            if (string.IsNullOrWhiteSpace(cadena)) return cadena;
             return "AppTickets " + cadena;
         }
-
-        public static string FormatoFecha(DateTime fecha)
-        {
-            return fecha.ToString("dd/MM/yyyy HH:mm:ss");
-
-        }
-
     }
 }
