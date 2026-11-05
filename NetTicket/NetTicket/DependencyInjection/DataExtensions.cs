@@ -27,6 +27,9 @@ namespace NetTicket.DependencyInjection
             //+EstadoRepository
             services.AddTransient<EstadoRepository>();
 
+            //+TicketRepository
+            services.AddTransient<TicketRepository>();
+
 
 
             return services;
