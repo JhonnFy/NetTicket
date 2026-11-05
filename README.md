@@ -228,3 +228,8 @@ Cada repositorio tiene tests con MSTest que prueban contra la DB real:
 - **No usar `try/catch` en tests** → si el `Assert` falla, el `catch` lo oculta y el test "pasa" falsamente.
 - **`Console.WriteLine` en MSTest** aparece en "Standard Output" del resultado.
 - **`Assert.AreEqual(esperado, real)`** compara; no imprime.
+
+
+
+## Capturas de pantalla
+<img width="1366" height="768" alt="image" src="https://github.com/user-attachments/assets/7ba94c7a-fb13-4c44-af71-de885ea28fbf" />
