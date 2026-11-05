@@ -30,7 +30,8 @@ namespace NetTicket.DependencyInjection
             //+TicketRepository
             services.AddTransient<TicketRepository>();
 
-
+            //+UsuarioRepository
+            services.AddTransient<UsuarioRepository>();
 
             return services;
         }
