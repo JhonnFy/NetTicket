@@ -13,7 +13,7 @@ namespace NetTicket.DependencyInjection
     public static class DataExtensions
     {
 
-        public static IServiceCollection AddNetTicketData (this IServiceCollection services)
+        public static IServiceCollection AddNetTicketData(this IServiceCollection services)
         {
             //+Conexion
             services.AddTransient<Conexion>();
