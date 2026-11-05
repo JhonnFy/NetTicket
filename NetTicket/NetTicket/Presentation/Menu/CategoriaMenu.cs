@@ -38,11 +38,16 @@ namespace NetTicket.Presentation.Menu
                 switch (optionMenu)
                 {
                     case 1:
-                        _service.ObtenerTodos();
+                        
                         break;
 
                     case 2:
+                        var categorias = _service.ObtenerTodos();
 
+                        foreach (var categoria in categorias)
+                        {
+                            Console.WriteLine($"Id:{categoria.Id}, Nombre:{categoria.Nombre}");
+                        }
                         break;
 
                     case 3:
