@@ -58,7 +58,6 @@ namespace NetTicket.Presentation.Menu
                         Console.WriteLine();
                         break;
 
-
                     case 3:                       
                         Console.Write("Ingrese El Parámetro De Consulta: ");
                         int id = Convert.ToInt32(Console.ReadLine());
@@ -66,11 +65,8 @@ namespace NetTicket.Presentation.Menu
                         Console.Clear();
 
                         Console.WriteLine($"[Option 3 → Read.Categorias.Id → ]");
-                        if (countId == null) { Console.WriteLine($"El Id Proporcionado No Existe En La Base De Datos"); break; }
-                        Console.WriteLine($"Id:{countId.Id}, Nombre:{countId.Nombre}");
-                        Console.WriteLine("]");
-                        
-                        break;
+                        if (countId == null) { Console.WriteLine($"El Id Proporcionado No Existe En La Base De Datos"); Console.WriteLine(); break; }
+                        Console.WriteLine($"Id:{countId.Id}, Nombre:{countId.Nombre}\n]"); break;
 
 
 
