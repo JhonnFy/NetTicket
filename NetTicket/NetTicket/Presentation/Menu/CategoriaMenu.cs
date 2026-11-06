@@ -46,11 +46,12 @@ namespace NetTicket.Presentation.Menu
 
                     case 2:
                         var categorias = _service.ObtenerTodos();
+                        
                             Console.WriteLine("[{Option 2} → {Read.Categorias}  → {}");
-                                foreach (var categoria in categorias)
+                        foreach (var categoria in categorias)
                                     {
                                         Console.WriteLine($"Id:{categoria.Id}, Nombre:{categoria.Nombre}");
-                                    }
+                        }
                             Console.WriteLine("]");
                         Console.WriteLine();
                         break;

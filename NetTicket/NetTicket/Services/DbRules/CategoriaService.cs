@@ -26,6 +26,14 @@ namespace NetTicket.Services.DbRules
             return true;
         }
 
+        public int CountCategoria()
+        {
+            var categorias = _repository.CountCategoria();
+
+            return categorias;
+        }
+
+
         public List<Categoria> ObtenerTodos()
         {
             var categorias = _repository.ObtenerTodos();
