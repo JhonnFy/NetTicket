@@ -46,11 +46,11 @@ namespace NetTicket.Presentation.Menu
                         break;
 
                     case 2:
-                        var categorias = _service.ObtenerTodos();
+                        var countAll = _service.ObtenerTodos();
                         var countCat = _service.CountCategoria();
                         
                             Console.WriteLine($"[Option 2 → Read.Categorias  → {countCat}]");
-                        foreach (var categoria in categorias)
+                        foreach (var categoria in countAll)
                                     {
                                         Console.WriteLine($"Id:{categoria.Id}, Nombre:{categoria.Nombre}");
                         }
@@ -58,8 +58,15 @@ namespace NetTicket.Presentation.Menu
                         Console.WriteLine();
                         break;
 
-                    case 3:
+                    case 3:                       
+                        Console.WriteLine("Ingrese El Parámetro De Consulta");
 
+                            int id = Convert.ToInt32(Console.ReadLine());
+                            var countId = _service.ObtenerPorId(id);
+
+                            Console.WriteLine($"[Id:{countId.Id}, Nombre:{countId.Nombre}]");
+                            Console.WriteLine("]");
+                        Console.WriteLine();
                         break;
 
                     case 4:

@@ -13,7 +13,6 @@ namespace NetTicket.Presentation.Menu
 
         }
 
-
         public void RunComentarioMenu()
         {
             int optionMenu;
