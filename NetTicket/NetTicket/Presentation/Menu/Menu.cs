@@ -1,6 +1,6 @@
 ﻿using NetTicket.DependencyInjection;
-using NetTicket.Models;
 using Spectre.Console;
+using NetTicket.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
