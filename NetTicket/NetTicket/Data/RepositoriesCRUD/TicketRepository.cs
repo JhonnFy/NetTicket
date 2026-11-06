@@ -13,6 +13,28 @@ namespace NetTicket.Data.RepositoriesCRUD
             _conexion = conexion;
         }
 
+        public int CountTickets()
+        {
+            try
+            {
+                using MySqlConnection cn = _conexion.ObtenerConexion();
+                cn.Open();
+
+                using MySqlCommand cmd = new MySqlCommand("CountAllTickets", cn);
+                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+
+                var countTick = Convert.ToInt32(cmd.ExecuteScalar());
+
+                return countTick;
+
+            }catch(Exception ex)
+            {
+                Console.WriteLine("TicketRepository CountTickets" + ex.Message);
+                return 0;
+            }
+        }
+
+
         public List<Ticket> ObtenerTodos()
         {
             List<Ticket> tickets = new List<Ticket>();
