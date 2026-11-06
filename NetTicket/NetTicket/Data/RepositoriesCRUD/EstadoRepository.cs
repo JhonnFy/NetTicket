@@ -14,6 +14,28 @@ namespace NetTicket.Data.RepositoriesCRUD
             _conexion = conexion;
         }
 
+        public int CountEstado()
+        {
+            try
+            {
+                using MySqlConnection cn = _conexion.ObtenerConexion();
+                cn.Open();
+
+                using MySqlCommand cmd = new MySqlCommand("CountAllEstados", cn);
+                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+
+                var countEst = Convert.ToInt32(cmd.ExecuteScalar());
+
+                return countEst;
+
+            }catch(Exception ex)
+            {
+                Console.WriteLine("EstadoRepository CountEstado" + ex.Message);
+                return 0;
+            }
+        }
+
+
         public List<Estado> ObtenerTodos()
         {
             List<Estado> estados = new List<Estado>();
