@@ -12,7 +12,7 @@ namespace NetTicket.Presentation.Menu
     public class CategoriaMenu
     {
         private readonly CategoriaService _service;
-         
+
         public CategoriaMenu(CategoriaService service)
         {
             _service = service;
@@ -42,33 +42,33 @@ namespace NetTicket.Presentation.Menu
                 switch (optionMenu)
                 {
                     case 1:
-                        
+
                         break;
 
                     case 2:
                         var countAll = _service.ObtenerTodos();
                         var countCat = _service.CountCategoria();
-                        
-                            Console.WriteLine($"[Option 2 → Read.Categorias  → {countCat}]");
+
+                        Console.WriteLine($"[Option 2 → Read.Categorias  → {countCat}]");
                         foreach (var categoria in countAll)
-                                    {
-                                        Console.WriteLine($"Id:{categoria.Id}, Nombre:{categoria.Nombre}");
+                        {
+                            Console.WriteLine($"Id:{categoria.Id}, Nombre:{categoria.Nombre}");
                         }
-                            Console.WriteLine("]");
+                        Console.WriteLine("]");
                         Console.WriteLine();
                         break;
 
-                    case 3:                       
+                    case 3:
                         Console.Write("Ingrese El Parámetro De Consulta: ");
                         int id = Convert.ToInt32(Console.ReadLine());
-                            var countId = _service.ObtenerPorId(id);
+                        var countId = _service.ObtenerPorId(id);
                         Console.Clear();
 
                         Console.WriteLine($"[Option 3 → Read.Categorias.Id → ]");
-                        if (countId == null) { Console.WriteLine($"El Id Proporcionado No Existe En La Base De Datos"); Console.WriteLine(); break; }
-                        Console.WriteLine($"Id:{countId.Id}, Nombre:{countId.Nombre}\n]"); break;
+                        if (countId == null) { Console.WriteLine($"El Id Proporcionado No Existe En La Base De Datos\n]"); break; }
+                        Console.WriteLine($"Id:{countId.Id}, Nombre:{countId.Nombre}\n]\n");
 
-
+                        break;
 
 
                     case 4:
@@ -80,7 +80,7 @@ namespace NetTicket.Presentation.Menu
                         break;
                 }
 
-            } while (optionMenu !=6);
+            } while (optionMenu != 6);
         }
     }
 }
