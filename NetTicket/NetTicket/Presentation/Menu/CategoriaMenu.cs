@@ -1,4 +1,5 @@
-﻿using Microsoft.VisualBasic;
+﻿using Microsoft.Extensions.Configuration;
+using Microsoft.VisualBasic;
 using NetTicket.Data.RepositoriesCRUD;
 using NetTicket.Services.DbRules;
 using System;
@@ -42,6 +43,12 @@ namespace NetTicket.Presentation.Menu
                 switch (optionMenu)
                 {
                     case 1:
+                        Console.Write("Digite el nombre de la categoría: ");
+                        string nameCat = Convert.ToString(Console.ReadLine());
+                        var createCat = _service.Create(nameCat);
+                               
+                        if(createCat == null) { Console.WriteLine($"No Se Creo La Categoria"); break; }
+                        Console.WriteLine($"Nueva Categoría Registrada;  Id:{createCat.Id}, Nombre{createCat.Nombre}");
 
                         break;
 
@@ -72,6 +79,7 @@ namespace NetTicket.Presentation.Menu
 
 
                     case 4:
+                        
 
                         break;
 

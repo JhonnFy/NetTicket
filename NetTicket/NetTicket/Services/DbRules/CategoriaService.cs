@@ -61,6 +61,8 @@ namespace NetTicket.Services.DbRules
 
         public Categoria? Create(string nombre)
         {
+            var temp = new Categoria { Nombre = nombre };
+            if (!ValidarNombre(temp)) return null;
             return _repository.Create(nombre);
         }
 
