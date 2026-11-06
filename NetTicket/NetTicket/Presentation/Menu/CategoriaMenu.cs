@@ -58,16 +58,27 @@ namespace NetTicket.Presentation.Menu
                         Console.WriteLine();
                         break;
 
+
+
+
+
+
                     case 3:                       
-                        Console.WriteLine("Ingrese El Parámetro De Consulta");
+                        Console.Write("Ingrese El Parámetro De Consulta: ");
 
                             int id = Convert.ToInt32(Console.ReadLine());
                             var countId = _service.ObtenerPorId(id);
 
-                            Console.WriteLine($"[Id:{countId.Id}, Nombre:{countId.Nombre}]");
-                            Console.WriteLine("]");
+
+                        if(countId == null) { Console.WriteLine($"El Id Proporcionado No Existe En La Base De Datos"); break; }
+                        Console.WriteLine($"[3 → ReadId → Read.Categorias.Id  → ]");
+                        Console.WriteLine($"Id:{countId.Id}]");
+                        Console.WriteLine($"Nombre:{countId.Nombre}]");
                         Console.WriteLine();
                         break;
+
+
+
 
                     case 4:
 
