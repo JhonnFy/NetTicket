@@ -20,7 +20,9 @@ namespace NetTicket.Presentation.Menu
 
             do
             {
+                Console.WriteLine("---------------------------");
                 Console.WriteLine("Welcome To Tickets:");
+                Console.WriteLine("---------------------------");
                 Console.WriteLine("1 → Create");
                 Console.WriteLine("2 → Read");
                 Console.WriteLine("3 → ReadId");

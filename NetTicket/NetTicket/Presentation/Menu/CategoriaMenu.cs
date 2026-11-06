@@ -1,4 +1,5 @@
-﻿using NetTicket.Data.RepositoriesCRUD;
+﻿using Microsoft.VisualBasic;
+using NetTicket.Data.RepositoriesCRUD;
 using NetTicket.Services.DbRules;
 using System;
 using System.Collections.Generic;
@@ -20,11 +21,12 @@ namespace NetTicket.Presentation.Menu
         public void RunCategoriaMenu()
         {
             int optionMenu;
-            Console.Clear();
 
             do
             {
+                Console.WriteLine("---------------------------");
                 Console.WriteLine("Welcome To Categorias:");
+                Console.WriteLine("---------------------------");
                 Console.WriteLine("1 → Create");
                 Console.WriteLine("2 → Read");
                 Console.WriteLine("3 → ReadId");
@@ -35,6 +37,8 @@ namespace NetTicket.Presentation.Menu
                 Console.WriteLine("‼Enter Your Choice‼ →");
                 optionMenu = Convert.ToInt32(Console.ReadLine());
 
+                Console.Clear();
+
                 switch (optionMenu)
                 {
                     case 1:
@@ -43,11 +47,15 @@ namespace NetTicket.Presentation.Menu
 
                     case 2:
                         var categorias = _service.ObtenerTodos();
-
+                        var countCat = _service.CountCategoria();
+                        
+                            Console.WriteLine($"[Option 2 → Read.Categorias  → {countCat}]");
                         foreach (var categoria in categorias)
-                        {
-                            Console.WriteLine($"Id:{categoria.Id}, Nombre:{categoria.Nombre}");
+                                    {
+                                        Console.WriteLine($"Id:{categoria.Id}, Nombre:{categoria.Nombre}");
                         }
+                            Console.WriteLine("]");
+                        Console.WriteLine();
                         break;
 
                     case 3:
@@ -62,7 +70,6 @@ namespace NetTicket.Presentation.Menu
 
                         break;
                 }
-
 
             } while (optionMenu !=6);
         }
