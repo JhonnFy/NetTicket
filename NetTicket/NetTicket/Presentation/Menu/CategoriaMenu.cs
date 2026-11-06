@@ -72,7 +72,8 @@ namespace NetTicket.Presentation.Menu
 
                         if(countId == null) { Console.WriteLine($"El Id Proporcionado No Existe En La Base De Datos"); break; }
                         Console.WriteLine($"[Option 3 → Read.Categorias.Id → ]");
-                        Console.WriteLine($"Id:{countId.Id}, Nombre:{countId.Nombre}]");
+                        Console.WriteLine($"Id:{countId.Id}, Nombre:{countId.Nombre}");
+                        Console.WriteLine("]");
                         Console.WriteLine();
                         break;
 
