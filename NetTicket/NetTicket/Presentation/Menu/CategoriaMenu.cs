@@ -20,7 +20,6 @@ namespace NetTicket.Presentation.Menu
         public void RunCategoriaMenu()
         {
             int optionMenu;
-            Console.Clear();
 
             do
             {
@@ -37,6 +36,8 @@ namespace NetTicket.Presentation.Menu
                 Console.WriteLine("‼Enter Your Choice‼ →");
                 optionMenu = Convert.ToInt32(Console.ReadLine());
 
+                Console.Clear();
+
                 switch (optionMenu)
                 {
                     case 1:
@@ -45,11 +46,12 @@ namespace NetTicket.Presentation.Menu
 
                     case 2:
                         var categorias = _service.ObtenerTodos();
-
-                        foreach (var categoria in categorias)
-                        {
-                            Console.WriteLine($"Id:{categoria.Id}, Nombre:{categoria.Nombre}");
-                        }
+                            Console.WriteLine("[");
+                                foreach (var categoria in categorias)
+                                    {
+                                        Console.WriteLine($"Id:{categoria.Id}, Nombre:{categoria.Nombre}");
+                                    }
+                            Console.WriteLine("]");
                         break;
 
                     case 3:
@@ -64,7 +66,6 @@ namespace NetTicket.Presentation.Menu
 
                         break;
                 }
-
 
             } while (optionMenu !=6);
         }

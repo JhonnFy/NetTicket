@@ -20,11 +20,11 @@ namespace NetTicket.Presentation.Menu
         public void Iniciar()
         {
             int optionMenu;
-            
+
+            Console.Clear();
+
             do
             {
-                Console.Clear();
-
                 Console.WriteLine("Select A Table To Customize:");
                 Console.WriteLine("1 → Categorias");
                 Console.WriteLine("2 → Comentarios");
@@ -35,6 +35,7 @@ namespace NetTicket.Presentation.Menu
 
                 Console.WriteLine("‼Enter Your Choice‼ →");
                 optionMenu = Convert.ToInt32(Console.ReadLine());
+                Console.Clear();
 
                 switch(optionMenu)
                 {
