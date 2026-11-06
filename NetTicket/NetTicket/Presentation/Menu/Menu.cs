@@ -1,5 +1,6 @@
 ﻿using NetTicket.DependencyInjection;
 using NetTicket.Models;
+using Spectre.Console;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,19 +24,30 @@ namespace NetTicket.Presentation.Menu
 
             Console.Clear();
 
+            var countCat = _menuContext.CategoriaMenu.countCategorias();
+
+
+            AnsiConsole.Write(new Markup("[bold cyan]Welcome To TicketsDb[/]").Centered());
+            Console.WriteLine($"[{countCat}]-[Categorias]-[Registradas]");
+            Console.WriteLine($"[{countCat}]-[Comentarios]-[Registrados]");
+            Console.WriteLine($"[{countCat}]-[Estados]-[Registrados]");
+            Console.WriteLine($"[{countCat}]-[Tickets]-[Registrados]");
+            Console.WriteLine($"[{countCat}]-[Usuarios]-[Registrados]");
+
             do
             {
-                Console.WriteLine("Select A Table To Customize:");
-                Console.WriteLine("1 → Categorias");
-                Console.WriteLine("2 → Comentarios");
-                Console.WriteLine("3 → Estados");
-                Console.WriteLine("4 → Tickets");
-                Console.WriteLine("5 → Usuarios");
-                Console.WriteLine("6 → Exit Menu");
+                //Console.WriteLine("Select A Table To Customize:");
+                //Console.WriteLine("1 → Categorias");
+                //Console.WriteLine("2 → Comentarios");
+                //Console.WriteLine("3 → Estados");
+                //Console.WriteLine("4 → Tickets");
+                //Console.WriteLine("5 → Usuarios");
+                //Console.WriteLine("6 → Exit Menu");
 
-                Console.WriteLine("‼Enter Your Choice‼ →");
+                //Console.WriteLine("‼Enter Your Choice‼ →");
                 optionMenu = Convert.ToInt32(Console.ReadLine());
                 Console.Clear();
+
 
                 switch(optionMenu)
                 {
