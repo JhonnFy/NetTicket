@@ -15,6 +15,28 @@ namespace NetTicket.Data.RepositoriesCRUD
             _conexion = conexion;
         }
 
+        public int countComentarios()
+        {
+            try
+            {
+                using MySqlConnection cn = _conexion.ObtenerConexion();
+                cn.Open();
+
+                using MySqlCommand cmd = new MySqlCommand("CountAllComentarios", cn);
+                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+
+                var countCom = Convert.ToInt32(cmd.ExecuteScalar());
+
+                return countCom;
+
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine("ComentarioRepository countComentarios " + ex.Message);
+                return 0;
+            }
+        }
+
         public List<Comentario> ObtenerTodos()
         {
             List<Comentario> comentarios = new List<Comentario>();
