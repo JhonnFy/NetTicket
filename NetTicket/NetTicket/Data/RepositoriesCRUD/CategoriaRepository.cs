@@ -16,6 +16,28 @@ namespace NetTicket.Data.RepositoriesCRUD
             _conexion = conexion;
         }
 
+        //public Categoria? Create(string nombre)
+
+        public Categoria? CountCategoria()
+        {
+            try
+            {
+                using MySqlConnection cn = _conexion.ObtenerConexion();
+                cn.Open();
+
+                using MySqlCommand cmd = new MySqlCommand("", cn);
+                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+
+                
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("CategoriaRepository CountCategoria" + ex.Message);
+            }
+
+            return null;
+        }
+
         public List<Categoria> ObtenerTodos()
         {
             List<Categoria> categorias = new List<Categoria>();
