@@ -3,6 +3,7 @@ using NetTicket.Data.Connection;
 using NetTicket.Models;
 using System.Linq.Expressions;
 using System.Net.Http.Headers;
+using System.Security.Cryptography.X509Certificates;
 
 
 namespace NetTicket.Data.RepositoriesCRUD
@@ -16,26 +17,25 @@ namespace NetTicket.Data.RepositoriesCRUD
             _conexion = conexion;
         }
 
-        //public Categoria? Create(string nombre)
-
-        public Categoria? CountCategoria()
+        public int CountCategoria()
         {
             try
             {
                 using MySqlConnection cn = _conexion.ObtenerConexion();
                 cn.Open();
 
-                using MySqlCommand cmd = new MySqlCommand("", cn);
+                using MySqlCommand cmd = new MySqlCommand("CountAllCategorias", cn);
                 cmd.CommandType = System.Data.CommandType.StoredProcedure;
 
-                
+                var countCat = Convert.ToInt32(cmd.ExecuteScalar());
+
+                return countCat;
             }
             catch (Exception ex)
             {
                 Console.WriteLine("CategoriaRepository CountCategoria" + ex.Message);
+                return 0;
             }
-
-            return null;
         }
 
         public List<Categoria> ObtenerTodos()
