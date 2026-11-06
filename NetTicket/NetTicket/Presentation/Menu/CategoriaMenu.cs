@@ -1,4 +1,5 @@
-﻿using NetTicket.Data.RepositoriesCRUD;
+﻿using Microsoft.VisualBasic;
+using NetTicket.Data.RepositoriesCRUD;
 using NetTicket.Services.DbRules;
 using System;
 using System.Collections.Generic;
@@ -46,8 +47,9 @@ namespace NetTicket.Presentation.Menu
 
                     case 2:
                         var categorias = _service.ObtenerTodos();
+                        var countCat = _service.CountCategoria();
                         
-                            Console.WriteLine("[{Option 2} → {Read.Categorias}  → {}");
+                            Console.WriteLine($"[Option 2 → Read.Categorias  → {countCat}]");
                         foreach (var categoria in categorias)
                                     {
                                         Console.WriteLine($"Id:{categoria.Id}, Nombre:{categoria.Nombre}");
