@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NetTicket.Services.DbRules;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,10 +9,19 @@ namespace NetTicket.Presentation.Menu
 {
     public class EstadoMenu
     {
-        public EstadoMenu()
-        {
+        private readonly EstadoService _service;
 
+        public EstadoMenu(EstadoService service)
+        {
+            _service = service;
         }
+
+        public int countAllEstados()
+        {
+            var countEst = _service.countAllEstados();
+            return countEst;
+        }
+
 
         public void RunEstadoMenu()
         {

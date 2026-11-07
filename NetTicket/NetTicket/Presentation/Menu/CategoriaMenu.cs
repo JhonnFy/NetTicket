@@ -19,13 +19,12 @@ namespace NetTicket.Presentation.Menu
             _service = service;
         }
 
-        public int countCategorias()
+        public int countAllCategorias()
         {
             var countCat = _service.countAllCategorias();
 
             return countCat;
         }
-
 
         public void RunCategoriaMenu()
         {

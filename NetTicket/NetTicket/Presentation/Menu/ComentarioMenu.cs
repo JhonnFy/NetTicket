@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NetTicket.Services.DbRules;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,10 +9,19 @@ namespace NetTicket.Presentation.Menu
 {
     public class ComentarioMenu
     {
-        public ComentarioMenu()
-        {
+        private readonly ComentarioService _service;
 
+        public ComentarioMenu(ComentarioService service)
+        {
+            _service = service;
         }
+
+        public int countAllComentarios()
+        {
+            var countCom = _service.countAllComentarios();
+            return countCom;
+        }
+
 
         public void RunComentarioMenu()
         {
