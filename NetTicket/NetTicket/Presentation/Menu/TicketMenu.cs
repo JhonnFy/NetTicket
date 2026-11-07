@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NetTicket.Services.DbRules;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,10 +9,19 @@ namespace NetTicket.Presentation.Menu
 {
     public class TicketMenu
     {
-        public TicketMenu()
-        {
+        private readonly TicketService _service;
 
+        public TicketMenu(TicketService service)
+        {
+            _service = service;
         }
+
+        public int countAllTickets()
+        {
+            var countTick = _service.countAllTickets();
+            return countTick;
+        }
+
 
         public void RunTicketMenu()
         {

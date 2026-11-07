@@ -24,7 +24,7 @@ namespace NetTicket.Presentation.Menu
 
             Console.Clear();
 
-            var countCat = _menuContext.CategoriaMenu.countCategorias();
+            var countCat = _menuContext.CategoriaMenu.countAllCategorias();
 
 
             AnsiConsole.Write(new Markup("[bold cyan]Welcome To TicketsDb[/]").Centered());
