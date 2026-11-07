@@ -14,6 +14,28 @@ namespace NetTicket.Data.RepositoriesCRUD
             _conexion = conexion;
         }
 
+        public int CountUsuario()
+        {
+            try
+            {
+                using MySqlConnection cn = _conexion.ObtenerConexion();
+                cn.Open();
+
+                using MySqlCommand cmd = new MySqlCommand("CountAllUsuarios", cn);
+                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+
+
+                var countUsr = Convert.ToInt32(cmd.ExecuteScalar());
+                return countUsr;
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine("CategoriaRepository CountCategoria" + ex.Message);
+                return 0;
+            }
+        }
+
+
         public List<Usuario> ObtenerTodos()
         {
             List<Usuario> usuarios = new List<Usuario>();
