@@ -8,7 +8,9 @@ Sistema completo de gestión de tickets de soporte IT, desarrollado con **Arquit
 El sistema permite gestionar el ciclo completo de un ticket: registro de usuarios,
 creación de solicitudes, clasificación por categoría y estado, y seguimiento mediante
 comentarios. 
- 
+
+ <img width="1366" height="768" alt="image" src="https://github.com/user-attachments/assets/ce0abc13-cf0f-4583-b771-737888bfa3f5" />
+
 ---
 
 ## Funcionalidades
