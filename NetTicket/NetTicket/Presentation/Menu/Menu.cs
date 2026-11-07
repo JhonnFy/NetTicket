@@ -64,13 +64,11 @@ namespace NetTicket.Presentation.Menu
                     .Expand()
                 );
 
-
                 var menu = new SelectionPrompt<int>()
-                .Title("[bold cyan]SELECT A TABLE TO CUSTOMIZE[/]")
-                .PageSize(6)
-                .HighlightStyle(new Style(Color.Black, Color.Aqua, Decoration.Bold))
-                .AddChoices(1, 2, 3, 4, 5, 6)
-                .UseConverter(option => option switch
+                    .PageSize(6)
+                    .HighlightStyle(new Style(Color.Black, Color.Aqua, Decoration.Bold))
+                    .AddChoices(1, 2, 3, 4, 5, 6)
+                    .UseConverter(option => option switch
                 {
                     1 => "Categorías",
                     2 => "Comentarios",
