@@ -8,9 +8,6 @@ Sistema completo de gestión de tickets de soporte IT, desarrollado con **Arquit
 El sistema permite gestionar el ciclo completo de un ticket: registro de usuarios,
 creación de solicitudes, clasificación por categoría y estado, y seguimiento mediante
 comentarios. 
-
- <img width="1366" height="768" alt="image" src="https://github.com/user-attachments/assets/ce0abc13-cf0f-4583-b771-737888bfa3f5" />
-
 ---
 
 ## Funcionalidades
@@ -233,7 +230,6 @@ Cada repositorio tiene tests con MSTest que prueban contra la DB real:
 - **`Assert.AreEqual(esperado, real)`** compara; no imprime.
 
 
-
-## Capturas de pantalla
+## ETL
 <img width="1366" height="768" alt="image" src="https://github.com/user-attachments/assets/7ba94c7a-fb13-4c44-af71-de885ea28fbf" />
 <img width="1366" height="768" alt="image" src="https://github.com/user-attachments/assets/c74754fe-b194-4d0c-8c06-9d4d54c30d39" />
