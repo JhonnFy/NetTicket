@@ -19,6 +19,12 @@ namespace NetTicket.Services.DbRules
             _repository = repository;
         }
 
+        public int countAllUsuarios()
+        {
+            var countUsr = _repository.countAllUsuarios();
+            return countUsr;
+        }
+
         public bool ValidarNombre(Usuario usuario)
         {
             if (string.IsNullOrWhiteSpace(usuario.Nombre)) return false;

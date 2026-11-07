@@ -24,6 +24,12 @@ namespace NetTicket.Services.DbRules
             return true;
         }
 
+        public int countAllTickets()
+        {
+            var countTick = _repository.countAllTickets();
+            return countTick;
+        }
+
         public List<Ticket> ObtenerTodos()
         {
             var tickets = _repository.ObtenerTodos();
