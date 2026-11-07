@@ -30,7 +30,7 @@ namespace NetTicket.Data.RepositoriesCRUD
             }
             catch(Exception ex)
             {
-                Console.WriteLine("CategoriaRepository CountCategoria" + ex.Message);
+                Console.WriteLine("UsuarioRepository CountUsuario" + ex.Message);
                 return 0;
             }
         }
