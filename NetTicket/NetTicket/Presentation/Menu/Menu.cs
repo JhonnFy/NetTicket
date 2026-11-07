@@ -25,14 +25,17 @@ namespace NetTicket.Presentation.Menu
             Console.Clear();
 
             var countCat = _menuContext.CategoriaMenu.countAllCategorias();
-
+            var countCom = _menuContext.ComentarioMenu.countAllComentarios();
+            var countEst = _menuContext.EstadoMenu.countAllEstados();
+            var countTck = _menuContext.TicketMenu.countAllTickets();
+            var countUsr = _menuContext.UsuarioMenu.countAllUsuarios();
 
             AnsiConsole.Write(new Markup("[bold cyan]Welcome To TicketsDb[/]").Centered());
             Console.WriteLine($"[{countCat}]-[Categorias]-[Registradas]");
-            Console.WriteLine($"[{countCat}]-[Comentarios]-[Registrados]");
-            Console.WriteLine($"[{countCat}]-[Estados]-[Registrados]");
-            Console.WriteLine($"[{countCat}]-[Tickets]-[Registrados]");
-            Console.WriteLine($"[{countCat}]-[Usuarios]-[Registrados]");
+            Console.WriteLine($"[{countCom}]-[Comentarios]-[Registrados]");
+            Console.WriteLine($"[{countEst}]-[Estados]-[Registrados]");
+            Console.WriteLine($"[{countTck}]-[Tickets]-[Registrados]");
+            Console.WriteLine($"[{countUsr}]-[Usuarios]-[Registrados]");
 
             do
             {
