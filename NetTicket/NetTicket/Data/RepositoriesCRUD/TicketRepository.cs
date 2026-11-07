@@ -13,7 +13,7 @@ namespace NetTicket.Data.RepositoriesCRUD
             _conexion = conexion;
         }
 
-        public int CountTickets()
+        public int countAllTickets()
         {
             try
             {

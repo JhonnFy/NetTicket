@@ -14,7 +14,7 @@ namespace NetTicket.Data.RepositoriesCRUD
             _conexion = conexion;
         }
 
-        public int CountUsuario()
+        public int countAllUsuarios()
         {
             try
             {
