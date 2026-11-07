@@ -26,11 +26,11 @@ namespace NetTicket.Services.DbRules
             return true;
         }
 
-        public int CountCategoria()
+        public int countAllCategorias()
         {
-            var categorias = _repository.CountCategoria();
+            var countCat = _repository.CountCategoria();
 
-            return categorias;
+            return countCat;
         }
 
 

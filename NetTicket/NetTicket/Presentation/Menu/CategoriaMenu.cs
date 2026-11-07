@@ -21,7 +21,7 @@ namespace NetTicket.Presentation.Menu
 
         public int countCategorias()
         {
-            var countCat = _service.CountCategoria();
+            var countCat = _service.countAllCategorias();
 
             return countCat;
         }
@@ -62,7 +62,7 @@ namespace NetTicket.Presentation.Menu
 
                     case 2:
                         var countAll = _service.ObtenerTodos();
-                        var countCat = _service.CountCategoria();
+                        var countCat = _service.countAllCategorias();
 
                         Console.WriteLine($"[Option 2 → Read.Categorias  → {countCat}]");
                         foreach (var categoria in countAll)
