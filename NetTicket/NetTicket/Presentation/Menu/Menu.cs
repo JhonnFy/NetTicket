@@ -37,25 +37,30 @@ namespace NetTicket.Presentation.Menu
         .Expand()
 );
 
-
-
-            Console.WriteLine($"[{countCat}]-[Categorias]-[Registradas]");
-            Console.WriteLine($"[{countCom}]-[Comentarios]-[Registrados]");
-            Console.WriteLine($"[{countEst}]-[Estados]-[Registrados]");
-            Console.WriteLine($"[{countTck}]-[Tickets]-[Registrados]");
-            Console.WriteLine($"[{countUsr}]-[Usuarios]-[Registrados]");
+            AnsiConsole.Write(
+       new Panel(
+           $"[[{countCat}]]-[[Categorias]]-[[Registradas]]\n" +
+           $"[[{countCom}]]-[[Comentarios]]-[[Registrados]]\n" +
+           $"[[{countEst}]]-[[Estados]]-[[Registrados]]\n" +
+           $"[[{countTck}]]-[[Tickets]]-[[Registrados]]\n" +
+           $"[[{countUsr}]]-[[Usuarios]]-[[Registrados]]"
+       )
+       .Border(BoxBorder.Rounded)
+       .BorderColor(Color.Cyan)
+       .Expand()
+   );
 
             do
             {
-                //Console.WriteLine("Select A Table To Customize:");
-                //Console.WriteLine("1 → Categorias");
-                //Console.WriteLine("2 → Comentarios");
-                //Console.WriteLine("3 → Estados");
-                //Console.WriteLine("4 → Tickets");
-                //Console.WriteLine("5 → Usuarios");
-                //Console.WriteLine("6 → Exit Menu");
+                Console.WriteLine("Select A Table To Customize:");
+                Console.WriteLine("1 → Categorias");
+                Console.WriteLine("2 → Comentarios");
+                Console.WriteLine("3 → Estados");
+                Console.WriteLine("4 → Tickets");
+                Console.WriteLine("5 → Usuarios");
+                Console.WriteLine("6 → Exit Menu");
 
-                //Console.WriteLine("‼Enter Your Choice‼ →");
+                Console.WriteLine("‼Enter Your Choice‼ →");
                 optionMenu = Convert.ToInt32(Console.ReadLine());
                 Console.Clear();
 
