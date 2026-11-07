@@ -30,42 +30,62 @@ namespace NetTicket.Presentation.Menu
             var countTck = _menuContext.TicketMenu.countAllTickets();
             var countUsr = _menuContext.UsuarioMenu.countAllUsuarios();
 
-            AnsiConsole.Write(
-    new Panel(new Markup("[bold cyan]Welcome To TicketsDb[/]").Centered())
-        .Border(BoxBorder.Rounded)
-        .BorderColor(Color.Cyan)
-        .Expand()
-);
-
-            AnsiConsole.Write(
-       new Panel(
-           $"[[{countCat}]]-[[Categorias]]-[[Registradas]]\n" +
-           $"[[{countCom}]]-[[Comentarios]]-[[Registrados]]\n" +
-           $"[[{countEst}]]-[[Estados]]-[[Registrados]]\n" +
-           $"[[{countTck}]]-[[Tickets]]-[[Registrados]]\n" +
-           $"[[{countUsr}]]-[[Usuarios]]-[[Registrados]]"
-       )
-       .Border(BoxBorder.Rounded)
-       .BorderColor(Color.Cyan)
-       .Expand()
-   );
 
             do
             {
-                Console.WriteLine("Select A Table To Customize:");
-                Console.WriteLine("1 → Categorias");
-                Console.WriteLine("2 → Comentarios");
-                Console.WriteLine("3 → Estados");
-                Console.WriteLine("4 → Tickets");
-                Console.WriteLine("5 → Usuarios");
-                Console.WriteLine("6 → Exit Menu");
+                //Console.WriteLine("Select A Table To Customize:");
+                //Console.WriteLine("1 → Categorias");
+                //Console.WriteLine("2 → Comentarios");
+                //Console.WriteLine("3 → Estados");
+                //Console.WriteLine("4 → Tickets");
+                //Console.WriteLine("5 → Usuarios");
+                //Console.WriteLine("6 → Exit Menu");
 
-                Console.WriteLine("‼Enter Your Choice‼ →");
-                optionMenu = Convert.ToInt32(Console.ReadLine());
+                //Console.WriteLine("‼Enter Your Choice‼ →");
+                //optionMenu = Convert.ToInt32(Console.ReadLine());
+                //Console.Clear();
+                AnsiConsole.Write(
+                new Panel(new Markup("[bold cyan]Welcome To TicketsDb[/]").Centered())
+                .Border(BoxBorder.Rounded)
+                .BorderColor(Color.Cyan)
+                .Expand()
+                );
+
+                AnsiConsole.Write(
+                new Panel(
+                    $"[[{countCat}]]-[[Categorias]]-[[Registradas]]\n" +
+                    $"[[{countCom}]]-[[Comentarios]]-[[Registrados]]\n" +
+                    $"[[{countEst}]]-[[Estados]]-[[Registrados]]\n" +
+                    $"[[{countTck}]]-[[Tickets]]-[[Registrados]]\n" +
+                    $"[[{countUsr}]]-[[Usuarios]]-[[Registrados]]"
+                )
+                    .Border(BoxBorder.Rounded)
+                    .BorderColor(Color.Cyan)
+                    .Expand()
+                );
+
+
+                var menu = new SelectionPrompt<int>()
+                .Title("[bold cyan]SELECT A TABLE TO CUSTOMIZE[/]")
+                .PageSize(6)
+                .HighlightStyle(new Style(Color.Black, Color.Aqua, Decoration.Bold))
+                .AddChoices(1, 2, 3, 4, 5, 6)
+                .UseConverter(option => option switch
+                {
+                    1 => "Categorías",
+                    2 => "Comentarios",
+                    3 => "Estados",
+                    4 => "Tickets",
+                    5 => "Usuarios",
+                    6 => "Exit Menu",
+                    _ => "Unknown"
+                });
+
+                optionMenu = AnsiConsole.Prompt(menu);
                 Console.Clear();
 
 
-                switch(optionMenu)
+                switch (optionMenu)
                 {
                     case 1:
                         _menuContext.CategoriaMenu.RunCategoriaMenu();
