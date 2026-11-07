@@ -30,7 +30,15 @@ namespace NetTicket.Presentation.Menu
             var countTck = _menuContext.TicketMenu.countAllTickets();
             var countUsr = _menuContext.UsuarioMenu.countAllUsuarios();
 
-            AnsiConsole.Write(new Markup("[bold cyan]Welcome To TicketsDb[/]").Centered());
+            AnsiConsole.Write(
+    new Panel(new Markup("[bold cyan]Welcome To TicketsDb[/]").Centered())
+        .Border(BoxBorder.Rounded)
+        .BorderColor(Color.Cyan)
+        .Expand()
+);
+
+
+
             Console.WriteLine($"[{countCat}]-[Categorias]-[Registradas]");
             Console.WriteLine($"[{countCom}]-[Comentarios]-[Registrados]");
             Console.WriteLine($"[{countEst}]-[Estados]-[Registrados]");
