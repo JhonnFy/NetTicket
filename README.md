@@ -230,6 +230,9 @@ Cada repositorio tiene tests con MSTest que prueban contra la DB real:
 - **`Console.WriteLine` en MSTest** aparece en "Standard Output" del resultado.
 - **`Assert.AreEqual(esperado, real)`** compara; no imprime.
 
+## Dockerfile
+<img width="1366" height="768" alt="image" src="https://github.com/user-attachments/assets/5f4aac79-ef69-47b6-a22e-3d1689747826" />
+
 
 ## ETL
 <img width="1366" height="768" alt="image" src="https://github.com/user-attachments/assets/7ba94c7a-fb13-4c44-af71-de885ea28fbf" />
