@@ -8,6 +8,7 @@
     ".NETCoreApp,Version=v9.0": {
       "NetTicket/1.0.0": {
         "dependencies": {
+          "Microsoft.Extensions.Configuration.EnvironmentVariables": "10.0.14",
           "Microsoft.Extensions.Configuration.Json": "10.0.14",
           "Microsoft.Extensions.DependencyInjection": "10.0.14",
           "MySqlConnector": "2.6.2",
@@ -35,6 +36,18 @@
         },
         "runtime": {
           "lib/net9.0/Microsoft.Extensions.Configuration.Abstractions.dll": {
+            "assemblyVersion": "10.0.0.0",
+            "fileVersion": "10.0.1426.52326"
+          }
+        }
+      },
+      "Microsoft.Extensions.Configuration.EnvironmentVariables/10.0.14": {
+        "dependencies": {
+          "Microsoft.Extensions.Configuration": "10.0.14",
+          "Microsoft.Extensions.Configuration.Abstractions": "10.0.14"
+        },
+        "runtime": {
+          "lib/net9.0/Microsoft.Extensions.Configuration.EnvironmentVariables.dll": {
             "assemblyVersion": "10.0.0.0",
             "fileVersion": "10.0.1426.52326"
           }
@@ -234,6 +247,13 @@
       "sha512": "sha512-4YdfvaoWn3tB1xQQHGrhRTFWJ8fGOqxThxduynSZy9ZFTiSaUi3vX4EK/kj8h2HQMwTlks9MWV1fv2WRBv5/1w==",
       "path": "microsoft.extensions.configuration.abstractions/10.0.14",
       "hashPath": "microsoft.extensions.configuration.abstractions.10.0.14.nupkg.sha512"
+    },
+    "Microsoft.Extensions.Configuration.EnvironmentVariables/10.0.14": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-jB0UiYjpnneoBH1ZeXPlHYt4zUme6SZlnstL6gsH/0O/d5rOuN5lSIlOIfxXzapl8tAi7QmYOEogP09g/wcHzA==",
+      "path": "microsoft.extensions.configuration.environmentvariables/10.0.14",
+      "hashPath": "microsoft.extensions.configuration.environmentvariables.10.0.14.nupkg.sha512"
     },
     "Microsoft.Extensions.Configuration.FileExtensions/10.0.14": {
       "type": "package",
