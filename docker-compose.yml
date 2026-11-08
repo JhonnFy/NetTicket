@@ -6,7 +6,7 @@ services:
       - "3307:3306"
     environment:
       MYSQL_ROOT_PASSWORD: secret
-      MYSQL_DATABASE: TicketsDb
+      MYSQL_DATABASE: ticketsdb
     volumes:
       - ./dB:/docker-entrypoint-initdb.d/
     healthcheck:
@@ -23,4 +23,4 @@ services:
       mysql:
         condition: service_healthy
     environment:
-      - ConnectionStrings__MySqlConnection=Server=mysql;Database=TicketsDb;User=root;Password=secret;
+      - ConnectionStrings__MySqlConnection=Server=mysql;Database=ticketsdb;User=root;Password=secret;
