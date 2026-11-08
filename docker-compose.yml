@@ -1,5 +1,6 @@
 services:
   mysql:
+    container_name: mysql
     image: mysql:latest
     ports:
       - "3307:3306"
@@ -9,12 +10,14 @@ services:
     volumes:
       - ./dB:/docker-entrypoint-initdb.d/
     healthcheck:
-      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
-      interval: 5s
+      test: ["CMD-SHELL", "mysqladmin ping -h 127.0.0.1 -u root -p\"$$MYSQL_ROOT_PASSWORD\" --silent"]
+      interval: 10s
       timeout: 5s
       retries: 5
+      start_period: 30s
 
   app:
+    container_name: netticket
     build: .
     depends_on:
       mysql:
