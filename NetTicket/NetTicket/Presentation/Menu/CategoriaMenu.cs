@@ -1,9 +1,12 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.VisualBasic;
 using NetTicket.Data.RepositoriesCRUD;
+using NetTicket.DependencyInjection;
 using NetTicket.Services.DbRules;
+using Spectre.Console;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics.Metrics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -29,20 +32,39 @@ namespace NetTicket.Presentation.Menu
         public void RunCategoriaMenu()
         {
             int optionMenu;
+            var countCat = countAllCategorias();
 
             do
             {
-                Console.WriteLine("---------------------------");
-                Console.WriteLine("Welcome To Categorias:");
-                Console.WriteLine("---------------------------");
-                Console.WriteLine("1 → Create");
-                Console.WriteLine("2 → Read");
-                Console.WriteLine("3 → ReadId");
-                Console.WriteLine("4 → Update");
-                Console.WriteLine("5 → Delete");
-                Console.WriteLine("6 → Return To Main Menu");
+                AnsiConsole.Write(
+                new Panel(new Markup("[bold cyan]Welcome To CategoriaMenu[/]").Centered())
+                .Border(BoxBorder.Rounded)
+                .BorderColor(Color.Cyan)
+                .Expand()
+                );
 
-                Console.WriteLine("‼Enter Your Choice‼ →");
+                AnsiConsole.Write(
+                new Panel(
+                    $"[[{countCat}]]-[[Categorias]]-[[Registradas]]\n" 
+                )
+                    .Border(BoxBorder.Rounded)
+                    .BorderColor(Color.Cyan)
+                    .Expand()
+                );
+
+
+
+                //Console.WriteLine("---------------------------");
+                //Console.WriteLine("Welcome To Categorias:");
+                //Console.WriteLine("---------------------------");
+                //Console.WriteLine("1 → Create");
+                //Console.WriteLine("2 → Read");
+                //Console.WriteLine("3 → ReadId");
+                //Console.WriteLine("4 → Update");
+                //Console.WriteLine("5 → Delete");
+                //Console.WriteLine("6 → Return To Main Menu");
+
+                //Console.WriteLine("‼Enter Your Choice‼ →");
                 optionMenu = Convert.ToInt32(Console.ReadLine());
 
                 Console.Clear();
@@ -61,9 +83,8 @@ namespace NetTicket.Presentation.Menu
 
                     case 2:
                         var countAll = _service.ObtenerTodos();
-                        var countCat = _service.countAllCategorias();
 
-                        Console.WriteLine($"[Option 2 → Read.Categorias  → {countCat}]");
+                        //Console.WriteLine($"[Option 2 → Read.Categorias  → {countCat}]");
                         foreach (var categoria in countAll)
                         {
                             Console.WriteLine($"Id:{categoria.Id}, Nombre:{categoria.Nombre}");
