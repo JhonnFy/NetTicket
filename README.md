@@ -235,8 +235,9 @@ Cada repositorio tiene tests con MSTest que prueban contra la DB real:
 <img width="1366" height="768" alt="image" src="https://github.com/user-attachments/assets/c57b9f9d-7534-45eb-970c-3ccd27230b7b" />
 <img width="1366" height="768" alt="image" src="https://github.com/user-attachments/assets/d571d48f-4b2d-4a7d-bd34-5a3c28d77a7c" />
 
-
-
 ## ETL
 <img width="1366" height="768" alt="image" src="https://github.com/user-attachments/assets/7ba94c7a-fb13-4c44-af71-de885ea28fbf" />
 <img width="1366" height="768" alt="image" src="https://github.com/user-attachments/assets/c74754fe-b194-4d0c-8c06-9d4d54c30d39" />
+
+
+## Virtual machine
