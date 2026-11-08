@@ -35,3 +35,4 @@ C:\DeveloperQA\NetTicket\NetTicket\NetTicket\obj\Debug\net9.0\NetTicket.genrunti
 C:\DeveloperQA\NetTicket\NetTicket\NetTicket\obj\Debug\net9.0\ref\NetTicket.dll
 C:\DeveloperQA\NetTicket\NetTicket\NetTicket\bin\Debug\net9.0\Spectre.Console.dll
 C:\DeveloperQA\NetTicket\NetTicket\NetTicket\bin\Debug\net9.0\Spectre.Console.Ansi.dll
+C:\DeveloperQA\NetTicket\NetTicket\NetTicket\bin\Debug\net9.0\Microsoft.Extensions.Configuration.EnvironmentVariables.dll

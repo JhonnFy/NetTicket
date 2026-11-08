@@ -7,9 +7,10 @@ using NetTicket.Presentation.Menu;
 try
 {
     IConfiguration configuration = new ConfigurationBuilder()
-        .SetBasePath(AppContext.BaseDirectory)
-        .AddJsonFile("appsettings.json")
-        .Build();
+    .SetBasePath(AppContext.BaseDirectory)
+    .AddJsonFile("appsettings.json")
+    .AddEnvironmentVariables()
+    .Build();
 
     var services = new ServiceCollection();
     services.AddSingleton<IConfiguration>(configuration);
