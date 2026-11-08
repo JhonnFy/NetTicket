@@ -1,4 +1,7 @@
-﻿CREATE PROCEDURE TicketRepository()
+﻿
+USE ticketsdb;
+
+CREATE PROCEDURE TicketRepository()
 SELECT 
        t.id, t.titulo, t.descripcion, u.nombre, c.nombre, e.nombre, t.fecha_creacion
     FROM tickets t

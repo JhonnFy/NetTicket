@@ -1,4 +1,6 @@
 ﻿
+USE ticketsdb;
+
 DELIMITER $$
 
 CREATE PROCEDURE ComentarioRepository_Create(

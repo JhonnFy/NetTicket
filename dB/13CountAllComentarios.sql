@@ -1,5 +1,4 @@
 ﻿
-
 USE ticketsdb;
 
 DELIMITER $$

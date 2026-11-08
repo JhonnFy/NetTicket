@@ -1,7 +1,6 @@
 ﻿
 USE ticketsdb;
 
-
 DELIMITER $$
 
 CREATE PROCEDURE EstadoRepository_Create (IN Nombre Varchar(100))

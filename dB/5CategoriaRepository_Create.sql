@@ -1,4 +1,7 @@
-﻿DELIMITER $$
+﻿
+USE ticketsdb;
+
+DELIMITER $$
 
 CREATE PROCEDURE CategoriaRepository_Create(IN Nombre VARCHAR(100))
 BEGIN
