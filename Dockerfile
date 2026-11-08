@@ -1,6 +1,5 @@
 # 1. Imagen base
 FROM mcr.microsoft.com/dotnet/sdk:9.0 AS build
-FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS build
 
 # 2. Directorio de trabajo
 WORKDIR /app
@@ -25,3 +24,4 @@ COPY --from=build /app/out .
 
 # 9. Ejecutar aplicación
 ENTRYPOINT ["dotnet", "NetTicket.dll"]
+
