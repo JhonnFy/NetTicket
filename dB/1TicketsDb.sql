@@ -1,5 +1,5 @@
 
-CREATE DATABASE IF NOT EXISTS ticketsdb;
+CREATE DATABASE IF NOT EXISTS TicketsDb;
 
 USE TicketsDb;
 
