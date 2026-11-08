@@ -231,7 +231,9 @@ Cada repositorio tiene tests con MSTest que prueban contra la DB real:
 - **`Assert.AreEqual(esperado, real)`** compara; no imprime.
 
 ## Dockerfile
-<img width="1366" height="768" alt="image" src="https://github.com/user-attachments/assets/5f4aac79-ef69-47b6-a22e-3d1689747826" />
+<img width="1366" height="768" alt="image" src="https://github.com/user-attachments/assets/099e9730-9d52-4ea9-9bfc-ab8e0a29aebb" />
+<img width="1366" height="768" alt="image" src="https://github.com/user-attachments/assets/c57b9f9d-7534-45eb-970c-3ccd27230b7b" />
+
 
 
 ## ETL
