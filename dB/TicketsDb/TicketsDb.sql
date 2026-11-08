@@ -1,30 +1,26 @@
 
-create database ticketsdb;
+CREATE DATABASE IF NOT EXISTS ticketsdb;
 
 USE TicketsDb;
 
--- Tablas
--- Usuarios, Categorias, Estados,  Tickets, Comentarios
-
-
-CREATE TABLE Usuarios(
+CREATE TABLE IF NOT EXISTS Usuarios(
 	id INT PRIMARY KEY AUTO_INCREMENT ,
 	nombre VARCHAR(100) NOT NULL,
 	email VARCHAR(100) NOT NULL UNIQUE,
 	area VARCHAR(100)
 );
 
-CREATE TABLE Categorias(
+CREATE TABLE IF NOT EXISTS Categorias(
 	id INT PRIMARY KEY AUTO_INCREMENT,
 	nombre VARCHAR(100) NOT NULL
 );
 
-CREATE TABLE Estados(
+CREATE TABLE IF NOT EXISTS Estados(
 	id INT PRIMARY KEY AUTO_INCREMENT,
 	nombre VARCHAR(50) NOT NULL
 );
 
-CREATE TABLE Tickets(
+CREATE TABLE IF NOT EXISTS Tickets(
 	id INT PRIMARY KEY AUTO_INCREMENT,
 	titulo VARCHAR(100) NOT NULL,
 	descripcion TEXT,
@@ -37,7 +33,7 @@ CREATE TABLE Tickets(
 	FOREIGN KEY (estado_id) REFERENCES Estados(id)
 );
 
-CREATE TABLE Comentarios(
+CREATE TABLE IF NOT EXISTS Comentarios(
 	id INT PRIMARY KEY AUTO_INCREMENT,
 	ticket_id INT NOT NULL,
 	usuario_id INT NOT NULL,
