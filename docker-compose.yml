@@ -19,11 +19,8 @@ services:
   app:
     container_name: netticket
     build: .
-    tty: true
-    stdin_open: true
     depends_on:
       mysql:
         condition: service_healthy
     environment:
       - ConnectionStrings__MySqlConnection=Server=mysql;Database=ticketsdb;User=root;Password=secret;
-    entrypoint: ["sh", "-c", "export TERM=xterm && clear && dotnet NetTicket.dll"]
