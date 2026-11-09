@@ -13,4 +13,3 @@ DELIMITER ;
 
 
 
-Esos sp se ejecutan con el rayo
