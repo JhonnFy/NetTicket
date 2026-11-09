@@ -7,6 +7,7 @@ CREATE PROCEDURE CountAllComentarios(
 )
 BEGIN
     SELECT COUNT(*) FROM comentarios;
-END;
+END $$
 
 DELIMITER $$
+
