@@ -75,7 +75,7 @@ namespace NetTicket.Presentation.Menu
                         
                         cabeceraCategorias();
 
-                        Console.Write("Digite el nombre de la categoría: ");
+                        Console.Write("Ingrese el nombre de la nueva categoría: ");
                         string nameCat = Convert.ToString(Console.ReadLine());
                         var createCat = _service.Create(nameCat);
 
@@ -92,7 +92,11 @@ namespace NetTicket.Presentation.Menu
                                     .Expand()
                             ); break; }
 
-
+                        AnsiConsole.Write(
+                            new Panel($"[bold yellow]Id:[/] {createCat.Id}\n[bold cyan]Nombre:[/] {createCat.Nombre}")
+                            .Border(BoxBorder.Rounded)
+                            .Expand()
+                        );
 
 
                         break;
