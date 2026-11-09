@@ -24,4 +24,4 @@ services:
         condition: service_healthy
     environment:
       - ConnectionStrings__MySqlConnection=Server=mysql;Database=ticketsdb;User=root;Password=secret;
-    entrypoint: ["sh", "-c", "clear && dotnet NetTicket.dll"]
+    entrypoint: ["sh", "-c", "export TERM=xterm && clear && dotnet NetTicket.dll"]
