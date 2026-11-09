@@ -162,8 +162,16 @@ namespace NetTicket.Presentation.Menu
 
                         if (string.IsNullOrWhiteSpace(nombreUpdate))
                         {
-                            Console.WriteLine("El nombre no puede estar vacío. No se realizó ningún cambio.");
-                            break;
+                            Console.Clear();
+                            {
+                                AnsiConsole.Write(
+                                new Panel($"[bold red]El nombre no puede estar vacío; No se realizó ningún cambio. [/]")
+                                    .Border(BoxBorder.Rounded)
+                                    .BorderColor(Color.Red)
+                                    .Expand()
+                            ); break;
+                          }
+
                         }
 
                         var updateCat = _service.Update(idUpdate, nombreUpdate);
