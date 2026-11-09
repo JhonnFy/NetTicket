@@ -2,13 +2,13 @@ INSERT INTO usuarios (nombre, email, area) values ('Juan Pérez','juan@mail.com'
 INSERT INTO usuarios (nombre, email, area) values ('Ana Gómez','ana@mail.com','Contabilidad');
 INSERT INTO usuarios (nombre, email, area) values ('Carlos Ruiz','carlos@mail.com','Recursos Humanos');
 
-INSERT INTO Categorias (nombre) values ('Red');
-INSERT INTO Categorias (nombre) values ('Hardware');
-INSERT INTO Categorias (nombre) values ('Software');
+INSERT INTO categorias (nombre) values ('Red');
+INSERT INTO categorias (nombre) values ('Hardware');
+INSERT INTO categorias (nombre) values ('Software');
 
-INSERT INTO Estados  (nombre) values ('Abierto');
-INSERT INTO Estados  (nombre) values ('En Proceso');
-INSERT INTO Estados  (nombre) values ('Cerrado');
+INSERT INTO estados  (nombre) values ('Abierto');
+INSERT INTO estados  (nombre) values ('En Proceso');
+INSERT INTO estados  (nombre) values ('Cerrado');
 
 INSERT INTO tickets  (titulo,descripcion,usuario_id,categoria_id,estado_id) values ('No hay internet en piso 3','Los equipos no conectan a la red',1,1,1);
 INSERT INTO tickets  (titulo,descripcion,usuario_id,categoria_id,estado_id) values ('Impresora no imprime','La impresora del área no responde',2,2,2);

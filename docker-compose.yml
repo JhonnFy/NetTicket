@@ -1,23 +1,26 @@
 services:
   mysql:
+    container_name: mysql
     image: mysql:latest
     ports:
       - "3307:3306"
     environment:
       MYSQL_ROOT_PASSWORD: secret
-      MYSQL_DATABASE: TicketsDb
+      MYSQL_DATABASE: ticketsdb
     volumes:
       - ./dB:/docker-entrypoint-initdb.d/
     healthcheck:
-      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
-      interval: 5s
+      test: ["CMD-SHELL", "mysqladmin ping -h 127.0.0.1 -u root -p\"$$MYSQL_ROOT_PASSWORD\" --silent"]
+      interval: 10s
       timeout: 5s
       retries: 5
+      start_period: 200s
 
   app:
+    container_name: netticket
     build: .
     depends_on:
       mysql:
         condition: service_healthy
     environment:
-      - ConnectionStrings__MySqlConnection=Server=mysql;Database=TicketsDb;User=root;Password=secret;
+      - ConnectionStrings__MySqlConnection=Server=mysql;Database=ticketsdb;User=root;Password=secret;

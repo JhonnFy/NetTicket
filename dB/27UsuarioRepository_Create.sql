@@ -1,5 +1,4 @@
 ﻿
-
 USE ticketsdb;
 
 DELIMITER $$
@@ -15,5 +14,4 @@ BEGIN
     SELECT LAST_INSERT_ID() AS id;
 END $$
 
-DELIMITER ;
-
+DELIMITER $$

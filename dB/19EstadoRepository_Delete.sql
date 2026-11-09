@@ -9,6 +9,7 @@ CREATE PROCEDURE EstadoRepository_Delete(
 BEGIN
     DELETE FROM estados 
     WHERE id = p_Id;
-END ;
+END $$
 
-DELIMITER ;
+DELIMITER $$
+

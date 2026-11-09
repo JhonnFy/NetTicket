@@ -1,4 +1,6 @@
 ﻿
+USE ticketsdb;
+
 DELIMITER $$
 
 CREATE PROCEDURE EstadoRepository_Update(
@@ -10,4 +12,4 @@ BEGIN
     WHERE Id = p_Id;
 END $$
 
-DELIMITER ;
+DELIMITER $$

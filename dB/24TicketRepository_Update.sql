@@ -1,4 +1,6 @@
 ﻿
+USE ticketsdb;
+
 DELIMITER $$
 
 CREATE PROCEDURE TicketRepository_Update(
@@ -13,5 +15,4 @@ BEGIN
 END $$
 
 DELIMITER $$
-
 

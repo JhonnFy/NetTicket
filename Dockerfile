@@ -24,4 +24,3 @@ COPY --from=build /app/out .
 
 # 9. Ejecutar aplicación
 ENTRYPOINT ["dotnet", "NetTicket.dll"]
-``` 🫡

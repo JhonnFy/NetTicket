@@ -1,4 +1,6 @@
 ﻿
+USE ticketsdb;
+
 DELIMITER $$
 
 CREATE PROCEDURE TicketRepository_Create(
@@ -14,4 +16,4 @@ BEGIN
     SELECT LAST_INSERT_ID() AS id_insertado; 
 END $$
 
-DELIMITER ;
+DELIMITER $$
