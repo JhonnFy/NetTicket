@@ -72,6 +72,9 @@ namespace NetTicket.Presentation.Menu
                 switch (optionMenu)
                 {
                     case 1:
+                        
+                        cabeceraCategorias();
+
                         Console.Write("Digite el nombre de la categoría: ");
                         string nameCat = Convert.ToString(Console.ReadLine());
                         var createCat = _service.Create(nameCat);
@@ -96,6 +99,9 @@ namespace NetTicket.Presentation.Menu
                         break;
 
                     case 3:
+
+                        cabeceraCategorias();
+
                         Console.Write("Ingrese El Parámetro De Consulta: ");
                         int id = Convert.ToInt32(Console.ReadLine());
                         var countId = _service.ObtenerPorId(id);
@@ -109,12 +115,11 @@ namespace NetTicket.Presentation.Menu
 
 
                     case 4:
-                        
-
+                        cabeceraCategorias();
                         break;
 
                     case 5:
-
+                        cabeceraCategorias();
                         break;
                 }
 
