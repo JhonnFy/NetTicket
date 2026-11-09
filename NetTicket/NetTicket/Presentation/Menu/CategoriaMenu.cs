@@ -107,9 +107,11 @@ namespace NetTicket.Presentation.Menu
                         var countId = _service.ObtenerPorId(id);
                         Console.Clear();
 
-                        Console.WriteLine($"[Option 3 → Read.Categorias.Id → ]");
                         if (countId == null) { Console.WriteLine($"El Id Proporcionado No Existe En La Base De Datos\n]"); break; }
-                        Console.WriteLine($"Id:{countId.Id}, Nombre:{countId.Nombre}\n]\n");
+
+                        AnsiConsole.Write(new Panel($"[bold yellow]Id:[/] {countId.Id}\n[bold cyan]Nombre:[/] {countId.Nombre}").Border(BoxBorder.Rounded));
+
+
 
                         break;
 
