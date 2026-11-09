@@ -78,11 +78,24 @@ namespace NetTicket.Presentation.Menu
                         Console.Write("Digite el nombre de la categoría: ");
                         string nameCat = Convert.ToString(Console.ReadLine());
                         var createCat = _service.Create(nameCat);
-                               
-                        if(createCat == null) { Console.WriteLine($"No Se Creo La Categoria"); break; }
-                        Console.WriteLine($"Nueva Categoría Registrada;  Id:{createCat.Id}, Nombre{createCat.Nombre}");
 
-                     break;
+                        Console.Clear();
+
+                        //if(createCat == null) { Console.WriteLine($"No Se Creo La Categoria"); break; }
+                        //if(createCat == null) { Console.WriteLine($"No Se Creo La Categoria"); break; }
+                        //Console.WriteLine($"Nueva Categoría Registrada;  Id:{createCat.Id}, Nombre{createCat.Nombre}");
+
+                        if (createCat == null) { AnsiConsole.Write(
+                                new Panel($"[bold red]No se permiten valores vacíos [/]")
+                                    .Border(BoxBorder.Rounded)
+                                    .BorderColor(Color.Red)
+                                    .Expand()
+                            ); break; }
+
+
+
+
+                        break;
 
 
                     case 2:
