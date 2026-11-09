@@ -11,6 +11,9 @@ comentarios.
 
 ---
 
+## ¿Como instalar?
+
+
 ## Funcionalidades
 
 ### Gestión de tickets
