@@ -71,21 +71,25 @@ namespace NetTicket.Presentation.Menu
                 switch (optionMenu)
                 {
                     case 1:
-                        
                         cabeceraCategorias();
 
                         Console.Write("Ingrese el nombre de la nueva categoría: ");
-                        string nameCat = Convert.ToString(Console.ReadLine());
-                        var createCat = _service.Create(nameCat);
+                        string nameCat = Console.ReadLine()?.Trim();
 
-                        Console.Clear();
-
-                        if (createCat == null) { AnsiConsole.Write(
-                                new Panel($"[bold red]No se permiten valores vacíos [/]")
+                        if (string.IsNullOrWhiteSpace(nameCat))
+                        {
+                            Console.Clear();
+                            AnsiConsole.Write(
+                                new Panel($"[bold red]No se permiten valores vacíos.[/]")
                                     .Border(BoxBorder.Rounded)
                                     .BorderColor(Color.Red)
                                     .Expand()
-                            ); break; }
+                            );
+                            break;
+                        }
+
+                        var createCat = _service.Create(nameCat);
+                        Console.Clear();
 
                         AnsiConsole.Write(
                             new Panel($"[bold yellow]Id:[/] {createCat.Id}\n[bold cyan]Nombre:[/] {createCat.Nombre}")
