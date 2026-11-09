@@ -221,6 +221,63 @@ namespace NetTicket.Presentation.Menu
 
                     case 5:
                         cabeceraCategorias();
+
+                        Console.Write("Ingrese el ID de la categoría que desea eliminar: ");
+                        if (!int.TryParse(Console.ReadLine(), out int idDelete))
+                        {
+                            Console.Clear();
+                            AnsiConsole.Write(
+                                new Panel("[bold red]El ID ingresado no es válido; Solo se permiten valores numéricos.[/]")
+                                    .Border(BoxBorder.Rounded)
+                                    .BorderColor(Color.Red)
+                                    .Expand()
+                            );
+                            break;
+                        }
+
+                        var catDelete = _service.ObtenerPorId(idDelete);
+                        if (catDelete == null)
+                        {
+                            Console.Clear();
+                            AnsiConsole.Write(
+                                new Panel($"[bold red]No existe una categoría con Id {idDelete}.[/]")
+                                    .Border(BoxBorder.Rounded)
+                                    .BorderColor(Color.Red)
+                                    .Expand()
+                            );
+                            break;
+                        }
+
+                        Console.Clear();
+                        AnsiConsole.Write(
+                            new Panel($"[bold yellow]Id:[/] {catDelete.Id}\n[bold cyan]Nombre:[/] {catDelete.Nombre}")
+                                .Border(BoxBorder.Rounded)
+                                .Expand()
+                        );
+
+                        Console.Write("¿Confirma eliminar esta categoría? (s/n): ");
+                        string confirm = Console.ReadLine()?.Trim().ToLower();
+
+                        if (confirm != "s")
+                        {
+                            Console.Clear();
+                            AnsiConsole.Write(
+                                new Panel("[bold yellow]Operación cancelada. No se eliminó ningún registro.[/]")
+                                    .Border(BoxBorder.Rounded)
+                                    .Expand()
+                            );
+                            break;
+                        }
+
+                        _service.Delete(idDelete);
+                        Console.Clear();
+
+                        AnsiConsole.Write(
+                            new Panel($"[bold yellow]Categoría con Id {idDelete} eliminada correctamente.[/]")
+                                .Border(BoxBorder.Rounded)
+                                .Expand()
+                        );
+
                         break;
                 }
 
