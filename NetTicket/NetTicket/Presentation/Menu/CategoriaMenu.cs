@@ -82,7 +82,7 @@ namespace NetTicket.Presentation.Menu
                         if(createCat == null) { Console.WriteLine($"No Se Creo La Categoria"); break; }
                         Console.WriteLine($"Nueva Categoría Registrada;  Id:{createCat.Id}, Nombre{createCat.Nombre}");
 
-                        break;
+                     break;
 
 
                     case 2:
@@ -98,6 +98,7 @@ namespace NetTicket.Presentation.Menu
                         Console.WriteLine();
                         break;
 
+
                     case 3:
 
                         cabeceraCategorias();
@@ -107,13 +108,20 @@ namespace NetTicket.Presentation.Menu
                         var countId = _service.ObtenerPorId(id);
                         Console.Clear();
 
-                        if (countId == null) { Console.WriteLine($"El Id Proporcionado No Existe En La Base De Datos\n]"); break; }
+                        if (countId == null)
+                        {
+                            AnsiConsole.Write(
+                                new Panel($"[bold red]El Id {id} proporcionado no existe en la base de datos[/]")
+                                    .Border(BoxBorder.Rounded)
+                                    .BorderColor(Color.Red)
+                                    .Expand()
+                            );
+                            break;
+                        }
 
-                        AnsiConsole.Write(new Panel($"[bold yellow]Id:[/] {countId.Id}\n[bold cyan]Nombre:[/] {countId.Nombre}").Border(BoxBorder.Rounded));
+                        AnsiConsole.Write(new Panel($"[bold yellow]Id:[/] {countId.Id}\n[bold cyan]Nombre:[/] {countId.Nombre}").Border(BoxBorder.Rounded).Expand());
 
-
-
-                        break;
+                     break;
 
 
                     case 4:
