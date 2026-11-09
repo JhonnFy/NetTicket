@@ -1,12 +1,7 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\DeveloperQA\\NetTicket\\NetTicket\\",
-  "Documents": [
-    {
-      "AbsoluteMoniker": "D:0:0:{01B8EF0E-99F9-4614-8F09-3A87E019A3CF}|NetTicket\\NetTicket.csproj|c:\\developerqa\\netticket\\netticket\\netticket\\presentation\\menu\\menu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{01B8EF0E-99F9-4614-8F09-3A87E019A3CF}|NetTicket\\NetTicket.csproj|solutionrelative:netticket\\presentation\\menu\\menu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    }
-  ],
+  "Documents": [],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -14,7 +9,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": -1,
           "Children": [
             {
               "$type": "Bookmark",
@@ -27,19 +22,6 @@
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Menu.cs",
-              "DocumentMoniker": "C:\\DeveloperQA\\NetTicket\\NetTicket\\NetTicket\\Presentation\\Menu\\Menu.cs",
-              "RelativeDocumentMoniker": "NetTicket\\Presentation\\Menu\\Menu.cs",
-              "ToolTip": "C:\\DeveloperQA\\NetTicket\\NetTicket\\NetTicket\\Presentation\\Menu\\Menu.cs",
-              "RelativeToolTip": "NetTicket\\Presentation\\Menu\\Menu.cs",
-              "ViewState": "AgIAABAAAAAAAAAAAAAgwBcAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-09T12:22:29.434Z",
-              "EditorCaption": ""
             }
           ]
         }

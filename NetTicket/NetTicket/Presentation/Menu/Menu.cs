@@ -91,6 +91,7 @@ namespace NetTicket.Presentation.Menu
                         _menuContext.UsuarioMenu.RunUsuarioMenu();
                         break;
                     case 6:
+                        Environment.Exit(0);
                         break;
                 }
             }while (optionMenu != 6);
