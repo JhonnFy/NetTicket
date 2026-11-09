@@ -1,5 +1,6 @@
 
 # Sistema de Gestión de Tickets
+Menu → MenuContext→ CategoriaMenu → CategoriaService → CategoriaRepository → MySQL
 
 Sistema completo de gestión de tickets de soporte IT, desarrollado con **Arquitectura Por Capas** integrado con una base de datos 
 **MySQL** y una aplicación de consola desarrollada en **.NET (C#)** que consume los datos.
@@ -7,8 +8,11 @@ Sistema completo de gestión de tickets de soporte IT, desarrollado con **Arquit
 El sistema permite gestionar el ciclo completo de un ticket: registro de usuarios,
 creación de solicitudes, clasificación por categoría y estado, y seguimiento mediante
 comentarios. 
- 
+
 ---
+
+### ¿Como instalar?
+
 
 ## Funcionalidades
 
@@ -229,8 +233,14 @@ Cada repositorio tiene tests con MSTest que prueban contra la DB real:
 - **`Console.WriteLine` en MSTest** aparece en "Standard Output" del resultado.
 - **`Assert.AreEqual(esperado, real)`** compara; no imprime.
 
+## Dockerfile
+<img width="1366" height="768" alt="image" src="https://github.com/user-attachments/assets/099e9730-9d52-4ea9-9bfc-ab8e0a29aebb" />
+<img width="1366" height="768" alt="image" src="https://github.com/user-attachments/assets/c57b9f9d-7534-45eb-970c-3ccd27230b7b" />
+<img width="1366" height="768" alt="image" src="https://github.com/user-attachments/assets/d571d48f-4b2d-4a7d-bd34-5a3c28d77a7c" />
 
-
-## Capturas de pantalla
+## ETL
 <img width="1366" height="768" alt="image" src="https://github.com/user-attachments/assets/7ba94c7a-fb13-4c44-af71-de885ea28fbf" />
 <img width="1366" height="768" alt="image" src="https://github.com/user-attachments/assets/c74754fe-b194-4d0c-8c06-9d4d54c30d39" />
+
+
+## Virtual machine
