@@ -101,15 +101,25 @@ namespace NetTicket.Presentation.Menu
 
 
                     case 2:
-
                         cabeceraCategorias();
 
-                        var countAll = _service.ObtenerTodos();
+                        var categorias = _service.ObtenerTodos();
 
-                        foreach (var categoria in countAll)
+                        if (categorias == null || !categorias.Any())
+                        {
+                            AnsiConsole.Write(
+                                new Panel("[bold yellow]No hay categorías registradas.[/]")
+                                    .Border(BoxBorder.Rounded)
+                                    .Expand()
+                            );
+                            break;
+                        }
+
+                        foreach (var categoria in categorias)
                         {
                             Console.WriteLine($"Id:{categoria.Id}, Nombre:{categoria.Nombre}");
                         }
+
                         Console.WriteLine();
                         break;
 
