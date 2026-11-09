@@ -11,7 +11,7 @@ comentarios.
 
 ---
 
-## ¿Como instalar?
+### ¿Como instalar?
 
 
 ## Funcionalidades
