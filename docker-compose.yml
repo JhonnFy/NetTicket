@@ -14,7 +14,7 @@ services:
       interval: 10s
       timeout: 5s
       retries: 5
-      start_period: 1000s
+      start_period: 200s
 
   app:
     container_name: netticket
