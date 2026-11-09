@@ -29,6 +29,18 @@ namespace NetTicket.Presentation.Menu
             return countCat;
         }
 
+        public void cabeceraCategorias()
+        {
+                AnsiConsole.Write(
+                new Panel(new Markup("[bold cyan]Welcome To CategoriaMenu[/]").Centered())
+                .Border(BoxBorder.Rounded)
+                .BorderColor(Color.Cyan)
+                .Expand()
+            );
+        }
+
+
+
         public void RunCategoriaMenu()
         {
             int optionMenu;
@@ -36,12 +48,7 @@ namespace NetTicket.Presentation.Menu
 
             do
             {
-                AnsiConsole.Write(
-                new Panel(new Markup("[bold cyan]Welcome To CategoriaMenu[/]").Centered())
-                .Border(BoxBorder.Rounded)
-                .BorderColor(Color.Cyan)
-                .Expand()
-                );
+                cabeceraCategorias();
 
                 var menu = new SelectionPrompt<int>()
                     .PageSize(6)
@@ -77,22 +84,8 @@ namespace NetTicket.Presentation.Menu
 
                     case 2:
 
-                        AnsiConsole.Write(
-                        new Panel(new Markup("[bold cyan]Welcome To CategoriaMenu[/]").Centered())
-                            .Border(BoxBorder.Rounded)
-                            .BorderColor(Color.Cyan)
-                            .Expand()
-                        );
+                        cabeceraCategorias();
 
-                        AnsiConsole.Write(
-                            new Panel(
-                                $"[[{countCat}]]-[[Categorias]]-[[Registradas]]\n"
-                            )
-                            .Border(BoxBorder.Rounded)
-                            .BorderColor(Color.Cyan)
-                            .Expand()
-                        );
-                           
                         var countAll = _service.ObtenerTodos();
 
                         foreach (var categoria in countAll)
