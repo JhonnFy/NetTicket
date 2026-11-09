@@ -137,10 +137,40 @@ namespace NetTicket.Presentation.Menu
                         );
 
                      break;
-
-
+                    
+                                                                                       
                     case 4:
+
                         cabeceraCategorias();
+
+                        Console.Write("Ingrese el ID de la categoría que desea modificar: ");
+                        int idUpdate = Convert.ToInt32(Console.ReadLine());
+                        var catId = _service.ObtenerPorId(idUpdate);
+
+                        if (catId != null)
+                        {
+                            Console.Write("Ingrese el nuevo nombre de la categoría: ");
+                            string nombreUpdate = Console.ReadLine();
+                            var updateCat = _service.Update(idUpdate, nombreUpdate);
+                            Console.Clear();
+
+                            AnsiConsole.Write(
+                                new Panel($"[bold yellow]Id:[/] {catId.Id}\n[bold cyan]Nombre:[/] {nombreUpdate}")
+                                .Border(BoxBorder.Rounded)
+                                .Expand()
+                            );
+
+                            break;
+                        }
+
+
+                        Console.Clear();
+                        AnsiConsole.Write(
+                            new Panel($"[bold red]El Id {idUpdate} proporcionado no existe en la base de datos[/]")
+                                .Border(BoxBorder.Rounded)
+                                .BorderColor(Color.Red)
+                                .Expand()
+                            );
                         break;
 
                     case 5:
