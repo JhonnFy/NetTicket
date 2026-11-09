@@ -137,40 +137,44 @@ namespace NetTicket.Presentation.Menu
                         );
 
                      break;
-                    
-                                                                                       
-                    case 4:
 
+
+                    case 4:
                         cabeceraCategorias();
 
                         Console.Write("Ingrese el ID de la categoría que desea modificar: ");
-                        int idUpdate = Convert.ToInt32(Console.ReadLine());
-                        var catId = _service.ObtenerPorId(idUpdate);
-
-                        if (catId != null)
+                        if (!int.TryParse(Console.ReadLine(), out int idUpdate))
                         {
-                            Console.Write("Ingrese el nuevo nombre de la categoría: ");
-                            string nombreUpdate = Console.ReadLine();
-                            var updateCat = _service.Update(idUpdate, nombreUpdate);
-                            Console.Clear();
-
-                            AnsiConsole.Write(
-                                new Panel($"[bold yellow]Id:[/] {catId.Id}\n[bold cyan]Nombre:[/] {nombreUpdate}")
-                                .Border(BoxBorder.Rounded)
-                                .Expand()
-                            );
-
+                            Console.WriteLine("ID inválido. Debe ser un número.");
                             break;
                         }
 
 
+                        var catId = _service.ObtenerPorId(idUpdate);
+                        if (catId == null)
+                        {
+                            Console.WriteLine($"No existe una categoría con Id {idUpdate}.");
+                            break;
+                        }
+
+                        Console.Write("Ingrese el nuevo nombre de la categoría: ");
+                        string nombreUpdate = Console.ReadLine()?.Trim();
+
+                        if (string.IsNullOrWhiteSpace(nombreUpdate))
+                        {
+                            Console.WriteLine("El nombre no puede estar vacío. No se realizó ningún cambio.");
+                            break;
+                        }
+
+                        var updateCat = _service.Update(idUpdate, nombreUpdate);
                         Console.Clear();
+
                         AnsiConsole.Write(
-                            new Panel($"[bold red]El Id {idUpdate} proporcionado no existe en la base de datos[/]")
-                                .Border(BoxBorder.Rounded)
-                                .BorderColor(Color.Red)
-                                .Expand()
-                            );
+                            new Panel($"[bold yellow]Id:[/] {catId.Id}\n[bold cyan]Nombre:[/] {nombreUpdate}")
+                            .Border(BoxBorder.Rounded)
+                            .Expand()
+                        );
+
                         break;
 
                     case 5:
