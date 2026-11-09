@@ -119,7 +119,11 @@ namespace NetTicket.Presentation.Menu
                             break;
                         }
 
-                        AnsiConsole.Write(new Panel($"[bold yellow]Id:[/] {countId.Id}\n[bold cyan]Nombre:[/] {countId.Nombre}").Border(BoxBorder.Rounded).Expand());
+                        AnsiConsole.Write(
+                            new Panel($"[bold yellow]Id:[/] {countId.Id}\n[bold cyan]Nombre:[/] {countId.Nombre}")
+                            .Border(BoxBorder.Rounded)
+                            .Expand()
+                        );
 
                      break;
 
