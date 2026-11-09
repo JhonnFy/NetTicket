@@ -16,11 +16,12 @@ services:
       retries: 5
       start_period: 200s
 
-  app:
-    container_name: netticket
-    build: .
-    depends_on:
-      mysql:
-        condition: service_healthy
-    environment:
-      - ConnectionStrings__MySqlConnection=Server=mysql;Database=ticketsdb;User=root;Password=secret;
+app:
+  container_name: netticket
+  build: .
+  profiles: ["manual"]
+  depends_on:
+    mysql:
+      condition: service_healthy
+  environment:
+    - ConnectionStrings__MySqlConnection=Server=mysql;Database=ticketsdb;User=root;Password=secret;      
