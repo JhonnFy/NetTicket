@@ -40,7 +40,6 @@ namespace NetTicket.Presentation.Menu
         }
 
 
-
         public void RunCategoriaMenu()
         {
             int optionMenu;
@@ -81,10 +80,6 @@ namespace NetTicket.Presentation.Menu
 
                         Console.Clear();
 
-                        //if(createCat == null) { Console.WriteLine($"No Se Creo La Categoria"); break; }
-                        //if(createCat == null) { Console.WriteLine($"No Se Creo La Categoria"); break; }
-                        //Console.WriteLine($"Nueva Categoría Registrada;  Id:{createCat.Id}, Nombre{createCat.Nombre}");
-
                         if (createCat == null) { AnsiConsole.Write(
                                 new Panel($"[bold red]No se permiten valores vacíos [/]")
                                     .Border(BoxBorder.Rounded)
@@ -97,7 +92,6 @@ namespace NetTicket.Presentation.Menu
                             .Border(BoxBorder.Rounded)
                             .Expand()
                         );
-
 
                         break;
 
