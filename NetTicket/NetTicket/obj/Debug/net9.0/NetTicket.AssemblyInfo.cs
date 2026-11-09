@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("NetTicket")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3b8a3175956e2c85ed5823c49f922949e8251b97")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0d2917270b28a07cfd36515f6b594d041b5acaa4")]
 [assembly: System.Reflection.AssemblyProductAttribute("NetTicket")]
 [assembly: System.Reflection.AssemblyTitleAttribute("NetTicket")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
