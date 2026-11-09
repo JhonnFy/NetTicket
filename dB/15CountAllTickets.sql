@@ -7,7 +7,7 @@ CREATE PROCEDURE CountAllTickets(
 )
 BEGIN
     SELECT COUNT(*) FROM tickets;
-END;
+END $$
 
 DELIMITER $$
 
