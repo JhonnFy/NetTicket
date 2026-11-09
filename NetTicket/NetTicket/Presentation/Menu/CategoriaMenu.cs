@@ -125,18 +125,28 @@ namespace NetTicket.Presentation.Menu
 
 
                     case 3:
-
                         cabeceraCategorias();
 
-                        Console.Write("Ingrese El Parámetro De Consulta: ");
-                        int id = Convert.ToInt32(Console.ReadLine());
+                        Console.Write("Ingrese el parámetro de consulta: ");
+                        if (!int.TryParse(Console.ReadLine(), out int id))
+                        {
+                            Console.Clear();
+                            AnsiConsole.Write(
+                                new Panel("[bold red]El ID ingresado no es válido; Solo se permiten valores numéricos.[/]")
+                                    .Border(BoxBorder.Rounded)
+                                    .BorderColor(Color.Red)
+                                    .Expand()
+                            );
+                            break;
+                        }
+
                         var countId = _service.ObtenerPorId(id);
                         Console.Clear();
 
                         if (countId == null)
                         {
                             AnsiConsole.Write(
-                                new Panel($"[bold red]El Id {id} proporcionado no existe en la base de datos[/]")
+                                new Panel($"[bold red]El Id {id} proporcionado no existe en la base de datos.[/]")
                                     .Border(BoxBorder.Rounded)
                                     .BorderColor(Color.Red)
                                     .Expand()
@@ -146,11 +156,11 @@ namespace NetTicket.Presentation.Menu
 
                         AnsiConsole.Write(
                             new Panel($"[bold yellow]Id:[/] {countId.Id}\n[bold cyan]Nombre:[/] {countId.Nombre}")
-                            .Border(BoxBorder.Rounded)
-                            .Expand()
+                                .Border(BoxBorder.Rounded)
+                                .Expand()
                         );
 
-                     break;
+                        break;
 
 
                     case 4:
