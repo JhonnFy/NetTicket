@@ -145,7 +145,13 @@ namespace NetTicket.Presentation.Menu
                         Console.Write("Ingrese el ID de la categoría que desea modificar: ");
                         if (!int.TryParse(Console.ReadLine(), out int idUpdate))
                         {
-                            Console.WriteLine("ID inválido. Debe ser un número.");
+                            Console.Clear();
+                            AnsiConsole.Write(
+                                new Panel($"[bold red]El ID ingresado no es válido; Solo se permiten valores numéricos.[/]")
+                                    .Border(BoxBorder.Rounded)
+                                    .BorderColor(Color.Red)
+                                    .Expand()
+                            );
                             break;
                         }
 
@@ -153,7 +159,13 @@ namespace NetTicket.Presentation.Menu
                         var catId = _service.ObtenerPorId(idUpdate);
                         if (catId == null)
                         {
-                            Console.WriteLine($"No existe una categoría con Id {idUpdate}.");
+                            Console.Clear();
+                            AnsiConsole.Write(
+                                new Panel($"[bold red]No existe una categoría con Id {idUpdate}.[/]")
+                                    .Border(BoxBorder.Rounded)
+                                    .BorderColor(Color.Red)
+                                    .Expand()
+                            );
                             break;
                         }
 
