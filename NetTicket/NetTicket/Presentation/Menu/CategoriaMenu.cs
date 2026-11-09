@@ -74,6 +74,7 @@ namespace NetTicket.Presentation.Menu
 
                         break;
 
+
                     case 2:
 
                         AnsiConsole.Write(
@@ -91,7 +92,7 @@ namespace NetTicket.Presentation.Menu
                             .BorderColor(Color.Cyan)
                             .Expand()
                         );
-
+                           
                         var countAll = _service.ObtenerTodos();
 
                         foreach (var categoria in countAll)
