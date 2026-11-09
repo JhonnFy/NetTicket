@@ -9,6 +9,6 @@ BEGIN
     SELECT LAST_INSERT_ID() AS id, Nombre AS nombre;
 END $$
 
-DELIMITER ;
+DELIMITER $$
 
 

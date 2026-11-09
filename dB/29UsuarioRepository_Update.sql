@@ -18,6 +18,4 @@ BEGIN
     WHERE id = p_Id;
 END $$
 
-DELIMITER ;
-
-
+DELIMITER $$

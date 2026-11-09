@@ -12,4 +12,4 @@ BEGIN
     WHERE Id = p_Id;
 END $$
 
-DELIMITER ;
+DELIMITER $$

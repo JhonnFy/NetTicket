@@ -16,4 +16,4 @@ BEGIN
     SELECT LAST_INSERT_ID() AS id_insertado; 
 END $$
 
-DELIMITER ;
+DELIMITER $$
