@@ -19,6 +19,8 @@ services:
   app:
     container_name: netticket
     build: .
+    tty: true
+    stdin_open: true
     depends_on:
       mysql:
         condition: service_healthy
