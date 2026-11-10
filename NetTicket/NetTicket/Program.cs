@@ -22,6 +22,8 @@ try
     var provider = services.BuildServiceProvider();
     provider.GetRequiredService<Menu>().Iniciar();
 
+    Console.Title = Environment.GetEnvironmentVariable("AAP_NAME") ?? "NetTicket";
+
 }
 catch(Exception ex)
 {
