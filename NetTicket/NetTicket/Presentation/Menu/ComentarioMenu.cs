@@ -15,6 +15,10 @@ namespace NetTicket.Presentation.Menu
         {
             _menu = menu;
         }
+                
+        public int countAllComentario() => _menu.countAllComentario();
+
+
 
 
     }
