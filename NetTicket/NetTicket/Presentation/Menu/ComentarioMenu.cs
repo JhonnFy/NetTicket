@@ -30,5 +30,11 @@ namespace NetTicket.Presentation.Menu
         }
 
 
+        public void RunComentarioMenu()
+        {
+
+        }
+
+
     }
 }
