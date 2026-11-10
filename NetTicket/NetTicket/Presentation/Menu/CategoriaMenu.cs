@@ -273,14 +273,26 @@ namespace NetTicket.Presentation.Menu
 
                         try
                         {
-                            _service.Delete(idDelete);
+                            bool eliminado = _service.Delete(idDelete);
                             Console.Clear();
 
-                            AnsiConsole.Write(
-                                new Panel($"[bold yellow]Categoría con Id {idDelete} eliminada correctamente.[/]")
-                                    .Border(BoxBorder.Rounded)
-                                    .Expand()
-                            );
+                            if (eliminado)
+                            {
+                                AnsiConsole.Write(
+                                    new Panel($"[bold yellow]Categoría con Id {idDelete} eliminada correctamente.[/]")
+                                        .Border(BoxBorder.Rounded)
+                                        .Expand()
+                                );
+                            }
+                            else
+                            {
+                                AnsiConsole.Write(
+                                    new Panel($"[bold red]No se pudo eliminar la categoría con Id {idDelete}.[/]")
+                                        .Border(BoxBorder.Rounded)
+                                        .BorderColor(Color.Red)
+                                        .Expand()
+                                );
+                            }
                         }
                         catch (MySqlException ex) when (ex.Number == 1451)
                         {
@@ -291,6 +303,7 @@ namespace NetTicket.Presentation.Menu
                                     .BorderColor(Color.Red)
                                     .Expand()
                             );
+                            break;
                         }
                         catch (Exception ex)
                         {
@@ -304,8 +317,6 @@ namespace NetTicket.Presentation.Menu
                         }
 
                         break;
-
-
 
                 }
 
