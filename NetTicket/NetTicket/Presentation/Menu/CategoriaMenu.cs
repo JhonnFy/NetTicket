@@ -44,7 +44,6 @@ namespace NetTicket.Presentation.Menu
         public void RunCategoriaMenu()
         {
             int optionMenu;
-            var countCat = countAllCategorias();
 
             do
             {
@@ -103,6 +102,13 @@ namespace NetTicket.Presentation.Menu
 
                     case 2:
                         cabeceraCategorias();
+
+                        AnsiConsole.Write(
+                            new Panel($"[bold cyan]Categorías registradas en la base de datos: [/] {countAllCategorias()}")
+                             .Border(BoxBorder.Rounded)
+                            .BorderColor(Color.Cyan)
+                            .Expand()
+                        );
 
                         var categorias = _service.ObtenerTodos();
 
@@ -209,7 +215,7 @@ namespace NetTicket.Presentation.Menu
                             break;
                         }
 
-                        var updateCat = _service.Update(idUpdate, nombreUpdate);
+                        _service.Update(idUpdate, nombreUpdate);
                         Console.Clear();
 
                         AnsiConsole.Write(
@@ -258,7 +264,7 @@ namespace NetTicket.Presentation.Menu
                         );
 
                         Console.Write("¿Confirma eliminar esta categoría? (s/n): ");
-                        string confirm = Console.ReadLine()?.Trim().ToLower();
+                        string confirm = Console.ReadLine()?.Trim().ToLowerInvariant();
 
                         if (confirm != "s")
                         {
@@ -317,9 +323,7 @@ namespace NetTicket.Presentation.Menu
                         }
 
                         break;
-
                 }
-
             } while (optionMenu != 6);
         }
     }
