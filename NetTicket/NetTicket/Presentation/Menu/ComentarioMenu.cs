@@ -19,7 +19,6 @@ namespace NetTicket.Presentation.Menu
         
         public int countAllComentarios() => _menu.countAllComentarios();
 
-
         public void cabeceraComentarios()
         {
             AnsiConsole.Write(
