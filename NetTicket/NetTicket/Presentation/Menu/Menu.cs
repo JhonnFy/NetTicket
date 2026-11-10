@@ -78,7 +78,7 @@ namespace NetTicket.Presentation.Menu
                         break;
 
                     case 2:
-                        _menuContext.ComentarioMenu.RunComentarioMenu();
+                        //_menuContext.ComentarioMenu.RunComentarioMenu();
                         break;
 
                     case 3:

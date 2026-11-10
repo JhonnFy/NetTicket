@@ -10,14 +10,15 @@ namespace NetTicket.Presentation.Menu
 {
     public class ComentarioMenu
     {
-        private readonly ComentarioMenu _menu;
+        private readonly ComentarioService _menu;
 
-        public ComentarioMenu(ComentarioMenu menu)
+        public ComentarioMenu(ComentarioService menu)
         {
             _menu = menu;
         }
-                
-        public int countAllComentario() => _menu.countAllComentario();
+        
+        public int countAllComentarios() => _menu.countAllComentarios();
+
 
         public void cabeceraComentarios()
         {
