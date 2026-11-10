@@ -1,9 +1,10 @@
-﻿using NetTicket.Services.DbRules;
-using Spectre.Console;
-using Microsoft.Extensions.Configuration;
+﻿using Microsoft.Extensions.Configuration;
 using Microsoft.VisualBasic;
+using MySqlConnector;
 using NetTicket.Data.RepositoriesCRUD;
 using NetTicket.DependencyInjection;
+using NetTicket.Services.DbRules;
+using Spectre.Console;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics.Metrics;
@@ -219,6 +220,7 @@ namespace NetTicket.Presentation.Menu
 
                         break;
 
+
                     case 5:
                         cabeceraCategorias();
 
@@ -269,16 +271,42 @@ namespace NetTicket.Presentation.Menu
                             break;
                         }
 
-                        _service.Delete(idDelete);
-                        Console.Clear();
+                        try
+                        {
+                            _service.Delete(idDelete);
+                            Console.Clear();
 
-                        AnsiConsole.Write(
-                            new Panel($"[bold yellow]Categoría con Id {idDelete} eliminada correctamente.[/]")
-                                .Border(BoxBorder.Rounded)
-                                .Expand()
-                        );
+                            AnsiConsole.Write(
+                                new Panel($"[bold yellow]Categoría con Id {idDelete} eliminada correctamente.[/]")
+                                    .Border(BoxBorder.Rounded)
+                                    .Expand()
+                            );
+                        }
+                        catch (MySqlException ex) when (ex.Number == 1451)
+                        {
+                            Console.Clear();
+                            AnsiConsole.Write(
+                                new Panel($"[bold red]No se puede eliminar la categoría con Id {idDelete} porque está siendo utilizada en otros registros (FK).[/]")
+                                    .Border(BoxBorder.Rounded)
+                                    .BorderColor(Color.Red)
+                                    .Expand()
+                            );
+                        }
+                        catch (Exception ex)
+                        {
+                            Console.Clear();
+                            AnsiConsole.Write(
+                                new Panel($"[bold red]Error al eliminar:[/] {ex.Message}")
+                                    .Border(BoxBorder.Rounded)
+                                    .BorderColor(Color.Red)
+                                    .Expand()
+                            );
+                        }
 
                         break;
+
+
+
                 }
 
             } while (optionMenu != 6);
