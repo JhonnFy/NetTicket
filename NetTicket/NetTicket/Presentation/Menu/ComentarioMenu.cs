@@ -9,39 +9,11 @@ namespace NetTicket.Presentation.Menu
 {
     public class ComentarioMenu
     {
-        private readonly ComentarioService _service;
+        private readonly ComentarioMenu _menu;
 
-        public ComentarioMenu(ComentarioService service)
+        public ComentarioMenu(ComentarioMenu menu)
         {
-            _service = service;
-        }
-
-        public int countAllComentarios()
-        {
-            var countCom = _service.countAllComentarios();
-            return countCom;
-        }
-
-
-        public void RunComentarioMenu()
-        {
-            int optionMenu;
-            Console.Clear();
-
-            do
-            {
-                Console.WriteLine("---------------------------");
-                Console.WriteLine("Welcome To Comentarios:");
-                Console.WriteLine("---------------------------");
-                Console.WriteLine("1 → Create");
-                Console.WriteLine("2 → Read");
-                Console.WriteLine("3 → ReadId");
-                Console.WriteLine("4 → Update");
-                Console.WriteLine("5 → Return To Main Menu");
-
-                Console.WriteLine("‼Enter Your Choice‼ →");
-                optionMenu = Convert.ToInt32(Console.ReadLine());
-            } while (optionMenu != 5);
+            _menu = menu;
         }
     }
 }
