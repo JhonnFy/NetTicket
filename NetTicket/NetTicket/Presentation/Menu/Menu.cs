@@ -22,8 +22,6 @@ namespace NetTicket.Presentation.Menu
         {
             int optionMenu;
 
-            Console.Clear();
-
             var countCat = _menuContext.CategoriaMenu.countAllCategorias();
             var countCom = _menuContext.ComentarioMenu.countAllComentarios();
             var countEst = _menuContext.EstadoMenu.countAllEstados();
@@ -33,6 +31,7 @@ namespace NetTicket.Presentation.Menu
 
             do
             {
+                Console.Clear();
                 AnsiConsole.Write(
                 new Panel(new Markup("[bold cyan]Welcome To TicketsDb[/]").Centered())
                 .Border(BoxBorder.Rounded)
@@ -92,6 +91,7 @@ namespace NetTicket.Presentation.Menu
                         _menuContext.UsuarioMenu.RunUsuarioMenu();
                         break;
                     case 6:
+                        Environment.Exit(0);
                         break;
                 }
             }while (optionMenu != 6);
