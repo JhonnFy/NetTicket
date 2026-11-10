@@ -15,5 +15,7 @@ namespace NetTicket.Presentation.Menu
         {
             _menu = menu;
         }
+
+
     }
 }
