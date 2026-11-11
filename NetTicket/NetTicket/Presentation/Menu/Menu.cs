@@ -17,6 +17,7 @@ namespace NetTicket.Presentation.Menu
         {
             _menuContext = menuContext;
         }
+        
 
         public void Iniciar()
         {
