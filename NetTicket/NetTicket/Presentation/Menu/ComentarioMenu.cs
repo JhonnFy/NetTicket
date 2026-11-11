@@ -1,8 +1,9 @@
-﻿using NetTicket.Services.DbRules;
+﻿using NetTicket.Models;
+using NetTicket.Services.DbRules;
 using Spectre.Console;
-using NetTicket.Models;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics.Metrics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -81,10 +82,24 @@ namespace NetTicket.Presentation.Menu
                         {
                             Console.Clear();
                             AnsiConsole.Write(
-                                new Panel("[bold red] El ID ingresado no es válido; Solo se permiten valores numéricos.[/]")
+                                new Panel("[bold red] El Ticket_id ingresado no es válido; Solo se permiten valores numéricos.[/]")
                                 .Border(BoxBorder.Rounded)
                                 .BorderColor(Color.Red)
                                 .Expand()
+                            );
+                            break;
+                        }
+
+                        var comtId = _menu.ObtenerPorId(idTick);
+
+                        if (comtId == null)
+                        {
+                            Console.Clear();
+                            AnsiConsole.Write(
+                                new Panel($"[bold red]El Ticket_id {idTick} proporcionado no existe en la base de datos.[/]")
+                                    .Border(BoxBorder.Rounded)
+                                    .BorderColor(Color.Red)
+                                    .Expand()
                             );
                             break;
                         }
@@ -95,7 +110,7 @@ namespace NetTicket.Presentation.Menu
                         {
                             Console.Clear();
                             AnsiConsole.Write(
-                                new Panel("[bold red] El ID ingresado no es válido; Solo se permiten valores numéricos. [/]")
+                                new Panel("[bold red]El Usuario_id ingresado no es válido; Solo se permiten valores numéricos. [/]")
                                     .Border(BoxBorder.Rounded)
                                     .BorderColor(Color.Red)
                                     .Expand()
@@ -103,9 +118,22 @@ namespace NetTicket.Presentation.Menu
                             break;
                         }
 
+                        var comtUsr = _menu.ObtenerPorId(idUsr);
+                        if (comtUsr ==  null)
+                        {
+                            Console.Clear();
+                            AnsiConsole.Write(
+                                new Panel($"[bold red]El Usuario_id {idUsr} proporcionado no existe en la base de datos.[/]")
+                                    .Border(BoxBorder.Rounded)
+                                    .BorderColor(Color.Red)
+                                    .Expand()
+                            );
+                            break;
+                        }
+
+
                         var createCom = _menu.Create(idTick, idUsr, textoCmt);
                         Console.Clear();
-
                         AnsiConsole.Write(
                             new Panel($"[bold yellow]Id:[/] {createCom.Id},\n[bold cyan]Ticketid:[/] {createCom.TicketId},\n[bold cyan]UsuarioId:[/] {createCom.UsuarioId},\n[bold cyan]Texto:[/] {createCom.Texto},\n[bold cyan]Fecha:[/] {createCom.Fecha}.")
                             .Border(BoxBorder.Rounded)
@@ -118,3 +146,4 @@ namespace NetTicket.Presentation.Menu
         }
     }
 }
+

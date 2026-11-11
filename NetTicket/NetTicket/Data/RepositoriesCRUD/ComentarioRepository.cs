@@ -106,8 +106,6 @@ namespace NetTicket.Data.RepositoriesCRUD
 
         public Comentario? Create(int ticketId, int usuarioId, string texto)
         {
-            try
-            {
                 using MySqlConnection cn = _conexion.ObtenerConexion();
                 cn.Open();
 
@@ -128,11 +126,6 @@ namespace NetTicket.Data.RepositoriesCRUD
                     Texto = texto,
                     Fecha = DateTime.Now
                 };
-            }catch(Exception ex)
-            {
-                Console.WriteLine("ComentarioRepository_Create " + ex.Message);
-            }
-            return null;
         }
 
         public bool Update(int id, string texto)
