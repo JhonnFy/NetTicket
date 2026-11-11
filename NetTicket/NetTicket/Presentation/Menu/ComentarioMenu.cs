@@ -1,6 +1,6 @@
-﻿using NetTicket.Models;
-using NetTicket.Services.DbRules;
+﻿using NetTicket.Services.DbRules;
 using Spectre.Console;
+using NetTicket.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,10 +20,10 @@ namespace NetTicket.Presentation.Menu
         
         public int countAllComentarios() => _menu.countAllComentarios();
 
-        public void cabeceraComentarios()
+        private void cabeceraComentarios()
         {
             AnsiConsole.Write(
-                new Panel(new Markup("[bold cyan]Welcome To Comentarios Menu[/]").Centered())
+                new Panel(new Markup("[bold yellow]Welcome To Comentarios Menu[/]").Centered())
                 .Border(BoxBorder.Rounded)
                 .BorderColor(Color.Cyan)
                 .Expand()
@@ -37,11 +37,12 @@ namespace NetTicket.Presentation.Menu
             do
             {
                 cabeceraComentarios();
+                countAllComentarios();
 
                 var menu = new SelectionPrompt<int>()
                     .PageSize(6)
                     .HighlightStyle(new Style(Color.Black, Color.Aqua, Decoration.Bold))
-                    .AddChoices(1, 2, 3, 4, 5, 6)
+                    .AddChoices(1, 2, 3, 4, 5)
                     .UseConverter(option => option switch
                     {
                         1 => "Create",
@@ -63,33 +64,6 @@ namespace NetTicket.Presentation.Menu
                         Console.Write("Ingrese el nombre del nuevo comentario: ");
                         string textoCmt = Console.ReadLine()?.Trim();
 
-                        Console.Write("Ingrese el identificador del Ticket_id");
-                        if (!int.TryParse(Console.ReadLine(),out int idTick))
-                        {
-                            Console.Clear();
-                            AnsiConsole.Write(
-                                new Panel("[bold red] El ID ingresado no es válido; Solo se permiten valores numéricos [/]")
-                                .Border(BoxBorder.Rounded)
-                                .BorderColor(Color.Red)
-                                .Expand()
-                            );
-                            break;
-                        }
-
-                        Console.Write("Ingrese el identificador del Usuario_id");
-                        if(!int.TryParse(Console.ReadLine(), out int idUsr))
-                        {
-                            Console.Clear();
-                            AnsiConsole.Write(
-                                new Panel("[bold red] El ID ingresado no es válido; Solo se permiten valores numéricos [/]")
-                                    .Border(BoxBorder.Rounded)
-                                    .BorderColor(Color.Red)
-                                    .Expand()
-                            );
-                            break;
-                        }
-
-
                         if (string.IsNullOrWhiteSpace(textoCmt))
                         {
                             Console.Clear();
@@ -102,11 +76,39 @@ namespace NetTicket.Presentation.Menu
                             break;
                         }
 
+
+                        Console.Write("Ingrese el identificador del Ticket_id: ");
+                        if (!int.TryParse(Console.ReadLine(),out int idTick))
+                        {
+                            Console.Clear();
+                            AnsiConsole.Write(
+                                new Panel("[bold red] El ID ingresado no es válido; Solo se permiten valores numéricos.[/]")
+                                .Border(BoxBorder.Rounded)
+                                .BorderColor(Color.Red)
+                                .Expand()
+                            );
+                            break;
+                        }
+
+
+                        Console.Write("Ingrese el identificador del Usuario_id: ");
+                        if (!int.TryParse(Console.ReadLine(),out int idUsr))
+                        {
+                            Console.Clear();
+                            AnsiConsole.Write(
+                                new Panel("[bold red] El ID ingresado no es válido; Solo se permiten valores numéricos. [/]")
+                                    .Border(BoxBorder.Rounded)
+                                    .BorderColor(Color.Red)
+                                    .Expand()
+                            );
+                            break;
+                        }
+
                         var createCom = _menu.Create(idTick, idUsr, textoCmt);
                         break;
                 }
 
-            } while (optionCmt !=6);
+            } while (optionCmt !=5);
         }
     }
 }
