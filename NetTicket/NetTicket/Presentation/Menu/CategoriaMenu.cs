@@ -1,6 +1,6 @@
-﻿using Microsoft.Extensions.Configuration;
+﻿using MySqlConnector;
+using Microsoft.Extensions.Configuration;
 using Microsoft.VisualBasic;
-using MySqlConnector;
 using NetTicket.Data.RepositoriesCRUD;
 using NetTicket.DependencyInjection;
 using NetTicket.Services.DbRules;

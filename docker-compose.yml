@@ -15,6 +15,7 @@ services:
       timeout: 5s
       retries: 5
       start_period: 200s
+      
 
   app:
     container_name: netticket
@@ -23,4 +24,5 @@ services:
       mysql:
         condition: service_healthy
     environment:
+      - APP_NAME=NetTicket-QA
       - ConnectionStrings__MySqlConnection=Server=mysql;Database=ticketsdb;User=root;Password=secret;

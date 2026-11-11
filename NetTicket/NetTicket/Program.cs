@@ -12,6 +12,8 @@ try
     .AddEnvironmentVariables()
     .Build();
 
+    Console.Title = Environment.GetEnvironmentVariable("APP_NAME") ?? "NetTicket";
+
     var services = new ServiceCollection();
     services.AddSingleton<IConfiguration>(configuration);
 
@@ -21,7 +23,7 @@ try
 
     var provider = services.BuildServiceProvider();
     provider.GetRequiredService<Menu>().Iniciar();
-
+    
 }
 catch(Exception ex)
 {
