@@ -36,6 +36,95 @@ namespace NetTicket.Presentation.Menu
             );
         }
 
+        private void comentarioMenuCase1()
+        {
+            cabeceraComentarios();
+
+            Console.Write("Ingrese el nombre del nuevo comentario: ");
+            string texto = Console.ReadLine()?.Trim();
+
+            if (string.IsNullOrWhiteSpace(texto))
+            {
+                Console.Clear();
+                AnsiConsole.Write(
+                    new Panel($"[bold red]No se permiten valores vacíos.[/]")
+                        .Border(BoxBorder.Rounded)
+                        .BorderColor(Color.Red)
+                        .Expand()
+                );
+                return;
+            }
+
+            Console.Write("Ingrese el identificador del Ticket_id: ");
+            if (!int.TryParse(Console.ReadLine(), out int ticketid))
+            {
+                Console.Clear();
+                AnsiConsole.Write(
+                    new Panel("[bold red] El Ticket_id ingresado no es válido; Solo se permiten valores numéricos.[/]")
+                    .Border(BoxBorder.Rounded)
+                    .BorderColor(Color.Red)
+                    .Expand()
+                );
+                return;
+            }
+
+            var ticket = _ticketService.ObtenerPorId(ticketid);
+
+            if (ticket == null)
+            {
+                Console.Clear();
+                AnsiConsole.Write(
+                    new Panel($"[bold red]El Ticket_id {ticketid} proporcionado no existe en la base de datos.[/]")
+                        .Border(BoxBorder.Rounded)
+                        .BorderColor(Color.Red)
+                        .Expand()
+                );
+                return;
+            }
+
+
+            Console.Write("Ingrese el identificador del Usuario_id: ");
+            if (!int.TryParse(Console.ReadLine(), out int usuarioid))
+            {
+                Console.Clear();
+                AnsiConsole.Write(
+                    new Panel("[bold red]El Usuario_id ingresado no es válido; Solo se permiten valores numéricos. [/]")
+                        .Border(BoxBorder.Rounded)
+                        .BorderColor(Color.Red)
+                        .Expand()
+                );
+                return;
+            }
+
+            var usuario = _usuarioService.ObtenerPorId(usuarioid);
+            if (usuario == null)
+            {
+                Console.Clear();
+                AnsiConsole.Write(
+                    new Panel($"[bold red]El Usuario_id {usuarioid} proporcionado no existe en la base de datos.[/]")
+                        .Border(BoxBorder.Rounded)
+                        .BorderColor(Color.Red)
+                        .Expand()
+                );
+                return;
+            }
+
+
+            var createComentario = _comentarioService.Create(ticketid, usuarioid, texto);
+            Console.Clear();
+            AnsiConsole.Write(
+                new Panel($"[bold yellow]Id:[/] {createComentario.Id}," +
+                $"\n [bold cyan]ticket_id:[/] {createComentario.TicketId}," +
+                $"\n [bold cyan]usuario_id:[/] {createComentario.UsuarioId}," +
+                $"\n [bold cyan]texto:[/] {createComentario.Texto}," +
+                $"\n [bold cyan]fecha:[/] {createComentario.Fecha}"
+                )
+                .Border(BoxBorder.Rounded)
+                .Expand()
+            );
+        }
+
+
         public void RunComentarioMenu()
         {
             int optionCmt;
@@ -65,90 +154,7 @@ namespace NetTicket.Presentation.Menu
                 switch(optionCmt)
                 {
                     case 1:
-                        cabeceraComentarios();
-
-                        Console.Write("Ingrese el nombre del nuevo comentario: ");
-                        string texto = Console.ReadLine()?.Trim();
-
-                        if (string.IsNullOrWhiteSpace(texto))
-                        {
-                            Console.Clear();
-                            AnsiConsole.Write(
-                                new Panel($"[bold red]No se permiten valores vacíos.[/]")
-                                    .Border(BoxBorder.Rounded)
-                                    .BorderColor(Color.Red)
-                                    .Expand()
-                            );
-                            break;
-                        }
-                        
-                        Console.Write("Ingrese el identificador del Ticket_id: ");
-                        if (!int.TryParse(Console.ReadLine(),out int ticketid))
-                        {
-                            Console.Clear();
-                            AnsiConsole.Write(
-                                new Panel("[bold red] El Ticket_id ingresado no es válido; Solo se permiten valores numéricos.[/]")
-                                .Border(BoxBorder.Rounded)
-                                .BorderColor(Color.Red)
-                                .Expand()
-                            );
-                            break;
-                        }
-
-                        var ticket = _ticketService.ObtenerPorId(ticketid);
-
-                        if (ticket == null)
-                        {
-                            Console.Clear();
-                            AnsiConsole.Write(
-                                new Panel($"[bold red]El Ticket_id {ticketid} proporcionado no existe en la base de datos.[/]")
-                                    .Border(BoxBorder.Rounded)
-                                    .BorderColor(Color.Red)
-                                    .Expand()
-                            );
-                            break;
-                        }
-
-
-                        Console.Write("Ingrese el identificador del Usuario_id: ");
-                        if (!int.TryParse(Console.ReadLine(),out int usuarioid))
-                        {
-                            Console.Clear();
-                            AnsiConsole.Write(
-                                new Panel("[bold red]El Usuario_id ingresado no es válido; Solo se permiten valores numéricos. [/]")
-                                    .Border(BoxBorder.Rounded)
-                                    .BorderColor(Color.Red)
-                                    .Expand()
-                            );
-                            break;
-                        }
-
-                        var usuario = _usuarioService.ObtenerPorId(usuarioid);
-                        if (usuario == null)
-                        {
-                            Console.Clear();
-                            AnsiConsole.Write(
-                                new Panel($"[bold red]El Usuario_id {usuarioid} proporcionado no existe en la base de datos.[/]")
-                                    .Border(BoxBorder.Rounded)
-                                    .BorderColor(Color.Red)
-                                    .Expand()
-                            );
-                            break;
-                        }
-
-
-                        var createComentario = _comentarioService.Create(ticketid, usuarioid, texto);
-                        Console.Clear();
-                        AnsiConsole.Write(
-                            new Panel($"[bold yellow]Id:[/] {createComentario.Id}," +
-                            $"\n [bold cyan]ticket_id:[/] {createComentario.TicketId}," +
-                            $"\n [bold cyan]usuario_id:[/]{createComentario.UsuarioId}," +
-                            $"\n [bold cyan]texto[/]{createComentario.Texto}," +
-                            $"\n [bold cyan]fecha[/]{createComentario.Fecha}"
-                            )
-                            .Border(BoxBorder.Rounded)
-                            .Expand()
-                        );
+                        comentarioMenuCase1();
                         break;
                 }
 
