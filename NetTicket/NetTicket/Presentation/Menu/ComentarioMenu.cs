@@ -75,8 +75,7 @@ namespace NetTicket.Presentation.Menu
                             );
                             break;
                         }
-
-
+                        
                         Console.Write("Ingrese el identificador del Ticket_id: ");
                         if (!int.TryParse(Console.ReadLine(),out int idTick))
                         {
@@ -105,6 +104,13 @@ namespace NetTicket.Presentation.Menu
                         }
 
                         var createCom = _menu.Create(idTick, idUsr, textoCmt);
+                        Console.Clear();
+
+                        AnsiConsole.Write(
+                            new Panel($"[bold yellow]Id:[/] {createCom.Id},\n[bold cyan]Ticketid:[/] {createCom.TicketId},\n[bold cyan]UsuarioId:[/] {createCom.UsuarioId},\n[bold cyan]Texto:[/] {createCom.Texto},\n[bold cyan]Fecha:[/] {createCom.Fecha}.")
+                            .Border(BoxBorder.Rounded)
+                            .Expand()
+                        );
                         break;
                 }
 
