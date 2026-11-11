@@ -22,7 +22,7 @@ namespace NetTicket.Presentation.Menu
         public void cabeceraComentarios()
         {
             AnsiConsole.Write(
-                new Panel(new Markup("[bold cyan]Welcome To ComentariosMenu[/]").Centered())
+                new Panel(new Markup("[bold cyan]Welcome To Comentarios Menu[/]").Centered())
                 .Border(BoxBorder.Rounded)
                 .BorderColor(Color.Cyan)
                 .Expand()
@@ -32,9 +32,70 @@ namespace NetTicket.Presentation.Menu
 
         public void RunComentarioMenu()
         {
+            int optionCmt;
 
+            do
+            {
+                cabeceraComentarios();
+
+                var menu = new SelectionPrompt<int>()
+                    .PageSize(6)
+                    .HighlightStyle(new Style(Color.Black, Color.Aqua, Decoration.Bold))
+                    .AddChoices(1, 2, 3, 4, 5, 6)
+                    .UseConverter(option => option switch
+                    {
+                        1 => "Create",
+                        2 => "Read",
+                        3 => "ReadId",
+                        4 => "Update",
+                        5 => "Return To Main Menu",
+                        _ => "Unknown"
+                    });
+
+                optionCmt = AnsiConsole.Prompt(menu);
+                Console.Clear();
+
+
+                switch(optionCmt)
+                {
+                    case 1:
+                        cabeceraComentarios();
+
+                        Console.Write("Ingrese el nombre del nuevo comentario: ");
+                        string nameCmt = Console.ReadLine()?.Trim();
+
+                        Console.Write("Ingrese el identificador del Ticket_id");
+                        if (!int.TryParse(Console.ReadLine(),out int idTick))
+                        {
+                            Console.Clear();
+                            AnsiConsole.Write(
+                                new Panel("[bold red] El ID ingresado no es válido; Solo se permiten valores numéricos [/]")
+                                .Border(BoxBorder.Rounded)
+                                .BorderColor(Color.Red)
+                                .Expand()
+                            );
+                            break;
+                        }
+
+
+                        if (string.IsNullOrWhiteSpace(nameCmt))
+                        {
+                            Console.Clear();
+                            AnsiConsole.Write(
+                                new Panel($"[bold red]No se permiten valores vacíos.[/]")
+                                    .Border(BoxBorder.Rounded)
+                                    .BorderColor(Color.Red)
+                                    .Expand()
+                            );
+                            break;
+                        }
+                        
+                        //var createCat = _menu.Create(nameCmt);
+
+                        break;
+                }
+
+            } while (optionCmt !=6);
         }
-
-
     }
 }
