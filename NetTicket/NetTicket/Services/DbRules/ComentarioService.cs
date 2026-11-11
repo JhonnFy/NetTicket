@@ -55,6 +55,7 @@ namespace NetTicket.Services.DbRules
             return comentario;
         }
 
+        //public Comentario? Create(int ticketId, int usuarioId, string texto)
         public Comentario? Create(int ticketId, int usuarioId, string texto)
         {
             return _repository.Create(ticketId, usuarioId, texto);

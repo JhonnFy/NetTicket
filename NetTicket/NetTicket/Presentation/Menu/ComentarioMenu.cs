@@ -1,4 +1,5 @@
-﻿using NetTicket.Services.DbRules;
+﻿using NetTicket.Models;
+using NetTicket.Services.DbRules;
 using Spectre.Console;
 using System;
 using System.Collections.Generic;
@@ -29,7 +30,6 @@ namespace NetTicket.Presentation.Menu
             );
         }
 
-
         public void RunComentarioMenu()
         {
             int optionCmt;
@@ -55,14 +55,13 @@ namespace NetTicket.Presentation.Menu
                 optionCmt = AnsiConsole.Prompt(menu);
                 Console.Clear();
 
-
                 switch(optionCmt)
                 {
                     case 1:
                         cabeceraComentarios();
 
                         Console.Write("Ingrese el nombre del nuevo comentario: ");
-                        string nameCmt = Console.ReadLine()?.Trim();
+                        string textoCmt = Console.ReadLine()?.Trim();
 
                         Console.Write("Ingrese el identificador del Ticket_id");
                         if (!int.TryParse(Console.ReadLine(),out int idTick))
@@ -77,8 +76,21 @@ namespace NetTicket.Presentation.Menu
                             break;
                         }
 
+                        Console.Write("Ingrese el identificador del Usuario_id");
+                        if(!int.TryParse(Console.ReadLine(), out int idUsr))
+                        {
+                            Console.Clear();
+                            AnsiConsole.Write(
+                                new Panel("[bold red] El ID ingresado no es válido; Solo se permiten valores numéricos [/]")
+                                    .Border(BoxBorder.Rounded)
+                                    .BorderColor(Color.Red)
+                                    .Expand()
+                            );
+                            break;
+                        }
 
-                        if (string.IsNullOrWhiteSpace(nameCmt))
+
+                        if (string.IsNullOrWhiteSpace(textoCmt))
                         {
                             Console.Clear();
                             AnsiConsole.Write(
@@ -89,9 +101,8 @@ namespace NetTicket.Presentation.Menu
                             );
                             break;
                         }
-                        
-                        //var createCat = _menu.Create(nameCmt);
 
+                        var createCom = _menu.Create(idTick, idUsr, textoCmt);
                         break;
                 }
 
