@@ -1,4 +1,5 @@
-﻿using NetTicket.Models;
+﻿using Microsoft.Extensions.Configuration;
+using NetTicket.Models;
 using NetTicket.Services.DbRules;
 using Spectre.Console;
 using System;
@@ -12,14 +13,18 @@ namespace NetTicket.Presentation.Menu
 {
     public class ComentarioMenu
     {
-        private readonly ComentarioService _menu;
+        private readonly ComentarioService _comentarioService;
+        private readonly TicketService _ticketService;
+        private readonly UsuarioService _usuarioService;
 
-        public ComentarioMenu(ComentarioService menu)
+        public ComentarioMenu(ComentarioService comentarioService, TicketService ticketService, UsuarioService usuarioService)
         {
-            _menu = menu;
+            _comentarioService = comentarioService;
+            _ticketService = ticketService;
+            _usuarioService = usuarioService;    
         }
         
-        public int countAllComentarios() => _menu.countAllComentarios();
+        public int countAllComentarios() => _comentarioService.countAllComentarios();
 
         private void cabeceraComentarios()
         {
@@ -63,9 +68,9 @@ namespace NetTicket.Presentation.Menu
                         cabeceraComentarios();
 
                         Console.Write("Ingrese el nombre del nuevo comentario: ");
-                        string textoCmt = Console.ReadLine()?.Trim();
+                        string texto = Console.ReadLine()?.Trim();
 
-                        if (string.IsNullOrWhiteSpace(textoCmt))
+                        if (string.IsNullOrWhiteSpace(texto))
                         {
                             Console.Clear();
                             AnsiConsole.Write(
@@ -78,7 +83,7 @@ namespace NetTicket.Presentation.Menu
                         }
                         
                         Console.Write("Ingrese el identificador del Ticket_id: ");
-                        if (!int.TryParse(Console.ReadLine(),out int idTick))
+                        if (!int.TryParse(Console.ReadLine(),out int ticketid))
                         {
                             Console.Clear();
                             AnsiConsole.Write(
@@ -90,13 +95,13 @@ namespace NetTicket.Presentation.Menu
                             break;
                         }
 
-                        var comtId = _menu.ObtenerPorId(idTick);
+                        var ticket = _ticketService.ObtenerPorId(ticketid);
 
-                        if (comtId == null)
+                        if (ticket == null)
                         {
                             Console.Clear();
                             AnsiConsole.Write(
-                                new Panel($"[bold red]El Ticket_id {idTick} proporcionado no existe en la base de datos.[/]")
+                                new Panel($"[bold red]El Ticket_id {ticketid} proporcionado no existe en la base de datos.[/]")
                                     .Border(BoxBorder.Rounded)
                                     .BorderColor(Color.Red)
                                     .Expand()
@@ -106,7 +111,7 @@ namespace NetTicket.Presentation.Menu
 
 
                         Console.Write("Ingrese el identificador del Usuario_id: ");
-                        if (!int.TryParse(Console.ReadLine(),out int idUsr))
+                        if (!int.TryParse(Console.ReadLine(),out int usuarioid))
                         {
                             Console.Clear();
                             AnsiConsole.Write(
@@ -118,12 +123,12 @@ namespace NetTicket.Presentation.Menu
                             break;
                         }
 
-                        var comtUsr = _menu.ObtenerPorId(idUsr);
-                        if (comtUsr ==  null)
+                        var usuario = _usuarioService.ObtenerPorId(usuarioid);
+                        if (usuario == null)
                         {
                             Console.Clear();
                             AnsiConsole.Write(
-                                new Panel($"[bold red]El Usuario_id {idUsr} proporcionado no existe en la base de datos.[/]")
+                                new Panel($"[bold red]El Usuario_id {usuarioid} proporcionado no existe en la base de datos.[/]")
                                     .Border(BoxBorder.Rounded)
                                     .BorderColor(Color.Red)
                                     .Expand()
@@ -132,10 +137,15 @@ namespace NetTicket.Presentation.Menu
                         }
 
 
-                        var createCom = _menu.Create(idTick, idUsr, textoCmt);
+                        var createComentario = _comentarioService.Create(ticketid, usuarioid, texto);
                         Console.Clear();
                         AnsiConsole.Write(
-                            new Panel($"[bold yellow]Id:[/] {createCom.Id},\n[bold cyan]Ticketid:[/] {createCom.TicketId},\n[bold cyan]UsuarioId:[/] {createCom.UsuarioId},\n[bold cyan]Texto:[/] {createCom.Texto},\n[bold cyan]Fecha:[/] {createCom.Fecha}.")
+                            new Panel($"[bold yellow]Id:[/] {createComentario.Id}," +
+                            $"\n [bold cyan]ticket_id:[/] {createComentario.TicketId}," +
+                            $"\n [bold cyan]usuario_id:[/]{createComentario.UsuarioId}," +
+                            $"\n [bold cyan]texto[/]{createComentario.Texto}," +
+                            $"\n [bold cyan]fecha[/]{createComentario.Fecha}"
+                            )
                             .Border(BoxBorder.Rounded)
                             .Expand()
                         );
