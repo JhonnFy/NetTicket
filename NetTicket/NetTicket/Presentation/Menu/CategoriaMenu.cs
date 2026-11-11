@@ -30,10 +30,10 @@ namespace NetTicket.Presentation.Menu
             return countCat;
         }
 
-        public void cabeceraCategorias()
+        private void CabeceraCategoria()
         {
-                AnsiConsole.Write(
-                new Panel(new Markup("[bold cyan]Welcome To CategoriaMenu[/]").Centered())
+            AnsiConsole.Write(
+                new Panel(new Markup("[bold yellow]Welcome To Categoria Menu[/]").Centered())
                 .Border(BoxBorder.Rounded)
                 .BorderColor(Color.Cyan)
                 .Expand()
@@ -47,7 +47,7 @@ namespace NetTicket.Presentation.Menu
 
             do
             {
-                cabeceraCategorias();
+                CabeceraCategoria();
 
                 var menu = new SelectionPrompt<int>()
                     .PageSize(6)
@@ -71,7 +71,7 @@ namespace NetTicket.Presentation.Menu
                 switch (optionMenu)
                 {
                     case 1:
-                        cabeceraCategorias();
+                        CabeceraCategoria();
 
                         Console.Write("Ingrese el nombre de la nueva categoría: ");
                         string nameCat = Console.ReadLine()?.Trim();
@@ -101,7 +101,7 @@ namespace NetTicket.Presentation.Menu
 
 
                     case 2:
-                        cabeceraCategorias();
+                        CabeceraCategoria();
 
                         AnsiConsole.Write(
                             new Panel($"[bold cyan]Categorías registradas en la base de datos: [/] {countAllCategorias()}")
@@ -132,7 +132,7 @@ namespace NetTicket.Presentation.Menu
 
 
                     case 3:
-                        cabeceraCategorias();
+                        CabeceraCategoria();
 
                         Console.Write("Ingrese el parámetro de consulta: ");
                         if (!int.TryParse(Console.ReadLine(), out int id))
@@ -171,7 +171,7 @@ namespace NetTicket.Presentation.Menu
 
 
                     case 4:
-                        cabeceraCategorias();
+                        CabeceraCategoria();
 
                         Console.Write("Ingrese el ID de la categoría que desea modificar: ");
                         if (!int.TryParse(Console.ReadLine(), out int idUpdate))
@@ -228,7 +228,7 @@ namespace NetTicket.Presentation.Menu
 
 
                     case 5:
-                        cabeceraCategorias();
+                        CabeceraCategoria();
 
                         Console.Write("Ingrese el ID de la categoría que desea eliminar: ");
                         if (!int.TryParse(Console.ReadLine(), out int idDelete))
