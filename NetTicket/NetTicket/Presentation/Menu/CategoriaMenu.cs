@@ -62,7 +62,6 @@ namespace NetTicket.Presentation.Menu
                 .Border(BoxBorder.Rounded)
                 .Expand()
             );
-            return;
         }
 
         private void CategoriaMenuCase2()
@@ -81,6 +80,7 @@ namespace NetTicket.Presentation.Menu
 
             if (categorias == null || !categorias.Any())
             {
+                Console.Clear();
                 AnsiConsole.Write(
                     new Panel("[bold yellow]No hay categorías registradas.[/]")
                         .Border(BoxBorder.Rounded)
@@ -236,6 +236,7 @@ namespace NetTicket.Presentation.Menu
 
             if (confirm != "s")
             {
+                Console.Clear();
                 AnsiConsole.Write(
                     new Panel("[bold yellow]Operación cancelada. No se eliminó ningún registro.[/]")
                         .Border(BoxBorder.Rounded)
@@ -299,7 +300,6 @@ namespace NetTicket.Presentation.Menu
             do
             {
                 CabeceraCategorias();
-                CountAllCategorias();
 
                 var menu = new SelectionPrompt<int>()
                     .PageSize(6)
