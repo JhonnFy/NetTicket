@@ -260,4 +260,4 @@ Cada repositorio tiene tests con MSTest que prueban contra la DB real:
 <img width="1366" height="768" alt="image" src="https://github.com/user-attachments/assets/c74754fe-b194-4d0c-8c06-9d4d54c30d39" />
 
 
-## Virtual machine
+
