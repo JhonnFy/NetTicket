@@ -5,6 +5,7 @@ services:
     ports:
       - "3307:3306"
     environment:
+      TZ: America/Bogota
       MYSQL_ROOT_PASSWORD: secret
       MYSQL_DATABASE: ticketsdb
     volumes:
@@ -24,5 +25,6 @@ services:
       mysql:
         condition: service_healthy
     environment:
-      - APP_NAME=NetTicket-QA
+      - TZ=America/Bogota
+      - APP_NAME=Docker-NetTicket-QA
       - ConnectionStrings__MySqlConnection=Server=mysql;Database=ticketsdb;User=root;Password=secret;

@@ -19,7 +19,7 @@ namespace NetTicket.Services.DbRules
             _repository = repository;
         }
 
-        public int countAllUsuarios()
+        public int CountAllUsuarios()
         {
             var countUsr = _repository.countAllUsuarios();
             return countUsr;

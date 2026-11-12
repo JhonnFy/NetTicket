@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+ 
 namespace NetTicket.Presentation.Menu
 {
     public class TicketMenu
@@ -18,7 +18,7 @@ namespace NetTicket.Presentation.Menu
 
         public int countAllTickets()
         {
-            var countTick = _service.countAllTickets();
+            var countTick = _service.CountAllTickets();
             return countTick;
         }
 
