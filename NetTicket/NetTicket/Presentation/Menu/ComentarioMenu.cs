@@ -56,7 +56,7 @@ namespace NetTicket.Presentation.Menu
             }
 
             Console.Write("Ingrese el identificador del Ticket_id: ");
-            if (!int.TryParse(Console.ReadLine(), out int ticketid))
+            if (!int.TryParse(Console.ReadLine(), out int ticketId))
             {
                 Console.Clear();
                 AnsiConsole.Write(
@@ -68,13 +68,13 @@ namespace NetTicket.Presentation.Menu
                 return;
             }
 
-            var ticket = _ticketService.ObtenerPorId(ticketid);
+            var ticket = _ticketService.ObtenerPorId(ticketId);
 
             if (ticket == null)
             {
                 Console.Clear();
                 AnsiConsole.Write(
-                    new Panel($"[bold red]El Ticket_id {ticketid} proporcionado no existe en la base de datos.[/]")
+                    new Panel($"[bold red]El Ticket_id {ticketId} proporcionado no existe en la base de datos.[/]")
                         .Border(BoxBorder.Rounded)
                         .BorderColor(Color.Red)
                         .Expand()
@@ -84,7 +84,7 @@ namespace NetTicket.Presentation.Menu
 
 
             Console.Write("Ingrese el identificador del Usuario_id: ");
-            if (!int.TryParse(Console.ReadLine(), out int usuarioid))
+            if (!int.TryParse(Console.ReadLine(), out int usuarioId))
             {
                 Console.Clear();
                 AnsiConsole.Write(
@@ -96,12 +96,12 @@ namespace NetTicket.Presentation.Menu
                 return;
             }
 
-            var usuario = _usuarioService.ObtenerPorId(usuarioid);
+            var usuario = _usuarioService.ObtenerPorId(usuarioId);
             if (usuario == null)
             {
                 Console.Clear();
                 AnsiConsole.Write(
-                    new Panel($"[bold red]El Usuario_id {usuarioid} proporcionado no existe en la base de datos.[/]")
+                    new Panel($"[bold red]El Usuario_id {usuarioId} proporcionado no existe en la base de datos.[/]")
                         .Border(BoxBorder.Rounded)
                         .BorderColor(Color.Red)
                         .Expand()
@@ -110,7 +110,7 @@ namespace NetTicket.Presentation.Menu
             }
 
 
-            var createComentario = _comentarioService.Create(ticketid, usuarioid, texto);
+            var createComentario = _comentarioService.Create(ticketId, usuarioId, texto);
             Console.Clear();
             AnsiConsole.Write(
                 new Panel($"[bold yellow]Id:[/] {createComentario.Id}," +
