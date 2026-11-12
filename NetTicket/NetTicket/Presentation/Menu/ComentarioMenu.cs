@@ -1,7 +1,7 @@
-﻿using Microsoft.Extensions.Configuration;
-using NetTicket.Models;
-using NetTicket.Services.DbRules;
+﻿using NetTicket.Services.DbRules;
 using Spectre.Console;
+using Microsoft.Extensions.Configuration;
+using NetTicket.Models;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics.Metrics;
