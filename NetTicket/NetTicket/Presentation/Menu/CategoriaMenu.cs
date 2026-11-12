@@ -54,14 +54,12 @@ namespace NetTicket.Presentation.Menu
             }
 
             var createCategoria = _categoriaService.Create(nombre);
-
-
+            
             AnsiConsole.Write(
                 new Panel($"[bold yellow]Id:[/] {createCategoria.Id}\n[bold cyan]Nombre:[/] {createCategoria.Nombre}")
                 .Border(BoxBorder.Rounded)
                 .Expand()
             );
-
         }
 
         private void CategoriaMenuCase2()
@@ -306,22 +304,22 @@ namespace NetTicket.Presentation.Menu
                 {
                     case 1:
                             CategoriaMenuCase1();
-                        return;
+                        break;
                     
                     case 2:
                             CategoriaMenuCase2();
-                        return;
+                        break;
                     
                     case 3:
                             CategoriaMenuCase3();
-                        return;
+                        break;
 
                     case 4:
                             CategoriaMenuCase4();
-                        return;
+                        break;
                     case 5:
                             CategoriaMenuCase5();
-                        return;
+                        break;
                 }
             } while (optionMenu != 6);
         }
