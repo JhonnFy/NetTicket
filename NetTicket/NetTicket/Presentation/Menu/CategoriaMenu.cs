@@ -133,7 +133,65 @@ namespace NetTicket.Presentation.Menu
                     .Border(BoxBorder.Rounded)
                     .Expand()
             );
-            return;
+        }
+
+        private void CategoriaMenuCase4()
+        {
+            CabeceraCategoria();
+
+            Console.Write("Ingrese el ID de la categoría que desea modificar: ");
+            if (!int.TryParse(Console.ReadLine(), out int idUpdate))
+            {
+                Console.Clear();
+                AnsiConsole.Write(
+                    new Panel($"[bold red]El ID ingresado no es válido; Solo se permiten valores numéricos.[/]")
+                        .Border(BoxBorder.Rounded)
+                        .BorderColor(Color.Red)
+                        .Expand()
+                );
+                break;
+            }
+
+
+            var catId = _service.ObtenerPorId(idUpdate);
+            if (catId == null)
+            {
+                Console.Clear();
+                AnsiConsole.Write(
+                    new Panel($"[bold red]No existe una categoría con Id {idUpdate}.[/]")
+                        .Border(BoxBorder.Rounded)
+                        .BorderColor(Color.Red)
+                        .Expand()
+                );
+                break;
+            }
+
+            Console.Write("Ingrese el nuevo nombre de la categoría: ");
+            string nombreUpdate = Console.ReadLine()?.Trim();
+
+            if (string.IsNullOrWhiteSpace(nombreUpdate))
+            {
+                Console.Clear();
+                AnsiConsole.Write(
+                    new Panel($"[bold red]El nombre no puede estar vacío; No se realizó ningún cambio.[/]")
+                        .Border(BoxBorder.Rounded)
+                        .BorderColor(Color.Red)
+                        .Expand()
+                );
+                break;
+            }
+
+            _service.Update(idUpdate, nombreUpdate);
+            Console.Clear();
+
+            AnsiConsole.Write(
+                new Panel($"[bold yellow]Id:[/] {catId.Id}\n[bold cyan]Nombre:[/] {nombreUpdate}")
+                .Border(BoxBorder.Rounded)
+                .Expand()
+            );
+
+            break;
+
         }
 
 
@@ -177,6 +235,10 @@ namespace NetTicket.Presentation.Menu
                     
                     case 3:
                             CategoriaMenuCase3();
+                        break;
+
+                    case 4:
+                            CategoriaMenuCase4();
                         break;
                 }
             } while (optionMenu != 6);
