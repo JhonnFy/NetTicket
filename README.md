@@ -11,7 +11,7 @@ comentarios.
 
 ---
 
-### ¿Como instalar?
+
 
 
 ## Funcionalidades
@@ -232,6 +232,9 @@ Cada repositorio tiene tests con MSTest que prueban contra la DB real:
 - **No usar `try/catch` en tests** → si el `Assert` falla, el `catch` lo oculta y el test "pasa" falsamente.
 - **`Console.WriteLine` en MSTest** aparece en "Standard Output" del resultado.
 - **`Assert.AreEqual(esperado, real)`** compara; no imprime.
+
+## ticketsdb
+
 
 ## Dockerfile
 <img width="1366" height="768" alt="image" src="https://github.com/user-attachments/assets/099e9730-9d52-4ea9-9bfc-ab8e0a29aebb" />
