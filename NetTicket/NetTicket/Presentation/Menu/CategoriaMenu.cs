@@ -137,10 +137,10 @@ namespace NetTicket.Presentation.Menu
 
         private void CategoriaMenuCase4()
         {
-            CabeceraCategoria();
+            CabeceraCategorias();
 
             Console.Write("Ingrese el ID de la categoría que desea modificar: ");
-            if (!int.TryParse(Console.ReadLine(), out int idUpdate))
+            if (!int.TryParse(Console.ReadLine(), out int id))
             {
                 Console.Clear();
                 AnsiConsole.Write(
@@ -149,27 +149,26 @@ namespace NetTicket.Presentation.Menu
                         .BorderColor(Color.Red)
                         .Expand()
                 );
-                break;
+                return;
             }
 
-
-            var catId = _service.ObtenerPorId(idUpdate);
-            if (catId == null)
+            var categoria = _categoriaService.ObtenerPorId(id);
+            if (categoria == null)
             {
                 Console.Clear();
                 AnsiConsole.Write(
-                    new Panel($"[bold red]No existe una categoría con Id {idUpdate}.[/]")
+                    new Panel($"[bold red]No existe una categoría con Id {id}.[/]")
                         .Border(BoxBorder.Rounded)
                         .BorderColor(Color.Red)
                         .Expand()
                 );
-                break;
+                return;
             }
 
             Console.Write("Ingrese el nuevo nombre de la categoría: ");
-            string nombreUpdate = Console.ReadLine()?.Trim();
+            string nombre = Console.ReadLine()?.Trim();
 
-            if (string.IsNullOrWhiteSpace(nombreUpdate))
+            if (string.IsNullOrWhiteSpace(nombre))
             {
                 Console.Clear();
                 AnsiConsole.Write(
@@ -178,20 +177,18 @@ namespace NetTicket.Presentation.Menu
                         .BorderColor(Color.Red)
                         .Expand()
                 );
-                break;
+                return;
             }
 
-            _service.Update(idUpdate, nombreUpdate);
+            _categoriaService.Update(id, nombre);
             Console.Clear();
 
             AnsiConsole.Write(
-                new Panel($"[bold yellow]Id:[/] {catId.Id}\n[bold cyan]Nombre:[/] {nombreUpdate}")
+                new Panel($"[bold yellow]Id:[/] {id}\n[bold cyan]Nombre:[/] {nombre}")
                 .Border(BoxBorder.Rounded)
                 .Expand()
             );
-
-            break;
-
+            return;
         }
 
 
