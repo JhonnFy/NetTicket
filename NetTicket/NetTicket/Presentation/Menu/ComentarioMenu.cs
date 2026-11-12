@@ -8,7 +8,8 @@ using System.Diagnostics.Metrics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
- 
+using System.ComponentModel;
+
 namespace NetTicket.Presentation.Menu
 {
     public class ComentarioMenu
@@ -124,6 +125,38 @@ namespace NetTicket.Presentation.Menu
             );
         }
 
+        private void ComentarioMenuCase2()
+        {
+            Console.Clear();
+            CabeceraComentarios();
+
+            AnsiConsole.Write(
+                new Panel($"[bold cyan]Comentarios registrados en la base de datos: [/] {CountAllComentarios()}")
+                .Border(BoxBorder.Rounded)
+                .BorderColor(Color.Cyan)
+                .Expand()
+            );
+
+            var comentarios = _comentarioService.ObtenerTodos();
+
+            if (comentarios == null || !comentarios.Any())
+            {
+                Console.Clear();
+                AnsiConsole.Write(
+                    new Panel("[bold yellow]No hay comentarios registrados.[/]")
+                        .Border(BoxBorder.Rounded)
+                        .Expand()
+                );
+                return;
+            }
+
+            foreach (var comentario in comentarios)
+            {
+                Console.WriteLine($"Id: {comentario.Id}, ticket_id: {comentario.TicketId}, usuario_id: {comentario.UsuarioId}, texto: {comentario.Texto}, fecha: {comentario.Fecha}");
+            }
+            Console.WriteLine();
+        }
+
 
         public void RunComentarioMenu()
         {
@@ -153,7 +186,11 @@ namespace NetTicket.Presentation.Menu
                 switch(optionCmt)
                 {
                     case 1:
-                        ComentarioMenuCase1();
+                            ComentarioMenuCase1();
+                        break;
+
+                    case 2:
+                            ComentarioMenuCase2();
                         break;
                 }
 
@@ -161,7 +198,5 @@ namespace NetTicket.Presentation.Menu
         }
     }
 }
-
-
 
 
