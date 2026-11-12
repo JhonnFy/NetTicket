@@ -97,6 +97,11 @@ namespace NetTicket.Presentation.Menu
         }
 
 
+        private void CategoriaMenuCase3()
+        {
+
+        }
+
 
         public void RunCategoriaMenu()
         {
