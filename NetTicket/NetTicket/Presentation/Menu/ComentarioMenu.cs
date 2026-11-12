@@ -124,6 +124,10 @@ namespace NetTicket.Presentation.Menu
             );
         }
 
+        public void ComentarioMenuCase2()
+        {
+
+        }
 
         public void RunComentarioMenu()
         {
@@ -153,7 +157,11 @@ namespace NetTicket.Presentation.Menu
                 switch(optionCmt)
                 {
                     case 1:
-                        ComentarioMenuCase1();
+                            ComentarioMenuCase1();
+                        break;
+
+                    case 2:
+                            ComentarioMenuCase2();
                         break;
                 }
 
@@ -161,7 +169,5 @@ namespace NetTicket.Presentation.Menu
         }
     }
 }
-
-
 
 
