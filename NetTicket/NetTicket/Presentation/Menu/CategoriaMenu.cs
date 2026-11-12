@@ -35,7 +35,7 @@ namespace NetTicket.Presentation.Menu
             );
         }
 
-        public void CategoriaMenuCase1()
+        private void CategoriaMenuCase1()
         {
             CabeceraCategorias();
 
@@ -63,8 +63,39 @@ namespace NetTicket.Presentation.Menu
                 .Expand()
             );
 
-
         }
+
+        private void CategoriaMenuCase2()
+        {
+            CabeceraCategorias();
+
+            AnsiConsole.Write(
+                new Panel($"[bold cyan]Categorías registradas en la base de datos: [/] {CountAllCategorias()}")
+                 .Border(BoxBorder.Rounded)
+                .BorderColor(Color.Cyan)
+                .Expand()
+            );
+
+            var categorias = _categoriaService.ObtenerTodos();
+
+            if (categorias == null || !categorias.Any())
+            {
+                AnsiConsole.Write(
+                    new Panel("[bold yellow]No hay categorías registradas.[/]")
+                        .Border(BoxBorder.Rounded)
+                        .Expand()
+                );
+                return;
+            }
+
+            foreach (var categoria in categorias)
+            {
+                Console.WriteLine($"Id:{categoria.Id}, Nombre:{categoria.Nombre}");
+            }
+
+            Console.WriteLine();
+        }
+
 
 
         public void RunCategoriaMenu()
@@ -99,6 +130,9 @@ namespace NetTicket.Presentation.Menu
                 {
                     case 1:
                         CategoriaMenuCase1();
+                        break;
+                    case 2:
+                        CategoriaMenuCase2();
                         break;
                 }
             } while (optionMenu != 6);
