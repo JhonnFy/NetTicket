@@ -8,7 +8,7 @@ using System.Diagnostics.Metrics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+ 
 namespace NetTicket.Presentation.Menu
 {
     public class ComentarioMenu
@@ -24,7 +24,7 @@ namespace NetTicket.Presentation.Menu
             _usuarioService = usuarioService;    
         }
 
-        public int CountAllComentarios() => _comentarioService.countAllComentarios();
+        public int CountAllComentarios() => _comentarioService.CountAllComentarios();
         private void CabeceraComentarios()
         {
             AnsiConsole.Write(

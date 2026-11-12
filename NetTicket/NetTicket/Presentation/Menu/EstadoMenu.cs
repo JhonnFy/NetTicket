@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+ 
 namespace NetTicket.Presentation.Menu
 {
     public class EstadoMenu
@@ -18,7 +18,7 @@ namespace NetTicket.Presentation.Menu
 
         public int countAllEstados()
         {
-            var countEst = _service.countAllEstados();
+            var countEst = _service.CountAllEstados();
             return countEst;
         }
 
