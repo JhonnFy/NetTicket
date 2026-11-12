@@ -190,6 +190,104 @@ namespace NetTicket.Presentation.Menu
             );
         }
 
+        private void CategoriaMenuCase5()
+        {
+            CabeceraCategorias();
+
+            Console.Write("Ingrese el ID de la categoría que desea eliminar: ");
+            if (!int.TryParse(Console.ReadLine(), out int id))
+            {
+                Console.Clear();
+                AnsiConsole.Write(
+                    new Panel("[bold red]El ID ingresado no es válido; Solo se permiten valores numéricos.[/]")
+                        .Border(BoxBorder.Rounded)
+                        .BorderColor(Color.Red)
+                        .Expand()
+                );
+                return;
+            }
+
+            var categoria = _categoriaService.ObtenerPorId(id);
+            if (categoria == null)
+            {
+                Console.Clear();
+                AnsiConsole.Write(
+                    new Panel($"[bold red]No existe una categoría con Id {id}.[/]")
+                        .Border(BoxBorder.Rounded)
+                        .BorderColor(Color.Red)
+                        .Expand()
+                );
+                return;
+            }
+
+            Console.Clear();
+            AnsiConsole.Write(
+                new Panel($"[bold yellow]Id:[/] {categoria.Id}\n[bold cyan]Nombre:[/] {categoria.Nombre}")
+                    .Border(BoxBorder.Rounded)
+                    .Expand()
+            );
+
+            Console.Write("¿Confirma eliminar esta categoría? (s/n): ");
+            string confirm = Console.ReadLine()?.Trim().ToLowerInvariant();
+
+            if (confirm != "s")
+            {
+                Console.Clear();
+                AnsiConsole.Write(
+                    new Panel("[bold yellow]Operación cancelada. No se eliminó ningún registro.[/]")
+                        .Border(BoxBorder.Rounded)
+                        .Expand()
+                );
+                return;
+            }
+
+            try
+            {
+                bool eliminado = _categoriaService.Delete(id);
+                Console.Clear();
+
+                if (eliminado)
+                {
+                    AnsiConsole.Write(
+                        new Panel($"[bold yellow]Categoría con Id {id} eliminada correctamente.[/]")
+                            .Border(BoxBorder.Rounded)
+                            .Expand()
+                    );
+                }
+                else
+                {
+                    AnsiConsole.Write(
+                        new Panel($"[bold red]No se pudo eliminar la categoría con Id {id}.[/]")
+                            .Border(BoxBorder.Rounded)
+                            .BorderColor(Color.Red)
+                            .Expand()
+                    );
+                }
+            }
+            catch (MySqlException ex) when (ex.Number == 1451)
+            {
+                Console.Clear();
+                AnsiConsole.Write(
+                    new Panel($"[bold red]No se puede eliminar la categoría con Id {id} porque está siendo utilizada en otros registros (FK).[/]")
+                        .Border(BoxBorder.Rounded)
+                        .BorderColor(Color.Red)
+                        .Expand()
+                );
+                return;
+            }
+
+            catch (Exception ex)
+            {
+                Console.Clear();
+                AnsiConsole.Write(
+                    new Panel($"[bold red]Error al eliminar:[/] {ex.Message}")
+                        .Border(BoxBorder.Rounded)
+                        .BorderColor(Color.Red)
+                        .Expand()
+                );
+            }
+        }
+
 
         public void RunCategoriaMenu()
         {
@@ -223,19 +321,22 @@ namespace NetTicket.Presentation.Menu
                 {
                     case 1:
                             CategoriaMenuCase1();
-                        break;
+                        return;
                     
                     case 2:
                             CategoriaMenuCase2();
-                        break;
+                        return;
                     
                     case 3:
                             CategoriaMenuCase3();
-                        break;
+                        return;
 
                     case 4:
                             CategoriaMenuCase4();
-                        break;
+                        return;
+                    case 5:
+                            CategoriaMenuCase5();
+                        return;
                 }
             } while (optionMenu != 6);
         }
