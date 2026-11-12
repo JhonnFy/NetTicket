@@ -193,96 +193,97 @@ namespace NetTicket.Presentation.Menu
             );
         }
 
-        //private void CategoriaMenuCase5()
-        //{
-        //    CabeceraCategorias();
+        private void CategoriaMenuCase5()
+        {
+            Console.Clear();
+            CabeceraCategorias();
 
-        //    Console.Write("Ingrese el ID de la categoría que desea eliminar: ");
-        //    if (!int.TryParse(Console.ReadLine(), out int id))
-        //    {
-        //        AnsiConsole.Write(
-        //            new Panel("[bold red]El ID ingresado no es válido; Solo se permiten valores numéricos.[/]")
-        //                .Border(BoxBorder.Rounded)
-        //                .BorderColor(Color.Red)
-        //                .Expand()
-        //        );
-        //        return;
-        //    }
+            Console.Write("Ingrese el ID de la categoría que desea eliminar: ");
+            if (!int.TryParse(Console.ReadLine(), out int id))
+            {
+                AnsiConsole.Write(
+                    new Panel("[bold red]El ID ingresado no es válido; Solo se permiten valores numéricos.[/]")
+                        .Border(BoxBorder.Rounded)
+                        .BorderColor(Color.Red)
+                        .Expand()
+                );
+                return;
+            }
 
-        //    var categoria = _categoriaService.ObtenerPorId(id);
-        //    if (categoria == null)
-        //    {
-        //        AnsiConsole.Write(
-        //            new Panel($"[bold red]No existe una categoría con Id {id}.[/]")
-        //                .Border(BoxBorder.Rounded)
-        //                .BorderColor(Color.Red)
-        //                .Expand()
-        //        );
-        //        return;
-        //    }
+            var categoria = _categoriaService.ObtenerPorId(id);
+            if (categoria == null)
+            {
+                AnsiConsole.Write(
+                    new Panel($"[bold red]No existe una categoría con Id {id}.[/]")
+                        .Border(BoxBorder.Rounded)
+                        .BorderColor(Color.Red)
+                        .Expand()
+                );
+                return;
+            }
 
-        //    AnsiConsole.Write(
-        //        new Panel($"[bold yellow]Id:[/] {categoria.Id}\n[bold cyan]Nombre:[/] {categoria.Nombre}")
-        //            .Border(BoxBorder.Rounded)
-        //            .Expand()
-        //    );
+            AnsiConsole.Write(
+                new Panel($"[bold yellow]Id:[/] {categoria.Id}\n[bold cyan]Nombre:[/] {categoria.Nombre}")
+                    .Border(BoxBorder.Rounded)
+                    .Expand()
+            );
 
-        //    Console.Write("¿Confirma eliminar esta categoría? (s/n): ");
-        //    string confirm = Console.ReadLine()?.Trim().ToLowerInvariant();
+            Console.Write("¿Confirma eliminar esta categoría? (s/n): ");
+            string confirm = Console.ReadLine()?.Trim().ToLowerInvariant();
 
-        //    if (confirm != "s")
-        //    {
-        //        AnsiConsole.Write(
-        //            new Panel("[bold yellow]Operación cancelada. No se eliminó ningún registro.[/]")
-        //                .Border(BoxBorder.Rounded)
-        //                .Expand()
-        //        );
-        //        return;
-        //    }
+            if (confirm != "s")
+            {
+                AnsiConsole.Write(
+                    new Panel("[bold yellow]Operación cancelada. No se eliminó ningún registro.[/]")
+                        .Border(BoxBorder.Rounded)
+                        .Expand()
+                );
+                return;
+            }
 
-        //    try
-        //    {
-        //        bool eliminado = _categoriaService.Delete(id);
+            try
+            {
+                bool eliminado = _categoriaService.Delete(id);
 
-        //        if (eliminado)
-        //        {
-        //            AnsiConsole.Write(
-        //                new Panel($"[bold yellow]Categoría con Id {id} eliminada correctamente.[/]")
-        //                    .Border(BoxBorder.Rounded)
-        //                    .Expand()
-        //            );
-        //        }
-        //        else
-        //        {
-        //            AnsiConsole.Write(
-        //                new Panel($"[bold red]No se pudo eliminar la categoría con Id {id}.[/]")
-        //                    .Border(BoxBorder.Rounded)
-        //                    .BorderColor(Color.Red)
-        //                    .Expand()
-        //            );
-        //        }
-        //    }
-        //    catch (MySqlException ex) when (ex.Number == 1451)
-        //    {
-        //        AnsiConsole.Write(
-        //            new Panel($"[bold red]No se puede eliminar la categoría con Id {id} porque está siendo utilizada en otros registros (FK).[/]")
-        //                .Border(BoxBorder.Rounded)
-        //                .BorderColor(Color.Red)
-        //                .Expand()
-        //        );
-        //        return;
-        //    }
+                if (eliminado)
+                {
+                    AnsiConsole.Write(
+                        new Panel($"[bold yellow]Categoría con Id {id} eliminada correctamente.[/]")
+                            .Border(BoxBorder.Rounded)
+                            .Expand()
+                    );
+                }
+                else
+                {
+                    AnsiConsole.Write(
+                        new Panel($"[bold red]No se pudo eliminar la categoría con Id {id}.[/]")
+                            .Border(BoxBorder.Rounded)
+                            .BorderColor(Color.Red)
+                            .Expand()
+                    );
+                }
+            }
+            catch (MySqlException ex) when (ex.Number == 1451)
+            {
+                AnsiConsole.Write(
+                    new Panel($"[bold red]No se puede eliminar la categoría con Id {id} porque está siendo utilizada en otros registros (FK).[/]")
+                        .Border(BoxBorder.Rounded)
+                        .BorderColor(Color.Red)
+                        .Expand()
+                );
+                return;
+            }
 
-        //    catch (Exception ex)
-        //    {
-        //        AnsiConsole.Write(
-        //            new Panel($"[bold red]Error al eliminar:[/] {ex.Message}")
-        //                .Border(BoxBorder.Rounded)
-        //                .BorderColor(Color.Red)
-        //                .Expand()
-        //        );
-        //    }
-        //}
+            catch (Exception ex)
+            {
+                AnsiConsole.Write(
+                    new Panel($"[bold red]Error al eliminar:[/] {ex.Message}")
+                        .Border(BoxBorder.Rounded)
+                        .BorderColor(Color.Red)
+                        .Expand()
+                );
+            }
+        }
 
 
         public void RunCategoriaMenu()
@@ -330,7 +331,7 @@ namespace NetTicket.Presentation.Menu
                             CategoriaMenuCase4(); 
                         break;
                     case 5:
-                            
+                            CategoriaMenuCase5();
                         break;
                 }
             } while (optionMenu != 6);
