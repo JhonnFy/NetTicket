@@ -11,9 +11,6 @@ comentarios.
 
 ---
 
-
-
-
 ## Funcionalidades
 
 ### Gestión de tickets
@@ -222,10 +219,10 @@ Cada repositorio tiene tests con MSTest que prueban contra la DB real:
 
 ### DELETE y FKs
 
-- **`DELETE FROM tabla WHERE id = X` borra la FILA completa**, no columnas.
-- **Falla si otra tabla referencia esa fila por FK.**
-- **`comentarios` es la única tabla "hoja"** (nadie la referencia) → su DELETE siempre funciona.
-- **Los ids borrados no se reutilizan** (`AUTO_INCREMENT` sigue avanzando).
+- `DELETE FROM tabla WHERE id = X` borra la FILA completa**, no columnas.
+- Falla si otra tabla referencia esa fila por FK.**
+- `comentarios` es la única tabla "hoja"** (nadie la referencia) → su DELETE siempre funciona.
+- Los ids borrados no se reutilizan** (`AUTO_INCREMENT` sigue avanzando).
 
 ### Tests
 
