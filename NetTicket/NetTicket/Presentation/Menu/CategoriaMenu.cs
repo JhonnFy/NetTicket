@@ -201,6 +201,7 @@ namespace NetTicket.Presentation.Menu
             Console.Write("Ingrese el ID de la categoría que desea eliminar: ");
             if (!int.TryParse(Console.ReadLine(), out int id))
             {
+                Console.Clear();
                 AnsiConsole.Write(
                     new Panel("[bold red]El ID ingresado no es válido; Solo se permiten valores numéricos.[/]")
                         .Border(BoxBorder.Rounded)
@@ -213,6 +214,7 @@ namespace NetTicket.Presentation.Menu
             var categoria = _categoriaService.ObtenerPorId(id);
             if (categoria == null)
             {
+                Console.Clear();
                 AnsiConsole.Write(
                     new Panel($"[bold red]No existe una categoría con Id {id}.[/]")
                         .Border(BoxBorder.Rounded)
@@ -222,6 +224,7 @@ namespace NetTicket.Presentation.Menu
                 return;
             }
 
+            Console.Clear();
             AnsiConsole.Write(
                 new Panel($"[bold yellow]Id:[/] {categoria.Id}\n[bold cyan]Nombre:[/] {categoria.Nombre}")
                     .Border(BoxBorder.Rounded)
@@ -244,6 +247,7 @@ namespace NetTicket.Presentation.Menu
             try
             {
                 bool eliminado = _categoriaService.Delete(id);
+                Console.Clear();
 
                 if (eliminado)
                 {
@@ -265,6 +269,7 @@ namespace NetTicket.Presentation.Menu
             }
             catch (MySqlException ex) when (ex.Number == 1451)
             {
+                Console.Clear();
                 AnsiConsole.Write(
                     new Panel($"[bold red]No se puede eliminar la categoría con Id {id} porque está siendo utilizada en otros registros (FK).[/]")
                         .Border(BoxBorder.Rounded)
@@ -276,6 +281,7 @@ namespace NetTicket.Presentation.Menu
 
             catch (Exception ex)
             {
+                Console.Clear();
                 AnsiConsole.Write(
                     new Panel($"[bold red]Error al eliminar:[/] {ex.Message}")
                         .Border(BoxBorder.Rounded)
