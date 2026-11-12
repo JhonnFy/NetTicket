@@ -98,44 +98,48 @@ namespace NetTicket.Presentation.Menu
         }
 
 
-        //private void CategoriaMenuCase3()
-        //{
-        //    CabeceraCategorias();
+        private void CategoriaMenuCase3()
+        {
+            Console.Clear();
+            CabeceraCategorias();
 
-        //    Console.Write("Ingrese el parámetro de consulta: ");
-        //    if (!int.TryParse(Console.ReadLine(), out int id))
-        //    {
-        //        AnsiConsole.Write(
-        //            new Panel("[bold red]El ID ingresado no es válido; Solo se permiten valores numéricos.[/]")
-        //                .Border(BoxBorder.Rounded)
-        //                .BorderColor(Color.Red)
-        //                .Expand()
-        //        );
-        //        return;
-        //    }
+            Console.Write("Ingrese el parámetro de consulta: ");
+            if (!int.TryParse(Console.ReadLine(), out int id))
+            {
+                Console.Clear();
+                AnsiConsole.Write(
+                    new Panel("[bold red]El ID ingresado no es válido; Solo se permiten valores numéricos.[/]")
+                        .Border(BoxBorder.Rounded)
+                        .BorderColor(Color.Red)
+                        .Expand()
+                );
+                return;
+            }
 
-        //    var categoria = _categoriaService.ObtenerPorId(id);
+            var categoria = _categoriaService.ObtenerPorId(id);
+            Console.Clear();
 
-        //    if (categoria == null)
-        //    {
-        //        AnsiConsole.Write(
-        //            new Panel($"[bold red]El Id {id} proporcionado no existe en la base de datos.[/]")
-        //                .Border(BoxBorder.Rounded)
-        //                .BorderColor(Color.Red)
-        //                .Expand()
-        //        );
-        //        return;
-        //    }
+            if (categoria == null)
+            {
+                AnsiConsole.Write(
+                    new Panel($"[bold red]El Id {id} proporcionado no existe en la base de datos.[/]")
+                        .Border(BoxBorder.Rounded)
+                        .BorderColor(Color.Red)
+                        .Expand()
+                );
+                return;
+            }
 
-        //    AnsiConsole.Write(
-        //        new Panel($"[bold yellow]Id:[/] {categoria.Id}\n[bold cyan]Nombre:[/] {categoria.Nombre}")
-        //            .Border(BoxBorder.Rounded)
-        //            .Expand()
-        //    );
-        //}
+            AnsiConsole.Write(
+                new Panel($"[bold yellow]Id:[/] {categoria.Id}\n[bold cyan]Nombre:[/] {categoria.Nombre}")
+                    .Border(BoxBorder.Rounded)
+                    .Expand()
+            );
+        }
 
         //private void CategoriaMenuCase4()
         //{
+        //    Console.Clear();
         //    CabeceraCategorias();
 
         //    Console.Write("Ingrese el ID de la categoría que desea modificar: ");
@@ -315,14 +319,14 @@ namespace NetTicket.Presentation.Menu
                         break;
                     
                     case 3:
-
+                            CategoriaMenuCase3();
                         break;
-
+                            
                     case 4:
-
+                            
                         break;
                     case 5:
-
+                            
                         break;
                 }
             } while (optionMenu != 6);
