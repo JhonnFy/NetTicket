@@ -37,6 +37,8 @@ namespace NetTicket.Presentation.Menu
 
         private void CategoriaMenuCase1()
         {
+            Console.Clear();
+            CabeceraCategorias();
             Console.Write("Ingrese el nombre de la nueva categoría: ");
             string nombre = Console.ReadLine()?.Trim();
 
@@ -60,10 +62,12 @@ namespace NetTicket.Presentation.Menu
                 .Border(BoxBorder.Rounded)
                 .Expand()
             );
+            return;
         }
 
         private void CategoriaMenuCase2()
         {
+            Console.Clear();
             CabeceraCategorias();
 
             AnsiConsole.Write(
@@ -94,183 +98,183 @@ namespace NetTicket.Presentation.Menu
         }
 
 
-        private void CategoriaMenuCase3()
-        {
-            CabeceraCategorias();
+        //private void CategoriaMenuCase3()
+        //{
+        //    CabeceraCategorias();
 
-            Console.Write("Ingrese el parámetro de consulta: ");
-            if (!int.TryParse(Console.ReadLine(), out int id))
-            {
-                AnsiConsole.Write(
-                    new Panel("[bold red]El ID ingresado no es válido; Solo se permiten valores numéricos.[/]")
-                        .Border(BoxBorder.Rounded)
-                        .BorderColor(Color.Red)
-                        .Expand()
-                );
-                return;
-            }
+        //    Console.Write("Ingrese el parámetro de consulta: ");
+        //    if (!int.TryParse(Console.ReadLine(), out int id))
+        //    {
+        //        AnsiConsole.Write(
+        //            new Panel("[bold red]El ID ingresado no es válido; Solo se permiten valores numéricos.[/]")
+        //                .Border(BoxBorder.Rounded)
+        //                .BorderColor(Color.Red)
+        //                .Expand()
+        //        );
+        //        return;
+        //    }
 
-            var categoria = _categoriaService.ObtenerPorId(id);
-            
-            if (categoria == null)
-            {
-                AnsiConsole.Write(
-                    new Panel($"[bold red]El Id {id} proporcionado no existe en la base de datos.[/]")
-                        .Border(BoxBorder.Rounded)
-                        .BorderColor(Color.Red)
-                        .Expand()
-                );
-                return;
-            }
+        //    var categoria = _categoriaService.ObtenerPorId(id);
 
-            AnsiConsole.Write(
-                new Panel($"[bold yellow]Id:[/] {categoria.Id}\n[bold cyan]Nombre:[/] {categoria.Nombre}")
-                    .Border(BoxBorder.Rounded)
-                    .Expand()
-            );
-        }
+        //    if (categoria == null)
+        //    {
+        //        AnsiConsole.Write(
+        //            new Panel($"[bold red]El Id {id} proporcionado no existe en la base de datos.[/]")
+        //                .Border(BoxBorder.Rounded)
+        //                .BorderColor(Color.Red)
+        //                .Expand()
+        //        );
+        //        return;
+        //    }
 
-        private void CategoriaMenuCase4()
-        {
-            CabeceraCategorias();
+        //    AnsiConsole.Write(
+        //        new Panel($"[bold yellow]Id:[/] {categoria.Id}\n[bold cyan]Nombre:[/] {categoria.Nombre}")
+        //            .Border(BoxBorder.Rounded)
+        //            .Expand()
+        //    );
+        //}
 
-            Console.Write("Ingrese el ID de la categoría que desea modificar: ");
-            if (!int.TryParse(Console.ReadLine(), out int id))
-            {
-                AnsiConsole.Write(
-                    new Panel($"[bold red]El ID ingresado no es válido; Solo se permiten valores numéricos.[/]")
-                        .Border(BoxBorder.Rounded)
-                        .BorderColor(Color.Red)
-                        .Expand()
-                );
-                return;
-            }
+        //private void CategoriaMenuCase4()
+        //{
+        //    CabeceraCategorias();
 
-            var categoria = _categoriaService.ObtenerPorId(id);
-            if (categoria == null)
-            {
-                AnsiConsole.Write(
-                    new Panel($"[bold red]No existe una categoría con Id {id}.[/]")
-                        .Border(BoxBorder.Rounded)
-                        .BorderColor(Color.Red)
-                        .Expand()
-                );
-                return;
-            }
+        //    Console.Write("Ingrese el ID de la categoría que desea modificar: ");
+        //    if (!int.TryParse(Console.ReadLine(), out int id))
+        //    {
+        //        AnsiConsole.Write(
+        //            new Panel($"[bold red]El ID ingresado no es válido; Solo se permiten valores numéricos.[/]")
+        //                .Border(BoxBorder.Rounded)
+        //                .BorderColor(Color.Red)
+        //                .Expand()
+        //        );
+        //        return;
+        //    }
 
-            Console.Write("Ingrese el nuevo nombre de la categoría: ");
-            string nombre = Console.ReadLine()?.Trim();
+        //    var categoria = _categoriaService.ObtenerPorId(id);
+        //    if (categoria == null)
+        //    {
+        //        AnsiConsole.Write(
+        //            new Panel($"[bold red]No existe una categoría con Id {id}.[/]")
+        //                .Border(BoxBorder.Rounded)
+        //                .BorderColor(Color.Red)
+        //                .Expand()
+        //        );
+        //        return;
+        //    }
 
-            if (string.IsNullOrWhiteSpace(nombre))
-            {
-                AnsiConsole.Write(
-                    new Panel($"[bold red]El nombre no puede estar vacío; No se realizó ningún cambio.[/]")
-                        .Border(BoxBorder.Rounded)
-                        .BorderColor(Color.Red)
-                        .Expand()
-                );
-                return;
-            }
+        //    Console.Write("Ingrese el nuevo nombre de la categoría: ");
+        //    string nombre = Console.ReadLine()?.Trim();
 
-            _categoriaService.Update(id, nombre);
-            
-            AnsiConsole.Write(
-                new Panel($"[bold yellow]Id:[/] {id}\n[bold cyan]Nombre:[/] {nombre}")
-                .Border(BoxBorder.Rounded)
-                .Expand()
-            );
-        }
+        //    if (string.IsNullOrWhiteSpace(nombre))
+        //    {
+        //        AnsiConsole.Write(
+        //            new Panel($"[bold red]El nombre no puede estar vacío; No se realizó ningún cambio.[/]")
+        //                .Border(BoxBorder.Rounded)
+        //                .BorderColor(Color.Red)
+        //                .Expand()
+        //        );
+        //        return;
+        //    }
 
-        private void CategoriaMenuCase5()
-        {
-            CabeceraCategorias();
+        //    _categoriaService.Update(id, nombre);
 
-            Console.Write("Ingrese el ID de la categoría que desea eliminar: ");
-            if (!int.TryParse(Console.ReadLine(), out int id))
-            {
-                AnsiConsole.Write(
-                    new Panel("[bold red]El ID ingresado no es válido; Solo se permiten valores numéricos.[/]")
-                        .Border(BoxBorder.Rounded)
-                        .BorderColor(Color.Red)
-                        .Expand()
-                );
-                return;
-            }
+        //    AnsiConsole.Write(
+        //        new Panel($"[bold yellow]Id:[/] {id}\n[bold cyan]Nombre:[/] {nombre}")
+        //        .Border(BoxBorder.Rounded)
+        //        .Expand()
+        //    );
+        //}
 
-            var categoria = _categoriaService.ObtenerPorId(id);
-            if (categoria == null)
-            {
-                AnsiConsole.Write(
-                    new Panel($"[bold red]No existe una categoría con Id {id}.[/]")
-                        .Border(BoxBorder.Rounded)
-                        .BorderColor(Color.Red)
-                        .Expand()
-                );
-                return;
-            }
+        //private void CategoriaMenuCase5()
+        //{
+        //    CabeceraCategorias();
 
-            AnsiConsole.Write(
-                new Panel($"[bold yellow]Id:[/] {categoria.Id}\n[bold cyan]Nombre:[/] {categoria.Nombre}")
-                    .Border(BoxBorder.Rounded)
-                    .Expand()
-            );
+        //    Console.Write("Ingrese el ID de la categoría que desea eliminar: ");
+        //    if (!int.TryParse(Console.ReadLine(), out int id))
+        //    {
+        //        AnsiConsole.Write(
+        //            new Panel("[bold red]El ID ingresado no es válido; Solo se permiten valores numéricos.[/]")
+        //                .Border(BoxBorder.Rounded)
+        //                .BorderColor(Color.Red)
+        //                .Expand()
+        //        );
+        //        return;
+        //    }
 
-            Console.Write("¿Confirma eliminar esta categoría? (s/n): ");
-            string confirm = Console.ReadLine()?.Trim().ToLowerInvariant();
+        //    var categoria = _categoriaService.ObtenerPorId(id);
+        //    if (categoria == null)
+        //    {
+        //        AnsiConsole.Write(
+        //            new Panel($"[bold red]No existe una categoría con Id {id}.[/]")
+        //                .Border(BoxBorder.Rounded)
+        //                .BorderColor(Color.Red)
+        //                .Expand()
+        //        );
+        //        return;
+        //    }
 
-            if (confirm != "s")
-            {
-                AnsiConsole.Write(
-                    new Panel("[bold yellow]Operación cancelada. No se eliminó ningún registro.[/]")
-                        .Border(BoxBorder.Rounded)
-                        .Expand()
-                );
-                return;
-            }
+        //    AnsiConsole.Write(
+        //        new Panel($"[bold yellow]Id:[/] {categoria.Id}\n[bold cyan]Nombre:[/] {categoria.Nombre}")
+        //            .Border(BoxBorder.Rounded)
+        //            .Expand()
+        //    );
 
-            try
-            {
-                bool eliminado = _categoriaService.Delete(id);
-                
-                if (eliminado)
-                {
-                    AnsiConsole.Write(
-                        new Panel($"[bold yellow]Categoría con Id {id} eliminada correctamente.[/]")
-                            .Border(BoxBorder.Rounded)
-                            .Expand()
-                    );
-                }
-                else
-                {
-                    AnsiConsole.Write(
-                        new Panel($"[bold red]No se pudo eliminar la categoría con Id {id}.[/]")
-                            .Border(BoxBorder.Rounded)
-                            .BorderColor(Color.Red)
-                            .Expand()
-                    );
-                }
-            }
-            catch (MySqlException ex) when (ex.Number == 1451)
-            {
-                AnsiConsole.Write(
-                    new Panel($"[bold red]No se puede eliminar la categoría con Id {id} porque está siendo utilizada en otros registros (FK).[/]")
-                        .Border(BoxBorder.Rounded)
-                        .BorderColor(Color.Red)
-                        .Expand()
-                );
-                return;
-            }
+        //    Console.Write("¿Confirma eliminar esta categoría? (s/n): ");
+        //    string confirm = Console.ReadLine()?.Trim().ToLowerInvariant();
 
-            catch (Exception ex)
-            {
-                AnsiConsole.Write(
-                    new Panel($"[bold red]Error al eliminar:[/] {ex.Message}")
-                        .Border(BoxBorder.Rounded)
-                        .BorderColor(Color.Red)
-                        .Expand()
-                );
-            }
-        }
+        //    if (confirm != "s")
+        //    {
+        //        AnsiConsole.Write(
+        //            new Panel("[bold yellow]Operación cancelada. No se eliminó ningún registro.[/]")
+        //                .Border(BoxBorder.Rounded)
+        //                .Expand()
+        //        );
+        //        return;
+        //    }
+
+        //    try
+        //    {
+        //        bool eliminado = _categoriaService.Delete(id);
+
+        //        if (eliminado)
+        //        {
+        //            AnsiConsole.Write(
+        //                new Panel($"[bold yellow]Categoría con Id {id} eliminada correctamente.[/]")
+        //                    .Border(BoxBorder.Rounded)
+        //                    .Expand()
+        //            );
+        //        }
+        //        else
+        //        {
+        //            AnsiConsole.Write(
+        //                new Panel($"[bold red]No se pudo eliminar la categoría con Id {id}.[/]")
+        //                    .Border(BoxBorder.Rounded)
+        //                    .BorderColor(Color.Red)
+        //                    .Expand()
+        //            );
+        //        }
+        //    }
+        //    catch (MySqlException ex) when (ex.Number == 1451)
+        //    {
+        //        AnsiConsole.Write(
+        //            new Panel($"[bold red]No se puede eliminar la categoría con Id {id} porque está siendo utilizada en otros registros (FK).[/]")
+        //                .Border(BoxBorder.Rounded)
+        //                .BorderColor(Color.Red)
+        //                .Expand()
+        //        );
+        //        return;
+        //    }
+
+        //    catch (Exception ex)
+        //    {
+        //        AnsiConsole.Write(
+        //            new Panel($"[bold red]Error al eliminar:[/] {ex.Message}")
+        //                .Border(BoxBorder.Rounded)
+        //                .BorderColor(Color.Red)
+        //                .Expand()
+        //        );
+        //    }
+        //}
 
 
         public void RunCategoriaMenu()
@@ -311,14 +315,14 @@ namespace NetTicket.Presentation.Menu
                         break;
                     
                     case 3:
-                            CategoriaMenuCase3();
+
                         break;
 
                     case 4:
-                            CategoriaMenuCase4();
+
                         break;
                     case 5:
-                            CategoriaMenuCase5();
+
                         break;
                 }
             } while (optionMenu != 6);
