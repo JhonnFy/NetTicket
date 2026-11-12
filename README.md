@@ -234,6 +234,7 @@ Cada repositorio tiene tests con MSTest que prueban contra la DB real:
 - **`Assert.AreEqual(esperado, real)`** compara; no imprime.
 
 ## ticketsdb
+<img width="1366" height="768" alt="image" src="https://github.com/user-attachments/assets/c4466d77-c6ef-4577-917c-bb8933396440" />
 
 
 ## Dockerfile
