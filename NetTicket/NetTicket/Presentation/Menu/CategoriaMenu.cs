@@ -137,57 +137,61 @@ namespace NetTicket.Presentation.Menu
             );
         }
 
-        //private void CategoriaMenuCase4()
-        //{
-        //    Console.Clear();
-        //    CabeceraCategorias();
+        private void CategoriaMenuCase4()
+        {
+            Console.Clear();
+            CabeceraCategorias();
 
-        //    Console.Write("Ingrese el ID de la categoría que desea modificar: ");
-        //    if (!int.TryParse(Console.ReadLine(), out int id))
-        //    {
-        //        AnsiConsole.Write(
-        //            new Panel($"[bold red]El ID ingresado no es válido; Solo se permiten valores numéricos.[/]")
-        //                .Border(BoxBorder.Rounded)
-        //                .BorderColor(Color.Red)
-        //                .Expand()
-        //        );
-        //        return;
-        //    }
+            Console.Write("Ingrese el ID de la categoría que desea modificar: ");
+            if (!int.TryParse(Console.ReadLine(), out int id))
+            {
+                Console.Clear();
+                AnsiConsole.Write(
+                    new Panel($"[bold red]El ID ingresado no es válido; Solo se permiten valores numéricos.[/]")
+                        .Border(BoxBorder.Rounded)
+                        .BorderColor(Color.Red)
+                        .Expand()
+                );
+                return;
+            }
 
-        //    var categoria = _categoriaService.ObtenerPorId(id);
-        //    if (categoria == null)
-        //    {
-        //        AnsiConsole.Write(
-        //            new Panel($"[bold red]No existe una categoría con Id {id}.[/]")
-        //                .Border(BoxBorder.Rounded)
-        //                .BorderColor(Color.Red)
-        //                .Expand()
-        //        );
-        //        return;
-        //    }
+            var categoria = _categoriaService.ObtenerPorId(id);
+            if (categoria == null)
+            {
+                Console.Clear();
+                AnsiConsole.Write(
+                    new Panel($"[bold red]No existe una categoría con Id {id}.[/]")
+                        .Border(BoxBorder.Rounded)
+                        .BorderColor(Color.Red)
+                        .Expand()
+                );
+                return;
+            }
 
-        //    Console.Write("Ingrese el nuevo nombre de la categoría: ");
-        //    string nombre = Console.ReadLine()?.Trim();
+            Console.Write("Ingrese el nuevo nombre de la categoría: ");
+            string nombre = Console.ReadLine()?.Trim();
 
-        //    if (string.IsNullOrWhiteSpace(nombre))
-        //    {
-        //        AnsiConsole.Write(
-        //            new Panel($"[bold red]El nombre no puede estar vacío; No se realizó ningún cambio.[/]")
-        //                .Border(BoxBorder.Rounded)
-        //                .BorderColor(Color.Red)
-        //                .Expand()
-        //        );
-        //        return;
-        //    }
+            if (string.IsNullOrWhiteSpace(nombre))
+            {
+                Console.Clear();
+                AnsiConsole.Write(
+                    new Panel($"[bold red]El nombre no puede estar vacío; No se realizó ningún cambio.[/]")
+                        .Border(BoxBorder.Rounded)
+                        .BorderColor(Color.Red)
+                        .Expand()
+                );
+                return;
+            }
 
-        //    _categoriaService.Update(id, nombre);
+            _categoriaService.Update(id, nombre);
+            Console.Clear();
 
-        //    AnsiConsole.Write(
-        //        new Panel($"[bold yellow]Id:[/] {id}\n[bold cyan]Nombre:[/] {nombre}")
-        //        .Border(BoxBorder.Rounded)
-        //        .Expand()
-        //    );
-        //}
+            AnsiConsole.Write(
+                new Panel($"[bold yellow]Id:[/] {id}\n[bold cyan]Nombre:[/] {nombre}")
+                .Border(BoxBorder.Rounded)
+                .Expand()
+            );
+        }
 
         //private void CategoriaMenuCase5()
         //{
@@ -323,7 +327,7 @@ namespace NetTicket.Presentation.Menu
                         break;
                             
                     case 4:
-                            
+                            CategoriaMenuCase4(); 
                         break;
                     case 5:
                             
