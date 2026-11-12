@@ -23,7 +23,7 @@ namespace NetTicket.Presentation.Menu
         {
             int optionMenu;
 
-            var countCat = _menuContext.CategoriaMenu.countAllCategorias();
+            var countCat = _menuContext.CategoriaMenu.CountAllCategorias();
             var countCom = _menuContext.ComentarioMenu.CountAllComentarios();
             var countEst = _menuContext.EstadoMenu.countAllEstados();
             var countTck = _menuContext.TicketMenu.countAllTickets();
