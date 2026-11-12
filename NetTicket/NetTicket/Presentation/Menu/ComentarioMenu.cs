@@ -1,7 +1,7 @@
-﻿using Microsoft.Extensions.Configuration;
-using NetTicket.Models;
-using NetTicket.Services.DbRules;
+﻿using NetTicket.Services.DbRules;
 using Spectre.Console;
+using Microsoft.Extensions.Configuration;
+using NetTicket.Models;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics.Metrics;
@@ -23,10 +23,9 @@ namespace NetTicket.Presentation.Menu
             _ticketService = ticketService;
             _usuarioService = usuarioService;    
         }
-        
-        public int countAllComentarios() => _comentarioService.countAllComentarios();
 
-        private void cabeceraComentarios()
+        public int CountAllComentarios() => _comentarioService.countAllComentarios();
+        private void CabeceraComentarios()
         {
             AnsiConsole.Write(
                 new Panel(new Markup("[bold yellow]Welcome To Comentarios Menu[/]").Centered())
@@ -36,9 +35,9 @@ namespace NetTicket.Presentation.Menu
             );
         }
 
-        private void comentarioMenuCase1()
+        private void ComentarioMenuCase1()
         {
-            cabeceraComentarios();
+            CabeceraComentarios();
 
             Console.Write("Ingrese el nombre del nuevo comentario: ");
             string texto = Console.ReadLine()?.Trim();
@@ -131,8 +130,8 @@ namespace NetTicket.Presentation.Menu
 
             do
             {
-                cabeceraComentarios();
-                countAllComentarios();
+                CabeceraComentarios();
+                CountAllComentarios();
 
                 var menu = new SelectionPrompt<int>()
                     .PageSize(6)
@@ -154,7 +153,7 @@ namespace NetTicket.Presentation.Menu
                 switch(optionCmt)
                 {
                     case 1:
-                        comentarioMenuCase1();
+                        ComentarioMenuCase1();
                         break;
                 }
 
@@ -162,4 +161,7 @@ namespace NetTicket.Presentation.Menu
         }
     }
 }
+
+
+
 

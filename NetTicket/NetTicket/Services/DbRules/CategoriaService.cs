@@ -26,7 +26,7 @@ namespace NetTicket.Services.DbRules
             return true;
         }
 
-        public int countAllCategorias()
+        public int CountAllCategorias()
         {
             var countCat = _repository.countAllCategorias();
 

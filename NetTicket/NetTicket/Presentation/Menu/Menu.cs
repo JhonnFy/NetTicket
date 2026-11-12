@@ -17,13 +17,14 @@ namespace NetTicket.Presentation.Menu
         {
             _menuContext = menuContext;
         }
+        
 
         public void Iniciar()
         {
             int optionMenu;
 
-            var countCat = _menuContext.CategoriaMenu.countAllCategorias();
-            var countCom = _menuContext.ComentarioMenu.countAllComentarios();
+            var countCat = _menuContext.CategoriaMenu.CountAllCategorias();
+            var countCom = _menuContext.ComentarioMenu.CountAllComentarios();
             var countEst = _menuContext.EstadoMenu.countAllEstados();
             var countTck = _menuContext.TicketMenu.countAllTickets();
             var countUsr = _menuContext.UsuarioMenu.countAllUsuarios();
