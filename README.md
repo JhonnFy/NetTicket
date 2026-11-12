@@ -236,6 +236,9 @@ Cada repositorio tiene tests con MSTest que prueban contra la DB real:
 ## ticketsdb
 <img width="1366" height="768" alt="image" src="https://github.com/user-attachments/assets/c4466d77-c6ef-4577-917c-bb8933396440" />
 <img width="1366" height="768" alt="image" src="https://github.com/user-attachments/assets/d2cb5a68-c6b2-4e78-8a51-3a9477c665a9" />
+<img width="1366" height="768" alt="image" src="https://github.com/user-attachments/assets/840748c1-9468-4949-9bad-6709fdc58724" />
+<img width="1366" height="768" alt="image" src="https://github.com/user-attachments/assets/b6749c20-44d9-42ce-9cfb-8733ddc7ab4b" />
+<img width="1366" height="768" alt="image" src="https://github.com/user-attachments/assets/503e87e6-a6ff-4a1e-b962-97e0f4993251" />
 
 
 ## Dockerfile
