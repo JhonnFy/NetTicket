@@ -26,7 +26,7 @@ namespace NetTicket.Services.DbRules
             return true;
         }
 
-        public int countAllComentarios()
+        public int CountAllComentarios()
         {
             var countCom = _repository.countAllComentarios();
             return countCom;

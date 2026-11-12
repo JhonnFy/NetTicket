@@ -18,7 +18,7 @@ namespace NetTicket.Presentation.Menu
 
         public int countAllUsuarios()
         {
-            var countUsr = _service.countAllUsuarios();
+            var countUsr = _service.CountAllUsuarios();
             return countUsr;
         }
 

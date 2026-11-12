@@ -18,9 +18,9 @@ namespace NetTicket.Services.DbRules
             _repository = repository;
         }
 
-        public int countAllEstados()
+        public int CountAllEstados()
         {
-            var countEst = _repository.countAllEstados();
+            var countEst = _repository.CountAllEstados();
             return countEst;
         }
 

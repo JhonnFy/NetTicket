@@ -131,7 +131,6 @@ namespace NetTicket.Presentation.Menu
             do
             {
                 CabeceraComentarios();
-                CountAllComentarios();
 
                 var menu = new SelectionPrompt<int>()
                     .PageSize(6)
