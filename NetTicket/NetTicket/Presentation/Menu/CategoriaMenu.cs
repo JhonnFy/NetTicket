@@ -54,11 +54,11 @@ namespace NetTicket.Presentation.Menu
                 return;
             }
 
-            var createCat = _categoriaService.Create(nombre);
+            var createCategoria = _categoriaService.Create(nombre);
             Console.Clear();
 
             AnsiConsole.Write(
-                new Panel($"[bold yellow]Id:[/] {createCat.Id}\n[bold cyan]Nombre:[/] {createCat.Nombre}")
+                new Panel($"[bold yellow]Id:[/] {createCategoria.Id}\n[bold cyan]Nombre:[/] {createCategoria.Nombre}")
                 .Border(BoxBorder.Rounded)
                 .Expand()
             );
