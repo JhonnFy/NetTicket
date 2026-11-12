@@ -37,6 +37,7 @@ namespace NetTicket.Presentation.Menu
 
         private void ComentarioMenuCase1()
         {
+            Console.Clear();
             CabeceraComentarios();
 
             Console.Write("Ingrese el nombre del nuevo comentario: ");
