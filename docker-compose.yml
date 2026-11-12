@@ -26,5 +26,5 @@ services:
         condition: service_healthy
     environment:
       - TZ=America/Bogota
-      - APP_NAME=NetTicket-QA
+      - APP_NAME=Docker-NetTicket-QA
       - ConnectionStrings__MySqlConnection=Server=mysql;Database=ticketsdb;User=root;Password=secret;
