@@ -44,7 +44,6 @@ namespace NetTicket.Presentation.Menu
 
             if (string.IsNullOrWhiteSpace(nombre))
             {
-                Console.Clear();
                 AnsiConsole.Write(
                     new Panel($"[bold red]No se permiten valores vacíos.[/]")
                         .Border(BoxBorder.Rounded)
@@ -55,7 +54,7 @@ namespace NetTicket.Presentation.Menu
             }
 
             var createCategoria = _categoriaService.Create(nombre);
-            Console.Clear();
+
 
             AnsiConsole.Write(
                 new Panel($"[bold yellow]Id:[/] {createCategoria.Id}\n[bold cyan]Nombre:[/] {createCategoria.Nombre}")
@@ -104,7 +103,6 @@ namespace NetTicket.Presentation.Menu
             Console.Write("Ingrese el parámetro de consulta: ");
             if (!int.TryParse(Console.ReadLine(), out int id))
             {
-                Console.Clear();
                 AnsiConsole.Write(
                     new Panel("[bold red]El ID ingresado no es válido; Solo se permiten valores numéricos.[/]")
                         .Border(BoxBorder.Rounded)
@@ -115,8 +113,7 @@ namespace NetTicket.Presentation.Menu
             }
 
             var categoria = _categoriaService.ObtenerPorId(id);
-            Console.Clear();
-
+            
             if (categoria == null)
             {
                 AnsiConsole.Write(
@@ -142,7 +139,6 @@ namespace NetTicket.Presentation.Menu
             Console.Write("Ingrese el ID de la categoría que desea modificar: ");
             if (!int.TryParse(Console.ReadLine(), out int id))
             {
-                Console.Clear();
                 AnsiConsole.Write(
                     new Panel($"[bold red]El ID ingresado no es válido; Solo se permiten valores numéricos.[/]")
                         .Border(BoxBorder.Rounded)
@@ -155,7 +151,6 @@ namespace NetTicket.Presentation.Menu
             var categoria = _categoriaService.ObtenerPorId(id);
             if (categoria == null)
             {
-                Console.Clear();
                 AnsiConsole.Write(
                     new Panel($"[bold red]No existe una categoría con Id {id}.[/]")
                         .Border(BoxBorder.Rounded)
@@ -170,7 +165,6 @@ namespace NetTicket.Presentation.Menu
 
             if (string.IsNullOrWhiteSpace(nombre))
             {
-                Console.Clear();
                 AnsiConsole.Write(
                     new Panel($"[bold red]El nombre no puede estar vacío; No se realizó ningún cambio.[/]")
                         .Border(BoxBorder.Rounded)
@@ -181,8 +175,7 @@ namespace NetTicket.Presentation.Menu
             }
 
             _categoriaService.Update(id, nombre);
-            Console.Clear();
-
+            
             AnsiConsole.Write(
                 new Panel($"[bold yellow]Id:[/] {id}\n[bold cyan]Nombre:[/] {nombre}")
                 .Border(BoxBorder.Rounded)
@@ -197,7 +190,6 @@ namespace NetTicket.Presentation.Menu
             Console.Write("Ingrese el ID de la categoría que desea eliminar: ");
             if (!int.TryParse(Console.ReadLine(), out int id))
             {
-                Console.Clear();
                 AnsiConsole.Write(
                     new Panel("[bold red]El ID ingresado no es válido; Solo se permiten valores numéricos.[/]")
                         .Border(BoxBorder.Rounded)
@@ -210,7 +202,6 @@ namespace NetTicket.Presentation.Menu
             var categoria = _categoriaService.ObtenerPorId(id);
             if (categoria == null)
             {
-                Console.Clear();
                 AnsiConsole.Write(
                     new Panel($"[bold red]No existe una categoría con Id {id}.[/]")
                         .Border(BoxBorder.Rounded)
@@ -220,7 +211,6 @@ namespace NetTicket.Presentation.Menu
                 return;
             }
 
-            Console.Clear();
             AnsiConsole.Write(
                 new Panel($"[bold yellow]Id:[/] {categoria.Id}\n[bold cyan]Nombre:[/] {categoria.Nombre}")
                     .Border(BoxBorder.Rounded)
@@ -232,7 +222,6 @@ namespace NetTicket.Presentation.Menu
 
             if (confirm != "s")
             {
-                Console.Clear();
                 AnsiConsole.Write(
                     new Panel("[bold yellow]Operación cancelada. No se eliminó ningún registro.[/]")
                         .Border(BoxBorder.Rounded)
@@ -244,8 +233,7 @@ namespace NetTicket.Presentation.Menu
             try
             {
                 bool eliminado = _categoriaService.Delete(id);
-                Console.Clear();
-
+                
                 if (eliminado)
                 {
                     AnsiConsole.Write(
@@ -266,7 +254,6 @@ namespace NetTicket.Presentation.Menu
             }
             catch (MySqlException ex) when (ex.Number == 1451)
             {
-                Console.Clear();
                 AnsiConsole.Write(
                     new Panel($"[bold red]No se puede eliminar la categoría con Id {id} porque está siendo utilizada en otros registros (FK).[/]")
                         .Border(BoxBorder.Rounded)
@@ -278,7 +265,6 @@ namespace NetTicket.Presentation.Menu
 
             catch (Exception ex)
             {
-                Console.Clear();
                 AnsiConsole.Write(
                     new Panel($"[bold red]Error al eliminar:[/] {ex.Message}")
                         .Border(BoxBorder.Rounded)
@@ -314,8 +300,7 @@ namespace NetTicket.Presentation.Menu
                     });
 
                 optionMenu = AnsiConsole.Prompt(menu);
-                Console.Clear();
-
+                
 
                 switch (optionMenu)
                 {
