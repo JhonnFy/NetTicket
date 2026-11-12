@@ -64,8 +64,6 @@ namespace NetTicket.Presentation.Menu
             );
 
 
-
-
         }
 
 
