@@ -1,7 +1,7 @@
 ﻿using NetTicket.Services.DbRules;
 using Spectre.Console;
-using System.Diagnostics.Metrics;
 using MySqlConnector;
+using System.Diagnostics.Metrics;
 using Microsoft.Extensions.Configuration;
 using Microsoft.VisualBasic;
 using NetTicket.Data.RepositoriesCRUD;
@@ -37,13 +37,12 @@ namespace NetTicket.Presentation.Menu
 
         private void CategoriaMenuCase1()
         {
-            CabeceraCategorias();
-
             Console.Write("Ingrese el nombre de la nueva categoría: ");
             string nombre = Console.ReadLine()?.Trim();
 
             if (string.IsNullOrWhiteSpace(nombre))
             {
+                Console.Clear();
                 AnsiConsole.Write(
                     new Panel($"[bold red]No se permiten valores vacíos.[/]")
                         .Border(BoxBorder.Rounded)
@@ -54,7 +53,8 @@ namespace NetTicket.Presentation.Menu
             }
 
             var createCategoria = _categoriaService.Create(nombre);
-            
+            Console.Clear();
+
             AnsiConsole.Write(
                 new Panel($"[bold yellow]Id:[/] {createCategoria.Id}\n[bold cyan]Nombre:[/] {createCategoria.Nombre}")
                 .Border(BoxBorder.Rounded)
