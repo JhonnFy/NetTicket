@@ -208,7 +208,7 @@ namespace NetTicket.Presentation.Menu
             Console.Clear();
             CabeceraComentarios();
 
-            Console.Write("Ingrese el ID de la categoría que desea modificar: ");
+            Console.Write("Ingrese el ID del comentario que desea modificar: ");
             if (!int.TryParse(Console.ReadLine(), out int id))
             {
                 Console.Clear();
@@ -222,11 +222,11 @@ namespace NetTicket.Presentation.Menu
             }
 
             var comentario = _comentarioService.ObtenerPorId(id);
-            if(comentario == null)
+            if (comentario == null)
             {
                 Console.Clear();
                 AnsiConsole.Write(
-                        new Panel($"[bold red]No existe una comentario con Id {id}.[/]")
+                        new Panel($"[bold red]No existe un comentario con Id {id}.[/]")
                             .Border(BoxBorder.Rounded)
                             .BorderColor(Color.Red)
                             .Expand()
@@ -234,7 +234,7 @@ namespace NetTicket.Presentation.Menu
                 return;
             }
 
-            Console.Write("Ingrese el nuevo nombre del comentario: ");
+            Console.Write("Ingrese el nuevo texto del comentario: ");
             string texto = Console.ReadLine()?.Trim();
 
             if (string.IsNullOrWhiteSpace(texto))
@@ -249,12 +249,16 @@ namespace NetTicket.Presentation.Menu
                 return;
             }
 
-
             _comentarioService.Update(id, texto);
             Console.Clear();
 
             AnsiConsole.Write(
-                new Panel($"[bold yellow]Id:[/] {id}\n[bold cyan]Nombre:[/] {texto}")
+                new Panel($"[bold yellow]Id:[/] {comentario.Id},\n" +
+                $" [bold cyan]TicketId:[/] {comentario.TicketId},\n" +
+                $" [bold cyan]UsuarioId:[/] {comentario.UsuarioId},\n" +
+                $" [bold cyan]Texto:[/] {texto},\n" +
+                $" [bold cyan]Fecha:[/] {comentario.Fecha}\n"
+                )
                 .Border(BoxBorder.Rounded)
                 .Expand()
             );
