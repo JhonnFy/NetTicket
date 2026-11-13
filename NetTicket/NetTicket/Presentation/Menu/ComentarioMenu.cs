@@ -4,11 +4,13 @@ using Microsoft.Extensions.Configuration;
 using NetTicket.Models;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Diagnostics.Metrics;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
-using System.ComponentModel;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace NetTicket.Presentation.Menu
 {
@@ -115,10 +117,10 @@ namespace NetTicket.Presentation.Menu
             Console.Clear();
             AnsiConsole.Write(
                 new Panel($"[bold yellow]Id:[/] {createComentario.Id}," +
-                $"\n [bold cyan]ticket_id:[/] {createComentario.TicketId}," +
-                $"\n [bold cyan]usuario_id:[/] {createComentario.UsuarioId}," +
-                $"\n [bold cyan]texto:[/] {createComentario.Texto}," +
-                $"\n [bold cyan]fecha:[/] {createComentario.Fecha}"
+                $"\n[bold cyan]ticket_id:[/] {createComentario.TicketId}," +
+                $"\n[bold cyan]usuario_id:[/] {createComentario.UsuarioId}," +
+                $"\n[bold cyan]texto:[/] {createComentario.Texto}," +
+                $"\n[bold cyan]fecha:[/] {createComentario.Fecha}"
                 )
                 .Border(BoxBorder.Rounded)
                 .Expand()
@@ -157,6 +159,110 @@ namespace NetTicket.Presentation.Menu
             Console.WriteLine();
         }
 
+        private void ComentarioMenuCase3()
+        {
+            Console.Clear();
+            CabeceraComentarios();
+
+            Console.Write("Ingrese el parámetro de consulta: ");
+            if (!int.TryParse(Console.ReadLine(), out int id))
+            {
+                Console.Clear();
+                AnsiConsole.Write(
+                    new Panel("[bold red]El ID ingresado no es válido; Solo se permiten valores numéricos.[/]")
+                    .Border(BoxBorder.Rounded)
+                    .BorderColor(Color.Red)
+                    .Expand()
+                );
+                return;
+            }
+
+            var comentario = _comentarioService.ObtenerPorId(id);
+            Console.Clear();
+
+            if (comentario == null)
+            {
+                AnsiConsole.Write(
+                    new Panel($"[bold red]El Id {id} proporcionado no existe en la base de datos.[/]")
+                        .Border(BoxBorder.Rounded)
+                        .BorderColor(Color.Red)
+                        .Expand()
+                );
+                return;
+            }
+
+            AnsiConsole.Write(
+                new Panel($"[bold yellow]Id:[/] {comentario.Id}," +
+                $"\n[bold cyan]Ticket_id:[/] {comentario.TicketId}," +
+                $"\n[bold cyan]Usuario_id:[/] {comentario.UsuarioId}," +
+                $"\n[bold cyan]Texto:[/] {comentario.Texto}," +
+                $"\n[bold cyan]Fecha:[/] {comentario.Fecha}"
+                )
+                .Border(BoxBorder.Rounded)
+                .Expand()
+            );
+        }
+
+        private void ComentarioMenuCase4()
+        {
+            Console.Clear();
+            CabeceraComentarios();
+
+            Console.Write("Ingrese el ID del comentario que desea modificar: ");
+            if (!int.TryParse(Console.ReadLine(), out int id))
+            {
+                Console.Clear();
+                AnsiConsole.Write(
+                    new Panel($"[bold red]El ID ingresado no es válido; Solo se permiten valores numéricos.[/]")
+                    .Border(BoxBorder.Rounded)
+                    .BorderColor(Color.Red)
+                    .Expand()
+                );
+                return;
+            }
+
+            var comentario = _comentarioService.ObtenerPorId(id);
+            if (comentario == null)
+            {
+                Console.Clear();
+                AnsiConsole.Write(
+                        new Panel($"[bold red]No existe un comentario con Id {id}.[/]")
+                            .Border(BoxBorder.Rounded)
+                            .BorderColor(Color.Red)
+                            .Expand()
+                );
+                return;
+            }
+
+            Console.Write("Ingrese el nuevo texto del comentario: ");
+            string texto = Console.ReadLine()?.Trim();
+
+            if (string.IsNullOrWhiteSpace(texto))
+            {
+                Console.Clear();
+                AnsiConsole.Write(
+                    new Panel($"[bold red]El texto no puede estar vacío; No se realizó ningún cambio.[/]")
+                        .Border(BoxBorder.Rounded)
+                        .BorderColor(Color.Red)
+                        .Expand()
+                );
+                return;
+            }
+
+            _comentarioService.Update(id, texto);
+            Console.Clear();
+
+            AnsiConsole.Write(
+                new Panel($"[bold yellow]Id:[/] {comentario.Id},\n" +
+                $" [bold cyan]TicketId:[/] {comentario.TicketId},\n" +
+                $" [bold cyan]UsuarioId:[/] {comentario.UsuarioId},\n" +
+                $" [bold cyan]Texto:[/] {texto},\n" +
+                $" [bold cyan]Fecha:[/] {comentario.Fecha}\n"
+                )
+                .Border(BoxBorder.Rounded)
+                .Expand()
+            );
+        }
 
         public void RunComentarioMenu()
         {
@@ -192,11 +298,16 @@ namespace NetTicket.Presentation.Menu
                     case 2:
                             ComentarioMenuCase2();
                         break;
+                    case 3:
+                            ComentarioMenuCase3();
+                        break;
+                    case 4:
+                            ComentarioMenuCase4();
+                        break;
                 }
 
             } while (optionCmt !=5);
         }
     }
 }
-
 

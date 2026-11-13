@@ -23,15 +23,14 @@ namespace NetTicket.Presentation.Menu
         {
             int optionMenu;
 
-            var countCat = _menuContext.CategoriaMenu.CountAllCategorias();
-            var countCom = _menuContext.ComentarioMenu.CountAllComentarios();
-            var countEst = _menuContext.EstadoMenu.countAllEstados();
-            var countTck = _menuContext.TicketMenu.countAllTickets();
-            var countUsr = _menuContext.UsuarioMenu.countAllUsuarios();
-
-
             do
             {
+                var countCat = _menuContext.CategoriaMenu.CountAllCategorias();
+                var countCom = _menuContext.ComentarioMenu.CountAllComentarios();
+                var countEst = _menuContext.EstadoMenu.countAllEstados();
+                var countTck = _menuContext.TicketMenu.countAllTickets();
+                var countUsr = _menuContext.UsuarioMenu.countAllUsuarios();
+
                 Console.Clear();
                 AnsiConsole.Write(
                 new Panel(new Markup("[bold cyan]Welcome To TicketsDb[/]").Centered())
