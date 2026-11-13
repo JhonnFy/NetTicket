@@ -192,7 +192,7 @@ namespace NetTicket.Presentation.Menu
             }
 
             AnsiConsole.Write(
-                new Panel($"[bold yellow]Id:[/] {comentario.Id}, \n [bold cyan]Ticket_id:[/] {comentario.TicketId}, \n[bold cyan]Usuario_id:[/] {comentario.UsuarioId}, \n[bold cyan]Texto:[/] {comentario.Texto}, \n[bold cyan]Fecha:[/] {comentario.Fecha}")
+                new Panel($"[bold yellow]Id:[/] {comentario.Id}, \n[bold cyan]Ticket_id:[/] {comentario.TicketId}, \n[bold cyan]Usuario_id:[/] {comentario.UsuarioId}, \n[bold cyan]Texto:[/] {comentario.Texto}, \n[bold cyan]Fecha:[/] {comentario.Fecha}")
                     .Border(BoxBorder.Rounded)
                     .Expand()
             );
