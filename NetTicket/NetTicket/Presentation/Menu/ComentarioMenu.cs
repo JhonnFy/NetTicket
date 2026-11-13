@@ -1,14 +1,16 @@
-﻿using NetTicket.Services.DbRules;
-using Spectre.Console;
-using Microsoft.Extensions.Configuration;
+﻿using Microsoft.Extensions.Configuration;
 using NetTicket.Models;
+using NetTicket.Services.DbRules;
+using Spectre.Console;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Diagnostics.Metrics;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
-using System.ComponentModel;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace NetTicket.Presentation.Menu
 {
@@ -157,6 +159,45 @@ namespace NetTicket.Presentation.Menu
             Console.WriteLine();
         }
 
+        private void ComentarioMenuCase3()
+        {
+            Console.Clear();
+            CabeceraComentarios();
+
+            Console.Write("Ingrese el parámetro de consulta: ");
+            if (!int.TryParse(Console.ReadLine(), out int id))
+            {
+                Console.Clear();
+                AnsiConsole.Write(
+                    new Panel("[bold red]El ID ingresado no es válido; Solo se permiten valores numéricos.[/]")
+                    .Border(BoxBorder.Rounded)
+                    .BorderColor(Color.Red)
+                    .Expand()
+                );
+                return;
+            }
+
+            var comentario = _comentarioService.ObtenerPorId(id);
+            Console.Clear();
+
+            if (comentario == null)
+            {
+                AnsiConsole.Write(
+                    new Panel($"[bold red]El Id {id} proporcionado no existe en la base de datos.[/]")
+                        .Border(BoxBorder.Rounded)
+                        .BorderColor(Color.Red)
+                        .Expand()
+                );
+                return;
+            }
+
+            AnsiConsole.Write(
+                new Panel($"[bold yellow]Id:[/] {comentario.Id}, \n [bold cyan]Ticket_id:[/] {comentario.TicketId}, \n[bold cyan]Usuario_id:[/] {comentario.UsuarioId}, \n[bold cyan]Texto:[/] {comentario.Texto}, \n[bold cyan]Fecha:[/] {comentario.Fecha}")
+                    .Border(BoxBorder.Rounded)
+                    .Expand()
+            );
+        }
+
 
         public void RunComentarioMenu()
         {
@@ -192,11 +233,13 @@ namespace NetTicket.Presentation.Menu
                     case 2:
                             ComentarioMenuCase2();
                         break;
+                    case 3:
+                            ComentarioMenuCase3();
+                        break;
                 }
 
             } while (optionCmt !=5);
         }
     }
 }
-
 
