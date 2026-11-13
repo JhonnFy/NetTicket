@@ -203,6 +203,42 @@ namespace NetTicket.Presentation.Menu
             );
         }
 
+        private void ComentarioMenuCase4()
+        {
+            Console.Clear();
+            CabeceraComentarios();
+
+            Console.Write("Ingrese el ID de la categoría que desea modificar: ");
+            if (!int.TryParse(Console.ReadLine(), out int id))
+            {
+                Console.Clear();
+                AnsiConsole.Write(
+                    new Panel($"[bold red]El ID ingresado no es válido; Solo se permiten valores numéricos.[/]")
+                    .Border(BoxBorder.Rounded)
+                    .BorderColor(Color.Red)
+                    .Expand()
+                );
+                return;
+            }
+
+            var comentario = _comentarioService.ObtenerPorId(id);
+            if(comentario == null)
+            {
+                Console.Clear();
+                AnsiConsole.Write(
+                        new Panel($"[bold red]No existe una comentario con Id {id}.[/]")
+                            .Border(BoxBorder.Rounded)
+                            .BorderColor(Color.Red)
+                            .Expand()
+                );
+                return;
+            }
+
+
+
+
+        }
+
 
         public void RunComentarioMenu()
         {
@@ -242,7 +278,7 @@ namespace NetTicket.Presentation.Menu
                             ComentarioMenuCase3();
                         break;
                     case 4:
-                            
+                            ComentarioMenuCase4();
                         break;
                 }
 
