@@ -234,11 +234,31 @@ namespace NetTicket.Presentation.Menu
                 return;
             }
 
+            Console.Write("Ingrese el nuevo nombre del comentario: ");
+            string texto = Console.ReadLine()?.Trim();
+
+            if (string.IsNullOrWhiteSpace(texto))
+            {
+                Console.Clear();
+                AnsiConsole.Write(
+                    new Panel($"[bold red]El texto no puede estar vacío; No se realizó ningún cambio.[/]")
+                        .Border(BoxBorder.Rounded)
+                        .BorderColor(Color.Red)
+                        .Expand()
+                );
+                return;
+            }
 
 
+            _comentarioService.Update(id, texto);
+            Console.Clear();
 
+            AnsiConsole.Write(
+                new Panel($"[bold yellow]Id:[/] {id}\n[bold cyan]Nombre:[/] {texto}")
+                .Border(BoxBorder.Rounded)
+                .Expand()
+            );
         }
-
 
         public void RunComentarioMenu()
         {
