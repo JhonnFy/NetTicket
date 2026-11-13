@@ -1,7 +1,7 @@
-﻿using Microsoft.Extensions.Configuration;
-using NetTicket.Models;
-using NetTicket.Services.DbRules;
+﻿using NetTicket.Services.DbRules;
 using Spectre.Console;
+using Microsoft.Extensions.Configuration;
+using NetTicket.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -240,6 +240,9 @@ namespace NetTicket.Presentation.Menu
                         break;
                     case 3:
                             ComentarioMenuCase3();
+                        break;
+                    case 4:
+                            
                         break;
                 }
 
