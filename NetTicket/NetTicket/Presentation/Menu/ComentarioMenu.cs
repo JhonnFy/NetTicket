@@ -117,10 +117,10 @@ namespace NetTicket.Presentation.Menu
             Console.Clear();
             AnsiConsole.Write(
                 new Panel($"[bold yellow]Id:[/] {createComentario.Id}," +
-                $"\n [bold cyan]ticket_id:[/] {createComentario.TicketId}," +
-                $"\n [bold cyan]usuario_id:[/] {createComentario.UsuarioId}," +
-                $"\n [bold cyan]texto:[/] {createComentario.Texto}," +
-                $"\n [bold cyan]fecha:[/] {createComentario.Fecha}"
+                $"\n[bold cyan]ticket_id:[/] {createComentario.TicketId}," +
+                $"\n[bold cyan]usuario_id:[/] {createComentario.UsuarioId}," +
+                $"\n[bold cyan]texto:[/] {createComentario.Texto}," +
+                $"\n[bold cyan]fecha:[/] {createComentario.Fecha}"
                 )
                 .Border(BoxBorder.Rounded)
                 .Expand()
@@ -192,9 +192,14 @@ namespace NetTicket.Presentation.Menu
             }
 
             AnsiConsole.Write(
-                new Panel($"[bold yellow]Id:[/] {comentario.Id}, \n[bold cyan]Ticket_id:[/] {comentario.TicketId}, \n[bold cyan]Usuario_id:[/] {comentario.UsuarioId}, \n[bold cyan]Texto:[/] {comentario.Texto}, \n[bold cyan]Fecha:[/] {comentario.Fecha}")
-                    .Border(BoxBorder.Rounded)
-                    .Expand()
+                new Panel($"[bold yellow]Id:[/] {comentario.Id}," +
+                $"\n[bold cyan]Ticket_id:[/] {comentario.TicketId}," +
+                $"\n[bold cyan]Usuario_id:[/] {comentario.UsuarioId}," +
+                $"\n[bold cyan]Texto:[/] {comentario.Texto}," +
+                $"\n[bold cyan]Fecha:[/] {comentario.Fecha}"
+                )
+                .Border(BoxBorder.Rounded)
+                .Expand()
             );
         }
 
