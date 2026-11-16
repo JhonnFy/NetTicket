@@ -19,23 +19,11 @@ namespace NetTicket.Services.DbRules
             _repository = repository;
         }
 
-        public int CountAllUsuarios()
-        {
-            var countUsr = _repository.countAllUsuarios();
-            return countUsr;
-        }
+        public int CountAllUsuarios() => _repository.countAllUsuarios();
 
-        public bool ValidarNombre(Usuario usuario)
-        {
-            if (string.IsNullOrWhiteSpace(usuario.Nombre)) return false;
-            return true;
-        }
+        public bool ValidarNombre(Usuario usuario) => !string.IsNullOrWhiteSpace(usuario.Nombre);
+        public bool ValidarEmail(Usuario usuario) => !string.IsNullOrWhiteSpace(usuario.Email) && usuario.Email.Contains("@");
 
-        public bool ValidarEmail(Usuario usuario)
-        {
-            if (string.IsNullOrWhiteSpace(usuario.Email) || !usuario.Email.Contains("@")) return false;
-            return true;
-        }
 
         public List<Usuario> ObtenerTodos()
         {
