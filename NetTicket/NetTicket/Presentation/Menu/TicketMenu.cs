@@ -10,11 +10,18 @@ namespace NetTicket.Presentation.Menu
 {
     public class TicketMenu
     {
-        private readonly TicketService _ticketService;
 
-        public TicketMenu(TicketService ticketService)
+        private readonly TicketService _ticketService;
+        private readonly UsuarioService _usuarioService;
+        private readonly CategoriaService _categoriaService;
+        private readonly EstadoService _estadoService;
+
+        public TicketMenu(TicketService ticketService, UsuarioService usuarioService, CategoriaService categoriaService, EstadoService estadoService)
         {
             _ticketService = ticketService;
+            _usuarioService = usuarioService;
+            _categoriaService = categoriaService;
+            _estadoService = estadoService;
         }
 
         public int CountAllTickets() => _ticketService.CountAllTickets();
@@ -27,6 +34,16 @@ namespace NetTicket.Presentation.Menu
                 .BorderColor(Color.Cyan)
                 .Expand()
             );
+        }
+
+
+        private void TicketMenuCase1()
+        {
+            Console.Clear();
+            CabeceraTicket();
+            Console.Write("Ingrese el nombre del nuevo estado: ");
+
+
         }
 
 
@@ -58,7 +75,7 @@ namespace NetTicket.Presentation.Menu
                 switch(optionMenu)
                 {
                     case 1:
-                            
+                            TicketMenuCase1();
                         break;
                     case 2:
                             
