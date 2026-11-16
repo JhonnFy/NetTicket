@@ -87,7 +87,7 @@ namespace NetTicket.Presentation.Menu
 
             foreach(var estado in estados)
             {
-                Console.WriteLine($"Id:{estado.Id}, Nombre{estado.Nombre}");
+                Console.WriteLine($"Id: {estado.Id}, Nombre: {estado.Nombre}");
             }
             Console.WriteLine();
         }
@@ -136,7 +136,7 @@ namespace NetTicket.Presentation.Menu
             Console.Clear();
             CabeceraEstado();
 
-            Console.Write("Ingrese el ID de la estado que desea modificar: ");
+            Console.Write("Ingrese el ID del estado que desea modificar: ");
             if(!int.TryParse(Console.ReadLine(), out int id))
             {
                 Console.Clear();
@@ -154,7 +154,7 @@ namespace NetTicket.Presentation.Menu
             {
                 Console.Clear();
                 AnsiConsole.Write(
-                    new Panel($"[bold red]No existe una estado con Id {id}.[/]")
+                    new Panel($"[bold red]No existe un estado con Id {id}.[/]")
                         .Border(BoxBorder.Rounded)
                         .BorderColor(Color.Red)
                         .Expand()
@@ -162,7 +162,7 @@ namespace NetTicket.Presentation.Menu
                 return;
             }
 
-            Console.Write("Ingrese el nuevo nombre de la estado: ");
+            Console.Write("Ingrese el nuevo nombre del estado: ");
             string nombre = Console.ReadLine()?.Trim();
 
             if(string.IsNullOrWhiteSpace(nombre))
@@ -323,7 +323,6 @@ namespace NetTicket.Presentation.Menu
                     case 2:
                             EstadoMenuCase2();
                         break;
-
 
                     case 3:
                             EstadoMenuCase3();
