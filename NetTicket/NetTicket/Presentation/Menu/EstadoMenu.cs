@@ -60,7 +60,7 @@ namespace NetTicket.Presentation.Menu
             );
         }
 
-        public void EstadoMenuCase2()
+        private void EstadoMenuCase2()
         {
             Console.Clear();
             CabeceraEstado();
@@ -92,7 +92,7 @@ namespace NetTicket.Presentation.Menu
             Console.WriteLine();
         }
 
-        public void EstadoMenuCase3()
+        private void EstadoMenuCase3()
         {
             Console.Clear();
             CabeceraEstado();
