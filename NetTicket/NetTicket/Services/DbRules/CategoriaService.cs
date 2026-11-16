@@ -20,18 +20,9 @@ namespace NetTicket.Services.DbRules
             _repository = repository;
         }
 
-        public bool ValidarNombre(Categoria categoria)
-        {
-            if (string.IsNullOrWhiteSpace(categoria.Nombre)) return false;
-            return true;
-        }
+        public bool ValidarNombre(Categoria categoria) => !string.IsNullOrWhiteSpace(categoria.Nombre);
 
-        public int CountAllCategorias()
-        {
-            var countCat = _repository.countAllCategorias();
-
-            return countCat;
-        }
+        public int CountAllCategorias() => _repository.countAllCategorias();
 
 
         public List<Categoria> ObtenerTodos()
