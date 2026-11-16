@@ -130,6 +130,61 @@ namespace NetTicket.Presentation.Menu
             );
         }
 
+        private void EstadoMenuCase4()
+        {
+            Console.Clear();
+            CabeceraEstado();
+
+            Console.Write("Ingrese el ID de la categoría que desea modificar: ");
+            if(!int.TryParse(Console.ReadLine(), out int id))
+            {
+                Console.Clear();
+                AnsiConsole.Write(
+                    new Panel($"[bold red]El ID ingresado no es válido; Solo se permiten valores numéricos.[/]")
+                        .Border(BoxBorder.Rounded)
+                        .BorderColor(Color.Red)
+                        .Expand()
+                );
+                return;
+            }
+
+            var estado = _estadoService.ObtenerPorId(id);
+            if(estado == null)
+            {
+                Console.Clear();
+                AnsiConsole.Write(
+                    new Panel($"[bold red]No existe una categoría con Id {id}.[/]")
+                        .Border(BoxBorder.Rounded)
+                        .BorderColor(Color.Red)
+                        .Expand()
+                );
+                return;
+            }
+
+            Console.Write("Ingrese el nuevo nombre de la categoría: ");
+            string nombre = Console.ReadLine()?.Trim();
+
+            if(string.IsNullOrWhiteSpace(nombre))
+            {
+                Console.Clear();
+                AnsiConsole.Write(
+                    new Panel($"[bold red]El nombre no puede estar vacío; No se realizó ningún cambio.[/]")
+                        .Border(BoxBorder.Rounded)
+                        .BorderColor(Color.Red)
+                        .Expand()
+                );
+                return;
+            }
+
+            _estadoService.Update(id, nombre);
+            Console.Clear();
+
+            AnsiConsole.Write(
+             new Panel($"[bold yellow]Id:[/] {id}\n[bold cyan]Nombre:[/] {nombre}")
+             .Border(BoxBorder.Rounded)
+             .Expand()
+         );
+        }
 
         public void RunEstadoMenu()
 
@@ -172,6 +227,9 @@ namespace NetTicket.Presentation.Menu
                             EstadoMenuCase3();
                         break;
 
+                    case 4:
+                            EstadoMenuCase4();
+                        break;
                 }
             } while (optionMenu !=6);
         }
