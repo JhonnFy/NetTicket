@@ -9,18 +9,14 @@ namespace NetTicket.Presentation.Menu
 {
     public class EstadoMenu
     {
-        private readonly EstadoService _service;
+        private readonly EstadoService _estadoService;
 
-        public EstadoMenu(EstadoService service)
+        public EstadoMenu(EstadoService estadoService)
         {
-            _service = service;
+            _estadoService = estadoService;
         }
 
-        public int countAllEstados()
-        {
-            var countEst = _service.CountAllEstados();
-            return countEst;
-        }
+        public int CountAllEstados() => _estadoService.CountAllEstados();
 
 
         public void RunEstadoMenu()
