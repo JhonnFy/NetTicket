@@ -19,7 +19,7 @@ namespace NetTicket.Presentation.Menu
 
         public int CountAllEstados() => _estadoService.CountAllEstados();
 
-        public void CabeceraEstado()
+        private void CabeceraEstado()
         {
             AnsiConsole.Write(
                 new Panel(new Markup("[bold yellow]Welcome To Estado Menu[/]").Centered())
@@ -29,12 +29,44 @@ namespace NetTicket.Presentation.Menu
             );
         }
 
+        private void EstadoMenuCase1()
+        {
+            Console.Clear();
+            CabeceraEstado();
+            Console.Write("Ingrese el nombre del nuevo estado: ");
+            string nombre = Console.ReadLine()?.Trim();
+
+            if(string.IsNullOrWhiteSpace(nombre))
+            {
+                Console.Clear();
+                AnsiConsole.Write(
+                    new Panel($"[bold red]No se permiten valores vacíos.[/]")
+                        .Border(BoxBorder.Rounded)
+                        .BorderColor(Color.Red)
+                        .Expand()
+                );
+                return;
+            }
+
+            var createEstado = _estadoService.Create(nombre);
+            Console.Clear();
+
+            AnsiConsole.Write(
+                new Panel($"[bold yellow]Id:[/] {createEstado.Id}\n[bold cyan]Nombre:[/] {createEstado.Nombre}")
+                .Border(BoxBorder.Rounded)
+                .Expand()
+            );
+        }
+
+
         public void RunEstadoMenu()
         {
             int optionMenu;
 
             do
             {
+                CabeceraEstado();
+
                 var menu = new SelectionPrompt<int>()
                   .PageSize(6)
                   .HighlightStyle(new Style(Color.Black, Color.Aqua, Decoration.Bold))
@@ -55,7 +87,7 @@ namespace NetTicket.Presentation.Menu
                 switch(optionMenu)
                 {
                     case 1:
-                            
+                            EstadoMenuCase1();
                         break;
 
                 }
