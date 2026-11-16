@@ -20,17 +20,9 @@ namespace NetTicket.Services.DbRules
             _repository = repository;
         }
 
-        public bool ValidarTexto(Comentario comentario)
-        {
-            if (string.IsNullOrWhiteSpace(comentario.Texto)) return false;
-            return true;
-        }
+        public bool ValidarTexto(Comentario comentario) => !string.IsNullOrWhiteSpace(comentario.Texto);
 
-        public int CountAllComentarios()
-        {
-            var countCom = _repository.countAllComentarios();
-            return countCom;
-        }
+        public int CountAllComentarios() => _repository.countAllComentarios();
 
 
         public List<Comentario> ObtenerTodos()
