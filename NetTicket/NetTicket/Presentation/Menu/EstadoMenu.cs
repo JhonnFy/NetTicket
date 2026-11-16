@@ -192,7 +192,7 @@ namespace NetTicket.Presentation.Menu
             Console.Clear();
             CabeceraEstado();
 
-            Console.Write("Ingrese el ID de la categoría que desea eliminar: ");
+            Console.Write("Ingrese el ID del estado que desea eliminar: ");
             if (!int.TryParse(Console.ReadLine(), out int id))
             {
                 Console.Clear();
@@ -210,7 +210,7 @@ namespace NetTicket.Presentation.Menu
             {
                 Console.Clear();
                 AnsiConsole.Write(
-                    new Panel($"[bold red]No existe una estado con Id {id}.[/]")
+                    new Panel($"[bold red]No existe un estado con Id {id}.[/]")
                         .Border(BoxBorder.Rounded)
                         .BorderColor(Color.Red)
                         .Expand()
@@ -225,7 +225,7 @@ namespace NetTicket.Presentation.Menu
                     .Expand()
             );
 
-            Console.Write("¿Confirma eliminar este estado? (s/n): \"");
+            Console.Write("¿Confirma eliminar este estado? (s/n): ");
             string confirm = Console.ReadLine()?.Trim().ToLowerInvariant();
 
             if(confirm != "s")
@@ -249,7 +249,6 @@ namespace NetTicket.Presentation.Menu
                     AnsiConsole.Write(
                         new Panel($"[bold yellow]Estado con Id {id} eliminado correctamente.[/]")
                             .Border(BoxBorder.Rounded)
-                            .BorderColor(Color.Red)
                             .Expand()
                     );
                 }
@@ -259,6 +258,7 @@ namespace NetTicket.Presentation.Menu
                         new Panel($"[bold red]No se pudo eliminar el estado con Id {id}.[/]")
                             .Border(BoxBorder.Rounded)
                             .BorderColor(Color.Red)
+                            .Expand()
                     );
                 }
             }
@@ -266,7 +266,7 @@ namespace NetTicket.Presentation.Menu
             {
                 Console.Clear();
                 AnsiConsole.Write(
-                    new Panel($"[bold red]No se puede eliminar la categoría con Id {id} porque está siendo utilizada en otros registros (FK).[/]")
+                    new Panel($"[bold red]No se puede eliminar el estado con Id {id} porque está siendo utilizado en otros registros (FK).[/]")
                         .Border(BoxBorder.Rounded)
                         .BorderColor(Color.Red)
                         .Expand()
