@@ -71,9 +71,9 @@ namespace NetTicket.Presentation.Menu
 
             AnsiConsole.Write(
                 new Panel($"[bold cyan]Categorías registradas en la base de datos: [/] {CountAllCategorias()}")
-                 .Border(BoxBorder.Rounded)
-                .BorderColor(Color.Cyan)
-                .Expand()
+                    .Border(BoxBorder.Rounded)
+                    .BorderColor(Color.Cyan)
+                    .Expand()
             );
 
             var categorias = _categoriaService.ObtenerTodos();

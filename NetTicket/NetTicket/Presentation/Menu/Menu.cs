@@ -27,7 +27,7 @@ namespace NetTicket.Presentation.Menu
             {
                 var countCat = _menuContext.CategoriaMenu.CountAllCategorias();
                 var countCom = _menuContext.ComentarioMenu.CountAllComentarios();
-                var countEst = _menuContext.EstadoMenu.countAllEstados();
+                var countEst = _menuContext.EstadoMenu.CountAllEstados();
                 var countTck = _menuContext.TicketMenu.countAllTickets();
                 var countUsr = _menuContext.UsuarioMenu.countAllUsuarios();
 
