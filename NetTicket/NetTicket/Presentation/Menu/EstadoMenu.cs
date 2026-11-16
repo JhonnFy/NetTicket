@@ -91,6 +91,45 @@ namespace NetTicket.Presentation.Menu
             Console.WriteLine();
         }
 
+        public void EstadoMenuCase3()
+        {
+            Console.Clear();
+            CabeceraEstado();
+
+            Console.Write("Ingrese el parámetro de consulta: ");
+            if (!int.TryParse(Console.ReadLine(), out int id))
+            {
+                Console.Clear();
+                AnsiConsole.Write(
+                    new Panel("[bold red]El ID ingresado no es válido; Solo se permiten valores numéricos.[/]")
+                        .Border(BoxBorder.Rounded)
+                        .BorderColor(Color.Red)
+                        .Expand()
+                );
+                return;
+            }
+
+            var estado = _estadoService.ObtenerPorId(id);
+            Console.Clear();
+
+            if (estado == null)
+            {
+                AnsiConsole.Write(
+                    new Panel($"[bold red]El Id {id} proporcionado no existe en la base de datos.[/]")
+                        .Border(BoxBorder.Rounded)
+                        .BorderColor(Color.Red)
+                        .Expand()
+                );
+                return;
+            }
+
+            AnsiConsole.Write(
+                new Panel($"[bold yellow]Id:[/] {estado.Id}\n[bold cyan]Nombre:[/] {estado.Nombre}")
+                .Border(BoxBorder.Rounded)
+                .Expand()
+            );
+        }
+
 
         public void RunEstadoMenu()
 
@@ -126,6 +165,11 @@ namespace NetTicket.Presentation.Menu
 
                     case 2:
                             EstadoMenuCase2();
+                        break;
+
+
+                    case 3:
+                            EstadoMenuCase3();
                         break;
 
                 }
