@@ -136,7 +136,7 @@ namespace NetTicket.Presentation.Menu
             Console.Clear();
             CabeceraEstado();
 
-            Console.Write("Ingrese el ID de la categoría que desea modificar: ");
+            Console.Write("Ingrese el ID de la estado que desea modificar: ");
             if(!int.TryParse(Console.ReadLine(), out int id))
             {
                 Console.Clear();
@@ -154,7 +154,7 @@ namespace NetTicket.Presentation.Menu
             {
                 Console.Clear();
                 AnsiConsole.Write(
-                    new Panel($"[bold red]No existe una categoría con Id {id}.[/]")
+                    new Panel($"[bold red]No existe una estado con Id {id}.[/]")
                         .Border(BoxBorder.Rounded)
                         .BorderColor(Color.Red)
                         .Expand()
@@ -162,7 +162,7 @@ namespace NetTicket.Presentation.Menu
                 return;
             }
 
-            Console.Write("Ingrese el nuevo nombre de la categoría: ");
+            Console.Write("Ingrese el nuevo nombre de la estado: ");
             string nombre = Console.ReadLine()?.Trim();
 
             if(string.IsNullOrWhiteSpace(nombre))
@@ -312,6 +312,7 @@ namespace NetTicket.Presentation.Menu
                   });
 
                 optionMenu = AnsiConsole.Prompt(menu);
+                Console.Clear();
 
                 switch(optionMenu)
                 {
