@@ -1,4 +1,5 @@
-﻿using NetTicket.Services.DbRules;
+﻿using MySqlConnector;
+using NetTicket.Services.DbRules;
 using Spectre.Console;
 using System;
 using System.Collections.Generic;
@@ -180,11 +181,111 @@ namespace NetTicket.Presentation.Menu
             Console.Clear();
 
             AnsiConsole.Write(
-             new Panel($"[bold yellow]Id:[/] {id}\n[bold cyan]Nombre:[/] {nombre}")
-             .Border(BoxBorder.Rounded)
-             .Expand()
-         );
+                 new Panel($"[bold yellow]Id:[/] {id}\n[bold cyan]Nombre:[/] {nombre}")
+                 .Border(BoxBorder.Rounded)
+                 .Expand()
+            );
         }
+
+        private void EstadoMenuCase5()
+        {
+            Console.Clear();
+            CabeceraEstado();
+
+            Console.Write("Ingrese el ID de la categoría que desea eliminar: ");
+            if (!int.TryParse(Console.ReadLine(), out int id))
+            {
+                Console.Clear();
+                AnsiConsole.Write(
+                    new Panel("[bold red]El ID ingresado no es válido; Solo se permiten valores numéricos.[/]")
+                        .Border(BoxBorder.Rounded)
+                        .BorderColor(Color.Red)
+                        .Expand()
+                );
+                return;
+            }
+
+            var estado = _estadoService.ObtenerPorId(id);
+            if(estado == null)
+            {
+                Console.Clear();
+                AnsiConsole.Write(
+                    new Panel($"[bold red]No existe una estado con Id {id}.[/]")
+                        .Border(BoxBorder.Rounded)
+                        .BorderColor(Color.Red)
+                        .Expand()
+                );
+                return;
+            }
+
+            Console.Clear();
+            AnsiConsole.Write(
+                new Panel($"[bold yellow]Id:[/] {estado.Id}\n[bold cyan]Nombre:[/] {estado.Nombre}")    
+                    .Border(BoxBorder.Rounded)
+                    .Expand()
+            );
+
+            Console.Write("¿Confirma eliminar este estado? (s/n): \"");
+            string confirm = Console.ReadLine()?.Trim().ToLowerInvariant();
+
+            if(confirm != "s")
+            {
+                Console.Clear();
+                AnsiConsole.Write(
+                    new Panel("[bold yellow]Operación cancelada. No se eliminó ningún registro.[/]")
+                        .Border(BoxBorder.Rounded)
+                        .Expand()
+                );
+                return;
+            }
+
+            try
+            {
+                bool eliminado = _estadoService.Delete(id);
+                Console.Clear();
+
+                if(eliminado)
+                {
+                    AnsiConsole.Write(
+                        new Panel($"[bold yellow]Estado con Id {id} eliminado correctamente.[/]")
+                            .Border(BoxBorder.Rounded)
+                            .BorderColor(Color.Red)
+                            .Expand()
+                    );
+                }
+                else
+                {
+                    AnsiConsole.Write(
+                        new Panel($"[bold red]No se pudo eliminar el estado con Id {id}.[/]")
+                            .Border(BoxBorder.Rounded)
+                            .BorderColor(Color.Red)
+                    );
+                }
+            }
+            catch(MySqlException ex) when (ex.Number == 1451)
+            {
+                Console.Clear();
+                AnsiConsole.Write(
+                    new Panel($"[bold red]No se puede eliminar la categoría con Id {id} porque está siendo utilizada en otros registros (FK).[/]")
+                        .Border(BoxBorder.Rounded)
+                        .BorderColor(Color.Red)
+                        .Expand()
+                );
+                return;
+            }
+
+            catch (Exception ex)
+            {
+                Console.Clear();
+                AnsiConsole.Write(
+                    new Panel($"[bold red]Error al eliminar:[/] {ex.Message}")
+                        .Border(BoxBorder.Rounded)
+                        .BorderColor(Color.Red)
+                        .Expand()
+                );
+            }
+        }
+
 
         public void RunEstadoMenu()
 
@@ -229,6 +330,10 @@ namespace NetTicket.Presentation.Menu
 
                     case 4:
                             EstadoMenuCase4();
+                        break;
+
+                    case 5:
+                            EstadoMenuCase5();
                         break;
                 }
             } while (optionMenu !=6);
