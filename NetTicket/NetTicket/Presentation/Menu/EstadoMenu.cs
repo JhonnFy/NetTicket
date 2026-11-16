@@ -3,6 +3,7 @@ using Spectre.Console;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection.Metadata.Ecma335;
 using System.Text;
 using System.Threading.Tasks;
  
@@ -58,8 +59,41 @@ namespace NetTicket.Presentation.Menu
             );
         }
 
+        public void EstadoMenuCase2()
+        {
+            Console.Clear();
+            CabeceraEstado();
+
+            AnsiConsole.Write(
+                new Panel($"[bold cyan]Estados registrados en la base de datos:[/] {CountAllEstados()}")
+                    .Border(BoxBorder.Rounded)
+                    .BorderColor(Color.Cyan)
+                    .Expand()
+            );
+
+            var estados = _estadoService.ObtenerTodos();
+
+            if (estados == null || !estados.Any())
+            {
+                Console.Clear();
+                AnsiConsole.Write(
+                    new Panel("[bold yellow]No hay estados registrados.[/]")
+                        .Border(BoxBorder.Rounded)
+                        .Expand()
+                );
+                return;
+            }
+
+            foreach(var estado in estados)
+            {
+                Console.WriteLine($"Id:{estado.Id}, Nombre{estado.Nombre}");
+            }
+            Console.WriteLine();
+        }
+
 
         public void RunEstadoMenu()
+
         {
             int optionMenu;
 
@@ -88,6 +122,10 @@ namespace NetTicket.Presentation.Menu
                 {
                     case 1:
                             EstadoMenuCase1();
+                        break;
+
+                    case 2:
+                            EstadoMenuCase2();
                         break;
 
                 }
