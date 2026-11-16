@@ -1,4 +1,5 @@
 ﻿using NetTicket.Services.DbRules;
+using Spectre.Console;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,6 +18,19 @@ namespace NetTicket.Presentation.Menu
         }
 
         public int CountAllEstados() => _estadoService.CountAllEstados();
+
+        public void CabeceraEstado()
+        {
+            AnsiConsole.Write(
+                new Panel(new Markup("[bold yellow]Welcome To Estado Menu[/]").Centered())
+                .Border(BoxBorder.Rounded)
+                .BorderColor(Color.Cyan)
+                .Expand()
+            );
+        }
+
+
+
 
 
         public void RunEstadoMenu()
