@@ -11,7 +11,6 @@ namespace NetTicket.Presentation.Menu
 {
     public class TicketMenu
     {
-
         private readonly TicketService _ticketService;
         private readonly UsuarioService _usuarioService;
         private readonly CategoriaService _categoriaService;
@@ -38,7 +37,6 @@ namespace NetTicket.Presentation.Menu
         }
 
 
-    //titulo
 //descripcion
 //usuario_id
 //categoria_id
@@ -69,7 +67,14 @@ namespace NetTicket.Presentation.Menu
             
             if(string.IsNullOrWhiteSpace(descripcion))
             {
-
+                Console.Clear();
+                AnsiConsole.Write(
+                    new Panel($"[bold red]No se permiten valores vacíos.[/]")
+                    .Border(BoxBorder.Rounded)
+                    .BorderColor(Color.Red)
+                    .Expand()
+                );
+                return;
             }
 
             
