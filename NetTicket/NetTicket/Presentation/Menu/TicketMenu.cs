@@ -37,7 +37,7 @@ namespace NetTicket.Presentation.Menu
         }
 
 
-//descripcion
+
 //usuario_id
 //categoria_id
 //estado_id
@@ -77,7 +77,9 @@ namespace NetTicket.Presentation.Menu
                 return;
             }
 
+
             
+
         }
 
 
