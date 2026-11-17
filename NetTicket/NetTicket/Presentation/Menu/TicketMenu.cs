@@ -1,4 +1,5 @@
-﻿using NetTicket.Services.DbRules;
+﻿using NetTicket.Models;
+using NetTicket.Services.DbRules;
 using Spectre.Console;
 using System;
 using System.Collections.Generic;
@@ -37,12 +38,6 @@ namespace NetTicket.Presentation.Menu
         }
 
 
-
-//usuario_id
-//categoria_id
-//estado_id
-//fecha_creacion
-
         private void TicketMenuCase1()
         {
             Console.Clear();
@@ -76,12 +71,80 @@ namespace NetTicket.Presentation.Menu
                 );
                 return;
             }
-
-
             
 
-        }
+            Console.Write("Ingrese el identificador del Usuario_id: ");
+            if (!int.TryParse(Console.ReadLine(), out int usuarioId))
+            {
+                Console.Clear();
+                AnsiConsole.Write(
+                    new Panel("[bold red] El Usuario_Id ingresado no es válido; Solo se permiten valores numéricos.[/]")
+                    .Border(BoxBorder.Rounded)
+                    .BorderColor(Color.Red)
+                    .Expand()
+                );
+                return;
+            }
+            
+            
+            var usuario = _ticketService.ObtenerPorId(usuarioId);
 
+            if(usuario == null)
+            {
+                Console.Clear();
+                AnsiConsole.Write(
+                    new Panel($"[bold red]El Usuario_Id {usuarioId} proporcionado no existe en la base de datos.[/]")
+                        .Border(BoxBorder.Rounded)
+                        .BorderColor(Color.Red)
+                        .Expand()
+                );
+                return;
+            }
+
+            Console.Write("Ingrese el identificador de la  Categoria_id: ");
+            if(!int.TryParse(Console.ReadLine(), out int categoriaId))
+            {
+                Console.Clear();
+                AnsiConsole.Write(
+                    new Panel("[bold red] La Categoria_id ingresada no es válida; Solo se permiten valores numéricos.[/]")
+                    .Border(BoxBorder.Rounded)
+                    .BorderColor(Color.Red)
+                    .Expand()
+                );
+                return;
+            }
+
+            var categoria = _ticketService.ObtenerPorId(categoriaId);
+
+            if (categoria == null)
+            {
+                Console.Clear();
+                AnsiConsole.Write(
+                    new Panel($"[bold red]La categoriaId {categoriaId} proporcionada no existe en la base de datos.[/]")
+                    .Border(BoxBorder.Rounded)
+                    .BorderColor(Color.Red)
+                    .Expand()
+                );
+                return;
+            }
+
+
+            Console.Write("Ingrese el identificador del Estado_id: ");
+            if (!int.TryParse(Console.ReadLine(), out int estadoId))
+            {
+                Console.Clear();
+                AnsiConsole.Write(
+                    new Panel("[bold red] El Estado_id ingresado no es válido; Solo se permiten valores numéricos.[/]")
+                    .Border(BoxBorder.Rounded)
+                    .BorderColor(Color.Red)
+                    .Expand()
+                );
+                return;
+            }
+
+            var estado = _estadoService.ObtenerPorId(estadoId);
+
+        }
 
         public void RunTicketMenu()
         {
