@@ -3,6 +3,7 @@ using Spectre.Console;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -37,13 +38,41 @@ namespace NetTicket.Presentation.Menu
         }
 
 
+    //titulo
+//descripcion
+//usuario_id
+//categoria_id
+//estado_id
+//fecha_creacion
+
         private void TicketMenuCase1()
         {
             Console.Clear();
             CabeceraTicket();
-            Console.Write("Ingrese el nombre del nuevo estado: ");
+            Console.Write("Ingrese el titulo del nuevo estado: ");
+            string titulo = Console.ReadLine()?.Trim();
 
+            if(string.IsNullOrWhiteSpace(titulo))
+            {
+                Console.Clear();
+                AnsiConsole.Write(
+                    new Panel($"[bold red]No se permiten valores vacíos.[/]")
+                    .Border(BoxBorder.Rounded)
+                    .BorderColor(Color.Red)
+                    .Expand()
+                );
+                return;
+            }
 
+            Console.Write("Ingrese la descripción del estado: ");
+            string descripcion = Console.ReadLine()?.Trim();
+            
+            if(string.IsNullOrWhiteSpace(descripcion))
+            {
+
+            }
+
+            
         }
 
 
