@@ -200,6 +200,52 @@ namespace NetTicket.Presentation.Menu
             Console.WriteLine();
         }
 
+        private void TicketMenuCase3()
+        {
+            Console.Clear();
+            CabeceraTicket();
+
+            Console.Write("Ingrese el parámetro de consulta: ");
+            if(!int.TryParse(Console.ReadLine(),out int id))
+            {
+                Console.Clear();
+                AnsiConsole.Write(
+                new Panel("[bold red]El ID ingresado no es válido; Solo se permiten valores numéricos.[/]")
+                .Border(BoxBorder.Rounded)
+                .BorderColor(Color.Red)
+                .Expand()
+                );
+                return;
+            }
+
+            var ticket = _ticketService.ObtenerPorId(id);
+            Console.Clear();
+
+            if(ticket == null)
+            {
+                AnsiConsole.Write(
+                    new Panel($"[bold red]El Id {id} proporcionado no existe en la base de datos.[/]")
+                    .Border(BoxBorder.Rounded)
+                    .BorderColor(Color.Red)
+                    .Expand()
+                );
+                return;
+            }
+
+            AnsiConsole.Write(
+                new Panel($"[bold yellow]Id:[/] {ticket.Id}," +
+                $"\n[bold cyan]titulo:[/] {ticket.Titulo}," +
+                $"\n[bold cyan]descripcion:[/] {ticket.Descripcion}," +
+                $"\n[bold cyan]usuario_id:[/] {ticket.UsuarioId}," +
+                $"\n[bold cyan]categoria_id:[/] {ticket.CategoriaId}," +
+                $"\n[bold cyan]estado_id:[/] {ticket.EstadoId}," +
+                $"\n[bold cyan]fecha_creacion:[/] {ticket.FechaCreacion}"
+                )
+                .Border(BoxBorder.Rounded)
+                .Expand()
+            );
+        }
+
         public void RunTicketMenu()
         {
             int optionMenu;
@@ -228,19 +274,19 @@ namespace NetTicket.Presentation.Menu
                 switch (optionMenu)
                 {
                     case 1:
-                        TicketMenuCase1();
+                            TicketMenuCase1();
                         break;
                     case 2:
-                        TicketMenuCase2();
+                            TicketMenuCase2();
                         break;
                     case 3:
-
+                            TicketMenuCase3();
                         break;
                     case 4:
 
                         break;
                 }
-            } while (optionMenu != 6);
+            } while (optionMenu != 5);
         }
     }
 }
