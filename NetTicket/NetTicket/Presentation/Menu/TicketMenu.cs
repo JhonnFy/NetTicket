@@ -27,7 +27,7 @@ namespace NetTicket.Presentation.Menu
 
         public int CountAllTickets() => _ticketService.CountAllTickets();
 
-        public void CabeceraTicket()
+        private void CabeceraTicket()
         {
             AnsiConsole.Write(
                 new Panel(new Markup("[bold yellow]Welcome To Ticket Menu[/]").Centered())
@@ -37,12 +37,11 @@ namespace NetTicket.Presentation.Menu
             );
         }
 
-
         private void TicketMenuCase1()
         {
             Console.Clear();
             CabeceraTicket();
-            Console.Write("Ingrese el titulo del nuevo estado: ");
+            Console.Write("Ingrese el título del nuevo ticket: ");
             string titulo = Console.ReadLine()?.Trim();
 
             if(string.IsNullOrWhiteSpace(titulo))
@@ -57,7 +56,7 @@ namespace NetTicket.Presentation.Menu
                 return;
             }
 
-            Console.Write("Ingrese la descripción del estado: ");
+            Console.Write("Ingrese la descripción del ticket: ");
             string descripcion = Console.ReadLine()?.Trim();
             
             if(string.IsNullOrWhiteSpace(descripcion))
@@ -72,7 +71,6 @@ namespace NetTicket.Presentation.Menu
                 return;
             }
             
-
             Console.Write("Ingrese el identificador del Usuario_id: ");
             if (!int.TryParse(Console.ReadLine(), out int usuarioId))
             {
@@ -85,9 +83,8 @@ namespace NetTicket.Presentation.Menu
                 );
                 return;
             }
-            
-            
-            var usuario = _ticketService.ObtenerPorId(usuarioId);
+                        
+            var usuario = _usuarioService.ObtenerPorId(usuarioId);
 
             if(usuario == null)
             {
@@ -101,7 +98,7 @@ namespace NetTicket.Presentation.Menu
                 return;
             }
 
-            Console.Write("Ingrese el identificador de la  Categoria_id: ");
+            Console.Write("Ingrese el identificador de la Categoria_id: ");
             if(!int.TryParse(Console.ReadLine(), out int categoriaId))
             {
                 Console.Clear();
@@ -114,13 +111,13 @@ namespace NetTicket.Presentation.Menu
                 return;
             }
 
-            var categoria = _ticketService.ObtenerPorId(categoriaId);
+            var categoria = _categoriaService.ObtenerPorId(categoriaId);
 
             if (categoria == null)
             {
                 Console.Clear();
                 AnsiConsole.Write(
-                    new Panel($"[bold red]La categoriaId {categoriaId} proporcionada no existe en la base de datos.[/]")
+                    new Panel($"[bold red]La categoria_id {categoriaId} proporcionada no existe en la base de datos.[/]")
                     .Border(BoxBorder.Rounded)
                     .BorderColor(Color.Red)
                     .Expand()
@@ -128,13 +125,12 @@ namespace NetTicket.Presentation.Menu
                 return;
             }
 
-
             Console.Write("Ingrese el identificador del Estado_id: ");
             if (!int.TryParse(Console.ReadLine(), out int estadoId))
             {
                 Console.Clear();
                 AnsiConsole.Write(
-                    new Panel("[bold red] El Estado_id ingresado no es válido; Solo se permiten valores numéricos.[/]")
+                    new Panel("[bold red] El estado_id ingresado no es válido; Solo se permiten valores numéricos.[/]")
                     .Border(BoxBorder.Rounded)
                     .BorderColor(Color.Red)
                     .Expand()
@@ -144,6 +140,32 @@ namespace NetTicket.Presentation.Menu
 
             var estado = _estadoService.ObtenerPorId(estadoId);
 
+            if (estado == null)
+            {
+                Console.Clear();
+                AnsiConsole.Write(
+                    new Panel($"[bold red]El Estado_id {estadoId} proporcionado no existe en la base de datos.[/]")
+                    .Border(BoxBorder.Rounded)
+                    .BorderColor(Color.Red)
+                    .Expand()
+                );
+                return;
+            }
+
+            var createTicket = _ticketService.Create(titulo, descripcion, usuarioId, categoriaId, estadoId);
+            Console.Clear();
+            AnsiConsole.Write(
+                new Panel($"[bold yellow]Id:[/] {createTicket.Id}," +
+                $"\n[bold cyan]titulo:[/] {createTicket.Titulo}," +
+                $"\n[bold cyan]descripcion:[/] {createTicket.Descripcion}," +
+                $"\n[bold cyan]usuario_id:[/] {createTicket.UsuarioId}," +
+                $"\n[bold cyan]categoria_id:[/] {createTicket.CategoriaId}," +
+                $"\n[bold cyan]estado_id:[/] {createTicket.EstadoId}," +
+                $"\n[bold cyan]fecha_creacion:[/] {createTicket.FechaCreacion}"
+                )
+                .Border(BoxBorder.Rounded)
+                .Expand()
+            );
         }
 
         public void RunTicketMenu()
