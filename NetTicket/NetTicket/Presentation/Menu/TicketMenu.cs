@@ -44,7 +44,7 @@ namespace NetTicket.Presentation.Menu
             Console.Write("Ingrese el título del nuevo ticket: ");
             string titulo = Console.ReadLine()?.Trim();
 
-            if(string.IsNullOrWhiteSpace(titulo))
+            if (string.IsNullOrWhiteSpace(titulo))
             {
                 Console.Clear();
                 AnsiConsole.Write(
@@ -58,8 +58,8 @@ namespace NetTicket.Presentation.Menu
 
             Console.Write("Ingrese la descripción del ticket: ");
             string descripcion = Console.ReadLine()?.Trim();
-            
-            if(string.IsNullOrWhiteSpace(descripcion))
+
+            if (string.IsNullOrWhiteSpace(descripcion))
             {
                 Console.Clear();
                 AnsiConsole.Write(
@@ -70,7 +70,7 @@ namespace NetTicket.Presentation.Menu
                 );
                 return;
             }
-            
+
             Console.Write("Ingrese el identificador del Usuario_id: ");
             if (!int.TryParse(Console.ReadLine(), out int usuarioId))
             {
@@ -83,10 +83,10 @@ namespace NetTicket.Presentation.Menu
                 );
                 return;
             }
-                        
+
             var usuario = _usuarioService.ObtenerPorId(usuarioId);
 
-            if(usuario == null)
+            if (usuario == null)
             {
                 Console.Clear();
                 AnsiConsole.Write(
@@ -99,7 +99,7 @@ namespace NetTicket.Presentation.Menu
             }
 
             Console.Write("Ingrese el identificador de la Categoria_id: ");
-            if(!int.TryParse(Console.ReadLine(), out int categoriaId))
+            if (!int.TryParse(Console.ReadLine(), out int categoriaId))
             {
                 Console.Clear();
                 AnsiConsole.Write(
@@ -183,7 +183,7 @@ namespace NetTicket.Presentation.Menu
             var tickets = _ticketService.ObtenerTodos();
 
             if (tickets == null || !tickets.Any())
-                {
+            {
                 Console.Clear();
                 AnsiConsole.Write(
                     new Panel("[bold yellow]No hay tickets registrados.[/]")
@@ -193,7 +193,7 @@ namespace NetTicket.Presentation.Menu
                 return;
             }
 
-            foreach(var ticket in tickets)
+            foreach (var ticket in tickets)
             {
                 Console.WriteLine($"Id: {ticket.Id}, titulo: {ticket.Titulo}, descripcion: {ticket.Descripcion}, usuario_id: {ticket.UsuarioId}, categoria_id: {ticket.CategoriaId}, estado_id: {ticket.EstadoId}, fecha_creacion: {ticket.FechaCreacion}");
             }
@@ -225,22 +225,22 @@ namespace NetTicket.Presentation.Menu
                 optionMenu = AnsiConsole.Prompt(menu);
                 Console.Clear();
 
-                switch(optionMenu)
+                switch (optionMenu)
                 {
                     case 1:
-                            TicketMenuCase1();
+                        TicketMenuCase1();
                         break;
                     case 2:
-                            TicketMenuCase2();
+                        TicketMenuCase2();
                         break;
                     case 3:
-                            
+
                         break;
                     case 4:
-                            
+
                         break;
                 }
-            } while (optionMenu !=6);
+            } while (optionMenu != 6);
         }
     }
 }
