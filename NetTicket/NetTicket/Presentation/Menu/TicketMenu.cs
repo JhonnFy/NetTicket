@@ -168,6 +168,38 @@ namespace NetTicket.Presentation.Menu
             );
         }
 
+        private void TicketMenuCase2()
+        {
+            Console.Clear();
+            CabeceraTicket();
+
+            AnsiConsole.Write(
+                new Panel($"[bold cyan]Tickets registrados en la base de datos: [/] {CountAllTickets()}")
+                .Border(BoxBorder.Rounded)
+                .BorderColor(Color.Cyan)
+                .Expand()
+                );
+
+            var tickets = _ticketService.ObtenerTodos();
+
+            if (tickets == null || !tickets.Any())
+                {
+                Console.Clear();
+                AnsiConsole.Write(
+                    new Panel("[bold yellow]No hay tickets registrados.[/]")
+                    .Border(BoxBorder.Rounded)
+                    .Expand()
+                );
+                return;
+            }
+
+            foreach(var ticket in tickets)
+            {
+                Console.WriteLine($"Id: {ticket.Id}, titulo: {ticket.Titulo}, descripcion: {ticket.Descripcion}, usuario_id: {ticket.UsuarioId}, categoria_id: {ticket.CategoriaId}, estado_id: {ticket.EstadoId}, fecha_creacion: {ticket.FechaCreacion}");
+            }
+            Console.WriteLine();
+        }
+
         public void RunTicketMenu()
         {
             int optionMenu;
@@ -199,7 +231,7 @@ namespace NetTicket.Presentation.Menu
                             TicketMenuCase1();
                         break;
                     case 2:
-                            
+                            TicketMenuCase2();
                         break;
                     case 3:
                             
