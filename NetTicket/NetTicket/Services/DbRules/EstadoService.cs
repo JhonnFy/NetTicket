@@ -18,17 +18,11 @@ namespace NetTicket.Services.DbRules
             _repository = repository;
         }
 
-        public int CountAllEstados()
-        {
-            var countEst = _repository.CountAllEstados();
-            return countEst;
-        }
 
-        public bool ValidarNombre(Estado estado)
-        {
-            if (string.IsNullOrWhiteSpace(estado.Nombre)) return false;
-            return true;
-        }
+        public int CountAllEstados() => _repository.CountAllEstados();
+
+        public bool ValidarNombre(Estado estado) => !string.IsNullOrWhiteSpace(estado.Nombre);
+
 
         public List<Estado> ObtenerTodos()
         {

@@ -18,18 +18,10 @@ namespace NetTicket.Services.DbRules
             _repository = repository;
         }
 
-        public bool ValidarTitulo(Ticket ticket)
-        {
-            if (string.IsNullOrWhiteSpace(ticket.Titulo)) return false;
-            return true;
-        }
+        public bool ValidarTitulo(Ticket ticket) => !string.IsNullOrWhiteSpace(ticket.Titulo);
+        public int CountAllTickets() => _repository.countAllTickets();
 
-        public int CountAllTickets()
-        {
-            var countTick = _repository.countAllTickets();
-            return countTick;
-        }
-
+        
         public List<Ticket> ObtenerTodos()
         {
             var tickets = _repository.ObtenerTodos();
