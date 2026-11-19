@@ -246,7 +246,7 @@ namespace NetTicket.Presentation.Menu
             );
         }
 
-        public void TicketMenuCase4()
+        private void TicketMenuCase4()
         {
             Console.Clear();
             CabeceraTicket();
@@ -263,7 +263,6 @@ namespace NetTicket.Presentation.Menu
                 );
                 return;
             }
-
 
             var ticket = _ticketService.ObtenerPorId(id);
             if(ticket == null)
@@ -315,8 +314,8 @@ namespace NetTicket.Presentation.Menu
 
             AnsiConsole.Write(
                 new Panel($"[bold yellow]Id:[/] {ticket.Id},\n" +
-                $" [bold cyan]Titulo:[/] {ticket.Titulo},\n" +
-                $" [bold cyan]Descripcion:[/] {ticket.Descripcion},\n" +
+                $" [bold cyan]Titulo:[/] {titulo},\n" +
+                $" [bold cyan]Descripcion:[/] {descripcion},\n" +
                 $" [bold cyan]Usuario_id:[/] {ticket.UsuarioId},\n" +
                 $" [bold cyan]Categoria_id:[/] {ticket.CategoriaId},\n" +
                 $" [bold cyan]Estado_id:[/] {ticket.EstadoId},\n" +
