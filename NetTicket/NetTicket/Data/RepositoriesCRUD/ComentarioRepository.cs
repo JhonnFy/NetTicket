@@ -3,7 +3,6 @@ using NetTicket.Models;
 using NetTicket.Data.Connection;
 using System.Security.Cryptography;
 
-
 namespace NetTicket.Data.RepositoriesCRUD
 {
     public class ComentarioRepository
