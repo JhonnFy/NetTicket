@@ -246,6 +246,15 @@ namespace NetTicket.Presentation.Menu
             );
         }
 
+        public void TicketMenuCase4()
+        {
+            Console.Clear();
+            CabeceraTicket();
+
+
+
+        }
+
         public void RunTicketMenu()
         {
             int optionMenu;
@@ -283,7 +292,7 @@ namespace NetTicket.Presentation.Menu
                             TicketMenuCase3();
                         break;
                     case 4:
-
+                            
                         break;
                 }
             } while (optionMenu != 5);
