@@ -66,6 +66,7 @@ namespace NetTicket.Data.RepositoriesCRUD
             catch(Exception ex)
             {
                 Console.WriteLine("TicketRepository ObtenerTodos" + ex.Message);
+                throw;
             }
             return tickets;
         }
