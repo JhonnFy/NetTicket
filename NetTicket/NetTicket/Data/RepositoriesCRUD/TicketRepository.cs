@@ -30,7 +30,7 @@ namespace NetTicket.Data.RepositoriesCRUD
             }catch(Exception ex)
             {
                 Console.WriteLine("TicketRepository CountTickets" + ex.Message);
-                return 0;
+                throw;
             }
         }
 
