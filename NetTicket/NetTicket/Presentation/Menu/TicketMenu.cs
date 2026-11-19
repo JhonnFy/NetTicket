@@ -251,8 +251,80 @@ namespace NetTicket.Presentation.Menu
             Console.Clear();
             CabeceraTicket();
 
+            Console.Write("Ingrese el ID del ticket que desea modificar: ");
+            if(!int.TryParse(Console.ReadLine(), out int  id))
+            {
+                Console.Clear();
+                AnsiConsole.Write(
+                    new Panel($"[bold red]El ID ingresado no es válido; Solo se permiten valores numéricos.[/]")
+                    .Border(BoxBorder.Rounded)
+                    .BorderColor(Color.Red)
+                    .Expand()
+                );
+                return;
+            }
 
 
+            var ticket = _ticketService.ObtenerPorId(id);
+            if(ticket == null)
+            {
+                Console.Clear();
+                AnsiConsole.Write(
+                    new Panel($"[bold red]No existe un ticket con Id {id}.[/]")
+                    .Border(BoxBorder.Rounded)
+                    .BorderColor(Color.Red)
+                    .Expand()
+                );
+                return;
+            }
+
+            Console.Write("Ingrese el nuevo titulo del ticket: ");
+            string titulo = Console.ReadLine()?.Trim();
+
+            if(string.IsNullOrWhiteSpace(titulo))
+            {
+                Console.Clear();
+                AnsiConsole.Write(
+                new Panel($"[bold red]El titulo no puede estar vacío; No se realizó ningún cambio.[/]")
+                    .Border(BoxBorder.Rounded)
+                    .BorderColor(Color.Red)
+                    .Expand()
+                );
+                return;
+            }
+
+
+            Console.Write("Ingrese la nueva descripcion del ticket: ");
+            string descripcion = Console.ReadLine()?.Trim();
+
+            if (string.IsNullOrWhiteSpace(descripcion))
+            {
+                Console.Clear();
+                AnsiConsole.Write(
+                new Panel($"[bold red]La descripcion no puede estar vacía; No se realizó ningún cambio.[/]")
+                    .Border(BoxBorder.Rounded)
+                    .BorderColor(Color.Red)
+                    .Expand()
+                );
+                return;
+            }
+
+
+            _ticketService.Update(id, titulo, descripcion);
+            Console.Clear();
+
+            AnsiConsole.Write(
+                new Panel($"[bold yellow]Id:[/] {ticket.Id},\n" +
+                $" [bold cyan]Titulo:[/] {ticket.Titulo},\n" +
+                $" [bold cyan]Descripcion:[/] {ticket.Descripcion},\n" +
+                $" [bold cyan]Usuario_id:[/] {ticket.UsuarioId},\n" +
+                $" [bold cyan]Categoria_id:[/] {ticket.CategoriaId},\n" +
+                $" [bold cyan]Estado_id:[/] {ticket.EstadoId},\n" +
+                $" [bold cyan]Fecha_creacion:[/] {ticket.FechaCreacion}"
+                )
+                .Border(BoxBorder.Rounded)
+                .Expand()
+            );
         }
 
         public void RunTicketMenu()
@@ -292,7 +364,7 @@ namespace NetTicket.Presentation.Menu
                             TicketMenuCase3();
                         break;
                     case 4:
-                            
+                            TicketMenuCase4();
                         break;
                 }
             } while (optionMenu != 5);

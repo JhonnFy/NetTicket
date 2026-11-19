@@ -227,9 +227,9 @@ namespace NetTicket.Presentation.Menu
                 Console.Clear();
                 AnsiConsole.Write(
                         new Panel($"[bold red]No existe un comentario con Id {id}.[/]")
-                            .Border(BoxBorder.Rounded)
-                            .BorderColor(Color.Red)
-                            .Expand()
+                        .Border(BoxBorder.Rounded)
+                        .BorderColor(Color.Red)
+                        .Expand()
                 );
                 return;
             }
