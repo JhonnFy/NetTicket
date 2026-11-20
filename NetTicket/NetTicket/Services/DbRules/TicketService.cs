@@ -35,7 +35,6 @@ namespace NetTicket.Services.DbRules
             }
 
             return tickets;
-
         }
 
         public Ticket? ObtenerPorId(int id)
