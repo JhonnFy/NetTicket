@@ -14,7 +14,7 @@ namespace NetTicket.Data.RepositoriesCRUD
             _conexion = conexion;
         }
 
-        public int countAllUsuarios()
+        public int CountAllUsuarios()
         {
             try
             {
@@ -30,8 +30,8 @@ namespace NetTicket.Data.RepositoriesCRUD
             }
             catch(Exception ex)
             {
-                Console.WriteLine("UsuarioRepository CountUsuario" + ex.Message);
-                return 0;
+                Console.WriteLine("UsuarioRepository CountAllUsuarios: " + ex.Message);
+                throw;
             }
         }
 
@@ -63,7 +63,8 @@ namespace NetTicket.Data.RepositoriesCRUD
             }
             catch(Exception ex)
             {
-                Console.WriteLine("UsuarioRepository ObtenerTodos" + ex.Message);
+                Console.WriteLine("UsuarioRepository ObtenerTodos: " + ex.Message);
+                throw;
             }
             return usuarios;
         }
@@ -94,7 +95,8 @@ namespace NetTicket.Data.RepositoriesCRUD
             }
             catch(Exception ex)
             {
-                Console.WriteLine("UsuarioRepository ObtenerPorId" + ex.Message);
+                Console.WriteLine("UsuarioRepository ObtenerPorId: " + ex.Message);
+                throw;
             }
             return null;
         }
@@ -125,9 +127,9 @@ namespace NetTicket.Data.RepositoriesCRUD
                 };
             }catch(Exception ex)
             {
-                Console.WriteLine($"UsuarioRepository Create" + ex.Message);
+                Console.WriteLine($"UsuarioRepository Create: " + ex.Message);
+                throw;
             }
-            return null;
         }
 
         public bool Update(int id, string nombre,string email,string area)
@@ -151,8 +153,8 @@ namespace NetTicket.Data.RepositoriesCRUD
             }
             catch(Exception ex)
             {
-                Console.WriteLine("UsuarioRepository Update" + ex.Message);
-                return false;
+                Console.WriteLine("UsuarioRepository Update: " + ex.Message);
+                throw;
             }
         }
 
@@ -173,8 +175,8 @@ namespace NetTicket.Data.RepositoriesCRUD
 
             }catch(Exception ex)
             {
-                Console.WriteLine("UsuarioRepository Delete" + ex.Message);
-                return false;
+                Console.WriteLine("UsuarioRepository Delete: " + ex.Message);
+                throw;
             }
         }
     }
