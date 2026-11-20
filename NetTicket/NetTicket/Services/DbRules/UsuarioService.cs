@@ -19,7 +19,7 @@ namespace NetTicket.Services.DbRules
             _repository = repository;
         }
 
-        public int CountAllUsuarios() => _repository.countAllUsuarios();
+        public int CountAllUsuarios() => _repository.CountAllUsuarios();
 
         public bool ValidarNombre(Usuario usuario) => !string.IsNullOrWhiteSpace(usuario.Nombre);
         public bool ValidarEmail(Usuario usuario) => !string.IsNullOrWhiteSpace(usuario.Email) && usuario.Email.Contains("@");

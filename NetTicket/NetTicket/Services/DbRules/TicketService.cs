@@ -19,7 +19,7 @@ namespace NetTicket.Services.DbRules
         }
 
         public bool ValidarTitulo(Ticket ticket) => !string.IsNullOrWhiteSpace(ticket.Titulo);
-        public int CountAllTickets() => _ticketRepository.countAllTickets();
+        public int CountAllTickets() => _ticketRepository.CountAllTickets();
 
         
         public List<Ticket> ObtenerTodos()

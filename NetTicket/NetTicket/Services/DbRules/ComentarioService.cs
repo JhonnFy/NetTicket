@@ -22,7 +22,7 @@ namespace NetTicket.Services.DbRules
 
         public bool ValidarTexto(Comentario comentario) => !string.IsNullOrWhiteSpace(comentario.Texto);
 
-        public int CountAllComentarios() => _repository.countAllComentarios();
+        public int CountAllComentarios() => _repository.CountAllComentarios();
 
 
         public List<Comentario> ObtenerTodos()
