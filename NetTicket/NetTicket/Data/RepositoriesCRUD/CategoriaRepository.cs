@@ -4,8 +4,7 @@ using NetTicket.Models;
 using System.Linq.Expressions;
 using System.Net.Http.Headers;
 using System.Security.Cryptography.X509Certificates;
-
-
+  
 namespace NetTicket.Data.RepositoriesCRUD
 {
     public class CategoriaRepository
@@ -17,7 +16,7 @@ namespace NetTicket.Data.RepositoriesCRUD
             _conexion = conexion;
         }
 
-        public int countAllCategorias()
+        public int CountAllCategorias()
         {
             try
             {
@@ -33,8 +32,8 @@ namespace NetTicket.Data.RepositoriesCRUD
             }
             catch (Exception ex)
             {
-                Console.WriteLine("CategoriaRepository CountCategoria" + ex.Message);
-                return 0;
+                Console.WriteLine("CategoriaRepository CountAllCategorias: " + ex.Message);
+                throw;
             }
         }
 
@@ -63,7 +62,8 @@ namespace NetTicket.Data.RepositoriesCRUD
             }
             catch(Exception ex)
             {
-                Console.WriteLine("CategoriaRepository ObtenerTodos" + ex.Message);
+                Console.WriteLine("CategoriaRepository ObtenerTodos: " + ex.Message);
+                throw;
             }
             return categorias;
         }
@@ -93,7 +93,8 @@ namespace NetTicket.Data.RepositoriesCRUD
             }
             catch(Exception ex)
             {
-                Console.WriteLine("CategoriaRepository ObtenerPorId" + ex.Message);
+                Console.WriteLine("CategoriaRepository ObtenerPorId: " + ex.Message);
+                throw;
             }
             
             return null;
@@ -121,11 +122,10 @@ namespace NetTicket.Data.RepositoriesCRUD
             }
             catch(Exception ex)
             {
-                Console.WriteLine("CategoriaRepository Create" + ex.Message);
+                Console.WriteLine("CategoriaRepository Create: " + ex.Message);
+                throw;
             }
-            return null;
         }
-
 
         public bool Update(int id, string nombre)
         {
@@ -146,22 +146,30 @@ namespace NetTicket.Data.RepositoriesCRUD
 
             }catch(Exception ex)
             {
-                Console.WriteLine("CategoriaRepository Update" + ex.Message);
-                return false;
+                Console.WriteLine("CategoriaRepository Update: " + ex.Message);
+                throw;
             }
         }
 
         public bool Delete(int id)
         {
-            using MySqlConnection cn = _conexion.ObtenerConexion();
-            cn.Open();
+            try
+            {
+                using MySqlConnection cn = _conexion.ObtenerConexion();
+                cn.Open();
 
-            using MySqlCommand cmd = new MySqlCommand("CategoriaRepository_Delete", cn);
-            cmd.CommandType = System.Data.CommandType.StoredProcedure;
-            cmd.Parameters.AddWithValue("p_Id", id);
+                using MySqlCommand cmd = new MySqlCommand("CategoriaRepository_Delete", cn);
+                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("p_Id", id);
 
-            int registros = cmd.ExecuteNonQuery();
-            return registros > 0;
+                int registros = cmd.ExecuteNonQuery();
+                return registros > 0;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("CategoriaRepository Delete: " + ex.Message);
+                throw;
+            }
         }
     }
 }

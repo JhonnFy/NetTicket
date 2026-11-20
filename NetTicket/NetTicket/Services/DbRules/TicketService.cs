@@ -11,20 +11,20 @@ namespace NetTicket.Services.DbRules
 {
     public class TicketService
     {
-        private readonly TicketRepository _repository;
+        private readonly TicketRepository _ticketRepository;
 
-        public TicketService(TicketRepository repository)
+        public TicketService(TicketRepository ticketRepository)
         {
-            _repository = repository;
+            _ticketRepository = ticketRepository;
         }
 
         public bool ValidarTitulo(Ticket ticket) => !string.IsNullOrWhiteSpace(ticket.Titulo);
-        public int CountAllTickets() => _repository.countAllTickets();
+        public int CountAllTickets() => _ticketRepository.CountAllTickets();
 
         
         public List<Ticket> ObtenerTodos()
         {
-            var tickets = _repository.ObtenerTodos();
+            var tickets = _ticketRepository.ObtenerTodos();
 
             foreach(var ticket in tickets)
             {
@@ -40,7 +40,7 @@ namespace NetTicket.Services.DbRules
 
         public Ticket? ObtenerPorId(int id)
         {
-            var ticket = _repository.ObtenerPorId(id);
+            var ticket = _ticketRepository.ObtenerPorId(id);
 
             if (ticket == null || !ValidarTitulo(ticket)) return null;
 
@@ -52,12 +52,12 @@ namespace NetTicket.Services.DbRules
 
         public Ticket? Create (string titulo, string descripcion, int usuarioId, int categoriaId, int estadoId)
         {
-            return _repository.Create(titulo, descripcion, usuarioId, categoriaId, estadoId);
+            return _ticketRepository.Create(titulo, descripcion, usuarioId, categoriaId, estadoId);
         }
         
         public bool Update(int id, string titulo, string descripcion)
         {
-            return _repository.Update(id, titulo, descripcion);
+            return _ticketRepository.Update(id, titulo, descripcion);
         }
 
     }

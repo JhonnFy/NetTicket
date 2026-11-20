@@ -22,7 +22,7 @@ namespace NetTicket.Services.DbRules
 
         public bool ValidarNombre(Categoria categoria) => !string.IsNullOrWhiteSpace(categoria.Nombre);
 
-        public int CountAllCategorias() => _repository.countAllCategorias();
+        public int CountAllCategorias() => _repository.CountAllCategorias();
 
 
         public List<Categoria> ObtenerTodos()

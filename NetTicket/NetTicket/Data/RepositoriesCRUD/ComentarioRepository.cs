@@ -3,7 +3,6 @@ using NetTicket.Models;
 using NetTicket.Data.Connection;
 using System.Security.Cryptography;
 
-
 namespace NetTicket.Data.RepositoriesCRUD
 {
     public class ComentarioRepository
@@ -15,7 +14,7 @@ namespace NetTicket.Data.RepositoriesCRUD
             _conexion = conexion;
         }
 
-        public int countAllComentarios()
+        public int CountAllComentarios()
         {
             try
             {
@@ -32,8 +31,8 @@ namespace NetTicket.Data.RepositoriesCRUD
             }
             catch(Exception ex)
             {
-                Console.WriteLine("ComentarioRepository countComentarios " + ex.Message);
-                return 0;
+                Console.WriteLine("ComentarioRepository CountAllComentarios: " + ex.Message);
+                throw;
             }
         }
 
@@ -65,7 +64,8 @@ namespace NetTicket.Data.RepositoriesCRUD
             }
             catch(Exception ex)
             {
-                Console.WriteLine("ComentarioRepository ObtenerTodos" + ex.Message);
+                Console.WriteLine("ComentarioRepository ObtenerTodos: " + ex.Message);
+                throw;
             }
             return comentarios;
         }
@@ -99,13 +99,16 @@ namespace NetTicket.Data.RepositoriesCRUD
             }
             catch(Exception ex)
             {
-                Console.WriteLine("ComentarioRepository ObtenerPorId" + ex.Message);
+                Console.WriteLine("ComentarioRepository ObtenerPorId: " + ex.Message);
+                throw;
             }
             return null;
         }
 
         public Comentario? Create(int ticketId, int usuarioId, string texto)
         {
+            try
+            {
                 using MySqlConnection cn = _conexion.ObtenerConexion();
                 cn.Open();
 
@@ -126,6 +129,12 @@ namespace NetTicket.Data.RepositoriesCRUD
                     Texto = texto,
                     Fecha = DateTime.Now
                 };
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("ComentarioRepository Create: " + ex.Message);
+                throw;
+            }
         }
 
         public bool Update(int id, string texto)
@@ -147,11 +156,9 @@ namespace NetTicket.Data.RepositoriesCRUD
             }
             catch(Exception ex)
             {
-                Console.WriteLine("ComentarioRepository Update " + ex.Message);
-                return false;
+                Console.WriteLine("ComentarioRepository Update: " + ex.Message);
+                throw;
             }
         }
-        
-
     }
 }

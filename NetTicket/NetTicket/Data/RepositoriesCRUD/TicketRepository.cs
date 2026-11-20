@@ -13,7 +13,7 @@ namespace NetTicket.Data.RepositoriesCRUD
             _conexion = conexion;
         }
 
-        public int countAllTickets()
+        public int CountAllTickets()
         {
             try
             {
@@ -29,8 +29,8 @@ namespace NetTicket.Data.RepositoriesCRUD
 
             }catch(Exception ex)
             {
-                Console.WriteLine("TicketRepository CountTickets" + ex.Message);
-                return 0;
+                Console.WriteLine("TicketRepository CountAllTickets: " + ex.Message);
+                throw;
             }
         }
 
@@ -66,6 +66,7 @@ namespace NetTicket.Data.RepositoriesCRUD
             catch(Exception ex)
             {
                 Console.WriteLine("TicketRepository ObtenerTodos" + ex.Message);
+                throw;
             }
             return tickets;
         }
@@ -100,8 +101,8 @@ namespace NetTicket.Data.RepositoriesCRUD
             catch(Exception ex)
             {
                 Console.WriteLine("TicketRepository ObtenerPorId" + ex.Message);
+                throw;
             }
-            return null;
         }
 
         public Ticket? Create(string titulo, string descripcion, int usuarioId, int categoriaId, int estadoId)
@@ -134,9 +135,9 @@ namespace NetTicket.Data.RepositoriesCRUD
                 
             }catch(Exception ex)
             {
-                Console.WriteLine("TicketRepository ObtenerPorId" + ex.Message);
+                Console.WriteLine("TicketRepository Create" + ex.Message);
+                throw;
             }
-            return null;
         }
 
         public bool Update(int id, string titulo, string descripcion)
@@ -158,11 +159,9 @@ namespace NetTicket.Data.RepositoriesCRUD
             }
             catch (Exception ex)
             {
-                Console.WriteLine("TicketRepository Update" + ex.Message);
-                return false;
+                Console.WriteLine("TicketRepository Update: " + ex.Message);
+                throw;
             }
         }
-
-
     }
 }

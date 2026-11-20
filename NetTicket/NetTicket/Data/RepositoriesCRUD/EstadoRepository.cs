@@ -30,8 +30,8 @@ namespace NetTicket.Data.RepositoriesCRUD
 
             }catch(Exception ex)
             {
-                Console.WriteLine("EstadoRepository CountEstado" + ex.Message);
-                return 0;
+                Console.WriteLine("EstadoRepository CountAllEstados: " + ex.Message);
+                throw;
             }
         }
 
@@ -60,7 +60,8 @@ namespace NetTicket.Data.RepositoriesCRUD
             }
             catch(Exception ex)
             {
-                Console.WriteLine("EstadoRepository ObtenerTodos" + ex.Message);
+                Console.WriteLine("EstadoRepository ObtenerTodos: " + ex.Message);
+                throw;
             }
             return estados;
         }
@@ -90,7 +91,8 @@ namespace NetTicket.Data.RepositoriesCRUD
             }
             catch(Exception ex)
             {
-                Console.WriteLine("EstadoRepository ObtenerPorId" + ex.Message);
+                Console.WriteLine("EstadoRepository ObtenerPorId: " + ex.Message);
+                throw;
             }
             return null;
         }
@@ -118,9 +120,9 @@ namespace NetTicket.Data.RepositoriesCRUD
 
             }catch(Exception ex)
             {
-                Console.WriteLine("EstadoRepository Create" + ex.Message);
+                Console.WriteLine("EstadoRepository Create: " + ex.Message);
+                throw;
             }
-            return null;
         }
 
         public bool Update(int id, string nombre)
@@ -141,13 +143,15 @@ namespace NetTicket.Data.RepositoriesCRUD
             }
             catch(Exception ex)
             {
-                Console.WriteLine("EstadoRepository Update" + ex.Message);
-                return false;            
+                Console.WriteLine("EstadoRepository Update: " + ex.Message);
+                throw;
             }
         }
 
         public bool Delete(int id)
         {
+            try
+            {
                 using MySqlConnection cn = _conexion.ObtenerConexion();
                 cn.Open();
 
@@ -159,5 +163,11 @@ namespace NetTicket.Data.RepositoriesCRUD
                 int registros = cmd.ExecuteNonQuery();
                 return registros > 0;
             }
+            catch (Exception ex)
+            {
+                Console.WriteLine("EstadoRepository Delete: " + ex.Message);
+                throw;
+            }
+        }
     }
 }
