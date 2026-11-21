@@ -1,3 +1,6 @@
+
+USE ticketsdbqa;
+
 INSERT INTO usuarios (nombre, email, area) values ('Juan Perez','juan@mail.com','Sistemas');
 INSERT INTO usuarios (nombre, email, area) values ('Ana Gpmez','ana@mail.com','Contabilidad');
 INSERT INTO usuarios (nombre, email, area) values ('Carlos Ruiz','carlos@mail.com','Recursos Humanos');
