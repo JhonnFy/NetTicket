@@ -18,7 +18,4 @@ INSERT INTO tickets  (titulo,descripcion,usuario_id,categoria_id,estado_id) valu
 INSERT INTO comentarios (ticket_id,usuario_id,texto) values (1,1,'Revise el cableado y esta conectado');
 INSERT INTO comentarios (ticket_id,usuario_id,texto) values (1,2,'Sigue sin funcionar en mi equipo');
 INSERT INTO comentarios (ticket_id,usuario_id,texto) values (2,3,'Se reinicio la impresora y ya imprime');
-INSERT INTO comentarios (ticket_id,usuario_id,texto) values (3,1,'Se reinstalo Office y quedó solucionado');
-
-
-
+INSERT INTO comentarios (ticket_id,usuario_id,texto) values (3,1,'Se reinstalo Office y quedo solucionado');
