@@ -250,6 +250,8 @@ Cada repositorio tiene tests con MSTest que prueban contra la DB real:
 
 ## Dockerfile
 <img width="1366" height="768" alt="image" src="https://github.com/user-attachments/assets/58abea6a-89b2-4f13-a5bd-a5c1bfb9f262" />
+<img width="1366" height="768" alt="image" src="https://github.com/user-attachments/assets/dcae4e49-3039-45ac-a29c-41fa281b6b81" />
+<img width="1366" height="768" alt="image" src="https://github.com/user-attachments/assets/d978c655-057c-4abc-8e29-76d8c04297e9" />
 <img width="1366" height="768" alt="image" src="https://github.com/user-attachments/assets/40546495-1e5b-49f2-8ee7-ad7b344f4567" />
 <img width="1366" height="768" alt="image" src="https://github.com/user-attachments/assets/c02f5a7c-bf76-43c9-95c0-dabfe6e149b5" />
 <img width="1366" height="768" alt="image" src="https://github.com/user-attachments/assets/099e9730-9d52-4ea9-9bfc-ab8e0a29aebb" />
