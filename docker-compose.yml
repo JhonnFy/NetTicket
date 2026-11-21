@@ -2,6 +2,9 @@ services:
   mysql:
     container_name: mysql
     image: mysql:latest
+    command:
+      - --character-set-server=utf8mb4
+      - --collation-server=utf8mb4_unicode_ci
     ports:
       - "3307:3306"
     environment:
@@ -10,6 +13,7 @@ services:
       MYSQL_DATABASE: ticketsdb
     volumes:
       - ./dB:/docker-entrypoint-initdb.d/
+      - ticketsdbVolumen:/var/lib/mysql
     healthcheck:
       test: ["CMD-SHELL", "mysqladmin ping -h 127.0.0.1 -u root -p\"$$MYSQL_ROOT_PASSWORD\" --silent"]
       interval: 10s
@@ -17,7 +21,6 @@ services:
       retries: 5
       start_period: 200s
       
-
   app:
     container_name: netticket
     build: .
@@ -27,4 +30,7 @@ services:
     environment:
       - TZ=America/Bogota
       - APP_NAME=Docker-NetTicket-QA
-      - ConnectionStrings__MySqlConnection=Server=mysql;Database=ticketsdb;User=root;Password=secret;
+      - ConnectionStrings__MySqlConnection=Server=mysql;Database=ticketsdb;User=root;Password=secret;CharSet=utf8mb4;
+      
+volumes:
+  ticketsdbVolumen:

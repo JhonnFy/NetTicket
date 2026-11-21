@@ -3,6 +3,9 @@ using Microsoft.Extensions.Configuration;
 using NetTicket.DependencyInjection;
 using NetTicket.Presentation.Menu;
 
+Console.OutputEncoding = System.Text.Encoding.UTF8;
+Console.InputEncoding = System.Text.Encoding.UTF8;
+
 
 try
 {
