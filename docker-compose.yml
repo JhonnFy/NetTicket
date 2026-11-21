@@ -10,6 +10,8 @@ services:
     environment:
       TZ: America/Bogota
       MYSQL_ROOT_PASSWORD: secret
+      MYSQL_USER: AdminQa
+      MYSQL_PASSWORD: MoesDeveloper0312809833
       MYSQL_DATABASE: ticketsdbqa
     volumes:
       - ./dB:/docker-entrypoint-initdb.d/
@@ -30,9 +32,7 @@ services:
     environment:
       - TZ=America/Bogota
       - APP_NAME=Docker-NetTicket-QA
-      - ConnectionStrings__MySqlConnection=Server=mysql;Database=ticketsdbqa;User=root;Password=secret;CharSet=utf8mb4;
+      - ConnectionStrings__MySqlConnection=Server=mysql;Database=ticketsdbqa;User=AdminQa;Password=MoesDeveloper0312809833;CharSet=utf8mb4;
       
 volumes:
   ticketsdbqaVolumen:
-  
-  
