@@ -1,7 +1,7 @@
 
-CREATE DATABASE IF NOT EXISTS ticketsdb;
+CREATE DATABASE IF NOT EXISTS ticketsdbqa;
 
-USE ticketsdb;
+USE ticketsdbqa;
 
 CREATE TABLE IF NOT EXISTS usuarios(
 	id INT PRIMARY KEY AUTO_INCREMENT ,
