@@ -1,5 +1,5 @@
 ﻿
-USE ticketsdb;
+USE ticketsdbqa;
 
 CREATE PROCEDURE EstadosRepository()
 SELECT Id, Nombre FROM estados;
