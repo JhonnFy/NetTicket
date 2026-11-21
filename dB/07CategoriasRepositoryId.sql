@@ -1,5 +1,5 @@
 ﻿
-USE ticketsdb;
+USE ticketsdbqa;
 
 CREATE PROCEDURE CategoriaRepositoryId(IN i int )
 SELECT id, nombre FROM categorias
