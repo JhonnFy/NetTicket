@@ -10,7 +10,6 @@ services:
       MYSQL_DATABASE: ticketsdb
     volumes:
       - ./dB:/docker-entrypoint-initdb.d/
-      - ./ResourcesDocker/my.cnf:/etc/mysql/conf.d/my.cnf
     healthcheck:
       test: ["CMD-SHELL", "mysqladmin ping -h 127.0.0.1 -u root -p\"$$MYSQL_ROOT_PASSWORD\" --silent"]
       interval: 10s
@@ -28,4 +27,4 @@ services:
     environment:
       - TZ=America/Bogota
       - APP_NAME=Docker-NetTicket-QA
-      - ConnectionStrings__MySqlConnection=Server=mysql;Database=ticketsdb;User=root;Password=secret;
+      - ConnectionStrings__MySqlConnection=Server=mysql;Database=ticketsdb;User=root;Password=secret;CharSet=utf8mb4;
