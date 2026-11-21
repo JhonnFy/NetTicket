@@ -257,7 +257,7 @@ Cada repositorio tiene tests con MSTest que prueban contra la DB real:
 <img width="1366" height="768" alt="image" src="https://github.com/user-attachments/assets/d571d48f-4b2d-4a7d-bd34-5a3c28d77a7c" />
 <img width="1366" height="768" alt="image" src="https://github.com/user-attachments/assets/fdfeab3c-7b63-4a00-9a30-a994702a7196" />
 
-## Aislamiento por puerto: 3307 QA / 3306 Prod
+## Aislamiento Puertos 3307 QA / 3306 Prod
 
 
 ## ETL
