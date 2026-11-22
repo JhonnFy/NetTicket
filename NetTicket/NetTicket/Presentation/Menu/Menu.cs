@@ -29,7 +29,7 @@ namespace NetTicket.Presentation.Menu
                 var countCom = _menuContext.ComentarioMenu.CountAllComentarios();
                 var countEst = _menuContext.EstadoMenu.CountAllEstados();
                 var countTck = _menuContext.TicketMenu.CountAllTickets();
-                var countUsr = _menuContext.UsuarioMenu.countAllUsuarios();
+                var countUsr = _menuContext.UsuarioMenu.CountAllUsuarios();
 
                 Console.Clear();
                 AnsiConsole.Write(
