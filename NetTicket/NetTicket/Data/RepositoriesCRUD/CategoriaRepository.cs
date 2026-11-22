@@ -4,7 +4,7 @@ using NetTicket.Models;
 using System.Linq.Expressions;
 using System.Net.Http.Headers;
 using System.Security.Cryptography.X509Certificates;
-  
+
 namespace NetTicket.Data.RepositoriesCRUD
 {
     public class CategoriaRepository
@@ -37,21 +37,21 @@ namespace NetTicket.Data.RepositoriesCRUD
             }
         }
 
-        public List<Categoria> ObtenerTodos()
+        public async Task<List<Categoria>> ObtenerTodos()
         {
             List<Categoria> categorias = new List<Categoria>();
 
             try
             {
-                using MySqlConnection cn = _conexion.ObtenerConexion();
-                cn.Open();
+                await using MySqlConnection cn = _conexion.ObtenerConexion();
+                await cn.OpenAsync();
 
-                using MySqlCommand cmd = new MySqlCommand("CategoriaRepository", cn);
+                await using MySqlCommand cmd = new MySqlCommand("CategoriaRepository", cn);
                 cmd.CommandType = System.Data.CommandType.StoredProcedure;
 
-                using MySqlDataReader reader = cmd.ExecuteReader();
+                await using MySqlDataReader reader = await cmd.ExecuteReaderAsync();
 
-                while (reader.Read())
+                while (await reader.ReadAsync())
                 {
                     categorias.Add(new Categoria
                     {
