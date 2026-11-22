@@ -17,16 +17,13 @@ namespace NetTicket.Services.DbRules
         {
             _estadoRepository = estadoRepository;
         }
-
-
-        public int CountAllEstados() => _estadoRepository.CountAllEstados();
+        public async  Task<int> CountAllEstados() => await _estadoRepository.CountAllEstados();
 
         public bool ValidarNombre(Estado estado) => !string.IsNullOrWhiteSpace(estado.Nombre);
 
-
-        public List<Estado> ObtenerTodos()
+        public async Task<List<Estado>> ObtenerTodos()
         {
-            var estados = _estadoRepository.ObtenerTodos();
+            var estados = await _estadoRepository.ObtenerTodos();
 
             foreach(var estado in estados)
             {
@@ -37,9 +34,9 @@ namespace NetTicket.Services.DbRules
             return estados;
         }
 
-        public Estado? ObtenerPorId(int id)
+        public async Task<Estado?> ObtenerPorId(int id)
         {
-            var estado = _estadoRepository.ObtenerPorId(id);
+            var estado = await _estadoRepository.ObtenerPorId(id);
 
             if (estado == null || !ValidarNombre(estado)) return null;
 
@@ -48,20 +45,21 @@ namespace NetTicket.Services.DbRules
             return estado;
         }
 
-        public Estado? Create(string nombre)
+        public async Task<Estado?> Create(string nombre)
         {
-            return _estadoRepository.Create(nombre);
+            return await _estadoRepository.Create(nombre);
         }
 
-        public bool Update(int id, string nombre)
+        public async Task<bool> Update(int id, string nombre)
         {
-            return _estadoRepository.Update(id,nombre);
+            return await _estadoRepository.Update(id,nombre);
         }
 
-        public bool Delete(int id)
+        public async Task<bool> Delete(int id)
         {
-            return _estadoRepository.Delete(id);
+            return await _estadoRepository.Delete(id);
         }
 
     }
 }
+
