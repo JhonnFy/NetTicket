@@ -66,7 +66,7 @@ namespace NetTicket.Presentation.Menu
                 switch(optionMenu)
                 {
                     case 1:
-                            
+                            UsuarioMenuCase1();
                         break;
 
                     case 2:
