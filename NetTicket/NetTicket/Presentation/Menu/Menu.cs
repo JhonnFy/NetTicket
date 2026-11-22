@@ -18,18 +18,17 @@ namespace NetTicket.Presentation.Menu
             _menuContext = menuContext;
         }
         
-
         public async Task Iniciar()
         {
             int optionMenu;
 
             do
             {
-                var countCat = _menuContext.CategoriaMenu.CountAllCategorias();
-                var countCom = _menuContext.ComentarioMenu.CountAllComentarios();
-                var countEst = _menuContext.EstadoMenu.CountAllEstados();
-                var countTck = _menuContext.TicketMenu.CountAllTickets();
-                var countUsr = _menuContext.UsuarioMenu.CountAllUsuarios();
+                var countCat = await _menuContext.CategoriaMenu.CountAllCategorias();
+                var countCom = await _menuContext.ComentarioMenu.CountAllComentarios();
+                var countEst = await _menuContext.EstadoMenu.CountAllEstados();
+                var countTck = await  _menuContext.TicketMenu.CountAllTickets();
+                var countUsr = await  _menuContext.UsuarioMenu.CountAllUsuarios();
 
                 Console.Clear();
                 AnsiConsole.Write(
@@ -88,7 +87,7 @@ namespace NetTicket.Presentation.Menu
                             await _menuContext.TicketMenu.RunTicketMenu();
                         break;
                     case 5:
-                            _menuContext.UsuarioMenu.RunUsuarioMenu();
+                            await _menuContext.TicketMenu.RunTicketMenu();
                         break;
                     case 6:
                         Environment.Exit(0);
@@ -98,4 +97,5 @@ namespace NetTicket.Presentation.Menu
         }
     }
 }
+
 
