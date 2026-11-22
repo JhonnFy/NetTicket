@@ -2,6 +2,7 @@
 using Spectre.Console;
 using System;
 using System.Collections.Generic;
+using System.Dynamic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -29,28 +30,59 @@ namespace NetTicket.Presentation.Menu
             );
         }
 
+        private void UsuarioMenuCase1()
+        {
+            Console.Clear();
+            CabeceraUsuario();
+        }
 
 
         public void RunUsuarioMenu()
         {
             int optionMenu;
-            Console.Clear();
 
             do
             {
-                Console.WriteLine("---------------------------");
-                Console.WriteLine("Welcome To Usuarios:");
-                Console.WriteLine("---------------------------");
-                Console.WriteLine("1 → Create");
-                Console.WriteLine("2 → Read");
-                Console.WriteLine("3 → ReadId");
-                Console.WriteLine("4 → Update");
-                Console.WriteLine("5 → Delete");
-                Console.WriteLine("6 → Return To Main Menu");
+                CabeceraUsuario();
 
-                Console.WriteLine("‼Enter Your Choice‼ →");
-                optionMenu = Convert.ToInt32(Console.ReadLine());
+                var menu = new SelectionPrompt<int>()
+                 .PageSize(6)
+                 .HighlightStyle(new Style(Color.Black, Color.Aqua, Decoration.Bold))
+                 .AddChoices(1, 2, 3, 4, 5, 6)
+                 .UseConverter(option => option switch
+                 {
+                     1 => "Create",
+                     2 => "Read",
+                     3 => "ReadId",
+                     4 => "Update",
+                     5 => "Delete",
+                     6 => "Return To Main Menu",
+                     _ => "Unknown"
+                 });
 
+                optionMenu = AnsiConsole.Prompt(menu);
+                Console.Clear();
+
+                switch(optionMenu)
+                {
+                    case 1:
+                            
+                        break;
+
+                    case 2:
+                            
+                        break;
+
+                    case 3:
+                            
+                        break;
+                    case 4:
+                            
+                        break;
+                    case 5:
+                            
+                        break;
+                }
             } while (optionMenu !=6);
         }
     }
