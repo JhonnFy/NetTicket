@@ -22,12 +22,12 @@ namespace NetTicket.Services.DbRules
 
         public bool ValidarTexto(Comentario comentario) => !string.IsNullOrWhiteSpace(comentario.Texto);
 
-        public int CountAllComentarios() => _comentarioRepository.CountAllComentarios();
+        public async Task<int> CountAllComentarios() => await _comentarioRepository.CountAllComentarios();
 
 
-        public List<Comentario> ObtenerTodos()
+        public async Task<List<Comentario>> ObtenerTodos()
         {
-            var comentarios = _comentarioRepository.ObtenerTodos();
+            var comentarios = await _comentarioRepository.ObtenerTodos();
 
             foreach (var comentario in comentarios)
             {
@@ -38,23 +38,23 @@ namespace NetTicket.Services.DbRules
             return comentarios;
         }
 
-        public Comentario? ObtenerPorId(int id)
+        public async Task<Comentario?> ObtenerPorId(int id)
         {
-            var comentario = _comentarioRepository.ObtenerPorId(id);
+            var comentario = await _comentarioRepository.ObtenerPorId(id);
             if (comentario == null || !ValidarTexto(comentario))return null;
 
             comentario.Texto = RulesServices.AgregarPreFijo(RulesServices.ConvertirMayuscula(RulesServices.EliminarEspaciosVacios(comentario.Texto)));
             return comentario;
         }
 
-        public Comentario? Create(int ticketId, int usuarioId, string texto)
+        public async Task<Comentario?> Create(int ticketId, int usuarioId, string texto)
         {
-            return _comentarioRepository.Create(ticketId, usuarioId, texto);
+            return await _comentarioRepository.Create(ticketId, usuarioId, texto);
         }
 
-        public bool Update(int id, string texto)
+        public async Task<bool> Update(int id, string texto)
         {
-            return _comentarioRepository.Update(id, texto);
+            return await _comentarioRepository.Update(id, texto);
         }
            
     }
