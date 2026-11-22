@@ -34,11 +34,42 @@ namespace NetTicket.Presentation.Menu
         {
             Console.Clear();
             CabeceraUsuario();
+        }
 
+        private async Task  UsuarioMenuCase2()
+        {
+            Console.Clear();
+            CabeceraUsuario();
+
+            AnsiConsole.Write(
+                new Panel($"[bold cyan]Usuarios registrados en la base de datos: [/] {await CountAllUsuarios()}")
+                    .Border(BoxBorder.Rounded)
+                    .BorderColor(Color.Cyan)
+                    .Expand()
+            );
+
+            var usuarios = await _usuarioService.ObtenerTodos();
+
+            if(usuarios == null || !usuarios.Any())
+            {
+                Console.Clear();
+                AnsiConsole.Write(
+                    new Panel("[bold yellow]No hay usuarios registradas.[/]")
+                        .Border(BoxBorder.Rounded)
+                        .Expand()
+                );
+                return;
+            }
+
+            foreach(var usuario in usuarios)
+            {
+                Console.WriteLine($"Id:{usuario.Id}, Nombre:{usuario.Nombre}, Email:{usuario.Email}, Area:{usuario.Area}");
+            }
+            Console.WriteLine();
         }
 
 
-        public void RunUsuarioMenu()
+        public async Task RunUsuarioMenu()
         {
             int optionMenu;
 
@@ -71,7 +102,7 @@ namespace NetTicket.Presentation.Menu
                         break;
                             
                     case 2:
-                            
+                           await UsuarioMenuCase2();
                         break;
 
                     case 3:
@@ -88,3 +119,4 @@ namespace NetTicket.Presentation.Menu
         }
     }
 }
+

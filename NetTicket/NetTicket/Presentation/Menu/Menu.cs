@@ -87,7 +87,7 @@ namespace NetTicket.Presentation.Menu
                             await _menuContext.TicketMenu.RunTicketMenu();
                         break;
                     case 5:
-                            await _menuContext.TicketMenu.RunTicketMenu();
+                            await _menuContext.UsuarioMenu.RunUsuarioMenu();
                         break;
                     case 6:
                         Environment.Exit(0);
