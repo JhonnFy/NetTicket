@@ -1,4 +1,5 @@
 ﻿using NetTicket.Services.DbRules;
+using Spectre.Console;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,11 +17,19 @@ namespace NetTicket.Presentation.Menu
             _usuarioService = usuarioService;
         }
 
-        public int countAllUsuarios()
+        public int CountAllUsuarios() => _usuarioService.CountAllUsuarios();
+
+        private void CabeceraUsuario()
         {
-            var countUsr = _usuarioService.CountAllUsuarios();
-            return countUsr;
+            AnsiConsole.Write(
+                new Panel(new Markup("[bold yellow]Welcome To Usuario Menu[/]").Centered())
+                .Border(BoxBorder.Rounded)
+                .BorderColor(Color.Cyan)
+                .Expand()
+            );
         }
+
+
 
         public void RunUsuarioMenu()
         {

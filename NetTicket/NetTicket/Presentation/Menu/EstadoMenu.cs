@@ -7,7 +7,7 @@ using System.Linq;
 using System.Reflection.Metadata.Ecma335;
 using System.Text;
 using System.Threading.Tasks;
- 
+
 namespace NetTicket.Presentation.Menu
 {
     public class EstadoMenu
