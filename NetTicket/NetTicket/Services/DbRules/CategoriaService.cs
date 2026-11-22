@@ -22,12 +22,12 @@ namespace NetTicket.Services.DbRules
 
         public bool ValidarNombre(Categoria categoria) => !string.IsNullOrWhiteSpace(categoria.Nombre);
 
-        public int CountAllCategorias() => _categoriaRepository.CountAllCategorias();
+        public async Task<int> CountAllCategorias() => await _categoriaRepository.CountAllCategorias();
 
 
-        public List<Categoria> ObtenerTodos()
+        public async Task<List<Categoria>> ObtenerTodos()
         {
-            var categorias = _categoriaRepository.ObtenerTodos();
+            var categorias = await _categoriaRepository.ObtenerTodos();
 
             foreach (var categoria in categorias)
             {
@@ -38,9 +38,9 @@ namespace NetTicket.Services.DbRules
             return categorias;
         }
 
-        public Categoria? ObtenerPorId(int id)
+        public async Task<Categoria?> ObtenerPorId(int id)
         {
-            var categoria = _categoriaRepository.ObtenerPorId(id);
+            var categoria = await _categoriaRepository.ObtenerPorId(id);
 
             if (categoria == null || !ValidarNombre(categoria)) return null;
 
@@ -50,21 +50,22 @@ namespace NetTicket.Services.DbRules
 
         }
 
-        public Categoria? Create(string nombre)
+        public async Task<Categoria?> Create(string nombre)
         {
             var temp = new Categoria { Nombre = nombre };
+
             if (!ValidarNombre(temp)) return null;
-            return _categoriaRepository.Create(nombre);
+            return await _categoriaRepository.Create(nombre);
         }
 
-        public bool Update(int id, string nombre)
+        public async Task<bool> Update(int id, string nombre)
         {
-            return _categoriaRepository.Update(id,nombre);
+            return await _categoriaRepository.Update(id,nombre);
         }
 
-        public bool Delete(int id)
+        public async Task<bool> Delete(int id)
         {
-            return _categoriaRepository.Delete(id);
+            return await _categoriaRepository.Delete(id);
         }
     }
 }
