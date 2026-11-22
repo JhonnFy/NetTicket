@@ -7,19 +7,19 @@ using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
- 
+
 namespace NetTicket.Services.DbRules
 {
     public class UsuarioService
     {
-        private readonly UsuarioRepository _repository;
+        private readonly UsuarioRepository _usuarioRepository;
 
-        public UsuarioService(UsuarioRepository repository)
+        public UsuarioService(UsuarioRepository usuarioRepository)
         {
-            _repository = repository;
+            _usuarioRepository = usuarioRepository;
         }
 
-        public int CountAllUsuarios() => _repository.CountAllUsuarios();
+        public int CountAllUsuarios() => _usuarioRepository.CountAllUsuarios();
 
         public bool ValidarNombre(Usuario usuario) => !string.IsNullOrWhiteSpace(usuario.Nombre);
         public bool ValidarEmail(Usuario usuario) => !string.IsNullOrWhiteSpace(usuario.Email) && usuario.Email.Contains("@");
@@ -27,7 +27,7 @@ namespace NetTicket.Services.DbRules
 
         public List<Usuario> ObtenerTodos()
         {
-            var usuarios = _repository.ObtenerTodos();
+            var usuarios = _usuarioRepository.ObtenerTodos();
 
             foreach(var usuario in usuarios)
             {
@@ -42,7 +42,7 @@ namespace NetTicket.Services.DbRules
 
         public Usuario? ObtenerPorId(int id)
         {
-            var usuario = _repository.ObtenerPorId(id);
+            var usuario = _usuarioRepository.ObtenerPorId(id);
 
             if (usuario == null || !ValidarNombre(usuario) || !ValidarEmail(usuario)) return null;
             
@@ -56,17 +56,17 @@ namespace NetTicket.Services.DbRules
 
         public Usuario? Create(string nombre, string email, string area)
         {
-            return _repository.Create(nombre, email, area);
+            return _usuarioRepository.Create(nombre, email, area);
         }
 
         public bool Update(int id, string nombre, string email, string area)
         {
-            return _repository.Update(id, nombre, email, area);
+            return _usuarioRepository.Update(id, nombre, email, area);
         }
 
         public bool Delete(int id)
         {
-            return _repository.Delete(id);
+            return _usuarioRepository.Delete(id);
         }
 
     }
