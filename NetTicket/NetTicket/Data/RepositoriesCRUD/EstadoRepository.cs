@@ -2,6 +2,7 @@
 using NetTicket.Data.Connection;
 using NetTicket.Models;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Runtime.InteropServices.Swift;
 
 namespace NetTicket.Data.RepositoriesCRUD
 {
@@ -14,17 +15,17 @@ namespace NetTicket.Data.RepositoriesCRUD
             _conexion = conexion;
         }
 
-        public int CountAllEstados()
+        public async Task<int> CountAllEstados()
         {
             try
             {
-                using MySqlConnection cn = _conexion.ObtenerConexion();
-                cn.Open();
+                await using MySqlConnection cn = _conexion.ObtenerConexion();
+                await cn.OpenAsync();
 
-                using MySqlCommand cmd = new MySqlCommand("CountAllEstados", cn);
+                await using MySqlCommand cmd = new MySqlCommand("CountAllEstados", cn);
                 cmd.CommandType = System.Data.CommandType.StoredProcedure;
 
-                var countEst = Convert.ToInt32(cmd.ExecuteScalar());
+                var countEst = Convert.ToInt32(await cmd.ExecuteScalarAsync());
 
                 return countEst;
 
@@ -36,20 +37,20 @@ namespace NetTicket.Data.RepositoriesCRUD
         }
 
 
-        public List<Estado> ObtenerTodos()
+        public async Task<List<Estado>> ObtenerTodos()
         {
             List<Estado> estados = new List<Estado>();
             try
             {
-                using MySqlConnection cn = _conexion.ObtenerConexion();
-                cn.Open();
+                await using MySqlConnection cn = _conexion.ObtenerConexion();
+                await cn.OpenAsync();
 
-                using MySqlCommand cmd = new MySqlCommand("EstadosRepository", cn);
+                await using MySqlCommand cmd = new MySqlCommand("EstadosRepository", cn);
                 cmd.CommandType = System.Data.CommandType.StoredProcedure;
 
-                using MySqlDataReader reader = cmd.ExecuteReader();
+                await using MySqlDataReader reader = await cmd.ExecuteReaderAsync();
 
-                while (reader.Read())
+                while (await reader.ReadAsync())
                 {
                     estados.Add(new Estado
                     {
@@ -67,19 +68,20 @@ namespace NetTicket.Data.RepositoriesCRUD
         }
 
 
-        public Estado? ObtenerPorId(int id)
+        public async Task<Estado?> ObtenerPorId(int id)
         {
-            using MySqlConnection cn = _conexion.ObtenerConexion();
-            cn.Open();
             try
             {
-                using MySqlCommand cmd = new MySqlCommand("EstadosRepositoryId", cn);
+                await using MySqlConnection cn = _conexion.ObtenerConexion();
+                await cn.OpenAsync();
+
+                await using MySqlCommand cmd = new MySqlCommand("EstadosRepositoryId", cn);
                 cmd.CommandType = System.Data.CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("i", id);
 
-                using MySqlDataReader reader = cmd.ExecuteReader();
+                await using MySqlDataReader reader = await cmd.ExecuteReaderAsync();
 
-                if (reader.Read())
+                if (await reader.ReadAsync())
                 {
                     return new Estado
                     {
@@ -98,19 +100,18 @@ namespace NetTicket.Data.RepositoriesCRUD
         }
 
 
-        public Estado? Create(string nombre)
+        public async Task<Estado?> Create(string nombre)
         {
             try
             {
-                using MySqlConnection cn = _conexion.ObtenerConexion();
-                cn.Open();
+                await using MySqlConnection cn = _conexion.ObtenerConexion();
+                await cn.OpenAsync();
 
-                using MySqlCommand cmd = new MySqlCommand("EstadoRepository_Create", cn);
+                await using MySqlCommand cmd = new MySqlCommand("EstadoRepository_Create", cn);
                 cmd.CommandType = System.Data.CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("Nombre", nombre);
 
-                var id = Convert.ToInt32(cmd.ExecuteScalar());
-
+                var id = Convert.ToInt32(await cmd.ExecuteScalarAsync());
 
                 return new Estado
                 {
@@ -125,20 +126,20 @@ namespace NetTicket.Data.RepositoriesCRUD
             }
         }
 
-        public bool Update(int id, string nombre)
+        public async Task<bool> Update(int id, string nombre)
         {
             try
             {
-                using MySqlConnection cn = _conexion.ObtenerConexion();
-                cn.Open();
+                await using MySqlConnection cn = _conexion.ObtenerConexion();
+                await cn.OpenAsync();
 
-                using MySqlCommand cmd = new MySqlCommand("EstadoRepository_Update", cn);
+                await using MySqlCommand cmd = new MySqlCommand("EstadoRepository_Update", cn);
                 cmd.CommandType = System.Data.CommandType.StoredProcedure;
 
                 cmd.Parameters.AddWithValue("p_Id", id);
                 cmd.Parameters.AddWithValue("p_Nombre", nombre);
 
-                int registros = cmd.ExecuteNonQuery();
+                int registros = await cmd.ExecuteNonQueryAsync();
                 return registros > 0;
             }
             catch(Exception ex)
@@ -148,19 +149,18 @@ namespace NetTicket.Data.RepositoriesCRUD
             }
         }
 
-        public bool Delete(int id)
+        public async Task<bool> Delete(int id)
         {
             try
             {
-                using MySqlConnection cn = _conexion.ObtenerConexion();
-                cn.Open();
+                await using MySqlConnection cn = _conexion.ObtenerConexion();
+                await cn.OpenAsync();
 
-                using MySqlCommand cmd = new MySqlCommand("EstadoRepository_Delete", cn);
+                await using MySqlCommand cmd = new MySqlCommand("EstadoRepository_Delete", cn);
                 cmd.CommandType = System.Data.CommandType.StoredProcedure;
-
                 cmd.Parameters.AddWithValue("p_Id", id);
 
-                int registros = cmd.ExecuteNonQuery();
+                int registros = await cmd.ExecuteNonQueryAsync();
                 return registros > 0;
             }
             catch (Exception ex)
