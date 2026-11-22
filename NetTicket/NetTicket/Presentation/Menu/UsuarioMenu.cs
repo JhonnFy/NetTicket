@@ -9,16 +9,16 @@ namespace NetTicket.Presentation.Menu
 {
     public class UsuarioMenu
     {
-        private readonly UsuarioService _service;
+        private readonly UsuarioService _usuarioService;
 
-        public UsuarioMenu(UsuarioService service)
+        public UsuarioMenu(UsuarioService usuarioService)
         {
-            _service = service;
+            _usuarioService = usuarioService;
         }
 
         public int countAllUsuarios()
         {
-            var countUsr = _service.CountAllUsuarios();
+            var countUsr = _usuarioService.CountAllUsuarios();
             return countUsr;
         }
 
