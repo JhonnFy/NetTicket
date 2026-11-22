@@ -16,17 +16,17 @@ namespace NetTicket.Data.RepositoriesCRUD
             _conexion = conexion;
         }
 
-        public int CountAllCategorias()
+        public async Task<int> CountAllCategorias()
         {
             try
             {
-                using MySqlConnection cn = _conexion.ObtenerConexion();
-                cn.Open();
+                await using MySqlConnection cn = _conexion.ObtenerConexion();
+                await cn.OpenAsync();
 
-                using MySqlCommand cmd = new MySqlCommand("CountAllCategorias", cn);
+                await using MySqlCommand cmd = new MySqlCommand("CountAllCategorias", cn);
                 cmd.CommandType = System.Data.CommandType.StoredProcedure;
 
-                var countCat = Convert.ToInt32(cmd.ExecuteScalar());
+                var countCat = Convert.ToInt32(await cmd.ExecuteScalarAsync());
 
                 return countCat;
             }
@@ -151,18 +151,18 @@ namespace NetTicket.Data.RepositoriesCRUD
             }
         }
 
-        public bool Delete(int id)
+        public async Task<bool> Delete(int id)
         {
             try
             {
-                using MySqlConnection cn = _conexion.ObtenerConexion();
-                cn.Open();
+                await using MySqlConnection cn = _conexion.ObtenerConexion();
+                await cn.OpenAsync();
 
-                using MySqlCommand cmd = new MySqlCommand("CategoriaRepository_Delete", cn);
+                await using MySqlCommand cmd = new MySqlCommand("CategoriaRepository_Delete", cn);
                 cmd.CommandType = System.Data.CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("p_Id", id);
 
-                int registros = cmd.ExecuteNonQuery();
+                int registros = await cmd.ExecuteNonQueryAsync();
                 return registros > 0;
             }
             catch (Exception ex)
