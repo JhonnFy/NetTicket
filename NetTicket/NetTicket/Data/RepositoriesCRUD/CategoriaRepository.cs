@@ -68,21 +68,21 @@ namespace NetTicket.Data.RepositoriesCRUD
             return categorias;
         }
 
-        public Categoria? ObtenerPorId(int id)
+        public async Task<Categoria?> ObtenerPorId(int id)
         {
 
             try
             {
-                using MySqlConnection cn = _conexion.ObtenerConexion();
-                cn.Open();
+                await using MySqlConnection cn = _conexion.ObtenerConexion();
+                await cn.OpenAsync();
 
-                using MySqlCommand cmd = new MySqlCommand("CategoriaRepositoryId", cn);
+                await using MySqlCommand cmd = new MySqlCommand("CategoriaRepositoryId", cn);
                 cmd.CommandType = System.Data.CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("i", id);
 
-                using MySqlDataReader reader = cmd.ExecuteReader();
+                await using MySqlDataReader reader = await cmd.ExecuteReaderAsync();
 
-                if (reader.Read())
+                if (await reader.ReadAsync())
                 {
                     return new Categoria
                     {
