@@ -19,7 +19,7 @@ namespace NetTicket.Presentation.Menu
         }
         
 
-        public void Iniciar()
+        public async Task Iniciar()
         {
             int optionMenu;
 
@@ -74,21 +74,21 @@ namespace NetTicket.Presentation.Menu
                 switch (optionMenu)
                 {
                     case 1:
-                        _menuContext.CategoriaMenu.RunCategoriaMenu();
+                           await _menuContext.CategoriaMenu.RunCategoriaMenu();
                         break;
 
                     case 2:
-                        _menuContext.ComentarioMenu.RunComentarioMenu();
+                            await _menuContext.ComentarioMenu.RunComentarioMenu();
                         break;
 
                     case 3:
-                        _menuContext.EstadoMenu.RunEstadoMenu();
+                            await _menuContext.EstadoMenu.RunEstadoMenu();
                         break;
                     case 4:
-                        _menuContext.TicketMenu.RunTicketMenu();
+                            await _menuContext.TicketMenu.RunTicketMenu();
                         break;
                     case 5:
-                        _menuContext.UsuarioMenu.RunUsuarioMenu();
+                            _menuContext.UsuarioMenu.RunUsuarioMenu();
                         break;
                     case 6:
                         Environment.Exit(0);

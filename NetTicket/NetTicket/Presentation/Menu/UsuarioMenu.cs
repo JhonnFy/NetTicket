@@ -18,7 +18,7 @@ namespace NetTicket.Presentation.Menu
             _usuarioService = usuarioService;
         }
 
-        public int CountAllUsuarios() => _usuarioService.CountAllUsuarios();
+        public async Task<int> CountAllUsuarios() => await _usuarioService.CountAllUsuarios();
 
         private void CabeceraUsuario()
         {
@@ -34,9 +34,6 @@ namespace NetTicket.Presentation.Menu
         {
             Console.Clear();
             CabeceraUsuario();
-
-
-
 
         }
 

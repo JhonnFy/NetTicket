@@ -25,7 +25,7 @@ namespace NetTicket.Presentation.Menu
             _estadoService = estadoService;
         }
 
-        public int CountAllTickets() => _ticketService.CountAllTickets();
+        public async Task<int> CountAllTickets() => await _ticketService.CountAllTickets();
 
         private void CabeceraTicket()
         {
@@ -37,7 +37,7 @@ namespace NetTicket.Presentation.Menu
             );
         }
 
-        private void TicketMenuCase1()
+        private async Task TicketMenuCase1()
         {
             Console.Clear();
             CabeceraTicket();
@@ -84,7 +84,7 @@ namespace NetTicket.Presentation.Menu
                 return;
             }
 
-            var usuario = _usuarioService.ObtenerPorId(usuarioId);
+            var usuario = await _usuarioService.ObtenerPorId(usuarioId);
 
             if (usuario == null)
             {
@@ -111,7 +111,7 @@ namespace NetTicket.Presentation.Menu
                 return;
             }
 
-            var categoria = _categoriaService.ObtenerPorId(categoriaId);
+            var categoria = await _categoriaService.ObtenerPorId(categoriaId);
 
             if (categoria == null)
             {
@@ -138,7 +138,7 @@ namespace NetTicket.Presentation.Menu
                 return;
             }
 
-            var estado = _estadoService.ObtenerPorId(estadoId);
+            var estado = await _estadoService.ObtenerPorId(estadoId);
 
             if (estado == null)
             {
@@ -152,7 +152,7 @@ namespace NetTicket.Presentation.Menu
                 return;
             }
 
-            var createTicket = _ticketService.Create(titulo, descripcion, usuarioId, categoriaId, estadoId);
+            var createTicket = await _ticketService.Create(titulo, descripcion, usuarioId, categoriaId, estadoId);
             Console.Clear();
             AnsiConsole.Write(
                 new Panel($"[bold yellow]Id:[/] {createTicket.Id}," +
@@ -168,19 +168,19 @@ namespace NetTicket.Presentation.Menu
             );
         }
 
-        private void TicketMenuCase2()
+        private async Task TicketMenuCase2()
         {
             Console.Clear();
             CabeceraTicket();
 
             AnsiConsole.Write(
-                new Panel($"[bold cyan]Tickets registrados en la base de datos: [/] {CountAllTickets()}")
+                new Panel($"[bold cyan]Tickets registrados en la base de datos: [/] {await CountAllTickets()}")
                 .Border(BoxBorder.Rounded)
                 .BorderColor(Color.Cyan)
                 .Expand()
                 );
 
-            var tickets = _ticketService.ObtenerTodos();
+            var tickets = await _ticketService.ObtenerTodos();
 
             if (tickets == null || !tickets.Any())
             {
@@ -200,7 +200,7 @@ namespace NetTicket.Presentation.Menu
             Console.WriteLine();
         }
 
-        private void TicketMenuCase3()
+        private async Task TicketMenuCase3()
         {
             Console.Clear();
             CabeceraTicket();
@@ -218,7 +218,7 @@ namespace NetTicket.Presentation.Menu
                 return;
             }
 
-            var ticket = _ticketService.ObtenerPorId(id);
+            var ticket = await _ticketService.ObtenerPorId(id);
             Console.Clear();
 
             if(ticket == null)
@@ -246,7 +246,7 @@ namespace NetTicket.Presentation.Menu
             );
         }
 
-        private void TicketMenuCase4()
+        private async Task TicketMenuCase4()
         {
             Console.Clear();
             CabeceraTicket();
@@ -264,7 +264,7 @@ namespace NetTicket.Presentation.Menu
                 return;
             }
 
-            var ticket = _ticketService.ObtenerPorId(id);
+            var ticket = await _ticketService.ObtenerPorId(id);
             if(ticket == null)
             {
                 Console.Clear();
@@ -309,7 +309,7 @@ namespace NetTicket.Presentation.Menu
             }
 
 
-            _ticketService.Update(id, titulo, descripcion);
+            await _ticketService.Update(id, titulo, descripcion);
             Console.Clear();
 
             AnsiConsole.Write(
@@ -326,7 +326,7 @@ namespace NetTicket.Presentation.Menu
             );
         }
 
-        public void RunTicketMenu()
+        public async Task RunTicketMenu()
         {
             int optionMenu;
 
@@ -354,16 +354,16 @@ namespace NetTicket.Presentation.Menu
                 switch (optionMenu)
                 {
                     case 1:
-                            TicketMenuCase1();
+                           await TicketMenuCase1();
                         break;
                     case 2:
-                            TicketMenuCase2();
+                           await TicketMenuCase2();
                         break;
                     case 3:
-                            TicketMenuCase3();
+                           await TicketMenuCase3();
                         break;
                     case 4:
-                            TicketMenuCase4();
+                           await TicketMenuCase4();
                         break;
                 }
             } while (optionMenu != 5);
