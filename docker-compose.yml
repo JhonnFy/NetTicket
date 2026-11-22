@@ -10,10 +10,12 @@ services:
     environment:
       TZ: America/Bogota
       MYSQL_ROOT_PASSWORD: secret
-      MYSQL_DATABASE: ticketsdb
+      MYSQL_USER: AdminQa
+      MYSQL_PASSWORD: MoesDeveloper0312809833
+      MYSQL_DATABASE: ticketsdbqa
     volumes:
       - ./dB:/docker-entrypoint-initdb.d/
-      - ticketsdbVolumen:/var/lib/mysql
+      - ticketsdbqaVolumen:/var/lib/mysql
     healthcheck:
       test: ["CMD-SHELL", "mysqladmin ping -h 127.0.0.1 -u root -p\"$$MYSQL_ROOT_PASSWORD\" --silent"]
       interval: 10s
@@ -30,7 +32,7 @@ services:
     environment:
       - TZ=America/Bogota
       - APP_NAME=Docker-NetTicket-QA
-      - ConnectionStrings__MySqlConnection=Server=mysql;Database=ticketsdb;User=root;Password=secret;CharSet=utf8mb4;
+      - ConnectionStrings__MySqlConnection=Server=mysql;Database=ticketsdbqa;User=AdminQa;Password=MoesDeveloper0312809833;CharSet=utf8mb4;
       
 volumes:
-  ticketsdbVolumen:
+  ticketsdbqaVolumen:

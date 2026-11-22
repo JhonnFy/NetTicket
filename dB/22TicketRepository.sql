@@ -1,5 +1,5 @@
 ﻿
-USE ticketsdb;
+USE ticketsdbqa;
 
 CREATE PROCEDURE TicketRepository()
 SELECT 
@@ -12,3 +12,4 @@ INNER JOIN categorias c ON t.categoria_id = c.id
 INNER JOIN estados e ON t.estado_id = e.id;
 
 CALL TicketRepository();
+

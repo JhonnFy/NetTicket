@@ -1,5 +1,5 @@
 
-USE ticketsdb;
+USE ticketsdbqa;
 
 DELIMITER $$
 
@@ -13,3 +13,4 @@ END $$
 
 DELIMITER $$
 
+ 

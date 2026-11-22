@@ -1,5 +1,5 @@
 ﻿
-USE ticketsdb;
+USE ticketsdbqa;
 
 DELIMITER $$
 

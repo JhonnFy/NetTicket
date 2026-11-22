@@ -1,7 +1,9 @@
 ﻿
-USE ticketsdb;
+
+USE ticketsdbqa;
 
 CREATE PROCEDURE CategoriaRepository()
 SELECT Id, Nombre FROM categorias;
 
-CALL CategoriaRepository()
+CALL CategoriaRepository();
+
