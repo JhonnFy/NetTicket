@@ -18,16 +18,17 @@ namespace NetTicket.Services.DbRules
         {
             _usuarioRepository = usuarioRepository;
         }
+                
+        public async Task<int> CountAllUsuarios() => await _usuarioRepository.CountAllUsuarios();
 
-        public int CountAllUsuarios() => _usuarioRepository.CountAllUsuarios();
 
         public bool ValidarNombre(Usuario usuario) => !string.IsNullOrWhiteSpace(usuario.Nombre);
         public bool ValidarEmail(Usuario usuario) => !string.IsNullOrWhiteSpace(usuario.Email) && usuario.Email.Contains("@");
 
 
-        public List<Usuario> ObtenerTodos()
+        public async Task<List<Usuario>> ObtenerTodos()
         {
-            var usuarios = _usuarioRepository.ObtenerTodos();
+            var usuarios = await _usuarioRepository.ObtenerTodos();
 
             foreach(var usuario in usuarios)
             {
@@ -40,9 +41,10 @@ namespace NetTicket.Services.DbRules
             return usuarios;    
         }
 
-        public Usuario? ObtenerPorId(int id)
+
+        public async Task<Usuario?> ObtenerPorId(int id)
         {
-            var usuario = _usuarioRepository.ObtenerPorId(id);
+            var usuario = await _usuarioRepository.ObtenerPorId(id);
 
             if (usuario == null || !ValidarNombre(usuario) || !ValidarEmail(usuario)) return null;
             
@@ -54,19 +56,19 @@ namespace NetTicket.Services.DbRules
             return usuario;
         }
 
-        public Usuario? Create(string nombre, string email, string area)
+        public async Task<Usuario?> Create(string nombre, string email, string area)
         {
-            return _usuarioRepository.Create(nombre, email, area);
+            return await _usuarioRepository.Create(nombre, email, area);
         }
 
-        public bool Update(int id, string nombre, string email, string area)
+        public async Task<bool> Update(int id, string nombre, string email, string area)
         {
-            return _usuarioRepository.Update(id, nombre, email, area);
+            return await _usuarioRepository.Update(id, nombre, email, area);
         }
 
-        public bool Delete(int id)
+        public async Task<bool> Delete(int id)
         {
-            return _usuarioRepository.Delete(id);
+            return await _usuarioRepository.Delete(id);
         }
 
     }
