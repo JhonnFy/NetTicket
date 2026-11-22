@@ -35,21 +35,21 @@ namespace NetTicket.Data.RepositoriesCRUD
         }
 
 
-        public List<Usuario> ObtenerTodos()
+        public async Task<List<Usuario>> ObtenerTodos()
         {
             List<Usuario> usuarios = new List<Usuario>();
 
             try
             {
-                using MySqlConnection cn = _conexion.ObtenerConexion();
-                cn.Open();
+                await using MySqlConnection cn = _conexion.ObtenerConexion();
+                await cn.OpenAsync();
 
-                using MySqlCommand cmd = new MySqlCommand("UsuarioRepository", cn);
+                await using MySqlCommand cmd = new MySqlCommand("UsuarioRepository", cn);
                 cmd.CommandType = System.Data.CommandType.StoredProcedure;
 
-                using MySqlDataReader reader = cmd.ExecuteReader();
+                await using MySqlDataReader reader = await cmd.ExecuteReaderAsync();
 
-                while (reader.Read())
+                while (await reader.ReadAsync())
                 {
                     usuarios.Add(new Usuario
                     {
@@ -68,20 +68,20 @@ namespace NetTicket.Data.RepositoriesCRUD
             return usuarios;
         }
 
-        public Usuario? ObtenerPorId(int id)
+        public async Task<Usuario?> ObtenerPorId(int id)
         {
             try
             {
-                using MySqlConnection cn = _conexion.ObtenerConexion();
-                cn.Open();
+                await using MySqlConnection cn = _conexion.ObtenerConexion();
+                await cn.OpenAsync();
 
-                using MySqlCommand cmd = new MySqlCommand("UsuarioRepositoryId", cn);
+                await using MySqlCommand cmd = new MySqlCommand("UsuarioRepositoryId", cn);
                 cmd.CommandType = System.Data.CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("i", id);
 
-                using MySqlDataReader reader = cmd.ExecuteReader();
+                await using MySqlDataReader reader = await cmd.ExecuteReaderAsync();
 
-                if (reader.Read())
+                if (await reader.ReadAsync())
                 {
                     return new Usuario
                     {
@@ -101,21 +101,21 @@ namespace NetTicket.Data.RepositoriesCRUD
         }
 
 
-        public Usuario? Create(string nombre, string email, string area)
+        public async Task<Usuario?> Create(string nombre, string email, string area)
         {
             try
             {
-                using MySqlConnection cn = _conexion.ObtenerConexion();
-                cn.Open();
+                await using MySqlConnection cn = _conexion.ObtenerConexion();
+                await cn.OpenAsync();
 
-                using MySqlCommand cmd = new MySqlCommand("UsuarioRepository_Create", cn);
+                await using MySqlCommand cmd = new MySqlCommand("UsuarioRepository_Create", cn);
                 cmd.CommandType = System.Data.CommandType.StoredProcedure;
 
                 cmd.Parameters.AddWithValue("Nombre", nombre);
                 cmd.Parameters.AddWithValue("Email", email);
                 cmd.Parameters.AddWithValue("Area", area);
 
-                var id = Convert.ToInt32(cmd.ExecuteScalar());
+                var id = Convert.ToInt32(await cmd.ExecuteScalarAsync());
 
                 return new Usuario
                 {
@@ -131,14 +131,14 @@ namespace NetTicket.Data.RepositoriesCRUD
             }
         }
 
-        public bool Update(int id, string nombre,string email,string area)
+        public async Task<bool> Update(int id, string nombre,string email,string area)
         {
             try
             {
-                using MySqlConnection cn = _conexion.ObtenerConexion();
-                cn.Open();
+                await using MySqlConnection cn = _conexion.ObtenerConexion();
+                await cn.OpenAsync();
 
-                using MySqlCommand cmd = new MySqlCommand("UsuarioRepository_Update", cn);
+                await using MySqlCommand cmd = new MySqlCommand("UsuarioRepository_Update", cn);
                 cmd.CommandType = System.Data.CommandType.StoredProcedure;
 
                 cmd.Parameters.AddWithValue("p_Id", id);
@@ -146,7 +146,7 @@ namespace NetTicket.Data.RepositoriesCRUD
                 cmd.Parameters.AddWithValue("p_Email",email);
                 cmd.Parameters.AddWithValue("p_Area",area);
 
-                int registros = cmd.ExecuteNonQuery();
+                int registros = await cmd.ExecuteNonQueryAsync();
                 return registros > 0;
 
             }
@@ -157,19 +157,19 @@ namespace NetTicket.Data.RepositoriesCRUD
             }
         }
 
-        public bool Delete(int id)
+        public async Task<bool> Delete(int id)
         {
             try
             {
-                using MySqlConnection cn = _conexion.ObtenerConexion();
-                cn.Open();
+                await using MySqlConnection cn = _conexion.ObtenerConexion();
+                await cn.OpenAsync();
 
-                using MySqlCommand cmd = new MySqlCommand("UsuarioRepository_Delete", cn);
+                await using MySqlCommand cmd = new MySqlCommand("UsuarioRepository_Delete", cn);
                 cmd.CommandType = System.Data.CommandType.StoredProcedure;
 
                 cmd.Parameters.AddWithValue("p_Id", id);
 
-                int registros = cmd.ExecuteNonQuery();
+                int registros = await cmd.ExecuteNonQueryAsync();
                 return registros > 0;
 
             }catch(Exception ex)
