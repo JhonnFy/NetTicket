@@ -12,22 +12,22 @@ namespace NetTicket.Services.DbRules
 {
     public class CategoriaService
     {
-        private readonly CategoriaRepository _repository;
+        private readonly CategoriaRepository _categoriaRepository;
 
 
-        public CategoriaService(CategoriaRepository repository)
+        public CategoriaService(CategoriaRepository categoriaRepository)
         {
-            _repository = repository;
+            _categoriaRepository = categoriaRepository;
         }
 
         public bool ValidarNombre(Categoria categoria) => !string.IsNullOrWhiteSpace(categoria.Nombre);
 
-        public int CountAllCategorias() => _repository.CountAllCategorias();
+        public int CountAllCategorias() => _categoriaRepository.CountAllCategorias();
 
 
         public List<Categoria> ObtenerTodos()
         {
-            var categorias = _repository.ObtenerTodos();
+            var categorias = _categoriaRepository.ObtenerTodos();
 
             foreach (var categoria in categorias)
             {
@@ -40,7 +40,7 @@ namespace NetTicket.Services.DbRules
 
         public Categoria? ObtenerPorId(int id)
         {
-            var categoria = _repository.ObtenerPorId(id);
+            var categoria = _categoriaRepository.ObtenerPorId(id);
 
             if (categoria == null || !ValidarNombre(categoria)) return null;
 
@@ -54,17 +54,17 @@ namespace NetTicket.Services.DbRules
         {
             var temp = new Categoria { Nombre = nombre };
             if (!ValidarNombre(temp)) return null;
-            return _repository.Create(nombre);
+            return _categoriaRepository.Create(nombre);
         }
 
         public bool Update(int id, string nombre)
         {
-            return _repository.Update(id,nombre);
+            return _categoriaRepository.Update(id,nombre);
         }
 
         public bool Delete(int id)
         {
-            return _repository.Delete(id);
+            return _categoriaRepository.Delete(id);
         }
     }
 }

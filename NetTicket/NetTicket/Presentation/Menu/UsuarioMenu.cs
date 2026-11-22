@@ -34,6 +34,10 @@ namespace NetTicket.Presentation.Menu
         {
             Console.Clear();
             CabeceraUsuario();
+
+
+
+
         }
 
 
