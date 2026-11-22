@@ -11,22 +11,22 @@ namespace NetTicket.Services.DbRules
 {
     public class EstadoService
     {
-        private readonly EstadoRepository _repository;
+        private readonly EstadoRepository _estadoRepository;
 
-        public EstadoService(EstadoRepository repository)
+        public EstadoService(EstadoRepository estadoRepository)
         {
-            _repository = repository;
+            _estadoRepository = estadoRepository;
         }
 
 
-        public int CountAllEstados() => _repository.CountAllEstados();
+        public int CountAllEstados() => _estadoRepository.CountAllEstados();
 
         public bool ValidarNombre(Estado estado) => !string.IsNullOrWhiteSpace(estado.Nombre);
 
 
         public List<Estado> ObtenerTodos()
         {
-            var estados = _repository.ObtenerTodos();
+            var estados = _estadoRepository.ObtenerTodos();
 
             foreach(var estado in estados)
             {
@@ -39,7 +39,7 @@ namespace NetTicket.Services.DbRules
 
         public Estado? ObtenerPorId(int id)
         {
-            var estado = _repository.ObtenerPorId(id);
+            var estado = _estadoRepository.ObtenerPorId(id);
 
             if (estado == null || !ValidarNombre(estado)) return null;
 
@@ -50,17 +50,17 @@ namespace NetTicket.Services.DbRules
 
         public Estado? Create(string nombre)
         {
-            return _repository.Create(nombre);
+            return _estadoRepository.Create(nombre);
         }
 
         public bool Update(int id, string nombre)
         {
-            return _repository.Update(id,nombre);
+            return _estadoRepository.Update(id,nombre);
         }
 
         public bool Delete(int id)
         {
-            return _repository.Delete(id);
+            return _estadoRepository.Delete(id);
         }
 
     }
