@@ -4,6 +4,7 @@ using NetTicket.Data.RepositoriesCRUD;
 using Microsoft.Extensions.Configuration;
 using NetTicket.Models;
 using Microsoft.Extensions.DependencyModel;
+using System.Threading.Tasks;
 
 
 namespace Testing;
@@ -34,11 +35,11 @@ public class TestUsuarioRepository_Create
 
 
     [TestMethod]
-    public void Create()
+    public async Task Create()
     {
         try
         {
-            var insertUsr = repository.Create("MsTest V2", "MsTestV2@gmail.com", "Testing");
+            var insertUsr = await repository.Create("MsTest V2", "MsTestV2@gmail.com", "Testing");
             Assert.IsNotNull(insertUsr);
             TestContext.WriteLine($"Id{insertUsr.Id} | Nombre{insertUsr.Nombre} | Email{insertUsr.Email} | Area{insertUsr.Area}");
         }
@@ -49,3 +50,4 @@ public class TestUsuarioRepository_Create
     }
     public TestContext TestContext { get; set; } = null!;
 }
+

@@ -4,6 +4,7 @@ using NetTicket.Data.RepositoriesCRUD;
 using Microsoft.Extensions.Configuration;
 using NetTicket.Models;
 using Microsoft.Extensions.DependencyModel;
+using System.Threading.Tasks;
 
 namespace Testing;
 
@@ -31,12 +32,12 @@ public class TestEstadoRepository_Delete
     }
 
     [TestMethod]
-    public void Delete()
+    public async Task Delete()
     {
         try
         {
-            var delEst = repository.Delete(6);
-            var selectEst = repository.ObtenerTodos();
+            var delEst = await repository.Delete(6);
+            var selectEst = await repository.ObtenerTodos();
             Assert.IsNotNull(delEst);
 
             foreach(var i in selectEst)

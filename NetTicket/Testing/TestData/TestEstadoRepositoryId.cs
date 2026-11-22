@@ -4,6 +4,7 @@ using NetTicket.Data.RepositoriesCRUD;
 using Microsoft.Extensions.Configuration;
 using NetTicket.Models;
 using Microsoft.Extensions.DependencyModel;
+using System.Threading.Tasks;
 
 namespace Testing;
 
@@ -32,11 +33,11 @@ public class TestEstadoRepositoryId
 
 
     [TestMethod]
-    public void ObtenerPorId()
+    public async Task ObtenerPorId()
     {
         try
         {
-            var estado = repository.ObtenerPorId(3);
+            var estado = await repository.ObtenerPorId(3);
             Assert.IsNotNull(estado);
             TestContext.WriteLine($"Id:{estado.Id} | Nombre:{estado.Nombre}");
         }
@@ -63,3 +64,4 @@ public class TestEstadoRepositoryId
 
     public TestContext TestContext { get; set; } = null!;
 }
+

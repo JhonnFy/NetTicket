@@ -4,6 +4,7 @@ using NetTicket.Data.RepositoriesCRUD;
 using Microsoft.Extensions.Configuration;
 using NetTicket.Models;
 using Microsoft.Extensions.DependencyModel;
+using System.Threading.Tasks;
 
 namespace Testing;
 
@@ -34,11 +35,11 @@ public class TestCategoriaRepository_Create
     }
 
     [TestMethod]
-    public void Create()
+    public async Task Create()
     {
         try
         {
-            var insertCat = repository.Create("NetTicket V8");
+            var insertCat = await repository.Create("NetTicket V8");
             Assert.IsNotNull(insertCat);
             TestContext.WriteLine($"Id:{insertCat.Id} | Categoria:{insertCat.Nombre}");
         }

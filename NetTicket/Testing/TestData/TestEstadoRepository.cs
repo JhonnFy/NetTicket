@@ -2,6 +2,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using NetTicket.Data.Connection;
 using NetTicket.Data.RepositoriesCRUD;
 using Microsoft.Extensions.Configuration;
+using System.Threading.Tasks;
 
 
 namespace Testing;
@@ -10,7 +11,7 @@ namespace Testing;
 public class TestEstadoRepository
 {
     [TestMethod]
-    public void TestObtenerEstados()
+    public async Task TestObtenerEstados()
     {
         try
         {
@@ -21,7 +22,7 @@ public class TestEstadoRepository
             Conexion conexion = new Conexion(configuration);
             EstadoRepository repository = new EstadoRepository(conexion);
 
-            var estados = repository.ObtenerTodos();
+            var estados = await repository.ObtenerTodos();
 
 
             Assert.IsNotNull(estados);

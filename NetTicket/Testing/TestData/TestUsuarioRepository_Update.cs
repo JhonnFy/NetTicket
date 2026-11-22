@@ -4,6 +4,7 @@ using NetTicket.Data.RepositoriesCRUD;
 using Microsoft.Extensions.Configuration;
 using NetTicket.Models;
 using Microsoft.Extensions.DependencyModel;
+using System.Threading.Tasks;
 
 
 namespace Testing;
@@ -33,12 +34,12 @@ public class TestUsuarioRepository_Update
 
 
     [TestMethod]
-    public void Update()
+    public async Task Update()
     {
         try
         {
-            var updateUsr = repository.Update(1, "Test MsTest", "MsTest@gmail.com", "Qa V1");
-            var selectUsr = repository.ObtenerPorId(1);
+            var updateUsr = await repository.Update(1, "Test MsTest", "MsTest@gmail.com", "Qa V1");
+            var selectUsr = await repository.ObtenerPorId(1);
             Assert.IsNotNull(updateUsr);
 
             TestContext.WriteLine($"Id:{selectUsr.Id} | Nombre:{selectUsr.Nombre}| Email:{selectUsr.Email} | Area:{selectUsr.Area}");

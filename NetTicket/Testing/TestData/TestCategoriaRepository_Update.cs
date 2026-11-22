@@ -4,6 +4,7 @@ using NetTicket.Data.RepositoriesCRUD;
 using Microsoft.Extensions.Configuration;
 using NetTicket.Models;
 using Microsoft.Extensions.DependencyModel;
+using System.Threading.Tasks;
 
 namespace Testing;
 
@@ -32,12 +33,12 @@ public class TestCategoriaRepository_Update
     
 
     [TestMethod]
-    public void Update()
+    public async Task Update()
     {
         try
         {
-            var updateCat = repository.Update(2,"Actualizado Desde MsTest V2");
-            var selectId = repository.ObtenerPorId(2);
+            var updateCat = await repository.Update(2,"Actualizado Desde MsTest V2");
+            var selectId = await repository.ObtenerPorId(2);
             Assert.IsNotNull(updateCat);
 
             TestContext.WriteLine($"Id:{selectId.Id} | Nombre:{selectId.Nombre}");

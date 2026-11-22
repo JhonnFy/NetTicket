@@ -4,6 +4,7 @@ using NetTicket.Data.RepositoriesCRUD;
 using Microsoft.Extensions.Configuration;
 using NetTicket.Models;
 using Microsoft.Extensions.DependencyModel;
+using System.Threading.Tasks;
 
 namespace Testing;
 
@@ -30,14 +31,13 @@ public class TestusuarioRepository_Delete
         }
     }
 
-
     [TestMethod]
-    public void Delete()
+    public async Task Delete()
     {
         try
         {
-            var delUsr = repository.Delete(4);
-            var selectUsr = repository.ObtenerTodos();
+            var delUsr = await repository.Delete(4);
+            var selectUsr = await repository.ObtenerTodos();
             Assert.IsNotNull(delUsr);
 
             foreach(var i in selectUsr)

@@ -2,6 +2,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using NetTicket.Data.Connection;
 using NetTicket.Data.RepositoriesCRUD;
 using Microsoft.Extensions.Configuration;
+using System.Threading.Tasks;
 
 namespace Testing;
 
@@ -9,7 +10,7 @@ namespace Testing;
 public class TestTicketRepository
 {
     [TestMethod]
-    public void TestObtenerTockets()
+    public async Task TestObtenerTockets()
     {
         try
         {
@@ -20,7 +21,7 @@ public class TestTicketRepository
             Conexion conexion = new Conexion(configuration);
             TicketRepository repository = new TicketRepository(conexion);
 
-            var tickets = repository.ObtenerTodos();
+            var tickets = await repository.ObtenerTodos();
 
             Assert.IsNotNull(tickets);
             Assert.IsTrue(tickets.Count > 0, "No se encontraron Tickets");
