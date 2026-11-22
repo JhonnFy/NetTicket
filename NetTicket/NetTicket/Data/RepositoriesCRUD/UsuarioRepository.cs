@@ -14,18 +14,17 @@ namespace NetTicket.Data.RepositoriesCRUD
             _conexion = conexion;
         }
 
-        public int CountAllUsuarios()
+        public async Task<int> CountAllUsuarios()
         {
             try
             {
-                using MySqlConnection cn = _conexion.ObtenerConexion();
-                cn.Open();
+                await using MySqlConnection cn = _conexion.ObtenerConexion();
+                await cn.OpenAsync();
 
-                using MySqlCommand cmd = new MySqlCommand("CountAllUsuarios", cn);
+                await using MySqlCommand cmd = new MySqlCommand("CountAllUsuarios", cn);
                 cmd.CommandType = System.Data.CommandType.StoredProcedure;
 
-
-                var countUsr = Convert.ToInt32(cmd.ExecuteScalar());
+                var countUsr = Convert.ToInt32(await cmd.ExecuteScalarAsync());
                 return countUsr;
             }
             catch(Exception ex)
