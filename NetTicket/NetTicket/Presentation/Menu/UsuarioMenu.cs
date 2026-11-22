@@ -72,7 +72,7 @@ namespace NetTicket.Presentation.Menu
                     case 1:
                             UsuarioMenuCase1();
                         break;
-
+                            
                     case 2:
                             
                         break;
