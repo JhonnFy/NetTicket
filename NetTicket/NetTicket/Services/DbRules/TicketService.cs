@@ -19,12 +19,12 @@ namespace NetTicket.Services.DbRules
         }
 
         public bool ValidarTitulo(Ticket ticket) => !string.IsNullOrWhiteSpace(ticket.Titulo);
-        public int CountAllTickets() => _ticketRepository.CountAllTickets();
+        public async Task<int> CountAllTickets() => await _ticketRepository.CountAllTickets();
 
         
-        public List<Ticket> ObtenerTodos()
+        public async  Task<List<Ticket>> ObtenerTodos()
         {
-            var tickets = _ticketRepository.ObtenerTodos();
+            var tickets = await _ticketRepository.ObtenerTodos();
 
             foreach(var ticket in tickets)
             {
@@ -37,9 +37,9 @@ namespace NetTicket.Services.DbRules
             return tickets;
         }
 
-        public Ticket? ObtenerPorId(int id)
+        public async Task<Ticket?> ObtenerPorId(int id)
         {
-            var ticket = _ticketRepository.ObtenerPorId(id);
+            var ticket = await _ticketRepository.ObtenerPorId(id);
 
             if (ticket == null || !ValidarTitulo(ticket)) return null;
 
@@ -49,14 +49,14 @@ namespace NetTicket.Services.DbRules
             return ticket;
         }
 
-        public Ticket? Create (string titulo, string descripcion, int usuarioId, int categoriaId, int estadoId)
+        public async Task<Ticket?> Create (string titulo, string descripcion, int usuarioId, int categoriaId, int estadoId)
         {
-            return _ticketRepository.Create(titulo, descripcion, usuarioId, categoriaId, estadoId);
+            return await _ticketRepository.Create(titulo, descripcion, usuarioId, categoriaId, estadoId);
         }
         
-        public bool Update(int id, string titulo, string descripcion)
+        public async Task<bool> Update(int id, string titulo, string descripcion)
         {
-            return _ticketRepository.Update(id, titulo, descripcion);
+            return await _ticketRepository.Update(id, titulo, descripcion);
         }
 
     }

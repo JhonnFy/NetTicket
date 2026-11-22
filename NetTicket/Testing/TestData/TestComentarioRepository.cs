@@ -3,6 +3,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using NetTicket.Data.Connection;
 using NetTicket.Data.RepositoriesCRUD;
 using NetTicket.Models;
+using System.Threading.Tasks;
 
 namespace Testing;
 
@@ -10,7 +11,7 @@ namespace Testing;
 public class TestComentarioRepository
 {
     [TestMethod]
-    public void TestObtenerComentarios()
+    public async Task TestObtenerComentarios()
     {
         try
         {
@@ -22,7 +23,7 @@ public class TestComentarioRepository
             ComentarioRepository repository = new ComentarioRepository(conexion);
 
 
-            var comentarios = repository.ObtenerTodos();
+            var comentarios = await repository.ObtenerTodos();
 
             Assert.IsNotNull(comentarios);
             Assert.IsTrue(comentarios.Count > 0, "No se encontraron comentarios.");

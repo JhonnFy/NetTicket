@@ -4,7 +4,7 @@ using NetTicket.Models;
 using System.Linq.Expressions;
 using System.Net.Http.Headers;
 using System.Security.Cryptography.X509Certificates;
-  
+
 namespace NetTicket.Data.RepositoriesCRUD
 {
     public class CategoriaRepository
@@ -16,17 +16,17 @@ namespace NetTicket.Data.RepositoriesCRUD
             _conexion = conexion;
         }
 
-        public int CountAllCategorias()
+        public async Task<int> CountAllCategorias()
         {
             try
             {
-                using MySqlConnection cn = _conexion.ObtenerConexion();
-                cn.Open();
+                await using MySqlConnection cn = _conexion.ObtenerConexion();
+                await cn.OpenAsync();
 
-                using MySqlCommand cmd = new MySqlCommand("CountAllCategorias", cn);
+                await using MySqlCommand cmd = new MySqlCommand("CountAllCategorias", cn);
                 cmd.CommandType = System.Data.CommandType.StoredProcedure;
 
-                var countCat = Convert.ToInt32(cmd.ExecuteScalar());
+                var countCat = Convert.ToInt32(await cmd.ExecuteScalarAsync());
 
                 return countCat;
             }
@@ -37,21 +37,21 @@ namespace NetTicket.Data.RepositoriesCRUD
             }
         }
 
-        public List<Categoria> ObtenerTodos()
+        public async Task<List<Categoria>> ObtenerTodos()
         {
             List<Categoria> categorias = new List<Categoria>();
 
             try
             {
-                using MySqlConnection cn = _conexion.ObtenerConexion();
-                cn.Open();
+                await using MySqlConnection cn = _conexion.ObtenerConexion();
+                await cn.OpenAsync();
 
-                using MySqlCommand cmd = new MySqlCommand("CategoriaRepository", cn);
+                await using MySqlCommand cmd = new MySqlCommand("CategoriaRepository", cn);
                 cmd.CommandType = System.Data.CommandType.StoredProcedure;
 
-                using MySqlDataReader reader = cmd.ExecuteReader();
+                await using MySqlDataReader reader = await cmd.ExecuteReaderAsync();
 
-                while (reader.Read())
+                while (await reader.ReadAsync())
                 {
                     categorias.Add(new Categoria
                     {
@@ -68,21 +68,21 @@ namespace NetTicket.Data.RepositoriesCRUD
             return categorias;
         }
 
-        public Categoria? ObtenerPorId(int id)
+        public async Task<Categoria?> ObtenerPorId(int id)
         {
 
             try
             {
-                using MySqlConnection cn = _conexion.ObtenerConexion();
-                cn.Open();
+                await using MySqlConnection cn = _conexion.ObtenerConexion();
+                await cn.OpenAsync();
 
-                using MySqlCommand cmd = new MySqlCommand("CategoriaRepositoryId", cn);
+                await using MySqlCommand cmd = new MySqlCommand("CategoriaRepositoryId", cn);
                 cmd.CommandType = System.Data.CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("i", id);
 
-                using MySqlDataReader reader = cmd.ExecuteReader();
+                await using MySqlDataReader reader = await cmd.ExecuteReaderAsync();
 
-                if (reader.Read())
+                if (await reader.ReadAsync())
                 {
                     return new Categoria
                     {
@@ -100,18 +100,18 @@ namespace NetTicket.Data.RepositoriesCRUD
             return null;
         }
 
-        public Categoria? Create(string nombre)
+        public async Task<Categoria?> Create(string nombre)
         {
             try
             {
-                using MySqlConnection cn = _conexion.ObtenerConexion();
-                cn.Open();
+                await using MySqlConnection cn = _conexion.ObtenerConexion();
+                await cn.OpenAsync();
 
-                using MySqlCommand cmd = new MySqlCommand("CategoriaRepository_Create", cn);
+                await using MySqlCommand cmd = new MySqlCommand("CategoriaRepository_Create", cn);
                 cmd.CommandType = System.Data.CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("Nombre", nombre);
 
-                var id = Convert.ToInt32(cmd.ExecuteScalar());
+                var id = Convert.ToInt32(await cmd.ExecuteScalarAsync());
 
                 return new Categoria
                 {
@@ -127,20 +127,20 @@ namespace NetTicket.Data.RepositoriesCRUD
             }
         }
 
-        public bool Update(int id, string nombre)
+        public async Task<bool> Update(int id, string nombre)
         {
             try
             {
-                using MySqlConnection cn = _conexion.ObtenerConexion();
-                cn.Open();
+                await using MySqlConnection cn = _conexion.ObtenerConexion();
+                await cn.OpenAsync();
 
-                using MySqlCommand cmd = new MySqlCommand("CategoriaRepository_Update", cn);
+                await using MySqlCommand cmd = new MySqlCommand("CategoriaRepository_Update", cn);
                 cmd.CommandType = System.Data.CommandType.StoredProcedure;
 
                 cmd.Parameters.AddWithValue("p_Id", id);
                 cmd.Parameters.AddWithValue("p_Nombre", nombre);
 
-                int registros = cmd.ExecuteNonQuery();
+                int registros = await cmd.ExecuteNonQueryAsync();
                 return registros > 0;
 
 
@@ -151,18 +151,18 @@ namespace NetTicket.Data.RepositoriesCRUD
             }
         }
 
-        public bool Delete(int id)
+        public async Task<bool> Delete(int id)
         {
             try
             {
-                using MySqlConnection cn = _conexion.ObtenerConexion();
-                cn.Open();
+                await using MySqlConnection cn = _conexion.ObtenerConexion();
+                await cn.OpenAsync();
 
-                using MySqlCommand cmd = new MySqlCommand("CategoriaRepository_Delete", cn);
+                await using MySqlCommand cmd = new MySqlCommand("CategoriaRepository_Delete", cn);
                 cmd.CommandType = System.Data.CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("p_Id", id);
 
-                int registros = cmd.ExecuteNonQuery();
+                int registros = await cmd.ExecuteNonQueryAsync();
                 return registros > 0;
             }
             catch (Exception ex)

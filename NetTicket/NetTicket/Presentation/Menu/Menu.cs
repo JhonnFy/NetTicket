@@ -18,18 +18,17 @@ namespace NetTicket.Presentation.Menu
             _menuContext = menuContext;
         }
         
-
-        public void Iniciar()
+        public async Task Iniciar()
         {
             int optionMenu;
 
             do
             {
-                var countCat = _menuContext.CategoriaMenu.CountAllCategorias();
-                var countCom = _menuContext.ComentarioMenu.CountAllComentarios();
-                var countEst = _menuContext.EstadoMenu.CountAllEstados();
-                var countTck = _menuContext.TicketMenu.CountAllTickets();
-                var countUsr = _menuContext.UsuarioMenu.countAllUsuarios();
+                var countCat = await _menuContext.CategoriaMenu.CountAllCategorias();
+                var countCom = await _menuContext.ComentarioMenu.CountAllComentarios();
+                var countEst = await _menuContext.EstadoMenu.CountAllEstados();
+                var countTck = await  _menuContext.TicketMenu.CountAllTickets();
+                var countUsr = await  _menuContext.UsuarioMenu.CountAllUsuarios();
 
                 Console.Clear();
                 AnsiConsole.Write(
@@ -74,21 +73,21 @@ namespace NetTicket.Presentation.Menu
                 switch (optionMenu)
                 {
                     case 1:
-                        _menuContext.CategoriaMenu.RunCategoriaMenu();
+                           await _menuContext.CategoriaMenu.RunCategoriaMenu();
                         break;
 
                     case 2:
-                        _menuContext.ComentarioMenu.RunComentarioMenu();
+                            await _menuContext.ComentarioMenu.RunComentarioMenu();
                         break;
 
                     case 3:
-                        _menuContext.EstadoMenu.RunEstadoMenu();
+                            await _menuContext.EstadoMenu.RunEstadoMenu();
                         break;
                     case 4:
-                        _menuContext.TicketMenu.RunTicketMenu();
+                            await _menuContext.TicketMenu.RunTicketMenu();
                         break;
                     case 5:
-                        _menuContext.UsuarioMenu.RunUsuarioMenu();
+                            await _menuContext.TicketMenu.RunTicketMenu();
                         break;
                     case 6:
                         Environment.Exit(0);
@@ -98,4 +97,5 @@ namespace NetTicket.Presentation.Menu
         }
     }
 }
+
 

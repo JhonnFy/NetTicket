@@ -4,6 +4,7 @@ using Microsoft.Extensions.DependencyModel;
 using NetTicket.Data.RepositoriesCRUD;
 using NetTicket.Data.Connection;
 using System.Security.Cryptography.X509Certificates;
+using System.Threading.Tasks;
 
 namespace Testing;
 
@@ -31,11 +32,11 @@ public class TestTicketRepository_Create
     }
 
     [TestMethod]
-    public void Create()
+    public async Task Create()
     {
         try
         {
-            var insertTick = repository.Create("MsTest V3", "Mysql3", 1, 2, 3);
+            var insertTick = await repository.Create("MsTest V3", "Mysql3", 1, 2, 3);
             Assert.IsNotNull(insertTick);
             TestContext.WriteLine($"Id{insertTick.Id} | Titulo{insertTick.Titulo} | Descripcion{insertTick.Descripcion} | UsuarioId{insertTick.UsuarioId} | CategoriaId{insertTick.CategoriaId} | EstadoId{insertTick.EstadoId} | FechaCreacion{insertTick.FechaCreacion}");
         }

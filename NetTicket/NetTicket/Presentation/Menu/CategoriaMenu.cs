@@ -23,7 +23,7 @@ namespace NetTicket.Presentation.Menu
             _categoriaService = categoriaService;
         }
 
-        public int CountAllCategorias() => _categoriaService.CountAllCategorias();
+        public async Task<int> CountAllCategorias() => await _categoriaService.CountAllCategorias();
 
         private void CabeceraCategorias()
         {
@@ -35,7 +35,7 @@ namespace NetTicket.Presentation.Menu
             );
         }
 
-        private void CategoriaMenuCase1()
+        private  async Task CategoriaMenuCase1()
         {
             Console.Clear();
             CabeceraCategorias();
@@ -54,7 +54,7 @@ namespace NetTicket.Presentation.Menu
                 return;
             }
 
-            var createCategoria = _categoriaService.Create(nombre);
+            var createCategoria = await _categoriaService.Create(nombre);
             Console.Clear();
 
             AnsiConsole.Write(
@@ -64,19 +64,19 @@ namespace NetTicket.Presentation.Menu
             );
         }
 
-        private void CategoriaMenuCase2()
+        private async Task CategoriaMenuCase2()
         {
             Console.Clear();
             CabeceraCategorias();
 
             AnsiConsole.Write(
-                new Panel($"[bold cyan]Categorías registradas en la base de datos: [/] {CountAllCategorias()}")
+                new Panel($"[bold cyan]Categorías registradas en la base de datos: [/] {await CountAllCategorias()}")
                     .Border(BoxBorder.Rounded)
                     .BorderColor(Color.Cyan)
                     .Expand()
             );
 
-            var categorias = _categoriaService.ObtenerTodos();
+            var categorias = await _categoriaService.ObtenerTodos();
 
             if (categorias == null || !categorias.Any())
             {
@@ -98,7 +98,7 @@ namespace NetTicket.Presentation.Menu
         }
 
 
-        private void CategoriaMenuCase3()
+        private async Task CategoriaMenuCase3()
         {
             Console.Clear();
             CabeceraCategorias();
@@ -116,7 +116,7 @@ namespace NetTicket.Presentation.Menu
                 return;
             }
 
-            var categoria = _categoriaService.ObtenerPorId(id);
+            var categoria = await _categoriaService.ObtenerPorId(id);
             Console.Clear();
 
             if (categoria == null)
@@ -137,7 +137,7 @@ namespace NetTicket.Presentation.Menu
             );
         }
 
-        private void CategoriaMenuCase4()
+        private async Task CategoriaMenuCase4()
         {
             Console.Clear();
             CabeceraCategorias();
@@ -155,7 +155,7 @@ namespace NetTicket.Presentation.Menu
                 return;
             }
 
-            var categoria = _categoriaService.ObtenerPorId(id);
+            var categoria =  await _categoriaService.ObtenerPorId(id);
             if (categoria == null)
             {
                 Console.Clear();
@@ -193,7 +193,7 @@ namespace NetTicket.Presentation.Menu
             );
         }
 
-        private void CategoriaMenuCase5()
+        private async Task CategoriaMenuCase5()
         {
             Console.Clear();
             CabeceraCategorias();
@@ -211,7 +211,7 @@ namespace NetTicket.Presentation.Menu
                 return;
             }
 
-            var categoria = _categoriaService.ObtenerPorId(id);
+            var categoria = await _categoriaService.ObtenerPorId(id);
             if (categoria == null)
             {
                 Console.Clear();
@@ -247,7 +247,7 @@ namespace NetTicket.Presentation.Menu
 
             try
             {
-                bool eliminado = _categoriaService.Delete(id);
+                bool eliminado = await _categoriaService.Delete(id);
                 Console.Clear();
 
                 if (eliminado)
@@ -293,7 +293,7 @@ namespace NetTicket.Presentation.Menu
         }
 
 
-        public void RunCategoriaMenu()
+        public async Task  RunCategoriaMenu()
         {
             int optionMenu;
 
@@ -322,25 +322,26 @@ namespace NetTicket.Presentation.Menu
                 switch (optionMenu)
                 {
                     case 1:
-                            CategoriaMenuCase1();
+                           await CategoriaMenuCase1();
                         break;
                     
                     case 2:
-                            CategoriaMenuCase2();
+                           await CategoriaMenuCase2();
                         break;
                     
                     case 3:
-                            CategoriaMenuCase3();
+                          await  CategoriaMenuCase3();
                         break;
                             
                     case 4:
-                            CategoriaMenuCase4(); 
+                          await CategoriaMenuCase4(); 
                         break;
                     case 5:
-                            CategoriaMenuCase5();
+                           await CategoriaMenuCase5();
                         break;
                 }
             } while (optionMenu != 6);
         }
     }
 }
+

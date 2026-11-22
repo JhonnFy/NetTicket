@@ -4,6 +4,7 @@ using NetTicket.Data.RepositoriesCRUD;
 using Microsoft.Extensions.Configuration;
 using NetTicket.Models;
 using Microsoft.Extensions.DependencyModel;
+using System.Threading.Tasks;
 
 namespace Testing;
 
@@ -32,11 +33,11 @@ public class TestEstadoRepository_Create
 
 
     [TestMethod]
-    public void Create()
+    public async Task Create()
     {
         try
         {
-            var insertCom = repository.Create("MsTestV1");
+            var insertCom = await repository.Create("MsTestV1");
             Assert.IsNotNull(insertCom);
             TestContext.WriteLine($"Id {insertCom.Id} | Nombre {insertCom.Nombre} ");
         }

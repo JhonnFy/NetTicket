@@ -5,6 +5,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using NetTicket.Data.Connection;
 using NetTicket.Data.RepositoriesCRUD;
 using NetTicket.Models;
+using System.Threading.Tasks;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace Testing;
@@ -33,11 +34,11 @@ public class TestUsuarioRepositoryId
     }
 
     [TestMethod]
-    public void ObtenerPorId()
+    public async Task ObtenerPorId()
     {
         try
         {
-            var usuario = repository.ObtenerPorId(1);
+            var usuario = await repository.ObtenerPorId(1);
 
             Assert.IsNotNull(usuario);
             TestContext.WriteLine($"Id:{usuario.Id} | Nombre:{usuario.Nombre} | Email:{usuario.Email} | Area:{usuario.Area}");

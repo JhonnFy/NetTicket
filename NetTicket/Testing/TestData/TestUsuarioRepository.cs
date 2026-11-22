@@ -2,6 +2,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using NetTicket.Data.Connection;
 using NetTicket.Data.RepositoriesCRUD;
 using Microsoft.Extensions.Configuration;
+using System.Threading.Tasks;
 
 namespace Testing;
 
@@ -9,7 +10,7 @@ namespace Testing;
 public class TestUsuarioRepository
 {
     [TestMethod]
-    public void TestObtenerUsuarios()
+    public async Task TestObtenerUsuarios()
     {
         try
         {
@@ -20,7 +21,7 @@ public class TestUsuarioRepository
             Conexion conexion = new Conexion(configuration);
             UsuarioRepository repository = new UsuarioRepository(conexion);
 
-            var usuarios = repository.ObtenerTodos();
+            var usuarios = await repository.ObtenerTodos();
 
             Assert.IsNotNull(usuarios);
             Assert.IsTrue(usuarios.Count > 0, "No se encontraron usuarios");

@@ -4,6 +4,7 @@ using NetTicket.Data.RepositoriesCRUD;
 using Microsoft.Extensions.Configuration;
 using NetTicket.Models;
 using Microsoft.Extensions.DependencyModel;
+using System.Threading.Tasks;
 
 
 namespace Testing;
@@ -32,11 +33,11 @@ public class TestComentarioRepository_Create
     }
 
     [TestMethod]
-    public void Create()
+    public async Task Create()
     {
         try
         {
-            var newComentario = repository.Create(1, 1, "MsTest V1");
+            var newComentario = await repository.Create(1, 1, "MsTest V1");
             Assert.IsNotNull(newComentario);
             TestContext.WriteLine($"Id{newComentario.Id} | TicketId {newComentario.TicketId} | UsuarioId {newComentario.UsuarioId} | Texto {newComentario.Texto} | Fecha {newComentario.Fecha}");
         }

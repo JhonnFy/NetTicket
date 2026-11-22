@@ -14,17 +14,17 @@ namespace NetTicket.Data.RepositoriesCRUD
             _conexion = conexion;
         }
 
-        public int CountAllComentarios()
+        public async Task<int> CountAllComentarios()
         {
             try
             {
-                using MySqlConnection cn = _conexion.ObtenerConexion();
-                cn.Open();
+                await using MySqlConnection cn = _conexion.ObtenerConexion();
+                await cn.OpenAsync();
 
-                using MySqlCommand cmd = new MySqlCommand("CountAllComentarios", cn);
+                await using MySqlCommand cmd = new MySqlCommand("CountAllComentarios", cn);
                 cmd.CommandType = System.Data.CommandType.StoredProcedure;
 
-                var countCom = Convert.ToInt32(cmd.ExecuteScalar());
+                var countCom = Convert.ToInt32(await cmd.ExecuteScalarAsync());
 
                 return countCom;
 
@@ -36,21 +36,21 @@ namespace NetTicket.Data.RepositoriesCRUD
             }
         }
 
-        public List<Comentario> ObtenerTodos()
+        public async Task<List<Comentario>> ObtenerTodos()
         {
             List<Comentario> comentarios = new List<Comentario>();
 
             try
             {
-                using MySqlConnection cn = _conexion.ObtenerConexion();
-                cn.Open();
+                await using MySqlConnection cn = _conexion.ObtenerConexion();
+                await cn.OpenAsync();
 
-                using MySqlCommand cmd = new MySqlCommand("ComentarioRepository", cn);
+                await using MySqlCommand cmd = new MySqlCommand("ComentarioRepository", cn);
                 cmd.CommandType = System.Data.CommandType.StoredProcedure;
 
-                using MySqlDataReader reader = cmd.ExecuteReader();
+                await using MySqlDataReader reader = await cmd.ExecuteReaderAsync();
 
-                while (reader.Read())
+                while (await reader.ReadAsync())
                 {
                     comentarios.Add(new Comentario
                     {
@@ -71,20 +71,20 @@ namespace NetTicket.Data.RepositoriesCRUD
         }
 
 
-        public Comentario? ObtenerPorId(int id)
+        public async Task<Comentario?> ObtenerPorId(int id)
         {
             try
             {
-                using MySqlConnection cn = _conexion.ObtenerConexion();
-                cn.Open();
+                await using MySqlConnection cn = _conexion.ObtenerConexion();
+                await cn.OpenAsync();
 
-                using MySqlCommand cmd = new MySqlCommand("ComentariosRepositoryId", cn);
+                await using MySqlCommand cmd = new MySqlCommand("ComentariosRepositoryId", cn);
                 cmd.CommandType = System.Data.CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("i", id);
 
-                using MySqlDataReader reader = cmd.ExecuteReader();
+                await using MySqlDataReader reader = await cmd.ExecuteReaderAsync();
 
-                if (reader.Read())
+                if (await reader.ReadAsync())
                 {
                     return new Comentario
                     {
@@ -105,21 +105,21 @@ namespace NetTicket.Data.RepositoriesCRUD
             return null;
         }
 
-        public Comentario? Create(int ticketId, int usuarioId, string texto)
+        public async Task<Comentario?> Create(int ticketId, int usuarioId, string texto)
         {
             try
             {
-                using MySqlConnection cn = _conexion.ObtenerConexion();
-                cn.Open();
+                await using MySqlConnection cn = _conexion.ObtenerConexion();
+                await cn.OpenAsync();
 
-                using MySqlCommand cmd = new MySqlCommand("ComentarioRepository_Create", cn);
+                await using MySqlCommand cmd = new MySqlCommand("ComentarioRepository_Create", cn);
                 cmd.CommandType = System.Data.CommandType.StoredProcedure;
 
                 cmd.Parameters.AddWithValue("TicketId", ticketId);
                 cmd.Parameters.AddWithValue("UsuarioId", usuarioId);
                 cmd.Parameters.AddWithValue("Texto", texto);
 
-                var id = Convert.ToInt32(cmd.ExecuteScalar());
+                var id = Convert.ToInt32(await cmd.ExecuteScalarAsync());
 
                 return new Comentario
                 {
@@ -137,21 +137,20 @@ namespace NetTicket.Data.RepositoriesCRUD
             }
         }
 
-        public bool Update(int id, string texto)
+        public async Task<bool> Update(int id, string texto)
         {
             try
             {
-                using MySqlConnection cn = _conexion.ObtenerConexion();
-                cn.Open();
+                await using MySqlConnection cn = _conexion.ObtenerConexion();
+                await cn.OpenAsync();
 
-
-                using MySqlCommand cmd = new MySqlCommand("ComentarioRepository_Update", cn);
+                await using MySqlCommand cmd = new MySqlCommand("ComentarioRepository_Update", cn);
                 cmd.CommandType = System.Data.CommandType.StoredProcedure;
 
                 cmd.Parameters.AddWithValue("p_Id", id);
                 cmd.Parameters.AddWithValue("p_Texto", texto);
 
-                int registros = cmd.ExecuteNonQuery();
+                int registros = await cmd.ExecuteNonQueryAsync();
                 return registros > 0;
             }
             catch(Exception ex)

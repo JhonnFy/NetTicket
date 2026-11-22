@@ -2,6 +2,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using NetTicket.Data.Connection;
 using NetTicket.Data.RepositoriesCRUD;
 using Microsoft.Extensions.Configuration;
+using System.Threading.Tasks;
 
 namespace Testing;
 
@@ -9,7 +10,7 @@ namespace Testing;
 public class TestCategoriaRepository
 {
     [TestMethod]
-    public void TestObtenerCategorias()
+    public async Task TestObtenerCategorias()
     {
         try
         {
@@ -20,7 +21,7 @@ public class TestCategoriaRepository
             Conexion conexion = new Conexion(configuration);
             CategoriaRepository repository = new CategoriaRepository(conexion);
 
-            var categorias = repository.ObtenerTodos();
+            var categorias = await repository.ObtenerTodos();
 
             Assert.IsNotNull(categorias);
             Assert.IsTrue(categorias.Count > 0, "No se encontraron categorías.");

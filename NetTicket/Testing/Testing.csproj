@@ -13,9 +13,15 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="TestServices\" />
-    <Folder Include="TestPresentation\" />
-    <Folder Include="TestModels\" />
+    <Compile Remove="TestModels\**" />
+    <Compile Remove="TestPresentation\**" />
+    <Compile Remove="TestServices\**" />
+    <EmbeddedResource Remove="TestModels\**" />
+    <EmbeddedResource Remove="TestPresentation\**" />
+    <EmbeddedResource Remove="TestServices\**" />
+    <None Remove="TestModels\**" />
+    <None Remove="TestPresentation\**" />
+    <None Remove="TestServices\**" />
   </ItemGroup>
 
   <ItemGroup>
