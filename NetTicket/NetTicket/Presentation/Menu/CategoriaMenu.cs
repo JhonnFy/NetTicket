@@ -137,7 +137,7 @@ namespace NetTicket.Presentation.Menu
             );
         }
 
-        private void CategoriaMenuCase4()
+        private async Task CategoriaMenuCase4()
         {
             Console.Clear();
             CabeceraCategorias();
@@ -155,7 +155,7 @@ namespace NetTicket.Presentation.Menu
                 return;
             }
 
-            var categoria = _categoriaService.ObtenerPorId(id);
+            var categoria =  await _categoriaService.ObtenerPorId(id);
             if (categoria == null)
             {
                 Console.Clear();
@@ -293,7 +293,7 @@ namespace NetTicket.Presentation.Menu
         }
 
 
-        public void RunCategoriaMenu()
+        public async Task  RunCategoriaMenu()
         {
             int optionMenu;
 
@@ -322,25 +322,26 @@ namespace NetTicket.Presentation.Menu
                 switch (optionMenu)
                 {
                     case 1:
-                            CategoriaMenuCase1();
+                           await CategoriaMenuCase1();
                         break;
                     
                     case 2:
-                            CategoriaMenuCase2();
+                           await CategoriaMenuCase2();
                         break;
                     
                     case 3:
-                            CategoriaMenuCase3();
+                          await  CategoriaMenuCase3();
                         break;
                             
                     case 4:
-                            CategoriaMenuCase4(); 
+                          await CategoriaMenuCase4(); 
                         break;
                     case 5:
-                            CategoriaMenuCase5();
+                           await CategoriaMenuCase5();
                         break;
                 }
             } while (optionMenu != 6);
         }
     }
 }
+

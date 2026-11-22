@@ -27,7 +27,7 @@ namespace NetTicket.Presentation.Menu
             _usuarioService = usuarioService;    
         }
 
-        public int CountAllComentarios() => _comentarioService.CountAllComentarios();
+        public async Task<int> CountAllComentarios() => await _comentarioService.CountAllComentarios();
         private void CabeceraComentarios()
         {
             AnsiConsole.Write(
@@ -38,7 +38,7 @@ namespace NetTicket.Presentation.Menu
             );
         }
 
-        private void ComentarioMenuCase1()
+        private async Task ComentarioMenuCase1()
         {
             Console.Clear();
             CabeceraComentarios();
@@ -71,7 +71,7 @@ namespace NetTicket.Presentation.Menu
                 return;
             }
 
-            var ticket = _ticketService.ObtenerPorId(ticketId);
+            var ticket = await _ticketService.ObtenerPorId(ticketId);
 
             if (ticket == null)
             {
@@ -99,7 +99,7 @@ namespace NetTicket.Presentation.Menu
                 return;
             }
 
-            var usuario = _usuarioService.ObtenerPorId(usuarioId);
+            var usuario = await _usuarioService.ObtenerPorId(usuarioId);
             if (usuario == null)
             {
                 Console.Clear();
@@ -113,7 +113,7 @@ namespace NetTicket.Presentation.Menu
             }
 
 
-            var createComentario = _comentarioService.Create(ticketId, usuarioId, texto);
+            var createComentario = await _comentarioService.Create(ticketId, usuarioId, texto);
             Console.Clear();
             AnsiConsole.Write(
                 new Panel($"[bold yellow]Id:[/] {createComentario.Id}," +
@@ -127,19 +127,19 @@ namespace NetTicket.Presentation.Menu
             );
         }
 
-        private void ComentarioMenuCase2()
+        private async Task ComentarioMenuCase2()
         {
             Console.Clear();
             CabeceraComentarios();
 
             AnsiConsole.Write(
-                new Panel($"[bold cyan]Comentarios registrados en la base de datos: [/] {CountAllComentarios()}")
+                new Panel($"[bold cyan]Comentarios registrados en la base de datos: [/] {await CountAllComentarios()}")
                 .Border(BoxBorder.Rounded)
                 .BorderColor(Color.Cyan)
                 .Expand()
             );
 
-            var comentarios = _comentarioService.ObtenerTodos();
+            var comentarios = await _comentarioService.ObtenerTodos();
 
             if (comentarios == null || !comentarios.Any())
             {
@@ -159,7 +159,7 @@ namespace NetTicket.Presentation.Menu
             Console.WriteLine();
         }
 
-        private void ComentarioMenuCase3()
+        private async Task ComentarioMenuCase3()
         {
             Console.Clear();
             CabeceraComentarios();
@@ -177,7 +177,7 @@ namespace NetTicket.Presentation.Menu
                 return;
             }
 
-            var comentario = _comentarioService.ObtenerPorId(id);
+            var comentario = await _comentarioService.ObtenerPorId(id);
             Console.Clear();
 
             if (comentario == null)
@@ -203,7 +203,7 @@ namespace NetTicket.Presentation.Menu
             );
         }
 
-        private void ComentarioMenuCase4()
+        private async Task ComentarioMenuCase4()
         {
             Console.Clear();
             CabeceraComentarios();
@@ -221,7 +221,7 @@ namespace NetTicket.Presentation.Menu
                 return;
             }
 
-            var comentario = _comentarioService.ObtenerPorId(id);
+            var comentario = await _comentarioService.ObtenerPorId(id);
             if (comentario == null)
             {
                 Console.Clear();
@@ -249,7 +249,7 @@ namespace NetTicket.Presentation.Menu
                 return;
             }
 
-            _comentarioService.Update(id, texto);
+            await _comentarioService.Update(id, texto);
             Console.Clear();
 
             AnsiConsole.Write(
@@ -264,7 +264,7 @@ namespace NetTicket.Presentation.Menu
             );
         }
 
-        public void RunComentarioMenu()
+        public async Task RunComentarioMenu()
         {
             int optionCmt;
 
@@ -292,17 +292,17 @@ namespace NetTicket.Presentation.Menu
                 switch(optionCmt)
                 {
                     case 1:
-                            ComentarioMenuCase1();
+                           await ComentarioMenuCase1();
                         break;
 
                     case 2:
-                            ComentarioMenuCase2();
+                           await ComentarioMenuCase2();
                         break;
                     case 3:
-                            ComentarioMenuCase3();
+                           await ComentarioMenuCase3();
                         break;
                     case 4:
-                            ComentarioMenuCase4();
+                           await ComentarioMenuCase4();
                         break;
                 }
 

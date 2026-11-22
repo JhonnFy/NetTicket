@@ -19,7 +19,7 @@ namespace NetTicket.Presentation.Menu
             _estadoService = estadoService;
         }
 
-        public int CountAllEstados() => _estadoService.CountAllEstados();
+        public async Task<int> CountAllEstados() => await _estadoService.CountAllEstados();
 
         private void CabeceraEstado()
         {
@@ -31,7 +31,7 @@ namespace NetTicket.Presentation.Menu
             );
         }
 
-        private void EstadoMenuCase1()
+        private async Task EstadoMenuCase1()
         {
             Console.Clear();
             CabeceraEstado();
@@ -50,7 +50,7 @@ namespace NetTicket.Presentation.Menu
                 return;
             }
 
-            var createEstado = _estadoService.Create(nombre);
+            var createEstado = await _estadoService.Create(nombre);
             Console.Clear();
 
             AnsiConsole.Write(
@@ -60,19 +60,19 @@ namespace NetTicket.Presentation.Menu
             );
         }
 
-        private void EstadoMenuCase2()
+        private async Task EstadoMenuCase2()
         {
             Console.Clear();
             CabeceraEstado();
 
             AnsiConsole.Write(
-                new Panel($"[bold cyan]Estados registrados en la base de datos:[/] {CountAllEstados()}")
+                new Panel($"[bold cyan]Estados registrados en la base de datos:[/] {await CountAllEstados()}")
                     .Border(BoxBorder.Rounded)
                     .BorderColor(Color.Cyan)
                     .Expand()
             );
 
-            var estados = _estadoService.ObtenerTodos();
+            var estados = await _estadoService.ObtenerTodos();
 
             if (estados == null || !estados.Any())
             {
@@ -92,7 +92,7 @@ namespace NetTicket.Presentation.Menu
             Console.WriteLine();
         }
 
-        private void EstadoMenuCase3()
+        private async Task EstadoMenuCase3()
         {
             Console.Clear();
             CabeceraEstado();
@@ -110,7 +110,7 @@ namespace NetTicket.Presentation.Menu
                 return;
             }
 
-            var estado = _estadoService.ObtenerPorId(id);
+            var estado = await _estadoService.ObtenerPorId(id);
             Console.Clear();
 
             if (estado == null)
@@ -131,7 +131,7 @@ namespace NetTicket.Presentation.Menu
             );
         }
 
-        private void EstadoMenuCase4()
+        private async Task EstadoMenuCase4()
         {
             Console.Clear();
             CabeceraEstado();
@@ -149,7 +149,7 @@ namespace NetTicket.Presentation.Menu
                 return;
             }
 
-            var estado = _estadoService.ObtenerPorId(id);
+            var estado = await _estadoService.ObtenerPorId(id);
             if(estado == null)
             {
                 Console.Clear();
@@ -177,7 +177,7 @@ namespace NetTicket.Presentation.Menu
                 return;
             }
 
-            _estadoService.Update(id, nombre);
+            await _estadoService.Update(id, nombre);
             Console.Clear();
 
             AnsiConsole.Write(
@@ -187,7 +187,7 @@ namespace NetTicket.Presentation.Menu
             );
         }
 
-        private void EstadoMenuCase5()
+        private async Task EstadoMenuCase5()
         {
             Console.Clear();
             CabeceraEstado();
@@ -205,7 +205,7 @@ namespace NetTicket.Presentation.Menu
                 return;
             }
 
-            var estado = _estadoService.ObtenerPorId(id);
+            var estado = await _estadoService.ObtenerPorId(id);
             if(estado == null)
             {
                 Console.Clear();
@@ -241,7 +241,7 @@ namespace NetTicket.Presentation.Menu
 
             try
             {
-                bool eliminado = _estadoService.Delete(id);
+                bool eliminado = await _estadoService.Delete(id);
                 Console.Clear();
 
                 if(eliminado)
@@ -287,7 +287,7 @@ namespace NetTicket.Presentation.Menu
         }
 
 
-        public void RunEstadoMenu()
+        public async Task RunEstadoMenu()
 
         {
             int optionMenu;
@@ -317,26 +317,27 @@ namespace NetTicket.Presentation.Menu
                 switch(optionMenu)
                 {
                     case 1:
-                            EstadoMenuCase1();
+                           await EstadoMenuCase1();
                         break;
 
                     case 2:
-                            EstadoMenuCase2();
+                           await EstadoMenuCase2();
                         break;
 
                     case 3:
-                            EstadoMenuCase3();
+                           await EstadoMenuCase3();
                         break;
 
                     case 4:
-                            EstadoMenuCase4();
+                           await EstadoMenuCase4();
                         break;
 
                     case 5:
-                            EstadoMenuCase5();
+                           await EstadoMenuCase5();
                         break;
                 }
             } while (optionMenu !=6);
         }
     }
 }
+
