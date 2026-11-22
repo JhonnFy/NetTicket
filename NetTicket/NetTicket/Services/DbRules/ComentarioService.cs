@@ -13,21 +13,21 @@ namespace NetTicket.Services.DbRules
 {
     public class ComentarioService
     {
-        private readonly ComentarioRepository _repository;
+        private readonly ComentarioRepository _comentarioRepository;
 
-        public ComentarioService(ComentarioRepository repository)
+        public ComentarioService(ComentarioRepository comentarioRepository)
         {
-            _repository = repository;
+            _comentarioRepository = comentarioRepository;
         }
 
         public bool ValidarTexto(Comentario comentario) => !string.IsNullOrWhiteSpace(comentario.Texto);
 
-        public int CountAllComentarios() => _repository.CountAllComentarios();
+        public int CountAllComentarios() => _comentarioRepository.CountAllComentarios();
 
 
         public List<Comentario> ObtenerTodos()
         {
-            var comentarios = _repository.ObtenerTodos();
+            var comentarios = _comentarioRepository.ObtenerTodos();
 
             foreach (var comentario in comentarios)
             {
@@ -40,7 +40,7 @@ namespace NetTicket.Services.DbRules
 
         public Comentario? ObtenerPorId(int id)
         {
-            var comentario = _repository.ObtenerPorId(id);
+            var comentario = _comentarioRepository.ObtenerPorId(id);
             if (comentario == null || !ValidarTexto(comentario))return null;
 
             comentario.Texto = RulesServices.AgregarPreFijo(RulesServices.ConvertirMayuscula(RulesServices.EliminarEspaciosVacios(comentario.Texto)));
@@ -49,14 +49,13 @@ namespace NetTicket.Services.DbRules
 
         public Comentario? Create(int ticketId, int usuarioId, string texto)
         {
-            return _repository.Create(ticketId, usuarioId, texto);
+            return _comentarioRepository.Create(ticketId, usuarioId, texto);
         }
 
         public bool Update(int id, string texto)
         {
-            return _repository.Update(id, texto);
+            return _comentarioRepository.Update(id, texto);
         }
            
     }
 }
-
