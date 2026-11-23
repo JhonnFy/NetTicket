@@ -1,9 +1,13 @@
-﻿using NetTicket.Services.DbRules;
+﻿using Microsoft.Extensions.Configuration;
+using MySqlConnector;
+using NetTicket.Services.DbRules;
 using Spectre.Console;
 using System;
 using System.Collections.Generic;
 using System.Dynamic;
 using System.Linq;
+using System.Linq.Expressions;
+using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -30,10 +34,80 @@ namespace NetTicket.Presentation.Menu
             );
         }
 
-        private void UsuarioMenuCase1()
-        {
+        private async Task UsuarioMenuCase1()
+        { 
             Console.Clear();
             CabeceraUsuario();
+
+            Console.Write("Ingrese el nombre, del nuevo usuario: ");
+            string nombre = Console.ReadLine()?.Trim();
+
+            if (string.IsNullOrWhiteSpace(nombre))
+            {
+                Console.Clear();
+                AnsiConsole.Write(
+                    new Panel($"[bold red]No se permiten valores vacíos.[/]")
+                        .Border(BoxBorder.Rounded)
+                        .BorderColor(Color.Red)
+                        .Expand()
+                );
+                return;
+            }
+
+            Console.Write("Ingrese el email, del nuevo usuario: ");
+            string email = Console.ReadLine()?.Trim();
+
+                if (string.IsNullOrWhiteSpace(email))
+                {
+                    Console.Clear();
+                    AnsiConsole.Write(
+                        new Panel($"[bold red]No se permiten valores vacíos.[/]")
+                            .Border(BoxBorder.Rounded)
+                            .BorderColor(Color.Red)
+                            .Expand()
+                    );
+                    return;
+                }
+                       
+            Console.Write("Ingrese el area, del nuevo usuario: ");
+            string area = Console.ReadLine()?.Trim();
+
+            if(string.IsNullOrWhiteSpace(area))
+            {
+                Console.Clear();
+                AnsiConsole.Write(
+                    new Panel($"[bold red]No se permiten valores vacíos.[/]")
+                        .Border(BoxBorder.Rounded)
+                        .BorderColor(Color.Red)
+                        .Expand()
+                );
+                return;
+            }
+                                    
+            try
+            {
+                var createUsuario = await _usuarioService.Create(nombre, email, area);
+                Console.Clear();
+
+                AnsiConsole.Write(
+                    new Panel($"[bold yellow]Id:[/] {createUsuario.Id},\n" +
+                    $"[bold cyan]Nombre:[/] {createUsuario.Nombre},\n" +
+                    $"[bold cyan]Email:[/] {createUsuario.Email},\n" +
+                    $"[bold cyan]Area:[/] {createUsuario.Area}")
+                    .Border(BoxBorder.Rounded)
+                    .Expand()
+                );
+            }
+            catch (MySqlException ex) when (ex.Number == 1062)
+            {
+                Console.Clear();
+                AnsiConsole.Write(
+                     new Panel($"[bold red]El email ya existe en la base de datos.[/]\n[grey]{ex.Message}[/]")
+                    .Border(BoxBorder.Rounded)
+                    .BorderColor(Color.Red)
+                    .Expand()
+                );
+            }  
         }
 
         private async Task  UsuarioMenuCase2()
@@ -68,6 +142,47 @@ namespace NetTicket.Presentation.Menu
             Console.WriteLine();
         }
 
+        private async Task UsuarioMenuCase3()
+        {
+            Console.Clear();
+            CabeceraUsuario();
+
+            Console.Write("Ingrese el parámetro de consulta: ");
+            if (!int.TryParse(Console.ReadLine(), out int id))
+            {
+                Console.Clear();
+                AnsiConsole.Write(
+                    new Panel("[bold red]El ID ingresado no es válido; Solo se permiten valores numéricos.[/]")
+                        .Border(BoxBorder.Rounded)
+                        .BorderColor(Color.Red)
+                        .Expand()
+                );
+                return;
+            }
+
+            var usuario = await _usuarioService.ObtenerPorId(id);
+            Console.Clear();
+
+            if(usuario == null)
+            {
+                AnsiConsole.Write(
+                    new Panel($"[bold red]El Id {id} proporcionado no existe en la base de datos.[/]")
+                        .Border(BoxBorder.Rounded)
+                        .BorderColor(Color.Red)
+                        .Expand()
+                );
+                return;
+            }
+
+            AnsiConsole.Write(
+                new Panel($"[bold yellow]Id:[/] {usuario.Id},\n" +
+                $"[bold cyan]Nombre:[/] {usuario.Nombre},\n" +
+                $"[bold cyan]Email:[/] {usuario.Email},\n" +
+                $"[bold cyan]Area:[/] {usuario.Area}")
+                .Border(BoxBorder.Rounded)
+                .Expand()
+            );
+        }
 
         public async Task RunUsuarioMenu()
         {
@@ -93,12 +208,11 @@ namespace NetTicket.Presentation.Menu
                  });
 
                 optionMenu = AnsiConsole.Prompt(menu);
-                Console.Clear();
-
+             
                 switch(optionMenu)
                 {
                     case 1:
-                            UsuarioMenuCase1();
+                           await UsuarioMenuCase1();
                         break;
                             
                     case 2:
@@ -106,7 +220,7 @@ namespace NetTicket.Presentation.Menu
                         break;
 
                     case 3:
-                            
+                            await UsuarioMenuCase3();
                         break;
                     case 4:
                             
@@ -119,4 +233,6 @@ namespace NetTicket.Presentation.Menu
         }
     }
 }
+
+
 

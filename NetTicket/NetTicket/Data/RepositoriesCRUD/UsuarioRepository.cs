@@ -178,5 +178,20 @@ namespace NetTicket.Data.RepositoriesCRUD
                 throw;
             }
         }
+
+        public async Task<bool> ExisteEmail(string email)
+        {
+            try
+            {
+                await using MySqlConnection cn = _conexion.ObtenerConexion();
+                await cn.OpenAsync();
+
+            }catch()
+            {
+
+            }
+        }
+
+
     }
 }
