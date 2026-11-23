@@ -179,8 +179,27 @@ namespace NetTicket.Data.RepositoriesCRUD
             }
         }
 
+        public async Task<bool> ExisteEmail (string email)
+        {
+            try
+            {
+                await using MySqlConnection cn = _conexion.ObtenerConexion();
+                await cn.OpenAsync();
 
+                await using MySqlCommand cmd = new MySqlCommand("ExisteEmail", cn);
+                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("p_Email", email);
 
+                var countEmail = Convert.ToInt32(await cmd.ExecuteScalarAsync());
+                return countEmail > 0;
+
+            }catch(Exception ex)
+            {
+                Console.WriteLine("UsuarioRepository ExisteEmail: " + ex.Message);
+                throw;
+            }
+        }
 
     }
 }
+

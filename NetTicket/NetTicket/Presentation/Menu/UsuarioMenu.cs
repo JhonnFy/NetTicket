@@ -57,7 +57,8 @@ namespace NetTicket.Presentation.Menu
             Console.Write("Ingrese el email, del nuevo usuario: ");
             string email = Console.ReadLine()?.Trim();
 
-                if (string.IsNullOrWhiteSpace(email))
+
+            if (string.IsNullOrWhiteSpace(email))
                 {
                     Console.Clear();
                     AnsiConsole.Write(
@@ -67,8 +68,22 @@ namespace NetTicket.Presentation.Menu
                             .Expand()
                     );
                     return;
-                }
-                       
+            }
+
+
+            if (await _usuarioService.ExisteEmail(email))
+            {
+                Console.Clear();
+                AnsiConsole.Write(
+                    new Panel("[bold red]El email ya existe en la base de datos.[/]")
+                        .Border(BoxBorder.Rounded)
+                        .BorderColor(Color.Red)
+                        .Expand()
+                );
+                return;
+            }
+
+
             Console.Write("Ingrese el area, del nuevo usuario: ");
             string area = Console.ReadLine()?.Trim();
 
@@ -83,31 +98,33 @@ namespace NetTicket.Presentation.Menu
                 );
                 return;
             }
-                                    
+
+
             try
             {
                 var createUsuario = await _usuarioService.Create(nombre, email, area);
                 Console.Clear();
 
                 AnsiConsole.Write(
-                    new Panel($"[bold yellow]Id:[/] {createUsuario.Id},\n" +
-                    $"[bold cyan]Nombre:[/] {createUsuario.Nombre},\n" +
-                    $"[bold cyan]Email:[/] {createUsuario.Email},\n" +
-                    $"[bold cyan]Area:[/] {createUsuario.Area}")
-                    .Border(BoxBorder.Rounded)
-                    .Expand()
+                        new Panel($"[bold yellow]Id:[/] {createUsuario.Id},\n" +
+                        $"[bold cyan]Nombre:[/] {createUsuario.Nombre},\n" +
+                        $"[bold cyan]Email:[/] {createUsuario.Email},\n" +
+                        $"[bold cyan]Area:[/] {createUsuario.Area}")
+                        .Border(BoxBorder.Rounded)
+                        .Expand()
                 );
             }
             catch (MySqlException ex) when (ex.Number == 1062)
             {
                 Console.Clear();
                 AnsiConsole.Write(
-                     new Panel($"[bold red]El email ya existe en la base de datos.[/]\n[grey]{ex.Message}[/]")
-                    .Border(BoxBorder.Rounded)
-                    .BorderColor(Color.Red)
-                    .Expand()
+                    new Panel($"[bold red]El email ya existe en la base de datos.[/]\n[grey]{ex.Message}[/]")
+                        .Border(BoxBorder.Rounded)
+                        .BorderColor(Color.Red)
+                        .Expand()
                 );
-            }  
+                return;
+            }
         }
 
         private async Task  UsuarioMenuCase2()
