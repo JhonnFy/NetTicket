@@ -39,6 +39,7 @@ namespace NetTicket.Presentation.Menu
         {
             Console.Clear();
             CabeceraCategorias();
+
             Console.Write("Ingrese el nombre de la nueva categoría: ");
             string nombre = Console.ReadLine()?.Trim();
 
@@ -58,9 +59,10 @@ namespace NetTicket.Presentation.Menu
             Console.Clear();
 
             AnsiConsole.Write(
-                new Panel($"[bold yellow]Id:[/] {createCategoria.Id}\n[bold cyan]Nombre:[/] {createCategoria.Nombre}")
-                .Border(BoxBorder.Rounded)
-                .Expand()
+                new Panel($"[bold yellow]Id:[/] {createCategoria.Id}\n" +
+                    $"[bold cyan]Nombre:[/] {createCategoria.Nombre}")
+                    .Border(BoxBorder.Rounded)
+                    .Expand()
             );
         }
 
@@ -96,7 +98,6 @@ namespace NetTicket.Presentation.Menu
 
             Console.WriteLine();
         }
-
 
         private async Task CategoriaMenuCase3()
         {
@@ -344,4 +345,5 @@ namespace NetTicket.Presentation.Menu
         }
     }
 }
+
 

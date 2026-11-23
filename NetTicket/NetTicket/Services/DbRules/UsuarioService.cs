@@ -71,5 +71,10 @@ namespace NetTicket.Services.DbRules
             return await _usuarioRepository.Delete(id);
         }
 
+        public async Task<bool> ExisteEmail(string email)
+        {
+            return await _usuarioRepository.ExisteEmail(email);
+        }
+
     }
 }
