@@ -269,6 +269,8 @@ Cada repositorio tiene tests con MSTest que prueban contra la DB real:
 <img width="1366" height="768" alt="image" src="https://github.com/user-attachments/assets/b452735b-36b4-46bb-a0e7-9e6b13b58aef" />
 <img width="1366" height="768" alt="image" src="https://github.com/user-attachments/assets/adaa08a1-77df-4349-8ed0-2d7040f31b0f" />
 
+## API
+<img width="1366" height="768" alt="image" src="https://github.com/user-attachments/assets/aaf9e929-fc66-4b56-8e06-b532a90f6635" />
 
 
 
