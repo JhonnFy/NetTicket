@@ -15,33 +15,12 @@ namespace NetTicket.Data.JsonRepositoriesCRUD
     public class JsonCategoriaRepository
     {
         private readonly Conexion _conexion;
+        private readonly string _rutaArchivo;
 
-        public JsonCategoriaRepository(Conexion conexion)
+        public JsonCategoriaRepository(Conexion conexion, string rutaArchivo)
         {
             _conexion = conexion;
+            _rutaArchivo = rutaArchivo;
         }
-
-        public async Task<int> CountAllCategoriasJson()
-        {
-            try
-            {
-                await using MySqlConnection cn = _conexion.ObtenerConexion();
-                await cn.OpenAsync();
-
-                await using MySqlCommand cmd = new MySqlCommand("CountAllCategorias", cn);
-                cmd.CommandType = System.Data.CommandType.StoredProcedure;
-
-                var jsonCountCat = Convert.ToInt32(await cmd.ExecuteScalarAsync());
-
-                return jsonCountCat;
-
-            }catch(Exception ex)
-            {
-                Console.WriteLine("JsonCategoriaRepository CountAllCategoriasJson");
-                throw;
-            }
-        }
-        
-
     }
 }
