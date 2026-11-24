@@ -8,6 +8,7 @@ namespace NetTicket.Api
 {
     public class UsuariosApi
     {
+
     }
 }
 
