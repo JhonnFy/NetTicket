@@ -1,0 +1,402 @@
+[
+	{
+		"titulo": "Error de inicio de sesion",
+		"descripcion": "D1",
+		"usuario_id": 1,
+		"categoria_id": 1,
+		"estado_id": 1,
+		"fecha_creacion": "2026-11-26T00:00:00"
+	},
+	{
+		"titulo": "Acceso denegado",
+		"descripcion": "D2",
+		"usuario_id": 2,
+		"categoria_id": 2,
+		"estado_id": 2,
+		"fecha_creacion": "2026-11-26T00:00:00"
+	},
+	{
+		"titulo": "Usuario bloqueado",
+		"descripcion": "D3",
+		"usuario_id": 3,
+		"categoria_id": 3,
+		"estado_id": 3,
+		"fecha_creacion": "2026-11-26T00:00:00"
+	},
+	{
+		"titulo": "Error de credencial",
+		"descripcion": "D4",
+		"usuario_id": 4,
+		"categoria_id": 4,
+		"estado_id": 4,
+		"fecha_creacion": "2026-11-26T00:00:00"
+	},
+	{
+		"titulo": "Solicitud de acceso",
+		"descripcion": "D5",
+		"usuario_id": 5,
+		"categoria_id": 5,
+		"estado_id": 5,
+		"fecha_creacion": "2026-11-26T00:00:00"
+	},
+	{
+		"titulo": "Falla en el sistema",
+		"descripcion": "D6",
+		"usuario_id": 6,
+		"categoria_id": 6,
+		"estado_id": 6,
+		"fecha_creacion": "2026-11-26T00:00:00"
+	},
+	{
+		"titulo": "Error de conexion",
+		"descripcion": "D7",
+		"usuario_id": 7,
+		"categoria_id": 7,
+		"estado_id": 7,
+		"fecha_creacion": "2026-11-26T00:00:00"
+	},
+	{
+		"titulo": "Equipo lento",
+		"descripcion": "D8",
+		"usuario_id": 8,
+		"categoria_id": 8,
+		"estado_id": 8,
+		"fecha_creacion": "2026-11-26T00:00:00"
+	},
+	{
+		"titulo": "Pantalla congelada",
+		"descripcion": "D9",
+		"usuario_id": 9,
+		"categoria_id": 9,
+		"estado_id": 9,
+		"fecha_creacion": "2026-11-26T00:00:00"
+	},
+	{
+		"titulo": "Sistema no disponible",
+		"descripcion": "D10",
+		"usuario_id": 10,
+		"categoria_id": 10,
+		"estado_id": 10,
+		"fecha_creacion": "2026-11-26T00:00:00"
+	},
+	{
+		"titulo": "Error al guardar",
+		"descripcion": "D11",
+		"usuario_id": 11,
+		"categoria_id": 11,
+		"estado_id": 11,
+		"fecha_creacion": "2026-11-26T00:00:00"
+	},
+	{
+		"titulo": "Error al consultar datos",
+		"descripcion": "D12",
+		"usuario_id": 12,
+		"categoria_id": 12,
+		"estado_id": 12,
+		"fecha_creacion": "2026-11-26T00:00:00"
+	},
+	{
+		"titulo": "Problema de impresion",
+		"descripcion": "D13",
+		"usuario_id": 13,
+		"categoria_id": 13,
+		"estado_id": 13,
+		"fecha_creacion": "2026-11-26T00:00:00"
+	},
+	{
+		"titulo": "Falla de red",
+		"descripcion": "D14",
+		"usuario_id": 14,
+		"categoria_id": 14,
+		"estado_id": 14,
+		"fecha_creacion": "2026-11-26T00:00:00"
+	},
+	{
+		"titulo": "Internet intermitente",
+		"descripcion": "D15",
+		"usuario_id": 15,
+		"categoria_id": 15,
+		"estado_id": 15,
+		"fecha_creacion": "2026-11-26T00:00:00"
+	},
+	{
+		"titulo": "Correo no funciona",
+		"descripcion": "D16",
+		"usuario_id": 16,
+		"categoria_id": 16,
+		"estado_id": 16,
+		"fecha_creacion": "2026-11-26T00:00:00"
+	},
+	{
+		"titulo": "Correo bloqueado",
+		"descripcion": "D17",
+		"usuario_id": 17,
+		"categoria_id": 17,
+		"estado_id": 17,
+		"fecha_creacion": "2026-11-26T00:00:00"
+	},
+	{
+		"titulo": "Error de sincronizacion",
+		"descripcion": "D18",
+		"usuario_id": 18,
+		"categoria_id": 18,
+		"estado_id": 18,
+		"fecha_creacion": "2026-11-26T00:00:00"
+	},
+	{
+		"titulo": "Archivo no encontrado",
+		"descripcion": "D19",
+		"usuario_id": 19,
+		"categoria_id": 19,
+		"estado_id": 19,
+		"fecha_creacion": "2026-11-26T00:00:00"
+	},
+	{
+		"titulo": "Permiso insuficiente",
+		"descripcion": "D20",
+		"usuario_id": 20,
+		"categoria_id": 20,
+		"estado_id": 20,
+		"fecha_creacion": "2026-11-26T00:00:00"
+	},
+	{
+		"titulo": "Solicitud de instalacion",
+		"descripcion": "D21",
+		"usuario_id": 21,
+		"categoria_id": 21,
+		"estado_id": 21,
+		"fecha_creacion": "2026-11-26T00:00:00"
+	},
+	{
+		"titulo": "Instalacion fallida",
+		"descripcion": "D22",
+		"usuario_id": 22,
+		"categoria_id": 22,
+		"estado_id": 22,
+		"fecha_creacion": "2026-11-26T00:00:00"
+	},
+	{
+		"titulo": "Actualizacion pendiente",
+		"descripcion": "D23",
+		"usuario_id": 23,
+		"categoria_id": 23,
+		"estado_id": 23,
+		"fecha_creacion": "2026-11-26T00:00:00"
+	},
+	{
+		"titulo": "Error de actualizacion",
+		"descripcion": "D24",
+		"usuario_id": 24,
+		"categoria_id": 24,
+		"estado_id": 24,
+		"fecha_creacion": "2026-11-26T00:00:00"
+	},
+	{
+		"titulo": "Aplicacion bloqueada",
+		"descripcion": "D25",
+		"usuario_id": 25,
+		"categoria_id": 25,
+		"estado_id": 25,
+		"fecha_creacion": "2026-11-26T00:00:00"
+	},
+	{
+		"titulo": "Aplicacion no responde",
+		"descripcion": "D26",
+		"usuario_id": 26,
+		"categoria_id": 26,
+		"estado_id": 26,
+		"fecha_creacion": "2026-11-26T00:00:00"
+	},
+	{
+		"titulo": "Error de servidor",
+		"descripcion": "D27",
+		"usuario_id": 27,
+		"categoria_id": 27,
+		"estado_id": 27,
+		"fecha_creacion": "2026-11-26T00:00:00"
+	},
+	{
+		"titulo": "Servidor fuera de linea",
+		"descripcion": "D28",
+		"usuario_id": 28,
+		"categoria_id": 28,
+		"estado_id": 28,
+		"fecha_creacion": "2026-11-26T00:00:00"
+	},
+	{
+		"titulo": "Falla de base de datos",
+		"descripcion": "D29",
+		"usuario_id": 29,
+		"categoria_id": 29,
+		"estado_id": 29,
+		"fecha_creacion": "2026-11-26T00:00:00"
+	},
+	{
+		"titulo": "Datos incorrectos",
+		"descripcion": "D30",
+		"usuario_id": 30,
+		"categoria_id": 30,
+		"estado_id": 30,
+		"fecha_creacion": "2026-11-26T00:00:00"
+	},
+	{
+		"titulo": "Registro duplicado",
+		"descripcion": "D31",
+		"usuario_id": 31,
+		"categoria_id": 31,
+		"estado_id": 31,
+		"fecha_creacion": "2026-11-26T00:00:00"
+	},
+	{
+		"titulo": "Usuario no encontrado",
+		"descripcion": "D32",
+		"usuario_id": 32,
+		"categoria_id": 32,
+		"estado_id": 32,
+		"fecha_creacion": "2026-11-26T00:00:00"
+	},
+	{
+		"titulo": "Error de facturacion",
+		"descripcion": "D33",
+		"usuario_id": 33,
+		"categoria_id": 33,
+		"estado_id": 33,
+		"fecha_creacion": "2026-11-26T00:00:00"
+	},
+	{
+		"titulo": "Problema de inventario",
+		"descripcion": "D34",
+		"usuario_id": 34,
+		"categoria_id": 34,
+		"estado_id": 34,
+		"fecha_creacion": "2026-11-26T00:00:00"
+	},
+	{
+		"titulo": "Error en reporte",
+		"descripcion": "D35",
+		"usuario_id": 35,
+		"categoria_id": 35,
+		"estado_id": 35,
+		"fecha_creacion": "2026-11-26T00:00:00"
+	},
+	{
+		"titulo": "Solicitud de soporte",
+		"descripcion": "D36",
+		"usuario_id": 36,
+		"categoria_id": 36,
+		"estado_id": 36,
+		"fecha_creacion": "2026-11-26T00:00:00"
+	},
+	{
+		"titulo": "Configuracion incorrecta",
+		"descripcion": "D37",
+		"usuario_id": 37,
+		"categoria_id": 37,
+		"estado_id": 37,
+		"fecha_creacion": "2026-11-26T00:00:00"
+	},
+	{
+		"titulo": "Error de autenticacion",
+		"descripcion": "D38",
+		"usuario_id": 38,
+		"categoria_id": 38,
+		"estado_id": 38,
+		"fecha_creacion": "2026-11-26T00:00:00"
+	},
+	{
+		"titulo": "Falla de VPN",
+		"descripcion": "D39",
+		"usuario_id": 39,
+		"categoria_id": 39,
+		"estado_id": 39,
+		"fecha_creacion": "2026-11-26T00:00:00"
+	},
+	{
+		"titulo": "Acceso remoto fallido",
+		"descripcion": "D40",
+		"usuario_id": 40,
+		"categoria_id": 40,
+		"estado_id": 40,
+		"fecha_creacion": "2026-11-26T00:00:00"
+	},
+	{
+		"titulo": "Equipo sin sonido",
+		"descripcion": "D41",
+		"usuario_id": 41,
+		"categoria_id": 41,
+		"estado_id": 41,
+		"fecha_creacion": "2026-11-26T00:00:00"
+	},
+	{
+		"titulo": "Teclado no funciona",
+		"descripcion": "D42",
+		"usuario_id": 42,
+		"categoria_id": 42,
+		"estado_id": 42,
+		"fecha_creacion": "2026-11-26T00:00:00"
+	},
+	{
+		"titulo": "Mouse defectuoso",
+		"descripcion": "D43",
+		"usuario_id": 43,
+		"categoria_id": 43,
+		"estado_id": 43,
+		"fecha_creacion": "2026-11-26T00:00:00"
+	},
+	{
+		"titulo": "Monitor sin señal",
+		"descripcion": "D44",
+		"usuario_id": 44,
+		"categoria_id": 44,
+		"estado_id": 44,
+		"fecha_creacion": "2026-11-26T00:00:00"
+	},
+	{
+		"titulo": "Camara no funciona",
+		"descripcion": "D45",
+		"usuario_id": 45,
+		"categoria_id": 45,
+		"estado_id": 45,
+		"fecha_creacion": "2026-11-26T00:00:00"
+	},
+	{
+		"titulo": "Microfono defectuoso",
+		"descripcion": "D46",
+		"usuario_id": 46,
+		"categoria_id": 46,
+		"estado_id": 46,
+		"fecha_creacion": "2026-11-26T00:00:00"
+	},
+	{
+		"titulo": "Solicitud de equipo",
+		"descripcion": "D47",
+		"usuario_id": 47,
+		"categoria_id": 47,
+		"estado_id": 47,
+		"fecha_creacion": "2026-11-26T00:00:00"
+	},
+	{
+		"titulo": "Cambio de equipo",
+		"descripcion": "D48",
+		"usuario_id": 48,
+		"categoria_id": 48,
+		"estado_id": 48,
+		"fecha_creacion": "2026-11-26T00:00:00"
+	},
+	{
+		"titulo": "Recuperacion de archivos",
+		"descripcion": "D49",
+		"usuario_id": 49,
+		"categoria_id": 49,
+		"estado_id": 49,
+		"fecha_creacion": "2026-11-26T00:00:00"
+	},
+	{
+		"titulo": "Error de aplicacion",
+		"descripcion": "D50",
+		"usuario_id": 50,
+		"categoria_id": 50,
+		"estado_id": 50,
+		"fecha_creacion": "2026-11-26T00:00:00"
+	}
+]
