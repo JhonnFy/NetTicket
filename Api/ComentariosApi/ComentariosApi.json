@@ -1,0 +1,302 @@
+[
+	{
+		"ticket_id": 1,
+		"usuario_id": 1,
+		"texto": "Se inicia la revision del caso",
+		"fecha": "2026-11-26T00:00:00"
+	},
+	{
+		"ticket_id": 2,
+		"usuario_id": 2,
+		"texto": "Se asigna el caso al equipo tecnico",
+		"fecha": "2026-11-26T00:00:00"
+	},
+	{
+		"ticket_id": 3,
+		"usuario_id": 3,
+		"texto": "Se comienzan las labores de diagnostico",
+		"fecha": "2026-11-26T00:00:00"
+	},
+	{
+		"ticket_id": 4,
+		"usuario_id": 4,
+		"texto": "Se revisa la informacion proporcionada",
+		"fecha": "2026-11-26T00:00:00"
+	},
+	{
+		"ticket_id": 5,
+		"usuario_id": 5,
+		"texto": "Se establece contacto con el usuario",
+		"fecha": "2026-11-26T00:00:00"
+	},
+	{
+		"ticket_id": 6,
+		"usuario_id": 6,
+		"texto": "Se solicitan detalles adicionales del incidente",
+		"fecha": "2026-11-26T00:00:00"
+	},
+	{
+		"ticket_id": 7,
+		"usuario_id": 7,
+		"texto": "Se valida el error reportado",
+		"fecha": "2026-11-26T00:00:00"
+	},
+	{
+		"ticket_id": 8,
+		"usuario_id": 8,
+		"texto": "Se realizan pruebas iniciales",
+		"fecha": "2026-11-26T00:00:00"
+	},
+	{
+		"ticket_id": 9,
+		"usuario_id": 9,
+		"texto": "Se identifica la causa del problema",
+		"fecha": "2026-11-26T00:00:00"
+	},
+	{
+		"ticket_id": 10,
+		"usuario_id": 10,
+		"texto": "Se inicia el proceso de solucion",
+		"fecha": "2026-11-26T00:00:00"
+	},
+	{
+		"ticket_id": 11,
+		"usuario_id": 11,
+		"texto": "Se encuentra pendiente la revision del area encargada",
+		"fecha": "2026-11-26T00:00:00"
+	},
+	{
+		"ticket_id": 12,
+		"usuario_id": 12,
+		"texto": "Se solicita apoyo de otro equipo",
+		"fecha": "2026-11-26T00:00:00"
+	},
+	{
+		"ticket_id": 13,
+		"usuario_id": 13,
+		"texto": "Se escala el caso al siguiente nivel",
+		"fecha": "2026-11-26T00:00:00"
+	},
+	{
+		"ticket_id": 14,
+		"usuario_id": 14,
+		"texto": "Se revisan los registros del sistema",
+		"fecha": "2026-11-26T00:00:00"
+	},
+	{
+		"ticket_id": 15,
+		"usuario_id": 15,
+		"texto": "Se verifica la conectividad del equipo",
+		"fecha": "2026-11-26T00:00:00"
+	},
+	{
+		"ticket_id": 16,
+		"usuario_id": 16,
+		"texto": "Se realizan ajustes en la configuracion",
+		"fecha": "2026-11-26T00:00:00"
+	},
+	{
+		"ticket_id": 17,
+		"usuario_id": 17,
+		"texto": "Se ejecutan pruebas de funcionamiento.",
+		"fecha": "2026-11-26T00:00:00"
+	},
+	{
+		"ticket_id": 18,
+		"usuario_id": 18,
+		"texto": "Se valida el comportamiento de la aplicacion", 
+		"fecha": "2026-11-26T00:00:00"
+	},
+	{ 
+		"ticket_id": 19,
+		"usuario_id": 19,
+		"texto": "Se confirma la persistencia del error",
+		"fecha": "2026-11-26T00:00:00"
+	},
+	{
+		"ticket_id": 20,
+		"usuario_id": 20, 
+		"texto": "Se descarta una falla de conectividad",
+		"fecha": "2026-11-26T00:00:00"
+	},
+	{
+		"ticket_id": 21,
+		"usuario_id": 21,
+		"texto": "Se encuentra una inconsistencia en los datos",
+		"fecha": "2026-11-26T00:00:00"
+	},
+	{
+		"ticket_id": 22,
+		"usuario_id": 22,
+		"texto": "Se trabaja en la correccion del incidente",
+		"fecha": "2026-11-26T00:00:00"
+	},
+	{
+		"ticket_id": 23,
+		"usuario_id": 23,
+		"texto": "Se aplica una solucion temporal",
+		"fecha": "2026-11-26T00:00:00"
+	},
+	{
+		"ticket_id": 24,
+		"usuario_id": 24,
+		"texto": "Se prepara una solucion definitiva",
+		"fecha": "2026-11-26T00:00:00"
+	},
+	{
+		"ticket_id": 25,
+		"usuario_id": 25,
+		"texto": "Se solicita autorizacion para continuar",
+		"fecha": "2026-11-26T00:00:00"
+	},
+	{
+		"ticket_id": 26,
+		"usuario_id": 26,
+		"texto": "Se espera respuesta del usuario",
+		"fecha": "2026-11-26T00:00:00"
+	},
+	{
+		"ticket_id": 27,
+		"usuario_id": 27,
+		"texto": "Se programa una nueva revision",
+		"fecha": "2026-11-26T00:00:00"
+	},
+	{
+		"ticket_id": 28,
+		"usuario_id": 28,
+		"texto": "Se realiza seguimiento al caso",
+		"fecha": "2026-11-26T00:00:00"
+	},
+	{
+		"ticket_id": 29,
+		"usuario_id": 29,
+		"texto": "Se actualiza la informacion del ticket",
+		"fecha": "2026-11-26T00:00:00"
+	},
+	{
+		"ticket_id": 30,
+		"usuario_id": 30,
+		"texto": "Se documentan los hallazgos",
+		"fecha": "2026-11-26T00:00:00"
+	},
+	{
+		"ticket_id": 31,
+		"usuario_id": 31,
+		"texto": "Se adjuntan evidencias de las pruebas",
+		"fecha": "2026-11-26T00:00:00"
+	},
+	{
+		"ticket_id": 32,
+		"usuario_id": 32,
+		"texto": "Se informa el avance de las actividades",
+		"fecha": "2026-11-26T00:00:00"
+	},
+	{
+		"ticket_id": 33,
+		"usuario_id": 33,
+		"texto": "Se confirma la recepcion de la solicitud",
+		"fecha": "2026-11-26T00:00:00"
+	},
+	{
+		"ticket_id": 34,
+		"usuario_id": 34,
+		"texto": "Se retoman las actividades pendientes",
+		"fecha": "2026-11-26T00:00:00"
+	},
+	{
+		"ticket_id": 35,
+		"usuario_id": 35,
+		"texto": "Se reinicia el proceso de validacion",
+		"fecha": "2026-11-26T00:00:00"
+	},
+	{
+		"ticket_id": 36,
+		"usuario_id": 36,
+		"texto": "Se realizan pruebas adicionales",
+		"fecha": "2026-11-26T00:00:00"
+	},
+	{
+		"ticket_id": 37,
+		"usuario_id": 37,
+		"texto": "Se verifica la solucion implementada",
+		"fecha": "2026-11-26T00:00:00"
+	},
+	{
+		"ticket_id": 38,
+		"usuario_id": 38,
+		"texto": "Se confirma el correcto funcionamiento",
+		"fecha": "2026-11-26T00:00:00"
+	},
+	{
+		"ticket_id": 39,
+		"usuario_id": 39,
+		"texto": "Se informa al usuario sobre los resultados",
+		"fecha": "2026-11-26T00:00:00"
+	},
+	{
+		"ticket_id": 40,
+		"usuario_id": 40,
+		"texto": "Se solicita validacion por parte del usuario",
+		"fecha": "2026-11-26T00:00:00"
+	},
+	{
+		"ticket_id": 41,
+		"usuario_id": 41,
+		"texto": "El usuario confirma que el problema persiste",
+		"fecha": "2026-11-26T00:00:00"
+	},
+	{
+		"ticket_id": 42,
+		"usuario_id": 42,
+		"texto": "El usuario confirma que el problema fue solucionado",
+		"fecha": "2026-11-26T00:00:00"
+	},
+	{
+		"ticket_id": 43,
+		"usuario_id": 43,
+		"texto": "Se encuentra pendiente una actualizacion",
+		"fecha": "2026-11-26T00:00:00"
+	},
+	{
+		"ticket_id": 44,
+		"usuario_id": 44,
+		"texto": "Se completan los ajustes requeridos",
+		"fecha": "2026-11-26T00:00:00"
+	},
+	{
+		"ticket_id": 45,
+		"usuario_id": 45,
+		"texto": "Se finalizan las pruebas tecnicas",
+		"fecha": "2026-11-26T00:00:00"
+	},
+	{
+		"ticket_id": 46,
+		"usuario_id": 46,
+		"texto": "Se deja registro de la solucion aplicada",
+		"fecha": "2026-11-26T00:00:00"
+	},
+	{
+		"ticket_id": 47,
+		"usuario_id": 47,
+		"texto": "Se procede con el cierre del caso",
+		"fecha": "2026-11-26T00:00:00"
+	},
+	{
+		"ticket_id": 48,
+		"usuario_id": 48,
+		"texto": "Se confirma el cierre con el usuario",
+		"fecha": "2026-11-26T00:00:00"
+	},
+	{
+		"ticket_id": 49,
+		"usuario_id": 49,
+		"texto": "Caso resuelto satisfactoriamente",
+		"fecha": "2026-11-26T00:00:00"
+	},
+	{
+		"ticket_id": 50,
+		"usuario_id": 50,
+		"texto": "Se cierra el ticket con las observaciones correspondientes",
+		"fecha": "2026-11-26T00:00:00"
+	}
+]
