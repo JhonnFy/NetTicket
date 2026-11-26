@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NetTicket.Api
+namespace NetTicket.Api.Deserializar
 {
-    public class EstadosApi
+    public class DeserializarTicketsJson
     {
     }
 }
