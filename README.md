@@ -1,4 +1,4 @@
-
+ 
 # Sistema de Gestión de Tickets
 Menu → MenuContext→ CategoriaMenu → CategoriaService → CategoriaRepository → MySQL
 
