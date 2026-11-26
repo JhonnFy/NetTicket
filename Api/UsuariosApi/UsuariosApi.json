@@ -202,51 +202,51 @@
 	{
 		"nombre": "Jose Ortega Ruiz",
 		"email": "JoseOrtega@Ruiz",
-		"area": ""
+		"area": "Capacitacion"
 	},
 	{
 		"nombre": "Hector Manuel Salazar Gomez",
 		"email": "HectorManuelSalazar@Gomez",
-		"area": ""
+		"area": "Bienestar Laboral"
 	},
 	{
 		"nombre": "Eduardo Nicolas Medina Torres",
 		"email": "EduardoNicolasMedina@Torres",
-		"area": ""
+		"area": "Nomina"
 	},
 	{
 		"nombre": "Alvaro Sebastian Rojas Castro",
 		"email": "AlvaroSebastianRojas@Castro",
-		"area": ""
+		"area": "Seleccion y Contratacion"
 	},
 	{
 		"nombre": "Mauricio Alejandro Leon Ramirez",
 		"email": "MauricioAlejandroLeon@Ramirez",
-		"area": ""
+		"area": "Gestion de Riesgos"
 	},
 	{
 		"nombre": "Esteban Felipe Diaz Moreno",
 		"email": "EstebanFelipeDiaz@Moreno",
-		"area": ""
+		"area": "Seguridad Informatica"
 	},
 	{
 		"nombre": "Nicolas Andres Flores Vargas",
 		"email": "NicolasAndresFlores@Vargas",
-		"area": ""
+		"area": "Infraestructura"
 	},
 	{
 		"nombre": "David Santiago Acosta Reyes",
 		"email": "DavidSantiagoAcosta@Reyes",
-		"area": ""
+		"area": "Comercio Exterior"
 	},
 	{
 		"nombre": "Roberto Carlos Gil Martinez",
 		"email": "RobertoCarlosGil@Martinez",
-		"area": ""
+		"area": "Gestion de Inventarios"
 	},
 	{
 		"nombre": "Alexander Fabian Suarez Lopez",
 		"email": "AlexanderFabianSuarez@Lopez",
-		"area": ""
+		"area": "Servicio Postventa"
 	}
 ]
