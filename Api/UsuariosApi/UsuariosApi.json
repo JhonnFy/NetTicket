@@ -12,241 +12,241 @@
 	{
 		"nombre": "Luis Fernando Castro Ramirez",
 		"email": "LuisFernandoCastro@Ramirez",
-		"area": ""
+		"area": "Desarrollo de Software"
 	},
 	{
 		"nombre": "Jose Manuel Torres Diaz",
 		"email": "JoseManuelTorres@Diaz",
-		"area": ""
+		"area": "Soporte Tecnico"
 	},
 	{
 		"nombre": "Daniel Felipe Vargas Moreno",
 		"email": "DanielFelipeVargas@Moreno",
-		"area": ""
+		"area": "Calidad"
 	},
 	{
 		"nombre": "Miguel Angel Herrera Ruiz",
 		"email": "MiguelAngelHerrera@Ruiz",
-		"area": ""
+		"area": "Control Interno"
 	},
 	{
 		"nombre": "Andres Felipe Gonzalez Rojas",
 		"email": "AndresFelipeGonzalez@Rojas",
-		"area": ""
+		"area": "Auditoria"
 	},
 	{
 		"nombre": "Santiago Nicolas Romero Silva",
 		"email": "SantiagoNicolasRomero@Silva",
-		"area": ""
+		"area": "Contabilidad"
 	},
 	{
 		"nombre": "Diego Alejandro Sanchez Ortiz",
 		"email": "DiegoAlejandroSanchez@Ortiz",
-		"area": ""
+		"area": "Finanzas"
 	},
 	{
 		"nombre": "Kevin Mauricio Jimenez Lopez",
 		"email": "KevinMauricioJimenez@Lopez",
-		"area": ""
+		"area": "Tesoreria"
 	},
 	{
 		"nombre": "Laura Camila Fernandez Garcia",
 		"email": "LauraCamilaFernandez@Garcia",
-		"area": ""
+		"area": "Administracion"
 	},
 	{
 		"nombre": "Maria Alejandra Castillo Reyes",
 		"email": "MariaAlejandraCastillo@Reyes",
-		"area": ""
+		"area": "Gerencia General"
 	},
 	{
 		"nombre": "Sofia Morales Cruz",
 		"email": "SofiaMorales@Cruz",
-		"area": ""
+		"area": "Gerencia Comercial"
 	},
 	{
 		"nombre": "Valentina Andrea Ramirez Flores",
 		"email": "ValentinaAndreaRamirez@Flores",
-		"area": ""
+		"area": "Ventas"
 	},
 	{
 		"nombre": "Paula Andrea Mendoza Torres",
 		"email": "PaulaAndreaMendoza@Torres",
-		"area": ""
+		"area": "Marketing"
 	},
 	{
 		"nombre": "Natalia Fernanda Rojas",
 		"email": "NataliaFernanda@Rojas",
-		"area": ""
+		"area": "Publicidad"
 	},
 	{
 		"nombre": "Carolina Isabel Suarez Medina",
 		"email": "CarolinaIsabelSuarez@Medina",
-		"area": ""
+		"area": "Comunicaciones"
 	},
 	{
 		"nombre": "Luisa Fernanda Cardenas",
 		"email": "LuisaFernanda@Cardenas",
-		"area": ""
+		"area": "Servicio al Cliente"
 	},
 	{
 		"nombre": "Gabriela Alejandra Pineda Salazar",
 		"email": "GabrielaAlejandraPineda@Salazar",
-		"area": ""
+		"area": "Atencion al Cliente"
 	},
 	{
 		"nombre": "Sara Valentina Acosta Leon",
 		"email": "SaraValentinaAcosta@Leon",
-		"area": ""
+		"area": "Experiencia del Cliente"
 	},
 	{
 		"nombre": "Jorge Luis Ramirez Soto",
 		"email": "JorgeLuisRamirez@Soto",
-		"area": ""
+		"area": "Logistica"
 	},
 	{
 		"nombre": "Oscar Eduardo Martinez Rivas",
 		"email": "OscarEduardoMartinez@Rivas",
-		"area": ""
+		"area": "Operaciones"
 	},
 	{
 		"nombre": "Ricardo Andres Molina Perez",
 		"email": "RicardoAndresMolina@Perez",
-		"area": ""
+		"area": "Produccion"
 	},
 	{
 		"nombre": "Felipe Santiago Navarro Ruiz",
 		"email": "FelipeSantiagoNavarro@Ruiz",
-		"area": ""
+		"area": "Manufactura"
 	},
 	{
 		"nombre": "Sebastian Alexander Quintero Diaz",
 		"email": "SebastianAlexanderQuintero@Diaz",
-		"area": ""
+		"area": "Mantenimiento"
 	},
 	{
 		"nombre": "Mateo Nicolas Beltran Gomez",
 		"email": "MateoNicolasBeltran@Gomez",
-		"area": ""
+		"area": "Seguridad y Salud en el Trabajo"
 	},
 	{
 		"nombre": "Julian Esteban Pardo Castro",
 		"email": "JulianEstebanPardo@Castro",
-		"area": ""
+		"area": "Gestion Ambiental"
 	},
 	{
 		"nombre": "Cristian Camilo Arias Moreno",
 		"email": "CristianCamiloArias@Moreno",
-		"area": ""
+		"area": "Compras"
 	},
 	{
 		"nombre": "Samuel David Cabrera Lopez",
 		"email": "SamuelDavidCabrera@Lopez",
-		"area": ""
+		"area": "Abastecimiento"
 	},
 	{
 		"nombre": "Tomas Enrique Guerrero Silva",
 		"email": "TomasEnriqueGuerrero@Silva",
-		"area": ""
+		"area": "Almacen"
 	},
 	{
 		"nombre": "Ana Maria Lopez Ramirez",
 		"email": "AnaMariaLopez@Ramirez",
-		"area": ""
+		"area": "Distribucion"
 	},
 	{
 		"nombre": "Diana Carolina Perez Vargas",
 		"email": "DianaCarolinaPerez@Vargas",
-		"area": ""
+		"area": "Transporte"
 	},
 	{
 		"nombre": "Juliana Marcela Torres Rojas",
 		"email": "JulianaMarcelaTorres@Rojas",
-		"area": ""
+		"area": "Gestion de Proyectos"
 	},
 	{
 		"nombre": "Cristina Gomez Diaz",
 		"email": "CristinaGomez@Diaz",
-		"area": ""
+		"area": "Planeacion Estrategica"
 	},
 	{
 		"nombre": "Mariana Lucia Herrera Castro",
 		"email": "MarianaLuciaHerrera@Castro",
-		"area": ""
+		"area": "Investigacion y Desarrollo"
 	},
 	{
 		"nombre": "Manuela Sofia Reyes Martinez",
 		"email": "ManuelaSofiaReyes@Martinez",
-		"area": ""
+		"area": "Innovacion"
 	},
 	{
 		"nombre": "Adriana Patricia Silva Moreno",
 		"email": "AdrianaPatriciaSilva@Moreno",
-		"area": ""
+		"area": "Legal"
 	},
 	{
 		"nombre": "Jessica Tatiana Molina Garcia",
-		"email": "",
-		"area": ""
+		"email": "JessicaTatianaMolina@Garcia",
+		"area": "Asuntos Corporativos"
 	},
 	{
 		"nombre": "Viviana Alejandra Cruz Ortiz",
-		"email": "",
-		"area": ""
+		"email": "VivianaAlejandraCruz@Ortiz",
+		"area": "Gestion Documental"
 	},
 	{
 		"nombre": "Monica Liliana Vargas Pineda",
-		"email": "",
-		"area": ""
+		"email": "MonicaLilianaVargas@Pineda",
+		"area": "Archivo"
 	},
 	{
-		"nombre": "Fernando Jose Ortega Ruiz",
-		"email": "",
+		"nombre": "Jose Ortega Ruiz",
+		"email": "JoseOrtega@Ruiz",
 		"area": ""
 	},
 	{
 		"nombre": "Hector Manuel Salazar Gomez",
-		"email": "",
+		"email": "HectorManuelSalazar@Gomez",
 		"area": ""
 	},
 	{
 		"nombre": "Eduardo Nicolas Medina Torres",
-		"email": "",
+		"email": "EduardoNicolasMedina@Torres",
 		"area": ""
 	},
 	{
 		"nombre": "Alvaro Sebastian Rojas Castro",
-		"email": "",
+		"email": "AlvaroSebastianRojas@Castro",
 		"area": ""
 	},
 	{
 		"nombre": "Mauricio Alejandro Leon Ramirez",
-		"email": "",
+		"email": "MauricioAlejandroLeon@Ramirez",
 		"area": ""
 	},
 	{
 		"nombre": "Esteban Felipe Diaz Moreno",
-		"email": "",
+		"email": "EstebanFelipeDiaz@Moreno",
 		"area": ""
 	},
 	{
 		"nombre": "Nicolas Andres Flores Vargas",
-		"email": "",
+		"email": "NicolasAndresFlores@Vargas",
 		"area": ""
 	},
 	{
 		"nombre": "David Santiago Acosta Reyes",
-		"email": "",
+		"email": "DavidSantiagoAcosta@Reyes",
 		"area": ""
 	},
 	{
 		"nombre": "Roberto Carlos Gil Martinez",
-		"email": "",
+		"email": "RobertoCarlosGil@Martinez",
 		"area": ""
 	},
 	{
 		"nombre": "Alexander Fabian Suarez Lopez",
-		"email": "",
+		"email": "AlexanderFabianSuarez@Lopez",
 		"area": ""
 	}
 ]
