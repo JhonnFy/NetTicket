@@ -281,7 +281,7 @@ Leer archivos JSON locales, deserializarlos a DTOs de Input e insertar los regis
 
 1. ✅ Crear los DTOs de Input (CategoriaInput, EstadosInput, UsuariosInput, TicketsInput, ComentariosInput).
 2. ✅ Crear el método que lee y deserializa el JSON de categorías (DeserializarCategorias).
-3. ⬜ Crear los deserializadores para las otras 4 entidades (Estados, Usuarios, Tickets, Comentarios).
+3. ✅ Crear los deserializadores para las otras 4 entidades (Estados, Usuarios, Tickets, Comentarios).
 4. ⬜ Recorrer la lista de cada entidad deserializada.
 5. ⬜ Insertar cada registro en la DB usando el servicio/repositorio existente.
 6. ⬜ Manejar errores por inserción (try/catch, decidir si parar o continuar).
