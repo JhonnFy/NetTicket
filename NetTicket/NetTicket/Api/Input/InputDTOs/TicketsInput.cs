@@ -5,7 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Text.Json;
 
-namespace NetTicket.Api.DTOs.InputDTOs
+
+namespace NetTicket.Api.Input.InputDTOs
 {
     public class TicketsInput
     {

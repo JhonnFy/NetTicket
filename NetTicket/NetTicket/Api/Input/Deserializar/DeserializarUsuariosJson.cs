@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NetTicket.Api.Deserializar
+
+namespace NetTicket.Api.Input.Deserializar
 {
-    public class DeserializarComentariosJson
+    public class DeserializarUsuariosJson
     {
 
 
