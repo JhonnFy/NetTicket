@@ -286,6 +286,7 @@ Leer archivos JSON locales, deserializarlos a DTOs de Input e insertar los regis
 5. ⬜ Insertar cada registro en la DB usando el servicio/repositorio existente.
 6. ⬜ Manejar errores por inserción (try/catch, decidir si parar o continuar).
 7. ⬜ Confirmar cuántos registros se insertaron o mostrar error.
+8. ⬜ Configurar `<CopyToOutputDirectory>` en el `.csproj` para que los JSON se copien al directorio de salida.
 
 
 ## ETL
