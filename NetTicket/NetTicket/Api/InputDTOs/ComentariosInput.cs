@@ -8,9 +8,10 @@ namespace NetTicket.Api.InputDTOs
 {
     public class ComentariosInput
     {
-
-
-
-
+        public int TicketId { get; set; }
+        public int UsuarioId { get; set; }
+        public string Texto { get; set; } = string.Empty;
+        public DateTime Fecha { get; set; }
     }
 }
+

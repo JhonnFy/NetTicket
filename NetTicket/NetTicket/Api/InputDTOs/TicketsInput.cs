@@ -8,8 +8,12 @@ namespace NetTicket.Api.InputDTOs
 {
     public class TicketsInput
     {
-
-
+        public string Titulo { get; set; } = string.Empty;
+        public string Descripcion { get; set; } = string.Empty;
+        public int UsuarioId { get; set; }
+        public int CategoriaId { get; set; }
+        public int EstadoId { get; set; }
+        public DateTime FechaCreacion { get; set; }
 
     }
 }
