@@ -12,3 +12,4 @@ namespace NetTicket.Services.JsRules
 
     }
 }
+
