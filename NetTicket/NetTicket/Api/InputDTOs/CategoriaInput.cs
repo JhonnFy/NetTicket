@@ -9,6 +9,8 @@ namespace NetTicket.Api.InputDTOs
 {
     public class CategoriaInput
     {
-
+        public string Nombre { get; set; }
     }
+
+
 }
