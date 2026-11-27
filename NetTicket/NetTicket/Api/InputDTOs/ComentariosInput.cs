@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NetTicket.Api.DTOs
+namespace NetTicket.Api.InputDTOs
 {
-    public class EstadosInput
+    public class ComentariosInput
     {
 
 
