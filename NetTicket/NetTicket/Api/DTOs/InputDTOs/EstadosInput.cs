@@ -5,9 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Text.Json;
 
-namespace NetTicket.Api.InputDTOs
+namespace NetTicket.Api.DTOs.InputDTOs
 {
-    public class CategoriaInput
+    public class EstadosInput
     {
         public string Nombre { get; set; } = string.Empty;
     }
