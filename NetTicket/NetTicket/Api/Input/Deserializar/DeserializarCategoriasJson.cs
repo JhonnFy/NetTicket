@@ -12,7 +12,7 @@ namespace NetTicket.Api.Input.Deserializar
 {
     public class DeserializarCategoriasJson
     {
-        public static  async Task<List<CategoriaInput>> DeserializarCategorias()
+        public static async Task<List<CategoriaInput>> DeserializarCategorias()
         {
             try
             {
