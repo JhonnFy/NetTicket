@@ -20,6 +20,11 @@
 	<None Update="appsettings.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <Folder Include="Api\Output\Serializar\" />
   </ItemGroup>	
 
 

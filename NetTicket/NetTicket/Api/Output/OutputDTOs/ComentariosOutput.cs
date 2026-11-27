@@ -3,16 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Text.Json;
 
-namespace NetTicket.Api.InputDTOs
+namespace NetTicket.Api.Output.OutputDTOs
 {
-    public class ComentariosInput
+    public class ComentariosOutput
     {
+        public int Id { get; set; }
         public int TicketId { get; set; }
         public int UsuarioId { get; set; }
         public string Texto { get; set; } = string.Empty;
         public DateTime Fecha { get; set; }
     }
 }
-

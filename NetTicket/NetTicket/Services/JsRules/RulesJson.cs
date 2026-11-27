@@ -4,11 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NetTicket.Api.Serializar
+namespace NetTicket.Services.JsRules
 {
-    public class SerializarUsuariosJson
+    public class RulesJson
     {
 
 
     }
 }
+
