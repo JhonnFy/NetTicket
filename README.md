@@ -273,6 +273,19 @@ Cada repositorio tiene tests con MSTest que prueban contra la DB real:
 <img width="1366" height="768" alt="image" src="https://github.com/user-attachments/assets/40510f7c-6c2e-476e-87ad-714433433e1f" />
 <img width="1366" height="768" alt="image" src="https://github.com/user-attachments/assets/aaf9e929-fc66-4b56-8e06-b532a90f6635" />
 
+## Objetivo
+
+Leer archivos JSON locales, deserializarlos a DTOs de Input e insertar los registros en la base de datos.
+
+## Pasos
+
+1. ✅ Crear los DTOs de Input (CategoriaInput, EstadosInput, UsuariosInput, TicketsInput, ComentariosInput).
+2. ✅ Crear el método que lee y deserializa el JSON de categorías (DeserializarCategorias).
+3. ⬜ Crear los deserializadores para las otras 4 entidades (Estados, Usuarios, Tickets, Comentarios).
+4. ⬜ Recorrer la lista de cada entidad deserializada.
+5. ⬜ Insertar cada registro en la DB usando el servicio/repositorio existente.
+6. ⬜ Manejar errores por inserción (try/catch, decidir si parar o continuar).
+7. ⬜ Confirmar cuántos registros se insertaron o mostrar error.
 
 
 ## ETL
