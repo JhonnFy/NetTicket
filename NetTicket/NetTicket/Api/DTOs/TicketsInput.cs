@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace NetTicket.Api.DTOs
 {
-    public class CategoriaInputDTOs
+    public class TicketsInput
     {
-
 
 
 
